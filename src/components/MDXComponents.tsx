@@ -6,7 +6,6 @@ import Image from "next/image"
  
 const CustomLink = (props: React.ComponentProps<"a"> & LinkProps) => {
   const href = props.href;
-  const text= props.text
   const isInternalLink =
     href && (href.startsWith("/") || href.startsWith("#"));
 
