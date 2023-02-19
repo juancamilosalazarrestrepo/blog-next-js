@@ -1,7 +1,8 @@
-const dev = process.env.NODE_ENV !== "production";
+//const dev = process.env.NODE_ENV !== "production";
 
 
-export const server = dev ? "http://localhost:3000" : "https://<ANY_URL>.com";
+//export const server = dev ? "http://localhost:3000" : "https://<ANY_URL>.com";
+export const server = "https://<ANY_URL>.com";
 
 export default async function Fetcher(
     input: RequestInfo,
