@@ -4,15 +4,7 @@ import { NextPage, GetStaticProps } from "next";
 import { getAllFilesFrontMatter } from "lib/mdx";
 import Link from "next/link";
 
-type Props = {
-  posts: {
-    title: string;
-    slug: string;
-    image: string;
-  }[];
-};
-
-const Home: NextPage = ({ posts }) => {
+const Home = ({ posts }) => {
   const [search, setSearch] = React.useState("");
   const filteredPosts = posts.filter((frontMatter) =>
     frontMatter.title.toLowerCase().includes(search.toLowerCase())
@@ -37,17 +29,17 @@ const Home: NextPage = ({ posts }) => {
              text-gray-900 "
           />
           <svg
-          className="absolute right-3 top-3 h-5 w-5 text-gray-400"
-          xmlns="http://www.w3.org/2000/svg"
-          fill="none"
-          viewBox="0 0 24 24"
-          stroke="currentColor">
-
+            className="absolute right-3 top-3 h-5 w-5 text-gray-400"
+            xmlns="http://www.w3.org/2000/svg"
+            fill="none"
+            viewBox="0 0 24 24"
+            stroke="currentColor"
+          >
             <path
-            strokeLinecap="round"
-            strokeLinejoin="round"
-            strokeWidth={2}
-            d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"
+              strokeLinecap="round"
+              strokeLinejoin="round"
+              strokeWidth={2}
+              d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"
             />
           </svg>
         </div>
@@ -70,7 +62,7 @@ const Home: NextPage = ({ posts }) => {
   );
 };
 
-export const getStaticProps: GetStaticProps = async () => {
+export const getStaticProps = async () => {
   const posts = await getAllFilesFrontMatter("posts");
 
   return {
