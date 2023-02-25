@@ -1,28 +1,20 @@
-import Image from 'next/image';
-import banner1 from '../../public/images/banneBlog.webp';
-import banner2 from '../../public/images/banner2.webp';
+import Image from "next/image";
+import banner1 from "../../public/images/banneBlog.webp";
+import banner2 from "../../public/images/banner2.webp";
 
+const images = [banner1, banner2];
 
-const images = [
-banner1,banner2
-]
-
-
+const changeImage = () => {
+  console.log("cambiar imagen");
+};
 
 export default function MainSlider() {
-
-    let bannerSelected
-
+  let bannerSelected;
 
   return (
     <div className="w-full">
-     <Image
-     src={banner1}
-     width={1920}
-     height={500}
-     placeholder="blur"
-     /> 
-     <button onClick={changeImage}>cambiar image</button>
+      <Image src={banner1} width={1920} height={500} placeholder="blur" />
+      <button onClick={changeImage}>cambiar image</button>
     </div>
   );
 }

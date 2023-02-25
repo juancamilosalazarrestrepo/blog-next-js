@@ -27,27 +27,27 @@ export default function ViewsCounter() {
             </a>
           </div>
         </div>
-        <div class="flex items-center gap-x-5 md:gap-x-8">
-          <div class="hidden md:block">
+        <div className="flex items-center gap-x-5 md:gap-x-8">
+          <div className="hidden md:block">
             <a
-              class="inline-block rounded-lg py-1 px-2 text-sm text-slate-700 hover:bg-slate-100 hover:text-slate-900"
+              className="inline-block rounded-lg py-1 px-2 text-sm text-slate-700 hover:bg-slate-100 hover:text-slate-900"
               href="/login"
             >
               Sign in
             </a>
           </div>
           <a
-            class="group inline-flex items-center justify-center rounded-full py-2 px-4 text-sm font-semibold focus:outline-none focus-visible:outline-2 focus-visible:outline-offset-2 bg-blue-600 text-white hover:text-slate-100 hover:bg-blue-500 active:bg-blue-800 active:text-blue-100 focus-visible:outline-blue-600"
+            className="group inline-flex items-center justify-center rounded-full py-2 px-4 text-sm font-semibold focus:outline-none focus-visible:outline-2 focus-visible:outline-offset-2 bg-blue-600 text-white hover:text-slate-100 hover:bg-blue-500 active:bg-blue-800 active:text-blue-100 focus-visible:outline-blue-600"
             href="/register"
           >
             <span>
-              Get started <span class="hidden lg:inline">today</span>
+              Get started <span className="hidden lg:inline">today</span>
             </span>
           </a>
-          <div class="-mr-1 md:hidden">
+          <div className="-mr-1 md:hidden">
             <div data-headlessui-state="">
               <button
-                class="relative z-10 flex h-8 w-8 items-center justify-center [&amp;:not(:focus-visible)]:focus:outline-none"
+                className="relative z-10 flex h-8 w-8 items-center justify-center [&amp;:not(:focus-visible)]:focus:outline-none"
                 aria-label="Toggle Navigation"
                 type="button"
                 aria-expanded="false"
@@ -56,18 +56,18 @@ export default function ViewsCounter() {
               >
                 <svg
                   aria-hidden="true"
-                  class="h-3.5 w-3.5 overflow-visible stroke-slate-700"
+                  className="h-3.5 w-3.5 overflow-visible stroke-slate-700"
                   fill="none"
-                  stroke-width="2"
-                  stroke-linecap="round"
+                  strokeWidth="2"
+                  strokeLinecap="round"
                 >
                   <path
                     d="M0 1H14M0 7H14M0 13H14"
-                    class="origin-center transition"
+                    className="origin-center transition"
                   ></path>
                   <path
                     d="M2 2L12 12M12 2L2 12"
-                    class="origin-center transition scale-90 opacity-0"
+                    className="origin-center transition scale-90 opacity-0"
                   ></path>
                 </svg>
               </button>
