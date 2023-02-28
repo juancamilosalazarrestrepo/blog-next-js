@@ -1,5 +1,5 @@
 import Link from "next/link";
-import logo from "../../public/images/logoPSM.webp"
+import logo from "../../public/images/logosc.webp"
 import Image from "next/image";
 
 
@@ -44,7 +44,7 @@ export default function NavBar() {
             </a>
           </div>
           <a
-            className="group inline-flex items-center justify-center rounded-full py-2 px-4 text-sm font-semibold focus:outline-none focus-visible:outline-2 focus-visible:outline-offset-2 bg-blue-600 text-white hover:text-slate-100 hover:bg-blue-500 active:bg-blue-800 active:text-blue-100 focus-visible:outline-blue-600"
+            className=" max-sm:hidden group inline-flex items-center justify-center rounded-full py-2 px-4 text-sm font-semibold focus:outline-none focus-visible:outline-2 focus-visible:outline-offset-2 bg-[#008F8C] text-white hover:text-slate-100 hover:bg-[#23606E] active:bg-[#23606E] active:text-blue-100 focus-visible:outline-[#23606E]"
             href="/register"
           >
             <span>
