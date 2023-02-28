@@ -32,6 +32,7 @@
     "remark-mdx-frontmatter": "^2.1.1",
     "remark-rehype": "^10.1.0",
     "remark-slug": "^7.0.1",
+    "swiper": "^9.0.5",
     "swr": "^2.0.3",
     "tiny-slider": "^2.9.4",
     "tiny-slider-react": "^0.5.6",

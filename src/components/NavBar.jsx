@@ -1,30 +1,37 @@
-export default function ViewsCounter() {
+import Link from "next/link";
+import logo from "../../public/images/logoPSM.webp"
+import Image from "next/image";
+
+
+
+export default function NavBar() {
   return (
     <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-      <nav className="relative z-50 flex justify-between">
+      <nav className="relative z-2 flex justify-between">
         <div className="flex items-center md:gap-x-12">
-          <a href="/" aria-label="Home" >
-            <h1>Salazar.dev</h1> 
-          </a>
+          <Link href="/" aria-label="Home" >
+            <Image src={logo} width={200} height={60} />
+          </Link>
           <div className="hidden md:flex md:gap-x-6">
-            <a
-              href="/"
-              className="inline-block rounded-lg py-1 px-2 text-sm text-slate-700 hover:bg-slate-100 hover:text-slate-900"
-            >
-              Features
-            </a>
-            <a
-              className="inline-block rounded-lg py-1 px-2 text-sm text-slate-700 hover:bg-slate-100 hover:text-slate-900"
-              href="/"
-            >
-              Testimonials
-            </a>
-            <a
-              className="inline-block rounded-lg py-1 px-2 text-sm text-slate-700 hover:bg-slate-100 hover:text-slate-900"
-              href="/"
-            >
-              Pricing
-            </a>
+          <Link
+            href="/portafolio"
+            className="inline-block rounded-lg py-1 px-2 text-sm text-slate-700 hover:bg-slate-100 hover:text-slate-900"
+          >
+            Portafolio
+          </Link>
+          <Link
+            href="/blog"
+            className="inline-block rounded-lg py-1 px-2 text-sm text-slate-700 hover:bg-slate-100 hover:text-slate-900"
+          >
+             Blog
+          </Link>
+          <Link
+            href="/precios"
+            className="inline-block rounded-lg py-1 px-2 text-sm text-slate-700 hover:bg-slate-100 hover:text-slate-900"
+          >
+             Precios
+          </Link>
+            
           </div>
         </div>
         <div className="flex items-center gap-x-5 md:gap-x-8">

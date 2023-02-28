@@ -1,0 +1,130 @@
+import * as React from "react";
+import Image from "next/image";
+import Layout from "../../components/Layout";
+import Link from "next/link";
+import Banners from "../../components/Banners";
+import banner1 from "../../../public/images/banneBlog.webp";
+import banner2 from "../../../public/images/banner2.webp";
+import calculatorDark from "../../../public/images/calculadoradark.webp";
+
+
+
+const Portfolio = () => {
+  const images = [banner1, banner2];
+
+  const proyectos =[{
+    titulo:"Calculadora en React Native",
+    imagen:calculatorDark,
+    description:"Calculadora desarrollada en React Native, con un diseño moderno y un modo oscuro para mejorar la experiencia del usuario al realizar operaciones matemáticas básicas.",
+    url:"/portafolio/calculadora"
+},
+{
+    titulo:"Clone de ChatGpt con Next.js",
+    imagen:calculatorDark,
+    description:"Clon de ChatGPT creado con Next.js y Tailwind CSS, que permite interactuar con un chatbot generador de respuestas a través de la API de GPT-3 de OpenAI",
+    url:"/portafolio/calculadora"
+},
+{
+    titulo:"Clone de ChatGpt con Next.js",
+    imagen:calculatorDark,
+    description:"Clon de ChatGPT creado con Next.js y Tailwind CSS, que permite interactuar con un chatbot generador de respuestas a través de la API de GPT-3 de OpenAI",
+    url:"/portafolio/calculadora"
+},{
+    titulo:"Calculadora en React Native",
+    imagen:calculatorDark,
+    description:"Calculadora desarrollada en React Native, con un diseño moderno y un modo oscuro para mejorar la experiencia del usuario al realizar operaciones matemáticas básicas.",
+    url:"/portafolio/calculadora"
+},
+{
+    titulo:"Clone de ChatGpt con Next.js",
+    imagen:calculatorDark,
+    description:"Clon de ChatGPT creado con Next.js y Tailwind CSS, que permite interactuar con un chatbot generador de respuestas a través de la API de GPT-3 de OpenAI",
+    url:"/portafolio/calculadora"
+},
+{
+    titulo:"Clone de ChatGpt con Next.js",
+    imagen:calculatorDark,
+    description:"Clon de ChatGPT creado con Next.js y Tailwind CSS, que permite interactuar con un chatbot generador de respuestas a través de la API de GPT-3 de OpenAI",
+    url:"/portafolio/calculadora"
+},{
+    titulo:"Calculadora en React Native",
+    imagen:calculatorDark,
+    description:"Calculadora desarrollada en React Native, con un diseño moderno y un modo oscuro para mejorar la experiencia del usuario al realizar operaciones matemáticas básicas.",
+    url:"/portafolio/calculadora"
+},
+{
+    titulo:"Clone de ChatGpt con Next.js",
+    imagen:calculatorDark,
+    description:"Clon de ChatGPT creado con Next.js y Tailwind CSS, que permite interactuar con un chatbot generador de respuestas a través de la API de GPT-3 de OpenAI",
+    url:"/portafolio/calculadora"
+},
+{
+    titulo:"Clone de ChatGpt con Next.js",
+    imagen:calculatorDark,
+    description:"Clon de ChatGPT creado con Next.js y Tailwind CSS, que permite interactuar con un chatbot generador de respuestas a través de la API de GPT-3 de OpenAI",
+    url:"/portafolio/calculadora"
+},
+]
+
+  
+
+  return (
+    <div className="">
+      <div style={{position:"relative", width: "1wv", margin: "0",zIndex:"2"}}>
+        <Banners images={images} />
+      </div>
+
+      <main className="py-8 container mx-auto px-36">
+        <div className="grid grid-cols-3 gap-4 content-center">
+          
+          {proyectos.map((proyecto,index)=>{
+            return(
+             <Link href={proyecto.url} key={proyecto.url} className="max-w-sm">
+             <div className="max-w-sm bg-white border border-gray-200 rounded-lg shadow ">
+               <Image  src={proyecto.imagen} className="rounded-t-lg" />
+ 
+               <div className="p-5">
+                 <h5 className="mb-2 text-2xl font-bold tracking-tight text-gray-900 ">
+                   {proyecto.titulo}
+                 </h5>
+ 
+                 <p className="mb-3 font-normal text-gray-700 ">
+                  {proyecto.description}
+                 </p>
+                 <p className="inline-flex items-center px-3 py-2 text-sm font-medium text-center text-white bg-blue-700 rounded-lg hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 ">
+                   Leer mas
+                   <svg
+                     aria-hidden="true"
+                     className="w-4 h-4 ml-2 -mr-1"
+                     fill="currentColor"
+                     viewBox="0 0 20 20"
+                     xmlns="http://www.w3.org/2000/svg"
+                   >
+                     <path
+                       fill-rule="evenodd"
+                       d="M10.293 3.293a1 1 0 011.414 0l6 6a1 1 0 010 1.414l-6 6a1 1 0 01-1.414-1.414L14.586 11H3a1 1 0 110-2h11.586l-4.293-4.293a1 1 0 010-1.414z"
+                       clip-rule="evenodd"
+                     ></path>
+                   </svg>
+                 </p>
+               </div>
+             </div>
+           </Link>)
+          })}
+        </div>
+      </main>
+
+      <footer>
+        <a href="/">Hecho Pro salazar dev</a>
+      </footer>
+    </div>
+  );
+};
+
+export default function BlogTemplate({ posts }) {
+  return (
+    <Layout>
+      <Portfolio />
+    </Layout>
+  );
+}
