@@ -74,12 +74,12 @@ const Portfolio = () => {
         <Banners images={images} />
       </div>
 
-      <main className="py-8 container mx-auto px-36">
-        <div className="grid grid-cols-3 gap-4 content-center">
+      <main className="py-8 container mx-auto px-36  max-sm:w-full max-sm:px-8">
+        <div className="grid grid-cols-3 gap-4 content-center max-sm:grid-cols-1 max-sm:w-full ">
           
           {proyectos.map((proyecto,index)=>{
             return(
-             <Link href={proyecto.url} key={proyecto.url} className="max-w-sm">
+             <Link href={proyecto.url} key={proyecto.url} className="max-w-sm max-sm:w-full">
              <div className="max-w-sm bg-white border border-gray-200 rounded-lg shadow ">
                <Image  src={proyecto.imagen} className="rounded-t-lg" />
  
