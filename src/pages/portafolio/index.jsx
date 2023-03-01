@@ -6,6 +6,8 @@ import Banners from "../../components/Banners";
 import banner1 from "../../../public/images/banneBlog.webp";
 import banner2 from "../../../public/images/banner2.webp";
 import calculatorDark from "../../../public/images/calculadoradark.webp";
+import cloneChatgpt from "../../../public/images/cloneChatGPT.webp"
+import LogosSlider from "../../components/logosSlider";
 
 
 
@@ -20,9 +22,9 @@ const Portfolio = () => {
 },
 {
     titulo:"Clone de ChatGpt con Next.js",
-    imagen:calculatorDark,
+    imagen:cloneChatgpt,
     description:"Clon de ChatGPT creado con Next.js y Tailwind CSS, que permite interactuar con un chatbot generador de respuestas a través de la API de GPT-3 de OpenAI",
-    url:"/portafolio/calculadora"
+    url:"/portafolio/clonechatgpt"
 },
 {
     titulo:"Clone de ChatGpt con Next.js",
@@ -74,8 +76,8 @@ const Portfolio = () => {
         <Banners images={images} />
       </div>
 
-      <main className="py-8 container mx-auto px-36  max-sm:w-full max-sm:px-8">
-        <div className="grid grid-cols-3 gap-4 content-center max-sm:grid-cols-1 max-sm:w-full ">
+      <main className="py-8 container mx-auto  max-sm:w-full ">
+        <div className="grid grid-cols-3 gap-4 content-center max-sm:grid-cols-1 max-sm:w-full px-36 max-sm:px-8 ">
           
           {proyectos.map((proyecto,index)=>{
             return(
@@ -112,6 +114,10 @@ const Portfolio = () => {
            </Link>)
           })}
         </div>
+        <div className="w-full mt-20">
+        <LogosSlider/>
+        </div>
+        
       </main>
 
       <footer>
