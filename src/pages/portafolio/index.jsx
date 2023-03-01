@@ -7,7 +7,7 @@ import banner1 from "../../../public/images/banneBlog.webp";
 import banner2 from "../../../public/images/banner2.webp";
 import calculatorDark from "../../../public/images/calculadoradark.webp";
 import cloneChatgpt from "../../../public/images/cloneChatGPT.webp"
-import LogosSlider from "../../components/logosSlider";
+import LogosSlider from "../../components/logosSlider.jsx";
 
 
 
