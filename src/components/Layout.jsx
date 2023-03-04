@@ -1,5 +1,6 @@
 import NavBar from "./NavBar";
 import Head from "next/head";
+import Footer from "./Footer"
 
 
 export default function Layout({ children }) {
@@ -19,6 +20,7 @@ export default function Layout({ children }) {
         </div>
       </header>
       <div>{children}</div>
+      <Footer/>
     </>
   );
 }

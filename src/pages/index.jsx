@@ -61,10 +61,6 @@ const Home = ({ posts }) => {
           </Link>
         ))}
       </main>
-
-      <footer>
-        <a href="/">Hecho Pro salazar dev</a>
-      </footer>
     </div>
   );
 };

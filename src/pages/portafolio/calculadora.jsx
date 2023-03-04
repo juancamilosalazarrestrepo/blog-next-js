@@ -37,9 +37,7 @@ const Calculadora = ({ posts }) => {
         </p>
       </main>
 
-      <footer>
-        <a href="/">Hecho Pro salazar dev</a>
-      </footer>
+     
     </div>
   );
 };
