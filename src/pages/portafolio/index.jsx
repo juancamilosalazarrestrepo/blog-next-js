@@ -26,18 +26,18 @@ const Portfolio = () => {
     url:"/portafolio/clonechatgpt"
 },
 {
-    titulo:"Clone de ChatGpt con Next.js",
+    titulo:"Clone de Mercadolibre",
     imagen:calculatorDark,
     description:"Clon de ChatGPT creado con Next.js y Tailwind CSS, que permite interactuar con un chatbot generador de respuestas a través de la API de GPT-3 de OpenAI",
     url:"/portafolio/calculadora"
 },{
-    titulo:"Calculadora en React Native",
+    titulo:"Tarjeta animada con html y css",
     imagen:calculatorDark,
     description:"Calculadora desarrollada en React Native, con un diseño moderno y un modo oscuro para mejorar la experiencia del usuario al realizar operaciones matemáticas básicas.",
     url:"/portafolio/calculadora"
 },
 {
-    titulo:"Clone de ChatGpt con Next.js",
+    titulo:"Landing page parallax effect",
     imagen:calculatorDark,
     description:"Clon de ChatGPT creado con Next.js y Tailwind CSS, que permite interactuar con un chatbot generador de respuestas a través de la API de GPT-3 de OpenAI",
     url:"/portafolio/calculadora"
@@ -76,6 +76,24 @@ const Portfolio = () => {
       </div>
 
       <main className="py-8 container mx-auto  max-sm:w-full ">
+        <h2 className=" font-sans font-black text-3xl text-center mb-4 ">Juan Camilo Salazar Restrepo</h2>
+        <p className="px-36 mb-9">Soy licenciado en Informática y Medios Audiovisuales por la Universidad de Córdoba, especializado
+en el desarrollo de software utilizando React, Node.js, SQL y Express, con conocimientos avanzados
+en JavaScript, HTML5 y CSS.
+Tengo experiencia en la creación de SPA (Single Page Applications) con server side rendering
+utilizando Next.js y en la creación de APIs con Express o dentro de proyectos de Next.js, así como
+en el consumo de APIs con fetch o axios. También he desarrollado aplicaciones móviles con React
+Native.
+Además, cuento con habilidades en frameworks CSS como Material UI, Bootstrap y TailwindCSS,
+así como en el manejo de bases de datos SQL con MySQL y SQL Server. Tengo experiencia en el
+control de versiones en plataformas como GitHub o BitBucket, y he desplegado aplicaciones de
+Next.js y React en Vercel, Netlify y Heroku.
+También he trabajado con librerías de JavaScript y React como ChartJS, ReactChart y React Flow
+para la creación de gráficos. Con dos años de experiencia en el desarrollo web, estoy interesado en
+desempeñarme como programador en una empresa de desarrollo de software, donde pueda
+colaborar de manera efectiva con otros programadores para el crecimiento de la empresa.
+Soy una persona empática, colaboradora y con excelente rendimiento trabajando en equipo,
+siempre dispuesto a aprender y aportar mis habilidades para el crecimiento de la empresa.</p>
         <div className="grid grid-cols-3 gap-4 content-center max-sm:grid-cols-1 max-sm:w-full px-36 max-sm:px-8 ">
           
           {proyectos.map((proyecto,index)=>{

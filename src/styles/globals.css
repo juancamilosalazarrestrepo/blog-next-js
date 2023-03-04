@@ -1,6 +1,10 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+body{
+    background-color:#fdfdfd ;
+    color: #212427
+}
 
 a{
     text-decoration-line: none   !important
