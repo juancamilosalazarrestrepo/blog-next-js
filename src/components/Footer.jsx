@@ -4,7 +4,7 @@ import Image from "next/image";
 
 export default function Footer() {
   return (
-    <footer className="p-8 bg-white sm:p-6 mt-8 ">
+    <footer className="py-8 px-12 bg-white  mt-8 ">
       <div className="md:flex md:justify-between">
         <div className="mb-6 md:mb-0">
           <a href="https://flowbite.com/" className="flex items-center">
@@ -38,12 +38,12 @@ export default function Footer() {
           </div>
           <div>
             <h2 className="mb-6 text-sm font-semibold text-gray-900 uppercase ">
-              Follow us
+              Siguenos
             </h2>
             <ul className="text-gray-600 ">
               <li className="mb-4">
                 <a
-                  href="https://github.com/themesberg/flowbite"
+                  href="https://github.com/juancamilosalazarrestrepo"
                   className="hover:underline "
                 >
                   Github
@@ -66,12 +66,12 @@ export default function Footer() {
             <ul className="text-gray-600 ">
               <li className="mb-4">
                 <a href="#" className="hover:underline">
-                  Privacy Policy
+                  Politicas de Privacidad
                 </a>
               </li>
               <li>
                 <a href="#" className="hover:underline">
-                  Terms &amp; Conditions
+                  Terminos &amp; Condiciones
                 </a>
               </li>
             </ul>
@@ -85,7 +85,7 @@ export default function Footer() {
           <a href="https://flowbite.com/" className="hover:underline">
            SalazarCode™
           </a>
-          . All Rights Reserved.
+          . Todos los derechos reservados.
         </span>
         <div className="flex mt-4 space-x-6 sm:justify-center sm:mt-0">
           <a
