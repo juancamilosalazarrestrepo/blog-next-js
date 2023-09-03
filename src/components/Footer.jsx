@@ -7,38 +7,35 @@ export default function Footer() {
     <footer className="py-8 px-12 bg-white  mt-8 ">
       <div className="md:flex md:justify-between">
         <div className="mb-6 md:mb-0">
-          <a href="https://flowbite.com/" className="flex items-center">
+          <a href="#" className="flex items-center">
             <Image
               src={logo}
              width={300}
               alt="FlowBite Logo"
             />
-            <span className="self-center text-2xl font-semibold whitespace-nowrap ">
-              SalazarCode
-            </span>
           </a>
         </div>
         <div className="grid grid-cols-2 gap-8 sm:gap-6 sm:grid-cols-3">
           <div>
             <h2 className="mb-6 text-sm font-semibold text-gray-900 uppercase ">
-              Resources
+            Contenido
             </h2>
             <ul className="text-gray-600 ">
               <li className="mb-4">
                 <a href="https://flowbite.com/" className="hover:underline">
-                  Flowbite
+                  Articulos
                 </a>
               </li>
               <li>
                 <a href="https://tailwindcss.com/" className="hover:underline">
-                  Tailwind CSS
+                  Portafolio
                 </a>
               </li>
             </ul>
           </div>
           <div>
             <h2 className="mb-6 text-sm font-semibold text-gray-900 uppercase ">
-              Siguenos
+              Redes Sociales
             </h2>
             <ul className="text-gray-600 ">
               <li className="mb-4">
@@ -46,15 +43,15 @@ export default function Footer() {
                   href="https://github.com/juancamilosalazarrestrepo"
                   className="hover:underline "
                 >
-                  Github
+                  GitHub
                 </a>
               </li>
               <li>
                 <a
-                  href="https://discord.gg/4eeurUVvTy"
+                  href="https://www.linkedin.com/in/juancamilosalazarrestrepo/"
                   className="hover:underline"
                 >
-                  Discord
+                  LinkedIn
                 </a>
               </li>
             </ul>

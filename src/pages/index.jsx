@@ -31,7 +31,7 @@ const Home = ({ posts, lastProjects }) => {
       <main>
         <div className="py-8 container mx-auto px-44 ">
         
-          <h1 className="font-bold text-2xl mb-8">Ultimos projectos</h1>
+          <h1 className="font-bold text-2xl mb-8">Ultimos proyectos</h1>
           <div className="grid grid-cols-3 gap-4 content-center max-sm:grid-cols-1 max-sm:w-full  max-sm:px-8">
             {lastProjects.map((proyecto, index) => {
               return (
