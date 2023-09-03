@@ -1,5 +1,6 @@
 import * as React from "react";
 import useSWR from "swr";
+import styles from "./viewsCounter.module.css";
 
 import Fetcher from "lib/fetcher";
 
@@ -16,5 +17,9 @@ export default function ViewsCounter({ slug }: { slug: string }): JSX.Element {
     registerView();
   }, [slug]);
 
-  return <>{views ? views : "---"} views</>;
+  return <>
+  <div className={`${styles.viewsCounterContainer} shadow`} >
+  {views ? views : "---"} views
+  </div>
+  </>;
 }

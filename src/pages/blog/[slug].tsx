@@ -43,8 +43,10 @@ const DynamicPost: NextPage<Props> = ({ frontMatter, mdxSource }) => {
         </div>
         <article className="prose mx-auto max-w-none w-3/4">
           <MDXRemote {...mdxSource} components={MDXComponents} />
+          <div className="flex justify-center mt-8">
+            <ViewsCounter slug={frontMatter.slug} />
+          </div>
         </article>
-        <ViewsCounter slug={frontMatter.slug} />
       </div>
     </div>
   );
@@ -69,7 +71,7 @@ export const getStaticProps: GetStaticProps = async ({ params }) => {
   };
 };
 
-export default function Template({ frontMatter, mdxSource }) {
+export default function Template({ frontMatter, mdxSource }:Props) {
   return (
     <Layout>
       <DynamicPost frontMatter={frontMatter} mdxSource={mdxSource} />
