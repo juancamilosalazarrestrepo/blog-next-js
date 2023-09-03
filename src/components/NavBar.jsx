@@ -35,20 +35,12 @@ export default function NavBar() {
           </div>
         </div>
         <div className="flex items-center gap-x-5 md:gap-x-8">
-          <div className="hidden md:block">
-            <a
-              className="inline-block rounded-lg py-1 px-2 text-sm text-slate-700 hover:bg-slate-100 hover:text-slate-900"
-              href="/login"
-            >
-              Sign in
-            </a>
-          </div>
           <a
             className=" max-sm:hidden group inline-flex items-center justify-center rounded-full py-2 px-4 text-sm font-semibold focus:outline-none focus-visible:outline-2 focus-visible:outline-offset-2 bg-[#008F8C] text-white hover:text-slate-100 hover:bg-[#23606E] active:bg-[#23606E] active:text-blue-100 focus-visible:outline-[#23606E]"
             href="/register"
           >
             <span>
-              Get started <span className="hidden lg:inline">today</span>
+              Contacta conmigo
             </span>
           </a>
           <div className="-mr-1 md:hidden">

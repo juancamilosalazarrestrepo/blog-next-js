@@ -30,24 +30,7 @@ const Home = ({ posts, lastProjects }) => {
       </div>
       <main>
         <div className="py-8 container mx-auto px-44 ">
-          <div className="flex gap-8 mb-8 mt-8">
-            <Image src={Camilo}  width={320} height={320} alt="" className="rounded-lg shadow-2xl w-72 h-72"/>
-            <p>   Soy licenciado en Informática y Medios Audiovisuales por la
-          Universidad de Córdoba, especializado en el desarrollo de software
-          utilizando React, Node.js, SQL y Express, con conocimientos avanzados
-          en JavaScript, HTML5 y CSS. Tengo experiencia en la creación de SPA
-          (Single Page Applications) con server side rendering utilizando
-          Next.js y en la creación de APIs con Express o dentro de proyectos de
-          Next.js, así como en el consumo de APIs con fetch o axios. También he
-          desarrollado aplicaciones móviles con React Native. Además, cuento con
-          habilidades en frameworks CSS como Material UI, Bootstrap y
-          TailwindCSS, así como en el manejo de bases de datos SQL con MySQL y
-          SQL Server. Tengo experiencia en el control de versiones en
-          plataformas como GitHub o BitBucket, y he desplegado aplicaciones de
-          Next.js y React en Vercel, Netlify y Heroku. También he trabajado con
-          librerías de JavaScript y React como ChartJS, ReactChart y React Flow
-          para la creación de gráficos. </p>
-          </div>
+        
           <h1 className="font-bold text-2xl mb-8">Ultimos projectos</h1>
           <div className="grid grid-cols-3 gap-4 content-center max-sm:grid-cols-1 max-sm:w-full  max-sm:px-8">
             {lastProjects.map((proyecto, index) => {
@@ -132,6 +115,24 @@ const Home = ({ posts, lastProjects }) => {
                 </Link>
               );
             })}
+          </div>
+          <div className="flex gap-8 mb-8 mt-8">
+            <Image src={Camilo}  width={320} height={320} alt="" className="rounded-lg shadow-2xl w-72 h-72"/>
+            <p>Licenciado en Informática y Medios Audiovisuales por la
+          Universidad de Córdoba, especializado en el desarrollo de software
+          utilizando React, Node.js, SQL y Express, con conocimientos avanzados
+          en JavaScript, HTML5 y CSS. Tengo experiencia en la creación de SPA
+          (Single Page Applications) con server side rendering utilizando
+          Next.js y en la creación de APIs con Express o dentro de proyectos de
+          Next.js, así como en el consumo de APIs con fetch o axios. También he
+          desarrollado aplicaciones móviles con React Native. Además, cuento con
+          habilidades en frameworks CSS como Material UI, Bootstrap y
+          TailwindCSS, así como en el manejo de bases de datos SQL con MySQL y
+          SQL Server. Tengo experiencia en el control de versiones en
+          plataformas como GitHub o BitBucket, y he desplegado aplicaciones de
+          Next.js y React en Vercel, Netlify y Heroku. También he trabajado con
+          librerías de JavaScript y React como ChartJS, ReactChart y React Flow
+          para la creación de gráficos. </p>
           </div>
         </div>
 
