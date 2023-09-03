@@ -35,6 +35,7 @@ const Calculadora = ({ posts }) => {
           proyecto es una muestra de habilidades y experiencia en el desarrollo
           de aplicaciones móviles con React Native.
         </p>
+        <img src={banner2} alt=""/>
       </main>
     </div>
   );

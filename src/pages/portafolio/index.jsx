@@ -9,6 +9,8 @@ import calculatorDark from "../../../public/images/calculadoradark.webp";
 import cloneChatgpt from "../../../public/images/cloneChatGPT.webp";
 import LogosSlider from "../../components/LogosSlide";
 import proyectos from "../../../data/proyectos/projectos";
+import Camilo from "../../../public/images/camilo1992.webp";
+
 
 const Portfolio = ({proyectos}) => {
   const images = [banner1, banner2];
@@ -23,34 +25,48 @@ const Portfolio = ({proyectos}) => {
         <Banners images={images} />
       </div>
 
-      <main className="py-8 container mx-auto  max-sm:w-full ">
-        <h2 className=" font-sans font-black text-3xl text-center mb-4 ">
-          Juan Camilo Salazar Restrepo
-        </h2>
-        <p className="px-36 mb-9">
-          Soy licenciado en Informática y Medios Audiovisuales por la
-          Universidad de Córdoba, especializado en el desarrollo de software
-          utilizando React, Node.js, SQL y Express, con conocimientos avanzados
-          en JavaScript, HTML5 y CSS. Tengo experiencia en la creación de SPA
-          (Single Page Applications) con server side rendering utilizando
-          Next.js y en la creación de APIs con Express o dentro de proyectos de
-          Next.js, así como en el consumo de APIs con fetch o axios. También he
-          desarrollado aplicaciones móviles con React Native. Además, cuento con
-          habilidades en frameworks CSS como Material UI, Bootstrap y
-          TailwindCSS, así como en el manejo de bases de datos SQL con MySQL y
-          SQL Server. Tengo experiencia en el control de versiones en
-          plataformas como GitHub o BitBucket, y he desplegado aplicaciones de
-          Next.js y React en Vercel, Netlify y Heroku. También he trabajado con
-          librerías de JavaScript y React como ChartJS, ReactChart y React Flow
-          para la creación de gráficos. Con dos años de experiencia en el
-          desarrollo web, estoy interesado en desempeñarme como programador en
-          una empresa de desarrollo de software, donde pueda colaborar de manera
-          efectiva con otros programadores para el crecimiento de la empresa.
-          Soy una persona empática, colaboradora y con excelente rendimiento
-          trabajando en equipo, siempre dispuesto a aprender y aportar mis
-          habilidades para el crecimiento de la empresa.
-        </p>
-        <div className="grid grid-cols-3 gap-4 content-center max-sm:grid-cols-1 max-sm:w-full px-36 max-sm:px-8 ">
+      <main className="py-8 container mx-auto px-44 ">
+      <div className="mt-1">
+          <h1 className="text-3xl mb-3 font-bold text-center title">Juan Camilo Salazar Restrepo</h1>
+              <hr/>
+          <div className="flex gap-8 mb-8 mt-8">
+            
+            <Image
+              src={Camilo}
+              width={320}
+              height={320}
+              alt=""
+              className="rounded-lg shadow-xl w-72 h-72"
+            />
+
+            <div>
+             
+              <p>
+                Licenciado en Informática y Medios Audiovisuales de la
+                Universidad de Córdoba, especializado en el desarrollo de
+                software utilizando <strong>React</strong>, <strong>Node.js</strong>, <strong>SQL</strong> y <strong>Express</strong>, con
+                conocimientos avanzados en <strong>JavaScript</strong>, <strong>HTML5</strong> y <strong>CSS</strong>. Tengo
+                experiencia en la creación de <strong>SPA (Single Page Applications) </strong> con
+                server side rendering utilizando <strong>Next.js</strong> y en la creación de
+                APIs con Express o dentro de proyectos de Next.js, así como en
+                el consumo de <strong>APIs</strong> con <strong>fetch</strong> o <strong>axios</strong>. También he desarrollado
+                <strong>aplicaciones móviles</strong> con <strong>React Native</strong>. Además, cuento con
+                habilidades en frameworks CSS como <strong>Material UI</strong>, <strong>Bootstrap</strong> y
+                <strong>TailwindCSS</strong>, así como en el manejo de <strong>bases de datos SQL</strong> con
+                <strong>MySQL</strong> y <strong>SQL Server</strong>. Tengo experiencia en el control de versiones
+                en plataformas como <strong>GitHub</strong> y <strong>BitBucket</strong>, y he desplegado
+                aplicaciones de Next.js y React en <strong>AWS</strong>, <strong>Vercel</strong>, <strong>Netlify</strong> y <strong>Heroku</strong>.
+                También he trabajado con librerías de JavaScript y React como
+                <strong>ChartJS</strong>, <strong>ReactChart</strong> y <strong>React Flow</strong> para la creación de gráficos.
+                Tengo experiencia en la implementacion de microservicios en <strong>Azure</strong>, como <strong>Azure functions</strong> y haciendo uso de <strong>blob storage</strong> de azure.
+                En el back tengo experiencia en la creacion de servidores y apis , con frameworks como <strong>Node.js</strong> y <strong>Express</strong> . ademas de optimizar el procesamiento de grandes cantidades de datos procesandolos como <strong>streams</strong>.
+                {" "}
+              </p>
+            </div>
+          </div>
+          </div>
+      
+        <div className="grid grid-cols-3 gap-4 content-center max-sm:grid-cols-1 max-sm:w-full  max-sm:px-8 mt-20">
           {proyectos.map((proyecto, index) => {
             return (
               <Link

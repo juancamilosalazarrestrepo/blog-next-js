@@ -7,11 +7,13 @@ import Slider from "../components/Slider";
 import Banners from "../components/Banners";
 import banner1 from "../../public/images/banneBlog.webp";
 import banner2 from "../../public/images/banner2.webp";
+
+
 import Layout from "../components/Layout";
 import LogosSlider from "../components/LogosSlide";
 import proyectos from "../../data/proyectos/projectos";
 import Image from "next/image";
-import Camilo from "../../public/images/camilo.webp";
+import Camilo from "../../public/images/camilo1992.webp";
 
 const Home = ({ posts, lastProjects }) => {
   const [search, setSearch] = React.useState("");

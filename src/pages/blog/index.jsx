@@ -47,7 +47,7 @@ const Blog = ({ posts }) => {
             />
           </svg>
         </div>
-        <div className="grid grid-cols-2 gap-4">
+        <div className="grid grid-cols-3 gap-4 content-center max-sm:grid-cols-1 max-sm:w-full  max-sm:px-8">
         {filteredPosts.map((post) => (
           <Link href={`/blog/${post.slug}`} key={post.slug} className="max-w-sm">
             <div className="max-w-sm bg-white border border-gray-200 rounded-lg shadow ">

@@ -1,6 +1,6 @@
 import calculatorDark from "../../public/images/calculadoradark.webp";
 import cloneChatgpt from "../../public/images/cloneChatGPT.webp";
-import mercadoLiebre from "../../public/images/mercadoliebre.png";
+import mercadoLiebre from "../../public/images/mercadoliebre.webp";
 
 
 const proyectos = [
