@@ -40,7 +40,7 @@ export default function NavBar() {
             href="/register"
           >
             <span>
-              Contacta conmigo
+              Comunícate conmigo
             </span>
           </a>
           <div className="-mr-1 md:hidden">

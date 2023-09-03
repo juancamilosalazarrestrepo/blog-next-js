@@ -9,3 +9,7 @@ body{
 a{
     text-decoration-line: none   !important
 }
+
+.title{
+    color: #008F8C;
+}

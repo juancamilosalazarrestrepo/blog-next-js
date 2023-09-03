@@ -1,5 +1,7 @@
 import { NextPage, GetStaticPaths, GetStaticProps } from "next";
 import Image from "next/image";
+import NavBar from "@/components/NavBar";
+import Layout from "@/components/Layout";
 
 import { MDXRemote } from "next-mdx-remote";
 import ViewsCounter from "@/components/ViewCounter";
@@ -27,20 +29,23 @@ import MDXComponents from "@/components/MDXComponents";
 import Banners from "@/components/Banners";
 
 const DynamicPost: NextPage<Props> = ({ frontMatter, mdxSource }) => {
-  console.log("front matter",frontMatter)
+  console.log("front matter", frontMatter);
   return (
     <div>
-      <h1 className="mb-8 text-4xl text-center font-bold mt-7">
-        {frontMatter.title}
-      </h1>
       <div>
-      <Image src={frontMatter.image}  width={1920} height={600} alt="imagen"/>
-
+        <div>
+          <Image
+            src={frontMatter.image}
+            width={1920}
+            height={600}
+            alt="imagen"
+          />
+        </div>
+        <article className="prose mx-auto max-w-none w-3/4">
+          <MDXRemote {...mdxSource} components={MDXComponents} />
+        </article>
+        <ViewsCounter slug={frontMatter.slug} />
       </div>
-      <article className="prose mx-auto max-w-none w-3/4">
-        <MDXRemote {...mdxSource} components={MDXComponents} />
-      </article>
-      <ViewsCounter slug={frontMatter.slug} />
     </div>
   );
 };
@@ -64,4 +69,10 @@ export const getStaticProps: GetStaticProps = async ({ params }) => {
   };
 };
 
-export default DynamicPost;
+export default function Template({ frontMatter, mdxSource }) {
+  return (
+    <Layout>
+      <DynamicPost frontMatter={frontMatter} mdxSource={mdxSource} />
+    </Layout>
+  );
+}

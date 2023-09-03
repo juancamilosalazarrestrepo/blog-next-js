@@ -8,75 +8,12 @@ import banner2 from "../../../public/images/banner2.webp";
 import calculatorDark from "../../../public/images/calculadoradark.webp";
 import cloneChatgpt from "../../../public/images/cloneChatGPT.webp";
 import LogosSlider from "../../components/LogosSlide";
+import proyectos from "../../../data/proyectos/projectos";
 
-const Portfolio = () => {
+const Portfolio = ({proyectos}) => {
   const images = [banner1, banner2];
 
-  const proyectos = [
-    {
-      titulo: "Calculadora en React Native",
-      imagen: calculatorDark,
-      description:
-        "Calculadora desarrollada en React Native, con un diseño moderno y un modo oscuro para mejorar la experiencia del usuario al realizar operaciones matemáticas básicas.",
-      url: "/portafolio/calculadora",
-    },
-    {
-      titulo: "Clone de ChatGpt con Next.js",
-      imagen: cloneChatgpt,
-      description:
-        "Clon de ChatGPT creado con Next.js y Tailwind CSS, que permite interactuar con un chatbot generador de respuestas a través de la API de GPT-3 de OpenAI",
-      url: "/portafolio/clonechatgpt",
-    },
-    {
-      titulo: "Clone de Mercadolibre",
-      imagen: calculatorDark,
-      description:
-        "Clon de ChatGPT creado con Next.js y Tailwind CSS, que permite interactuar con un chatbot generador de respuestas a través de la API de GPT-3 de OpenAI",
-      url: "/portafolio/calculadora",
-    },
-    {
-      titulo: "Tarjeta animada con html y css",
-      imagen: calculatorDark,
-      description:
-        "Calculadora desarrollada en React Native, con un diseño moderno y un modo oscuro para mejorar la experiencia del usuario al realizar operaciones matemáticas básicas.",
-      url: "/portafolio/calculadora",
-    },
-    {
-      titulo: "Landing page parallax effect",
-      imagen: calculatorDark,
-      description:
-        "Clon de ChatGPT creado con Next.js y Tailwind CSS, que permite interactuar con un chatbot generador de respuestas a través de la API de GPT-3 de OpenAI",
-      url: "/portafolio/calculadora",
-    },
-    {
-      titulo: "Clone de ChatGpt con Next.js",
-      imagen: calculatorDark,
-      description:
-        "Clon de ChatGPT creado con Next.js y Tailwind CSS, que permite interactuar con un chatbot generador de respuestas a través de la API de GPT-3 de OpenAI",
-      url: "/portafolio/calculadora",
-    },
-    {
-      titulo: "Calculadora en React Native",
-      imagen: calculatorDark,
-      description:
-        "Calculadora desarrollada en React Native, con un diseño moderno y un modo oscuro para mejorar la experiencia del usuario al realizar operaciones matemáticas básicas.",
-      url: "/portafolio/calculadora",
-    },
-    {
-      titulo: "Clone de ChatGpt con Next.js",
-      imagen: calculatorDark,
-      description:
-        "Clon de ChatGPT creado con Next.js y Tailwind CSS, que permite interactuar con un chatbot generador de respuestas a través de la API de GPT-3 de OpenAI",
-      url: "/portafolio/calculadora",
-    },
-    {
-      titulo: "Clone de ChatGpt con Next.js",
-      imagen: calculatorDark,
-      description:
-        "Clon de ChatGPT creado con Next.js y Tailwind CSS, que permite interactuar con un chatbot generador de respuestas a través de la API de GPT-3 de OpenAI",
-      url: "/portafolio/calculadora",
-    },
-  ];
+ 
 
   return (
     <div className="">
@@ -162,10 +99,19 @@ const Portfolio = () => {
   );
 };
 
-export default function BlogTemplate({ posts }) {
+export const getStaticProps = async () => {
+
+  
+
+  return {
+    props: { proyectos },
+  };
+};
+
+export default function BlogTemplate({ proyectos }) {
   return (
     <Layout>
-      <Portfolio />
+      <Portfolio  proyectos={proyectos} />
     </Layout>
   );
 }

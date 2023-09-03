@@ -1,5 +1,6 @@
 import calculatorDark from "../../public/images/calculadoradark.webp";
 import cloneChatgpt from "../../public/images/cloneChatGPT.webp";
+import mercadoLiebre from "../../public/images/mercadoliebre.png";
 
 
 const proyectos = [
@@ -19,9 +20,9 @@ const proyectos = [
   },
   {
     titulo: "Clone de Mercadolibre",
-    imagen: calculatorDark,
+    imagen: mercadoLiebre,
     description:
-      "Clon de ChatGPT creado con Next.js y Tailwind CSS, que permite interactuar con un chatbot generador de respuestas a través de la API de GPT-3 de OpenAI",
+      "Clon de Mercado libre creado con javascript , que permite interactuar ,con secciones para  ver productos , ver categorias. hecho con node js y express. ",
     url: "/portafolio/calculadora",
   },
   {
