@@ -1,5 +1,5 @@
 import Link from "next/link";
-import logo from "../../public/images/logosc.webp"
+import logo from "../../public/images/locosc.webp"
 import Image from "next/image";
 
 
@@ -36,7 +36,7 @@ export default function NavBar() {
         </div>
         <div className="flex items-center gap-x-5 md:gap-x-8">
           <a
-            className=" max-sm:hidden group inline-flex items-center justify-center rounded-full py-2 px-4 text-sm font-semibold focus:outline-none focus-visible:outline-2 focus-visible:outline-offset-2 bg-[#008F8C] text-white hover:text-slate-100 hover:bg-[#23606E] active:bg-[#23606E] active:text-blue-100 focus-visible:outline-[#23606E]"
+            className=" max-sm:hidden group inline-flex items-center justify-center rounded-full py-2 px-4 text-sm font-semibold focus:outline-none focus-visible:outline-2 focus-visible:outline-offset-2 bg-[#0575E6] text-white hover:text-slate-100 hover:bg-[#021B79] active:bg-[#021B79] active:text-blue-100 focus-visible:outline-[#021B79]"
             href="/register"
           >
             <span>
