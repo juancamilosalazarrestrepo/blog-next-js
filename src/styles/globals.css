@@ -22,3 +22,44 @@ a{
 .buttonColor:hover{
     background-color: #021B79; 
 }
+
+.container{
+    width: 100vw;
+    padding: 2rem 11rem;
+}
+
+@media only screen and (max-width: 600px) {
+.title{
+    font-size: 1.2em;
+    width: 100%;
+}
+
+.container{
+    width: 100vw;
+    padding: 2rem 1rem;
+}
+
+.containerPerfil{
+    width:100%;
+}
+
+.perfil{
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+
+.textDescription{
+    padding: 0 1.7rem;
+    font-size: 1rem;
+}
+
+.subTittle{
+    padding: 0 1.5rem;
+    font-size: 1.2rem;
+}
+
+.logoSliderContainer{
+    padding: 0 1.7rem;
+}
+}

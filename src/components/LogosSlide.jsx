@@ -22,14 +22,14 @@ import "swiper/css/scrollbar";
 export default function LogosSlider() {
   let images =[awsLogo,reactLogo,expressLogo,nodeLogo,vercelLogo,nextJsLogo,reactNativeLogo,sqlServerLogo,angulaLogo,dotNetLogo,azureLogo]
   return (
-    <div>
+    <div className="logoSliderContainer">
       <div className="sm:hidden">
         <Swiper
           modules={[Navigation, Pagination, Scrollbar, A11y]}
-          spaceBetween={1}
-          slidesPerView={4}
+          spaceBetween={0}
+          slidesPerView={3}
           loop={true}
-            
+          
        
           onSlideChange={() => console.log("slide change")}
           onSwiper={(swiper) => console.log(swiper)}

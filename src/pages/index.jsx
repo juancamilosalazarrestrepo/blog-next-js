@@ -33,10 +33,10 @@ const Home = ({ posts, lastProjects }) => {
       <main>
         
         <div className="py-8 container mx-auto px-44 ">
-        <div className="mt-1">
+        <div className="mt-1 containerPerfil">
           <h1 className="text-3xl mb-3 font-bold text-center title">Juan Camilo Salazar Restrepo</h1>
               <hr/>
-          <div className="flex gap-8 mb-8 mt-8">
+          <div className="flex gap-8 mb-8 mt-8 perfil">
             
             <Image
               src={Camilo}
@@ -48,7 +48,7 @@ const Home = ({ posts, lastProjects }) => {
 
             <div>
              
-              <p>
+              <p className="textDescription">
                 Licenciado en Informática y Medios Audiovisuales de la
                 Universidad de Córdoba, especializado en el desarrollo de
                 software utilizando <strong>React</strong>, <strong>Node.js</strong>, <strong>SQL</strong> y <strong>Express</strong>, con
@@ -72,7 +72,7 @@ const Home = ({ posts, lastProjects }) => {
             </div>
           </div>
           </div>
-          <h1 className="font-bold text-2xl mb-8">Ultimos proyectos</h1>
+          <h1 className="font-bold text-2xl mb-8 subTittle">Ultimos proyectos</h1>
           <div className="grid grid-cols-3 gap-4 content-center max-sm:grid-cols-1 max-sm:w-full  max-sm:px-8">
             {lastProjects.map((proyecto, index) => {
               return (
@@ -114,7 +114,7 @@ const Home = ({ posts, lastProjects }) => {
               );
             })}
           </div>
-          <h1 className="font-bold text-2xl mb-8 mt-8">Ultimos Articulos</h1>
+          <h1 className="font-bold text-2xl mb-8 mt-8 subTittle">Ultimos Articulos</h1>
           <div className="grid grid-cols-3 gap-4 content-center max-sm:grid-cols-1 max-sm:w-full  max-sm:px-8">
             {posts.map((post, index) => {
               return (
