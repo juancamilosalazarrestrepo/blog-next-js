@@ -35,6 +35,7 @@ export default function Banners({ images }) {
             return (
               <SwiperSlide key={index}>
                 {" "}
+                
                 <Image
                   src={smallImage}
                   

@@ -31,7 +31,25 @@ export default function NavBar() {
           >
              Precios
           </Link>
-            
+          <Link
+            href="/proyectos"
+            className="inline-block rounded-lg py-1 px-2 text-sm text-slate-700 hover:bg-slate-100 hover:text-slate-900"
+          >
+             Proyectos
+          </Link>
+
+          <Link
+            href="/cursos"
+            className="inline-block rounded-lg py-1 px-2 text-sm text-slate-700 hover:bg-slate-100 hover:text-slate-900"
+          >
+             Cursos
+          </Link>
+          <Link
+            href="/certificados"
+            className="inline-block rounded-lg py-1 px-2 text-sm text-slate-700 hover:bg-slate-100 hover:text-slate-900"
+          >
+             Certificados
+          </Link>
           </div>
         </div>
         <div className="flex items-center gap-x-5 md:gap-x-8">

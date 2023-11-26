@@ -10,6 +10,9 @@ import vercelLogo from "../../public/images/logos/vercelLogo.webp";
 import nextJsLogo from "../../public/images/logos/nextJsLogo.webp";
 import reactNativeLogo from "../../public/images/logos/reactNativeLogo.webp";
 import sqlServerLogo from "../../public/images/logos/sqlServeLogo.webp";
+import angulaLogo from "../../public/images/logos/angular.webp";
+import dotNetLogo from "../../public/images/logos/netlogo.webp";
+import azureLogo from "../../public/images/logos/azureLogo.webp";
 
 // Import Swiper styles
 import "swiper/css";
@@ -17,7 +20,7 @@ import "swiper/css/pagination";
 import "swiper/css/scrollbar";
 
 export default function LogosSlider() {
-  let images =[awsLogo,reactLogo,expressLogo,nodeLogo,vercelLogo,nextJsLogo,reactNativeLogo,sqlServerLogo]
+  let images =[awsLogo,reactLogo,expressLogo,nodeLogo,vercelLogo,nextJsLogo,reactNativeLogo,sqlServerLogo,angulaLogo,dotNetLogo,azureLogo]
   return (
     <div>
       <div className="sm:hidden">
