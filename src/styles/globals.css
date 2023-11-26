@@ -28,6 +28,10 @@ a{
     padding: 2rem 11rem;
 }
 
+.logoSliderContainer{
+    padding: 0 10rem;
+}
+
 @media only screen and (max-width: 600px) {
 .title{
     font-size: 1.2em;
@@ -61,5 +65,16 @@ a{
 
 .logoSliderContainer{
     padding: 0 1.7rem;
+}
+
+.tittleCard{
+    font-size: 1.2rem;
+    line-height: normal;
+}
+
+.descriptionCard{
+    font-size: 1rem;
+    line-height: normal;
+    margin-bottom: 20px;
 }
 }
