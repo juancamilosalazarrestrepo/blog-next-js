@@ -17,7 +17,7 @@ const Calculadora = ({ posts }) => {
 
       <main className="py-8 container mx-auto px-44">
         <p>
-          Clone ChatGpt, una plataforma de desarrollo de aplicaciones móviles
+          Clon de ChatGpt, una plataforma de desarrollo de aplicaciones móviles
           multiplataforma. La calculadora cuenta con un diseño moderno y
           atractivo que incluye un modo oscuro, lo que permite a los usuarios
           alternar entre la apariencia clara y oscura según sus preferencias y

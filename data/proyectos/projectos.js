@@ -1,6 +1,7 @@
 import calculatorDark from "../../public/images/calculadoradark.webp";
 import cloneChatgpt from "../../public/images/cloneChatGPT.webp";
 import mercadoLiebre from "../../public/images/mercadoliebre.webp";
+import tarjeta from "../../public/images/tarjeta.webp";
 
 
 const proyectos = [
@@ -12,14 +13,14 @@ const proyectos = [
     url: "/portafolio/calculadora",
   },
   {
-    titulo: "Clone de ChatGpt con Next.js",
+    titulo: "Clon de ChatGpt con Next.js",
     imagen: cloneChatgpt,
     description:
       "Clon de ChatGPT creado con Next.js y Tailwind CSS, que permite interactuar con un chatbot generador de respuestas a través de la API de GPT-3 de OpenAI",
     url: "/portafolio/clonechatgpt",
   },
   {
-    titulo: "Clone de Mercadolibre",
+    titulo: "Clon de Mercadolibre",
     imagen: mercadoLiebre,
     description:
       "Clon de Mercado libre creado con javascript , que permite interactuar ,con secciones para  ver productos , ver categorias. hecho con node js y express. ",
@@ -27,9 +28,9 @@ const proyectos = [
   },
   {
     titulo: "Tarjeta animada con html y css",
-    imagen: calculatorDark,
+    imagen: tarjeta,
     description:
-      "Calculadora desarrollada en React Native, con un diseño moderno y un modo oscuro para mejorar la experiencia del usuario al realizar operaciones matemáticas básicas.",
+      "Tarjeta interactiva hecha con css para venta de zapatos, cambia de color dependiendo el zapato que elijan",
     url: "/portafolio/calculadora",
   },
   {
@@ -40,7 +41,7 @@ const proyectos = [
     url: "/portafolio/calculadora",
   },
   {
-    titulo: "Clone de ChatGpt con Next.js",
+    titulo: "Clon de ChatGpt con Next.js",
     imagen: calculatorDark,
     description:
       "Clon de ChatGPT creado con Next.js y Tailwind CSS, que permite interactuar con un chatbot generador de respuestas a través de la API de GPT-3 de OpenAI",
@@ -54,14 +55,14 @@ const proyectos = [
     url: "/portafolio/calculadora",
   },
   {
-    titulo: "Clone de ChatGpt con Next.js",
+    titulo: "Clon de ChatGpt con Next.js",
     imagen: calculatorDark,
     description:
       "Clon de ChatGPT creado con Next.js y Tailwind CSS, que permite interactuar con un chatbot generador de respuestas a través de la API de GPT-3 de OpenAI",
     url: "/portafolio/calculadora",
   },
   {
-    titulo: "Clone de ChatGpt con Next.js",
+    titulo: "Clon de ChatGpt con Next.js",
     imagen: calculatorDark,
     description:
       "Clon de ChatGPT creado con Next.js y Tailwind CSS, que permite interactuar con un chatbot generador de respuestas a través de la API de GPT-3 de OpenAI",
