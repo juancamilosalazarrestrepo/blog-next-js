@@ -26,9 +26,9 @@ const Blog = ({ posts }) => {
         <div className="relative w-full mb-4">
           <input
             type="text"
-            aria-label="Search Articles"
+            aria-label="Buscar articulos"
             onChange={(e) => setSearch(e.target.value)}
-            placeholder="Search Articles"
+            placeholder="Buscar articulos"
             className="px-4 py-2 border border-gray-300 focus:ring-blue-500 focus:border-blue-500   block w-full rounded-md bg-white
              text-gray-900 "
           />
