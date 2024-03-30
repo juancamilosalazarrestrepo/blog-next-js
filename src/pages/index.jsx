@@ -8,6 +8,7 @@ import Banners from "../components/Banners";
 import banner1 from "../../public/images/banneBlog.webp";
 import banner2 from "../../public/images/banner2.webp";
 
+import EffectParticle from "../components/EffectParticle";
 
 import Layout from "../components/Layout";
 import LogosSlider from "../components/LogosSlide";
@@ -30,49 +31,70 @@ const Home = ({ posts, lastProjects }) => {
       >
         <Banners images={images} />
       </div>
+     
       <main>
-        
         <div className="py-8 container mx-auto px-44 ">
-        <div className="mt-1 containerPerfil">
-          <h1 className="text-3xl mb-3 font-bold text-center title">Juan Camilo Salazar Restrepo</h1>
-              <hr/>
-          <div className="flex gap-8 mb-8 mt-8 perfil">
-            
-            <Image
-              src={Camilo}
-              width={320}
-              height={320}
-              alt=""
-              className="rounded-lg shadow-xl w-72 h-72"
-            />
+          <div className="mt-1 containerPerfil">
+            <h1 className="text-3xl font-bold text-center title">
+              Juan Camilo Salazar Restrepo
+            </h1>
+            <h1 className="text-large mb-3 text-center subtile-job">
+              Desarrollador FullStack
+            </h1>
+            <hr />
+            <div className="flex gap-8 mb-8 mt-8 perfil">
+              <Image
+                src={Camilo}
+                width={320}
+                height={320}
+                alt=""
+                className="rounded-lg shadow-xl w-72 h-72"
+              />
 
-            <div>
-             
-              <p className="textDescription">
-                Licenciado en Informática y Medios Audiovisuales de la
-                Universidad de Córdoba, especializado en el desarrollo de
-                software utilizando <strong>React</strong>, <strong>Node.js</strong>, <strong>SQL</strong> y <strong>Express</strong>, con
-                conocimientos avanzados en <strong>JavaScript</strong>, <strong>HTML5</strong> y <strong>CSS</strong>. Tengo
-                experiencia en la creación de <strong>SPA (Single Page Applications) </strong> con
-                server side rendering utilizando <strong>Next.js</strong> y en la creación de
-                APIs con Express o dentro de proyectos de Next.js, así como en
-                el consumo de <strong>APIs</strong> con <strong>fetch</strong> o <strong>axios</strong>. También he desarrollado
-                <strong>aplicaciones móviles</strong> con <strong>React Native</strong>. Además, cuento con
-                habilidades en frameworks CSS como <strong>Material UI</strong>, <strong>Bootstrap</strong> y
-                <strong>TailwindCSS</strong>, así como en el manejo de <strong>bases de datos SQL</strong> con
-                <strong>MySQL</strong> y <strong>SQL Server</strong>. Tengo experiencia en el control de versiones
-                en plataformas como <strong>GitHub</strong> y <strong>BitBucket</strong>, y he desplegado
-                aplicaciones de Next.js y React en <strong>AWS</strong>, <strong>Vercel</strong>, <strong>Netlify</strong> y <strong>Heroku</strong>.
-                También he trabajado con librerías de JavaScript y React como
-                <strong>ChartJS</strong>, <strong>ReactChart</strong> y <strong>React Flow</strong> para la creación de gráficos.
-                Tengo experiencia en la implementacion de microservicios en <strong>Azure</strong>, como <strong>Azure functions</strong> y haciendo uso de <strong>blob storage</strong> de azure.
-                En el back tengo experiencia en la creacion de servidores y apis , con frameworks como <strong>Node.js</strong> y <strong>Express</strong> . ademas de optimizar el procesamiento de grandes cantidades de datos procesandolos como <strong>streams</strong>.
-                {" "}
-              </p>
+              <div>
+                <p className="textDescription">
+                  Licenciado en Informática y Medios Audiovisuales de la
+                  Universidad de Córdoba, especializado en el desarrollo de
+                  software utilizando <strong>React</strong>,{" "}
+                  <strong>Node.js</strong>, <strong>SQL</strong> y{" "}
+                  <strong>Express</strong>, con conocimientos avanzados en{" "}
+                  <strong>JavaScript</strong>, <strong>HTML5</strong> y{" "}
+                  <strong>CSS</strong>. Tengo experiencia en la creación de{" "}
+                  <strong>SPA (Single Page Applications) </strong> con server
+                  side rendering utilizando <strong>Next.js</strong> y en la
+                  creación de APIs con Express o dentro de proyectos de Next.js,
+                  así como en el consumo de <strong>APIs</strong> con{" "}
+                  <strong>fetch</strong> o <strong>axios</strong>. También he
+                  desarrollado
+                  <strong>aplicaciones móviles</strong> con{" "}
+                  <strong>React Native</strong>. Además, cuento con habilidades
+                  en frameworks CSS como <strong>Material UI</strong>,{" "}
+                  <strong>Bootstrap</strong> y<strong>TailwindCSS</strong>, así
+                  como en el manejo de <strong>bases de datos SQL</strong> con
+                  <strong>MySQL</strong> y <strong>SQL Server</strong>. Tengo
+                  experiencia en el control de versiones en plataformas como{" "}
+                  <strong>GitHub</strong> y <strong>BitBucket</strong>, y he
+                  desplegado aplicaciones de Next.js y React en{" "}
+                  <strong>AWS</strong>, <strong>Vercel</strong>,{" "}
+                  <strong>Netlify</strong> y <strong>Heroku</strong>. También he
+                  trabajado con librerías de JavaScript y React como
+                  <strong>ChartJS</strong>, <strong>ReactChart</strong> y{" "}
+                  <strong>React Flow</strong> para la creación de gráficos.
+                  Tengo experiencia en la implementacion de microservicios en{" "}
+                  <strong>Azure</strong>, como <strong>Azure functions</strong>{" "}
+                  y haciendo uso de <strong>blob storage</strong> de azure. En
+                  el back tengo experiencia en la creacion de servidores y apis
+                  , con frameworks como <strong>Node.js</strong> y{" "}
+                  <strong>Express</strong> . ademas de optimizar el
+                  procesamiento de grandes cantidades de datos procesandolos
+                  como <strong>streams</strong>.{" "}
+                </p>
+              </div>
             </div>
           </div>
-          </div>
-          <h1 className="font-bold text-2xl mb-8 subTittle">Ultimos proyectos</h1>
+          <h1 className="font-bold text-2xl mb-8 subTittle">
+            Ultimos proyectos
+          </h1>
           <div className="grid grid-cols-3 gap-4 content-center max-sm:grid-cols-1 max-sm:w-full  max-sm:px-8">
             {lastProjects.map((proyecto, index) => {
               return (
@@ -114,7 +136,9 @@ const Home = ({ posts, lastProjects }) => {
               );
             })}
           </div>
-          <h1 className="font-bold text-2xl mb-8 mt-8 subTittle">Ultimos Articulos</h1>
+          <h1 className="font-bold text-2xl mb-8 mt-8 subTittle">
+            Ultimos Articulos
+          </h1>
           <div className="grid grid-cols-3 gap-4 content-center max-sm:grid-cols-1 max-sm:w-full  max-sm:px-8">
             {posts.map((post, index) => {
               return (
@@ -157,8 +181,6 @@ const Home = ({ posts, lastProjects }) => {
               );
             })}
           </div>
-          
-       
         </div>
 
         <div className="w-full mt-20">
@@ -171,9 +193,9 @@ const Home = ({ posts, lastProjects }) => {
 
 export const getStaticProps = async () => {
   let posts = await getAllFilesFrontMatter("posts");
-  console.log(posts)
+  console.log(posts);
   posts = posts.slice(0, 3);
-  console.log(proyectos)
+  console.log(proyectos);
   const lastProjects = proyectos.slice(0, 3);
 
   return {

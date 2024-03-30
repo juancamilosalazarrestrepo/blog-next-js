@@ -1,80 +1,119 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
-body{
-    background-color:#fdfdfd ;
-    color: #212427
+body {
+  background-color: #fdfdfd;
+  color: #212427;
 }
 
-a{
-    text-decoration-line: none   !important
+a {
+  text-decoration-line: none !important;
 }
 
-.title{
-    color: #0575E6;
+.title {
+  color: #0575e6;
 }
 
-
-.buttonColor{
-    background-color: #0575E6;
+.buttonColor {
+  background-color: #0575e6;
 }
 
-.buttonColor:hover{
-    background-color: #021B79; 
+.buttonColor:hover {
+  background-color: #021b79;
 }
 
-.container{
-    width: 100vw;
-    padding: 2rem 11rem;
+.container {
+  width: 100vw;
+  padding: 2rem 11rem;
 }
 
-.logoSliderContainer{
-    padding: 0 10rem;
+.logoSliderContainer {
+  padding: 0 10rem;
+}
+
+.subtile-job {
+  font-weight: 300;
+  color: #212427;
+  font-size: 20px;
+}
+
+#fullscreen {
+  background-image: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)),
+    url("https://s3-us-west-2.amazonaws.com/s.cdpn.io/3744450/man.jpeg");
+  background-size: cover;
+  background-position: center;
+  height: 100vh;
+}
+
+#fullscreen h1 {
+  font-size: 50px;
+  position: absolute;
+  top: 270px;
+  left: 500px;
+  font-weight: 200;
+  color: aquamarine;
+}
+
+#particles-js {
+  height: 100vh;
+  background-image: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)),
+    url("https://s3-us-west-2.amazonaws.com/s.cdpn.io/3744450/man.jpeg");
+  background-size: cover;
+  background-position: center;
+}
+
+#particles-js h1 {
+  font-size: 50px;
+  position: absolute;
+  top: 270px;
+  left: 500px;
+  font-weight: 200;
+  color: aquamarine;
 }
 
 @media only screen and (max-width: 600px) {
-.title{
+  .title {
     font-size: 1.2em;
     width: 100%;
-}
+  }
 
-.container{
+  .container {
     width: 100vw;
     padding: 2rem 1rem;
-}
+  }
 
-.containerPerfil{
-    width:100%;
-}
+  .containerPerfil {
+    width: 100%;
+  }
 
-.perfil{
+  .perfil {
     justify-content: center;
     align-items: center;
     flex-direction: column;
-}
+  }
 
-.textDescription{
+  .textDescription {
     padding: 0 1.7rem;
     font-size: 1rem;
-}
+  }
 
-.subTittle{
+  .subTittle {
     padding: 0 1.5rem;
     font-size: 1.2rem;
-}
+  }
 
-.logoSliderContainer{
+  .logoSliderContainer {
     padding: 0 1.7rem;
-}
+  }
 
-.tittleCard{
+  .tittleCard {
     font-size: 1.2rem;
     line-height: normal;
-}
+  }
 
-.descriptionCard{
+  .descriptionCard {
     font-size: 1rem;
     line-height: normal;
     margin-bottom: 20px;
-}
+  }
 }
