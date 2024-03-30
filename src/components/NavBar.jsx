@@ -22,7 +22,7 @@ export default function NavBar() {
           <div className="hidden md:flex md:gap-x-6">
             <Link
               href="/portafolio"
-              className={`inline-block rounded-lg py-1 px-2 text-sm text-slate-700 hover:bg-slate-100 hover:text-slate-900 ${
+              className={`inline-block rounded-lg py-1 px-2 text-sm text-slate-700 hover:bg-slate-100  ${
                 activeURL === "/portafolio" ? "active" : ""
               }`}
             >
@@ -30,7 +30,7 @@ export default function NavBar() {
             </Link>
             <Link
               href="/blog"
-              className={`inline-block rounded-lg py-1 px-2 text-sm text-slate-700 hover:bg-slate-100 hover:text-slate-900 ${
+              className={`inline-block rounded-lg py-1 px-2 text-sm text-slate-700 hover:bg-slate-100 ${
                 activeURL === "/blog" ? "active" : ""
               }`}
             >
@@ -38,7 +38,7 @@ export default function NavBar() {
             </Link>
             <Link
               href="/precios"
-              className={`inline-block rounded-lg py-1 px-2 text-sm text-slate-700 hover:bg-slate-100 hover:text-slate-900 ${
+              className={`inline-block rounded-lg py-1 px-2 text-sm text-slate-700 hover:bg-slate-100  ${
                 activeURL === "/precios" ? "active" : ""
               }`}
             >
@@ -47,7 +47,7 @@ export default function NavBar() {
             {console.log("este", activeURL)}
             <Link
               href="/proyectos"
-              className={`inline-block rounded-lg py-1 px-2 text-sm text-slate-700 hover:bg-slate-100 hover:text-slate-900 ${
+              className={`inline-block rounded-lg py-1 px-2 text-sm text-slate-700 hover:bg-slate-100  ${
                 activeURL === "/proyectos" ? " active" : ""
               }`}
             >
@@ -56,7 +56,7 @@ export default function NavBar() {
 
             <Link
               href="/cursos"
-              className={`inline-block rounded-lg py-1 px-2 text-sm text-slate-700 hover:bg-slate-100 hover:text-slate-900 ${
+              className={`inline-block rounded-lg py-1 px-2 text-sm text-slate-700 hover:bg-slate-100  ${
                 activeURL === "/cursos" ? "active" : ""
               }`}
             >
@@ -64,7 +64,7 @@ export default function NavBar() {
             </Link>
             <Link
               href="/certificados"
-              className={`inline-block rounded-lg py-1 px-2 text-sm text-slate-700 hover:bg-slate-100 hover:text-slate-900 ${
+              className={`inline-block rounded-lg py-1 px-2 text-sm text-slate-700 hover:bg-slate-100  ${
                 activeURL === "/certificados" ? "active" : ""
               }`}
             >
