@@ -71,6 +71,32 @@ a {
   color: aquamarine;
 }
 
+.active {
+  color: #fdfdfd;
+  background: #00c6ff; /* fallback for old browsers */
+  background: -webkit-linear-gradient(
+    to right,
+    #0072ff,
+    #00c6ff
+  ); /* Chrome 10-25, Safari 5.1-6 */
+  background: linear-gradient(
+    to right,
+    #0072ff,
+    #00c6ff
+  ); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+  background-color: #0072ff;
+  border-radius: 15px;
+
+  border: none;
+  transition: 0.3s ease-in-out;
+}
+
+.active:hover {
+  color: #fdfdfd !important;
+  background-color: #0072ff !important;
+  border-radius: 8px 15px !important;
+}
+
 @media only screen and (max-width: 600px) {
   .title {
     font-size: 1.2em;
