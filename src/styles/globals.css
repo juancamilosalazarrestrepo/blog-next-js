@@ -27,6 +27,12 @@ a {
   padding: 2rem 11rem;
 }
 
+.containerSoloCards {
+  width: 100vw;
+  padding: 2rem 11rem;
+  margin-top: -50px;
+}
+
 .logoSliderContainer {
   padding: 0 10rem;
 }

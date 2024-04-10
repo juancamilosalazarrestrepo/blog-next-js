@@ -2,68 +2,72 @@ import certificadogit from "../../public/images/certificadogit.png";
 import certificadoNet from "../../public/images/certificadoNet.png";
 import certificadoPixieBrix from "../../public/images/certificadoPixieBrix.png";
 import certificadoNext from "../../public/images/certificadoNext.png";
+import certificadoAWS from "../../public/images/certificadoAWS.png";
+import certificadoFullStack from "../../public/images/certificadoFullStack.png";
+import certificadoContentMarketing from "../../public/images/certificadocontentMarketing.png";
+import certificadoScrum from "../../public/images/certificadoScrum.png";
 
 const certificados = [
   {
     titulo: "Angular - NET Core - Aplicacion de Preguntas y Respuestas",
     imagen: certificadoNet,
-    description:"Curso de desarrollo con Angular para el front y .Net core para el back , donde se desarrollo una aplicacion de preguntas y respuestas",
+    description:"Curso de desarrollo con Angular para el front y .Net core para el back , donde se desarrollo una aplicacion de preguntas y respuestas.",
     url: "/portafolio/calculadora",
   },
   {
     titulo: "Desarrollo de Estension con PixieBrix + AI Certification",
     imagen: certificadoPixieBrix,
     description:
-      "Curso de Creacion de extensiones con inteligencia artificial, utilizando la Herramienta PixieBrix",
+      "Curso de Creacion de extensiones con inteligencia artificial, utilizando la Herramienta PixieBrix.",
     url: "/portafolio/certificadogit",
   },
   {
     titulo: "Curso Profesional de Git y GitHub",
     imagen: certificadogit,
     description:
-      "Clon de Mercado libre creado con javascript , que permite interactuar ,con secciones para  ver productos , ver categorias. hecho con node js y express. ",
+      "Curso Profesional de Git y github donde aprendi a manejar git y github para trabajar en equipo con otros desarrolladores.",
     url: "/portafolio/calculadora",
   },
   {
-    titulo: "Curso de introducción a Next.js",
+    titulo: "Curso de introducción a Next.js Creacion de Blog",
     imagen: certificadoNext,
     description:
-      "Curso de introducción a Next.js, donde se desarrollo un blog , que traia los post a traves de markdown",
+      "Curso de introducción a Next.js, donde se desarrollo un blog , que traia los post a traves de markdown.",
     url: "/portafolio/calculadora",
   },
   {
-    titulo: "Landing page parallax effect",
-    imagen: certificadogit,
+    titulo: "Despliegue de proyecto de Node.js en AWS",
+    imagen: certificadoAWS,
     description:
-      "Clon de ChatGPT creado con Next.js y Tailwind CSS, que permite interactuar con un chatbot generador de respuestas a través de la API de GPT-3 de OpenAI",
+      "En este curso trabajamos un proyecto de node js par aluego desplegar en Amazon Web Services AWS.",
     url: "/portafolio/calculadora",
   },
   {
-    titulo: "Clon de ChatGpt con Next.js",
-    imagen: certificadogit,
+    titulo: "Bootcamp de Programación Web Full Stack",
+    imagen: certificadoFullStack,
     description:
-      "Clon de ChatGPT creado con Next.js y Tailwind CSS, que permite interactuar con un chatbot generador de respuestas a través de la API de GPT-3 de OpenAI",
+      "BootCamp de desarrollo web full stack, en el que el proyecto final fue una tienda en linea con react , node y sql server.",
     url: "/portafolio/calculadora",
   },
   {
-    titulo: "Calculadora en React Native",
-    imagen: certificadogit,
+    titulo: "Curso de Content Marketing de Platzi",
+    imagen: certificadoContentMarketing,
     description:
-      "Calculadora desarrollada en React Native, con un diseño moderno y un modo oscuro para mejorar la experiencia del usuario al realizar operaciones matemáticas básicas.",
+      "Certificado de content marketing de curso dictado por Platzi.",
     url: "/portafolio/calculadora",
   },
   {
-    titulo: "Clon de ChatGpt con Next.js",
-    imagen: certificadogit,
+    titulo: "Scrum Foundation Professional Certification",
+    imagen: certificadoScrum,
     description:
-      "Clon de ChatGPT creado con Next.js y Tailwind CSS, que permite interactuar con un chatbot generador de respuestas a través de la API de GPT-3 de OpenAI",
+      "Certificado de Fundamentos de scrum y metodologias agiles.",
     url: "/portafolio/calculadora",
   },
   {
-    titulo: "Clon de ChatGpt con Next.js",
+    titulo: "Certificado Progrmación Basica de platzi",
     imagen: certificadogit,
     description:
-      "Clon de ChatGPT creado con Next.js y Tailwind CSS, que permite interactuar con un chatbot generador de respuestas a través de la API de GPT-3 de OpenAI",
+      "Certificado del curso de programación basica de paltzi , donde vimos javascript, html y css",
     url: "/portafolio/calculadora",
   },
 ];

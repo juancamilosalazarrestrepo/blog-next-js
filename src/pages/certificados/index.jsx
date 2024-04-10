@@ -16,7 +16,7 @@ const Certificados = ({ certificados }) => {
 
   return (
     <div className="">
-      <main className="py-2 container mx-auto px-44 mt-1">
+      <main className="py-2 container mx-auto px-44 mt-1 containerSoloCards">
         <div className="grid grid-cols-3 gap-4 content-center max-sm:grid-cols-1 max-sm:w-full  max-sm:px-8 mt-20">
           {certificados.map((proyecto, index) => {
             return (

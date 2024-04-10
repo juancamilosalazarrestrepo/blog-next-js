@@ -31,7 +31,7 @@ const Home = ({ posts, lastProjects }) => {
       >
         <Banners images={images} />
       </div>
-     
+
       <main>
         <div className="py-8 container mx-auto px-44 ">
           <div className="mt-1 containerPerfil">
@@ -69,16 +69,16 @@ const Home = ({ posts, lastProjects }) => {
                   <strong>aplicaciones móviles</strong> con{" "}
                   <strong>React Native</strong>. Además, cuento con habilidades
                   en frameworks CSS como <strong>Material UI</strong>,{" "}
-                  <strong>Bootstrap</strong> y<strong>TailwindCSS</strong>, así
+                  <strong>Bootstrap</strong> y <strong>TailwindCSS</strong>, así
                   como en el manejo de <strong>bases de datos SQL</strong> con
-                  <strong>MySQL</strong> y <strong>SQL Server</strong>. Tengo
+                  <strong> MySQL</strong> y <strong>SQL Server</strong>. Tengo
                   experiencia en el control de versiones en plataformas como{" "}
                   <strong>GitHub</strong> y <strong>BitBucket</strong>, y he
                   desplegado aplicaciones de Next.js y React en{" "}
                   <strong>AWS</strong>, <strong>Vercel</strong>,{" "}
                   <strong>Netlify</strong> y <strong>Heroku</strong>. También he
                   trabajado con librerías de JavaScript y React como
-                  <strong>ChartJS</strong>, <strong>ReactChart</strong> y{" "}
+                  <strong> ChartJS</strong>, <strong>ReactChart</strong> y{" "}
                   <strong>React Flow</strong> para la creación de gráficos.
                   Tengo experiencia en la implementacion de microservicios en{" "}
                   <strong>Azure</strong>, como <strong>Azure functions</strong>{" "}
