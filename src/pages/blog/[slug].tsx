@@ -35,9 +35,10 @@ const DynamicPost: NextPage<Props> = ({ frontMatter, mdxSource }) => {
       <div>
         <div>
           <Image
+            className="overflow-hidden object-cover h-96 mb-14"
             src={frontMatter.image}
             width={1920}
-            height={600}
+            height={500}
             alt="imagen"
           />
         </div>
@@ -71,7 +72,7 @@ export const getStaticProps: GetStaticProps = async ({ params }) => {
   };
 };
 
-export default function Template({ frontMatter, mdxSource }:Props) {
+export default function Template({ frontMatter, mdxSource }: Props) {
   return (
     <Layout>
       <DynamicPost frontMatter={frontMatter} mdxSource={mdxSource} />
