@@ -2,20 +2,17 @@ import * as React from "react";
 import Image from "next/image";
 import Layout from "../../components/Layout";
 import Link from "next/link";
-import Banners from "../../components/Banners";
 import banner1 from "../../../public/images/banneBlog.webp";
 import banner2 from "../../../public/images/banner2.webp";
-import calculatorDark from "../../../public/images/calculadoradark.webp";
-import cloneChatgpt from "../../../public/images/cloneChatGPT.webp";
 import LogosSlider from "../../components/LogosSlide";
 import certificados from "../../../data/certificados/certificados";
-import Camilo from "../../../public/images/camilo1992.webp";
-
+import { GoogleAnalytics } from "@next/third-parties/google";
 const Certificados = ({ certificados }) => {
   const images = [banner1, banner2];
 
   return (
     <div className="">
+      <GoogleAnalytics gaId="G-9FDM09CLBH" />
       <main className="py-2 container mx-auto px-44 mt-1 containerSoloCards">
         <div className="grid grid-cols-3 gap-4 content-center max-sm:grid-cols-1 max-sm:w-full  max-sm:px-8 mt-20">
           {certificados.map((proyecto, index) => {
