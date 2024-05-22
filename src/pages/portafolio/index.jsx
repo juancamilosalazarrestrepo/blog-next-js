@@ -52,7 +52,7 @@ const Portfolio = ({ proyectos }) => {
                 en el consumo de <strong>APIs</strong> con{" "}
                 <strong>fetch</strong> o <strong>axios</strong>. También he
                 desarrollado
-                <strong>aplicaciones móviles</strong> con{" "}
+                 <strong>aplicaciones móviles</strong> con{" "}
                 <strong>React Native</strong>. Además, cuento con habilidades en
                 frameworks CSS como <strong>Material UI</strong>,{" "}
                 <strong>Bootstrap</strong> y <strong>TailwindCSS</strong>, así
