@@ -1,6 +1,7 @@
 import NavBar from "./NavBar";
 import Head from "next/head";
 import Footer from "./Footer"
+import GoogleAnalytics from '../pages/GoogleAnalytics';
 
 
 export default function Layout({ children }) {
