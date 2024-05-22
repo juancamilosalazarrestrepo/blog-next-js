@@ -2,6 +2,7 @@ import NavBar from "./NavBar";
 import Head from "next/head";
 import Footer from "./Footer"
 import GoogleAnalytics from '../pages/GoogleAnalytics';
+import { GoogleTagManager } from '@next/third-parties/google'
 
 
 export default function Layout({ children }) {
@@ -20,6 +21,7 @@ export default function Layout({ children }) {
           </div>
         </div>
       </header>
+      <GoogleTagManager gtmId="G-9FDM09CLBH" />
       <div>{children}</div>
       <Footer/>
     </>
