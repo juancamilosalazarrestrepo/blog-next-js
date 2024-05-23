@@ -3,7 +3,6 @@ import cloneChatgpt from "../../public/images/cloneChatGPT.webp";
 import mercadoLiebre from "../../public/images/mercadoliebre.webp";
 import tarjeta from "../../public/images/tarjeta.webp";
 
-
 const proyectos = [
   {
     titulo: "Calculadora en React Native",
@@ -27,11 +26,11 @@ const proyectos = [
     url: "/portafolio/calculadora",
   },
   {
-    titulo: "Tarjeta animada con html y css",
+    titulo: "Tarjeta Animada con estilo Glasmorfismo",
     imagen: tarjeta,
     description:
       "Tarjeta interactiva hecha con css para venta de zapatos, cambia de color dependiendo el zapato que elijan",
-    url: "/portafolio/calculadora",
+    url: "/portafolio/sneakersCards",
   },
   {
     titulo: "Landing page parallax effect",

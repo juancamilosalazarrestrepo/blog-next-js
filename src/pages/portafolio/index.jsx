@@ -27,6 +27,9 @@ const Portfolio = ({ proyectos }) => {
           <h1 className="text-3xl mb-3 font-bold text-center title">
             Juan Camilo Salazar Restrepo
           </h1>
+          <h1 className="text-large mb-3 text-center subtile-job">
+              Desarrollador FullStack
+            </h1>
           <hr />
           <div className="flex gap-8 mb-8 mt-8">
             <Image
