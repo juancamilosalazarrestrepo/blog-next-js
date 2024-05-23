@@ -19,15 +19,9 @@ const SneakersCards = ({ posts }) => {
       <main className="py-8 container mx-auto px-44">
         <h2 className="text-center text-3xl font-bold mb-8">
           {" "}
-          Proyecto: Tarjeta Animada con Glasmorfismo:
+          Tarjeta Animada con Glasmorfismo:
         </h2>
-        <iframe
-          className="mx-auto rounded-md mt-8"
-          src="https://awesome-lalande-09ef8d.netlify.app/"
-          width="1200"
-          height="500"
-          title="glassmorfism card"
-        ></iframe>
+      
         {/*         <Image className="mx-auto rounded-md" src={glassCard} alt="" width={400}/>
          */}
         <div>
@@ -41,6 +35,13 @@ const SneakersCards = ({ posts }) => {
               través de una selección de colores.
             </p>
           </section>
+          <iframe
+          className="mx-auto rounded-md mt-8"
+          src="https://awesome-lalande-09ef8d.netlify.app/"
+          width="1200"
+          height="500"
+          title="glassmorfism card"
+        ></iframe>
           <section>
             <h2 class="text-2xl font-semibold mt-6 mb-4">Características</h2>
             <ul class="list-disc pl-6 space-y-2">
