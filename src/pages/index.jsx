@@ -105,7 +105,7 @@ const Home = ({ posts, lastProjects }) => {
                   <div className="max-w-sm bg-white border border-gray-200 rounded-lg shadow ">
                     <Image src={proyecto.imagen} className="rounded-t-lg" />
 
-                    <div className="p-5">
+                    <div className="p-5 h-64">
                       <h5 className="mb-2 text-2xl font-bold tracking-tight text-gray-900 tittleCard ">
                         {proyecto.titulo}
                       </h5>
