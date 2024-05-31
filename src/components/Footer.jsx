@@ -18,12 +18,18 @@ export default function Footer() {
             </h2>
             <ul className="text-gray-600 ">
               <li className="mb-4">
-                <a href="http://localhost:3000/blog" className="hover:underline">
+                <a
+                  href="https://www.salazarcode.com/blog"
+                  className="hover:underline"
+                >
                   Articulos
                 </a>
               </li>
               <li>
-                <a href="http://localhost:3000/portafolio" className="hover:underline">
+                <a
+                  href="https://www.salazarcode.com/portafolio"
+                  className="hover:underline"
+                >
                   Portafolio
                 </a>
               </li>
@@ -58,12 +64,18 @@ export default function Footer() {
             </h2>
             <ul className="text-gray-600 ">
               <li className="mb-4">
-                <a href="http://localhost:3000/politicas" className="hover:underline">
+                <a
+                  href="https://www.salazarcode.com/politicas"
+                  className="hover:underline"
+                >
                   Politicas de Privacidad
                 </a>
               </li>
               <li>
-                <a href="http://localhost:3000/terminos" className="hover:underline">
+                <a
+                  href="https://www.salazarcode.com/terminos"
+                  className="hover:underline"
+                >
                   Terminos &amp; Condiciones
                 </a>
               </li>
@@ -149,7 +161,10 @@ export default function Footer() {
             </svg>
             <span className="sr-only">GitHub account</span>
           </a>
-          <a href="https://www.linkedin.com/in/juancamilosalazarrestrepo/" className="text-gray-500 hover:text-gray-900 ">
+          <a
+            href="https://www.linkedin.com/in/juancamilosalazarrestrepo/"
+            className="text-gray-500 hover:text-gray-900 "
+          >
             <svg
               xmlns="http://www.w3.org/2000/svg"
               viewBox="0 0 50 50"
