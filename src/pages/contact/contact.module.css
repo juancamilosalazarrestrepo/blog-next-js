@@ -87,3 +87,35 @@
 .socialIcon:hover {
   scale: 1.3;
 }
+
+@media only screen and (max-width: 600px) {
+  .containerContact {
+    flex-direction: column-reverse;
+    gap:40px;
+  }
+
+  .containerFormContact {
+    width: 90vw;
+  }
+
+  .containerContactInfo {
+    width: 90vw;
+  }
+
+  .backgroundContainer {
+    width: 100vw;
+    background-size: fill;
+    display: flex; /* ajusta la imagen para cubrir todo el elemento */
+  }
+
+  .mainSectionContact {
+    width: 100%;
+    padding: 50px 0;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    z-index: 2;
+  
+  }
+}

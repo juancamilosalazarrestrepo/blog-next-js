@@ -1,5 +1,6 @@
 import Link from "next/link";
 import logo from "../../public/images/locosc.webp";
+import contactIcon from "../../public/images/customer-service.png";
 import Image from "next/image";
 import { useEffect, useState } from "react";
 import { useRouter } from "next/router";
@@ -86,7 +87,24 @@ export default function NavBar() {
               href="/contact"
             >
               <span>Comunícate conmigo</span>
-            </a>
+            </a>{" "}
+            <div className="-mr-1 md:hidden">
+              <div data-headlessui-state="">
+                <button
+                  className="relative z-10 flex h-8 w-8 items-center justify-center [&amp;:not(:focus-visible)]:focus:outline-none"
+                  aria-label="Toggle Navigation"
+                  type="button"
+                  aria-expanded="false"
+                  data-headlessui-state=""
+                  id="headlessui-popover-button-:R3p6:"
+                  onClick={toggleBurgerMenu}
+                >
+                  <Link href="/contact">
+                    <Image src={contactIcon}></Image>
+                  </Link>
+                </button>
+              </div>
+            </div>
             <div className="-mr-1 md:hidden">
               <div data-headlessui-state="">
                 <button
