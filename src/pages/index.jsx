@@ -7,7 +7,7 @@ import Slider from "../components/Slider";
 import Banners from "../components/Banners";
 import banner1 from "../../public/images/banneBlog.webp";
 import banner2 from "../../public/images/banner2.webp";
-
+import whatsappIconBig from "../../public/images/whatsappBig.png";
 import EffectParticle from "../components/EffectParticle";
 
 import Layout from "../components/Layout";
@@ -18,6 +18,7 @@ import Camilo from "../../public/images/camiloPaginaWeb.png";
 
 const Home = ({ posts, lastProjects }) => {
   const [search, setSearch] = React.useState("");
+  const phoneNumber = '573042093951'; 
   const filteredPosts = posts.filter((frontMatter) =>
     frontMatter.title.toLowerCase().includes(search.toLowerCase())
   );
@@ -26,6 +27,24 @@ const Home = ({ posts, lastProjects }) => {
 
   return (
     <div className="">
+      <div className="whatsappButtom">
+        <a
+          href={`https://wa.me/${phoneNumber}`}
+          target="_blank"
+          rel="noopener noreferrer"
+        >
+          <Image
+            src={whatsappIconBig}
+            width={60}
+            height={60}
+            alt="whatsapp button"
+            style={{
+              filter: "drop-shadow(5px 5px 8px rgba(100, 50, 0, 0.2))",
+              borderRadius: "8px", // Opcional: añade un borde redondeado
+            }}
+          />
+        </a>
+      </div>
       <div
         style={{ position: "relative", width: "1wv", margin: "0", zIndex: "2" }}
       >

@@ -109,7 +109,7 @@ const ContactForm = () => {
           width: "100%",
           boxSizing: "border-box",
           border: "1px solid #ccc",
-          borderRadius: "10px",
+          borderRadius: "14px",
           padding: "8px",
         }}
       >
