@@ -108,16 +108,26 @@ a {
   background-color: #fff;
   position: absolute;
   top: 90px;
-  padding: 10px;
+  padding: 10px 0 50px 0px;
   border-radius: 8px;
   width: 100%;
-  height: 70vh;
   display: none;
-  gap: 10px;
+  box-shadow: rgba(50, 50, 93, 0.25) 0px 50px 100px -20px, rgba(0, 0, 0, 0.3) 0px 30px 60px -30px;
+
+ 
 }
 
 .burgerMenuSection.open {
   display: flex;
+}
+
+.menuItem {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-bottom: 1px solid #c9c9c9;
+  border-radius: 0px;
+  height: 50px;
 }
 
 @media only screen and (max-width: 600px) {
