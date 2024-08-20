@@ -9,7 +9,7 @@ import calculatorDark from "../../../public/images/calculadoradark.webp";
 import cloneChatgpt from "../../../public/images/cloneChatGPT.webp";
 import LogosSlider from "../../components/LogosSlide";
 import proyectos from "../../../data/proyectos/projectos";
-import Camilo from "../../../public/images/camilo1992.webp";
+import Camilo from "../../../public/images/camiloPaginaWeb.png";
 
 
 const Portfolio = ({proyectos}) => {

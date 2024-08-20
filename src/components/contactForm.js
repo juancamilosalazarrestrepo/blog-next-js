@@ -55,7 +55,7 @@ const ContactForm = () => {
             width: "100%",
             boxSizing: "border-box",
             border: "1px solid #ccc",
-            borderRadius: "4px",
+            borderRadius: "10px",
             padding: "8px",
             marginBottom: "20px",
             width:"100%"
@@ -77,7 +77,7 @@ const ContactForm = () => {
             width: "100%",
             boxSizing: "border-box",
             border: "1px solid #ccc",
-            borderRadius: "4px",
+            borderRadius: "10px",
             padding: "8px",
             marginBottom: "20px",
           }}
@@ -96,7 +96,7 @@ const ContactForm = () => {
             width: "100%",
             boxSizing: "border-box",
             border: "1px solid #ccc",
-            borderRadius: "4px",
+            borderRadius: "10px",
             padding: "8px",
             marginBottom: "20px",
           }}
@@ -109,11 +109,11 @@ const ContactForm = () => {
           width: "100%",
           boxSizing: "border-box",
           border: "1px solid #ccc",
-          borderRadius: "4px",
+          borderRadius: "10px",
           padding: "8px",
         }}
       >
-        Send
+        Enviar
       </button>
     </form>
   );

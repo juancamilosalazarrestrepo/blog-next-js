@@ -14,7 +14,7 @@ import Layout from "../components/Layout";
 import LogosSlider from "../components/LogosSlide";
 import proyectos from "../../data/proyectos/projectos";
 import Image from "next/image";
-import Camilo from "../../public/images/camilo1992.webp";
+import Camilo from "../../public/images/camiloPaginaWeb.png";
 
 const Home = ({ posts, lastProjects }) => {
   const [search, setSearch] = React.useState("");

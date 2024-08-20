@@ -9,7 +9,7 @@ import calculatorDark from "../../../public/images/calculadoradark.webp";
 import cloneChatgpt from "../../../public/images/cloneChatGPT.webp";
 import LogosSlider from "../../components/LogosSlide";
 import certificados from "../../../data/certificados/certificados";
-import Camilo from "../../../public/images/camilo1992.webp";
+import Camilo from "../../../public/images/camiloPaginaWeb.png";
 import ContactForm from "../../components/contactForm";
 import contacStyles from "./contact.module.css";
 import phoneIcon from "../../../public/images/phoneIcon.png";
@@ -31,7 +31,7 @@ const Contact = () => {
       <main className={`container mt-1 ${contacStyles.mainSectionContact}`}>
         <div className={contacStyles.containerContact}>
           <div className={contacStyles.containerContactInfo}>
-            <span className={contacStyles.contactFormTitle}>Contactame</span>
+            <span className={contacStyles.contactCard}>Contactame</span>
             <div className={contacStyles.textContactInfo}>
               "Mi nombre es Camilo y estoy entusiasmado por la oportunidad de
               colaborar contigo. Con mi experiencia y conocimientos, estoy listo
@@ -59,54 +59,72 @@ const Contact = () => {
               </div>
 
               <div className={contacStyles.socialIconsContainer}>
-                <Image
-                  src={facebookIcon}
-                  width={24}
-                  height={24}
-                  style={{ objectFit: "contain", marginRight: "15px" }}
-                />
-                <Image
-                  src={instagramIcon}
-                  width={24}
-                  height={24}
-                  style={{ objectFit: "contain", marginRight: "15px" }}
-                />
-                <Image
-                  src={linkedinIcon}
-                  width={24}
-                  height={24}
-                  style={{ objectFit: "contain", marginRight: "15px" }}
-                />
+                <a href="https://www.facebook.com/profile.php?id=61557592842009">
+                  <Image
+                    className={contacStyles.socialIcon}
+                    src={facebookIcon}
+                    width={24}
+                    height={24}
+                    style={{ objectFit: "contain", marginRight: "15px" }}
+                  />
+                </a>
+                <a href="https://www.instagram.com/salazarcode14/">
+                  <Image
+                    className={contacStyles.socialIcon}
+                    src={instagramIcon}
+                    width={24}
+                    height={24}
+                    style={{ objectFit: "contain", marginRight: "15px" }}
+                  />
+                </a>
+                <a href="https://www.linkedin.com/in/juancamilosalazarrestrepo/">
+                  <Image
+                    className={contacStyles.socialIcon}
+                    src={linkedinIcon}
+                    width={24}
+                    height={24}
+                    style={{ objectFit: "contain", marginRight: "15px" }}
+                  />
+                </a>
                 {/*   <Image
                   src={spotifyIcon}
                   width={24}
                   height={24}
                   style={{ objectFit: "contain", marginRight: "15px" }}
                 /> */}
-                <Image
-                  src={youtubeIcon}
-                  width={24}
-                  height={24}
-                  style={{ objectFit: "contain", marginRight: "15px" }}
-                />
+                <a href="https://www.youtube.com/@SalazarCode">
+                  <Image
+                    className={contacStyles.socialIcon}
+                    src={youtubeIcon}
+                    width={24}
+                    height={24}
+                    style={{ objectFit: "contain", marginRight: "15px" }}
+                  />
+                </a>
                 {/*   <Image
                   src={tiktokIcon}
                   width={24}
                   height={24}
                   style={{ objectFit: "contain", marginRight: "15px" }}
                 /> */}
-                <Image
-                  src={behanceIcon}
-                  width={24}
-                  height={24}
-                  style={{ objectFit: "contain", marginRight: "15px" }}
-                />
-                <Image
-                  src={githubIcon}
-                  width={24}
-                  height={24}
-                  style={{ objectFit: "contain", marginRight: "15px" }}
-                />
+                <a href="https://www.behance.net/Mediaproducciones">
+                  <Image
+                    className={contacStyles.socialIcon}
+                    src={behanceIcon}
+                    width={24}
+                    height={24}
+                    style={{ objectFit: "contain", marginRight: "15px" }}
+                  />
+                </a>
+                <a href="https://github.com/juancamilosalazarrestrepo">
+                  <Image
+                    className={contacStyles.socialIcon}
+                    src={githubIcon}
+                    width={24}
+                    height={24}
+                    style={{ objectFit: "contain", marginRight: "15px" }}
+                  />
+                </a>
               </div>
             </div>
           </div>

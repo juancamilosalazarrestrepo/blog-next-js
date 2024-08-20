@@ -20,6 +20,12 @@
 .contactFormTitle {
   font-size: 24px;
   font-weight: 600;
+  margin-bottom: 30px;
+}
+
+.contactCard {
+  font-size: 24px;
+  font-weight: 600;
   margin-bottom: 15px;
 }
 
@@ -32,51 +38,52 @@
   height: 400px;
 }
 
-.textContactInfo{
-    font-size: 14px;
-    color: #757575;
-    margin-bottom: 30px;
-    width: 90%;
-    align-self: center;
+.textContactInfo {
+  font-size: 14px;
+  color: #757575;
+  margin-bottom: 30px;
+  width: 90%;
+  align-self: center;
 }
 
-
-.infoListInfo{
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: flex-start;
-    gap: 5px;
-    padding-top: 0px;
+.infoListInfo {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: flex-start;
+  gap: 5px;
+  padding-top: 0px;
 }
-.infoItem{
-    display: flex;
-    color: #575757;
-    align-self: center;
-
+.infoItem {
+  display: flex;
+  color: #575757;
+  align-self: center;
 }
 
-.socialIconsContainer{
-    display: flex;
-    margin-top: 30px;
-    align-self: center;
-    
+.socialIconsContainer {
+  display: flex;
+  margin-top: 30px;
+  align-self: center;
 }
 
-.mainSectionContact{
-    margin: auto;
-    z-index: 20;
-    width: 100vw;
-    padding: 100px;
-
+.mainSectionContact {
+  margin: auto;
+  z-index: 20;
+  width: 100vw;
+  padding: 100px;
 }
 
-.backgroundContainer{
-    background-image: url('../../../public/images/banneBlog.webp');
-    background-size: cover; /* ajusta la imagen para cubrir todo el elemento */
-    background-position: center; /* centra la imagen */
-    background-repeat: no-repeat; /* evita que la imagen se repita */
+.backgroundContainer {
+  background-image: url("../../../public/images/banneBlog.webp");
+  background-size: cover; /* ajusta la imagen para cubrir todo el elemento */
+  background-position: center; /* centra la imagen */
+  background-repeat: no-repeat; /* evita que la imagen se repita */
 }
 
+.socialIcon {
+  transition: all 0.2s ease-in-out;
+}
 
-
+.socialIcon:hover {
+  scale: 1.3;
+}
