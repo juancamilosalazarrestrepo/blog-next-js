@@ -103,6 +103,23 @@ a {
   border-radius: 8px 15px !important;
 }
 
+.burgerMenuSection {
+  flex-direction: column;
+  background-color: #fff;
+  position: absolute;
+  top: 90px;
+  padding: 10px;
+  border-radius: 8px;
+  width: 100%;
+  height: 70vh;
+  display: none;
+  gap: 10px;
+}
+
+.burgerMenuSection.open {
+  display: flex;
+}
+
 @media only screen and (max-width: 600px) {
   .title {
     font-size: 1.2em;

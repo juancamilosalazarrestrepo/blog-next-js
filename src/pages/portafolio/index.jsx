@@ -28,10 +28,10 @@ const Portfolio = ({ proyectos }) => {
             Juan Camilo Salazar Restrepo
           </h1>
           <h1 className="text-large mb-3 text-center subtile-job">
-              Desarrollador FullStack
-            </h1>
+            Desarrollador FullStack
+          </h1>
           <hr />
-          <div className="flex gap-8 mb-8 mt-8">
+          <div className="flex gap-8 mb-8 mt-8 perfil">
             <Image
               src={Camilo}
               width={320}
