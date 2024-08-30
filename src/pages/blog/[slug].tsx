@@ -1,7 +1,7 @@
 import { NextPage, GetStaticPaths, GetStaticProps } from "next";
 import Image from "next/image";
-import NavBar from "@/components/NavBar";
 import Layout from "@/components/Layout";
+import Head from "next/head";
 
 import { MDXRemote } from "next-mdx-remote";
 import ViewsCounter from "@/components/ViewCounter";
@@ -32,6 +32,15 @@ const DynamicPost: NextPage<Props> = ({ frontMatter, mdxSource }) => {
   console.log("front matter", frontMatter);
   return (
     <div>
+      <Head>
+        <meta property="og:title" content={frontMatter.title} />
+        <meta property="og:image" content={frontMatter.image} />
+        <meta
+          property="og:url"
+          content={`https://tu-dominio.com/posts/${frontMatter.slug}`}
+        />
+        <meta property="og:type" content="article" />
+      </Head>
       <div>
         <div>
           <Image
