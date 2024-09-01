@@ -15,7 +15,7 @@ const certificados = [
     url: "/portafolio/calculadora",
   },
   {
-    titulo: "Desarrollo de Estension con PixieBrix + AI Certification",
+    titulo: "Desarrollo de Extension con PixieBrix + AI Certification",
     imagen: certificadoPixieBrix,
     description:
       "Curso de Creacion de extensiones con inteligencia artificial, utilizando la Herramienta PixieBrix.",
