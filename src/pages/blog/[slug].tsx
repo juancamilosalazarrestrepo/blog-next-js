@@ -14,6 +14,7 @@ type Props = {
     image: string;
     imageOG: string;
     thumb: string;
+    subtitle: string;
     wordCount: number;
     readingTime: {
       minutes: number;
@@ -38,9 +39,10 @@ const DynamicPost: NextPage<Props> = ({ frontMatter, mdxSource }) => {
       <Head>
         <meta property="og:title" content={frontMatter.title} />
         <meta property="og:image" content="https://i.imgur.com/mzDySPu.png" />
+        <meta property="og:description" content={frontMatter.subtitle} />
         <meta
           property="og:url"
-          content={`https://tu-dominio.com/posts/${frontMatter.slug}`}
+          content={`https://www.salazarcode.com/blog/${frontMatter.slug}`}
         />
         <meta property="og:type" content="article" />
         <meta name="twitter:card" content={frontMatter.thumb} />
