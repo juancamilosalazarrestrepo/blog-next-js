@@ -13,6 +13,7 @@ type Props = {
     slug: string;
     image: string;
     imageOG: string;
+    thumb: string;
     wordCount: number;
     readingTime: {
       minutes: number;
@@ -31,16 +32,18 @@ import Banners from "@/components/Banners";
 
 const DynamicPost: NextPage<Props> = ({ frontMatter, mdxSource }) => {
   console.log("front matter", frontMatter);
+  console.log("fdd", frontMatter.image);
   return (
     <div>
       <Head>
-        <meta property="og:title" content={frontMatter.title} />
-        <meta property="og:image" content={frontMatter.image} />
+        <meta property="og:title" content={`${frontMatter.title} OG OG `} />
+        <meta property="og:image" content={frontMatter.thumb} />
         <meta
           property="og:url"
           content={`https://tu-dominio.com/posts/${frontMatter.slug}`}
         />
         <meta property="og:type" content="article" />
+        <meta name="twitter:card" content={frontMatter.thumb} />
       </Head>
       <div>
         <div>
