@@ -36,8 +36,11 @@ const DynamicPost: NextPage<Props> = ({ frontMatter, mdxSource }) => {
   return (
     <div>
       <Head>
-        <meta property="og:title" content={`${frontMatter.title} OG OG `} />
-        <meta property="og:image" content={frontMatter.thumb} />
+        <meta property="og:title" content={frontMatter.title} />
+        <meta
+          property="og:image"
+          content="../../../public/images/automatization.png"
+        />
         <meta
           property="og:url"
           content={`https://tu-dominio.com/posts/${frontMatter.slug}`}
