@@ -39,7 +39,7 @@ const DynamicPost: NextPage<Props> = ({ frontMatter, mdxSource }) => {
         <meta property="og:title" content={frontMatter.title} />
         <meta
           property="og:image"
-          content="../../../public/images/automatization.png"
+          content={frontMatter.imageOG}
         />
         <meta
           property="og:url"
