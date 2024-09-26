@@ -91,7 +91,7 @@ export default function LogosSlider() {
                   <SwiperSlide key={index}>
                     {" "}
                     <Image
-                    isDuplicate={true}
+                  //  isDuplicate={true}
                       src={img}
                  
                       height={500}
