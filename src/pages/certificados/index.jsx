@@ -7,6 +7,9 @@ import banner2 from "../../../public/images/banner2.webp";
 import LogosSlider from "../../components/LogosSlide";
 import certificados from "../../../data/certificados/certificados";
 import { GoogleAnalytics } from "@next/third-parties/google";
+import styles from "./index.module.css";
+
+
 const Certificados = ({ certificados }) => {
   const images = [banner1, banner2];
 
@@ -33,7 +36,7 @@ const Certificados = ({ certificados }) => {
                     <p className="mb-3 font-normal text-gray-700 ">
                       {proyecto.description}
                     </p>
-                    <p className="inline-flex items-center px-3 py-2 text-sm font-medium text-center text-white buttonColor rounded-lg  focus:ring-4 focus:outline-none focus:ring-blue-300 ">
+                    {/* <p className="inline-flex items-center px-3 py-2 text-sm font-medium text-center text-white buttonColor rounded-lg  focus:ring-4 focus:outline-none focus:ring-blue-300 ">
                       Leer mas
                       <svg
                         aria-hidden="true"
@@ -48,7 +51,8 @@ const Certificados = ({ certificados }) => {
                           clipRule="evenodd"
                         ></path>
                       </svg>
-                    </p>
+                    </p> */}
+                    <div className={styles.lineaAzul}></div>
                   </div>
                 </div>
               </Link>

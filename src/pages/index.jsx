@@ -69,6 +69,7 @@ const Home = ({ posts, lastProjects }) => {
                 alt=""
                 className="rounded-lg shadow-xl w-72 h-72"
               />
+              
 
               <div>
                 <p className="textDescription">

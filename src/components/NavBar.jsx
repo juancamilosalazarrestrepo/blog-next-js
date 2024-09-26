@@ -24,11 +24,11 @@ export default function NavBar() {
     <div>
       <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
         <nav className="relative z-2 flex justify-between">
-          <div className="flex items-center md:gap-x-12">
+          <div className="flex items-center md:gap-x-14">
             <Link href="/" aria-label="Home">
               <Image src={logo} width={200} height={60} />
             </Link>
-            <div className="hidden md:flex md:gap-x-6">
+            <div className="hidden md:flex md:gap-x-8 px-8 ">
               <Link
                 href="/portafolio"
                 className={`inline-block rounded-lg py-1 px-2 text-sm text-slate-700 hover:bg-slate-100  ${
@@ -45,14 +45,14 @@ export default function NavBar() {
               >
                 Blog
               </Link>
-              <Link
+           {/*    <Link
                 href="/precios"
                 className={`inline-block rounded-lg py-1 px-2 text-sm text-slate-700 hover:bg-slate-100  ${
                   activeURL === "/precios" ? "active" : ""
                 }`}
               >
                 Precios
-              </Link>
+              </Link> */}
               {console.log("este", activeURL)}
               <Link
                 href="/proyectos"
@@ -63,14 +63,14 @@ export default function NavBar() {
                 Proyectos
               </Link>
 
-              <Link
+             {/*  <Link
                 href="/cursos"
                 className={`inline-block rounded-lg py-1 px-2 text-sm text-slate-700 hover:bg-slate-100  ${
                   activeURL === "/cursos" ? "active" : ""
                 }`}
               >
                 Cursos
-              </Link>
+              </Link> */}
               <Link
                 href="/certificados"
                 className={`inline-block rounded-lg py-1 px-2 text-sm text-slate-700 hover:bg-slate-100  ${
