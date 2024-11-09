@@ -28,7 +28,7 @@ export default function NavBar() {
             <Link href="/" aria-label="Home">
               <Image src={logo} width={200} height={60} />
             </Link>
-            <div className="hidden md:flex md:gap-x-8 px-8 ">
+            <div className="hidden md:flex md:gap-x-8 px-8">
               <Link
                 href="/portafolio"
                 className={`inline-block rounded-lg py-1 px-2 text-sm text-slate-700 hover:bg-slate-100  ${

@@ -7,8 +7,16 @@ import certificadoAWS from "../../public/images/certificadoAWS.png";
 import certificadoFullStack from "../../public/images/certificadoFullStack.png";
 import certificadoContentMarketing from "../../public/images/certificadocontentMarketing.png";
 import certificadoScrum from "../../public/images/certificadoScrum.png";
+import certificadoReactNative from "../../public/images/certificadoReactNative.jpg";
+
 
 const certificados = [
+  {
+    titulo: "Desarrollo de aplicaciones moviles con React Native",
+    imagen: certificadoReactNative,
+    description:"Desarrollo de Aplicaciones Moviles con React Native, para desarrollar aplicaciones moviles multiplataforma.",
+    url: "*",
+  },
   {
     titulo: "Programacion Backend con C# .NET 8",
     imagen: certificadoNet8,
@@ -71,7 +79,7 @@ const certificados = [
     url: "*",
   },
   {
-    titulo: "Certificado Progrmación Basica de platzi",
+    titulo: "Certificado Programación Basica de platzi",
     imagen: certificadogit,
     description:
       "Certificado del curso de programación basica de paltzi , donde vimos javascript, html y css",

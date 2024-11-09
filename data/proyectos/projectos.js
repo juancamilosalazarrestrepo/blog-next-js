@@ -3,8 +3,17 @@ import cloneChatgpt from "../../public/images/cloneChatGPT.webp";
 import mercadoLiebre from "../../public/images/mercadoliebre.webp";
 import tarjeta from "../../public/images/tarjeta.webp";
 import parallaxLanding from "../../public/images/parallax.webp";
+import littleLemonApp from "../../public/images/littleLemonApp.png";
+
 
 const proyectos = [
+  {
+    titulo: "Aplicacion Movil para Restaurante",
+    imagen: littleLemonApp,
+    description:
+      "Aplicacion Movil Para Restaurantes , realizada con React Native , esta aplicaicion permite subscribirse a un newsletter. ",
+    url: "/portafolio/calculadora",
+  },
   {
     titulo: "E-commerce Clon de Mercadolibre",
     imagen: mercadoLiebre,
