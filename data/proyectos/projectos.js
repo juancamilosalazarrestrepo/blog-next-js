@@ -8,11 +8,11 @@ import littleLemonApp from "../../public/images/littleLemonApp.png";
 
 const proyectos = [
   {
-    titulo: "Aplicacion Movil para Restaurante",
+    titulo: "Aplicación Movil para Restaurante",
     imagen: littleLemonApp,
     description:
-      "Aplicacion Movil Para Restaurantes , realizada con React Native , esta aplicaicion permite subscribirse a un newsletter. ",
-    url: "/portafolio/calculadora",
+      "Aplicación Movil Para Restaurantes , realizada con React Native , esta aplicaicion permite subscribirse a un newsletter. ",
+    url: "/proyectos/aplicacion_movil_para_restaurantes",
   },
   {
     titulo: "E-commerce Clon de Mercadolibre",
