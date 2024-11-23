@@ -5,7 +5,7 @@ import Link from "next/link";
 import NavBar from "../components/NavBar";
 import Slider from "../components/Slider";
 import Banners from "../components/Banners";
-import banner1 from "../../public/images/banneBlog.webp";
+import banner1 from "../../public/images/background.jpg";
 import banner2 from "../../public/images/banner2.webp";
 import whatsappIconBig from "../../public/images/whatsappBig.png";
 import EffectParticle from "../components/EffectParticle";
@@ -18,12 +18,12 @@ import Camilo from "../../public/images/camiloPaginaWeb.png";
 
 const Home = ({ posts, lastProjects }) => {
   const [search, setSearch] = React.useState("");
-  const phoneNumber = '573042093951'; 
+  const phoneNumber = "573042093951";
   const filteredPosts = posts.filter((frontMatter) =>
     frontMatter.title.toLowerCase().includes(search.toLowerCase())
   );
 
-  const images = [banner1, banner2];
+  const images = [banner1];
 
   return (
     <div className="">
@@ -48,7 +48,7 @@ const Home = ({ posts, lastProjects }) => {
       <div
         style={{ position: "relative", width: "1wv", margin: "0", zIndex: "2" }}
       >
-        <Banners images={images} />
+        <Banners images={images}  />
       </div>
 
       <main>
@@ -69,7 +69,6 @@ const Home = ({ posts, lastProjects }) => {
                 alt=""
                 className="rounded-lg shadow-xl w-72 h-72"
               />
-              
 
               <div>
                 <p className="textDescription">

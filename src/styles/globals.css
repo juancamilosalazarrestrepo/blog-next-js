@@ -1,9 +1,38 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+@font-face {
+  font-family: "drugs";
+  src: url("/public/fonts/TT-Drugs.otf") format("opentype");
+  font-weight: normal;
+  font-style: normal;
+}
+
+.parkinsans-123456 {
+  font-family: "Parkinsans", sans-serif;
+  font-optical-sizing: auto;
+  font-weight: 400;
+  font-style: normal;
+  color: #0072ff;
+}
+
+.anchoBanner{
+  width: 100%;
+}
+
+.buttonHoverText:hover{
+  color: #021b79 !important;
+}
+
 body {
   background-color: #fdfdfd;
   color: #212427;
+}
+
+.textFont {
+  font-family: "drugs", sans-serif;
+  font-style: italic;
 }
 
 a {
@@ -14,17 +43,15 @@ a {
   color: #0575e6;
 }
 
-.whatsappButtom{
-  position: fixed;  /* Posiciona el elemento en relación a la ventana del navegador */
-  bottom: 30px;     /* Espacio de 30px desde la parte inferior */
-  right: 30px; 
-  transition: 0.8s all cubic-bezier(0.215, 0.610, 0.355, 1);
-  
+.whatsappButtom {
+  position: fixed; /* Posiciona el elemento en relación a la ventana del navegador */
+  bottom: 30px; /* Espacio de 30px desde la parte inferior */
+  right: 30px;
+  transition: 0.8s all cubic-bezier(0.215, 0.61, 0.355, 1);
 }
 
-.whatsappButtom:hover{
-  scale:1.2 ;
-
+.whatsappButtom:hover {
+  scale: 1.2;
 }
 
 .buttonColor {
@@ -122,13 +149,12 @@ a {
   background-color: #fff;
   position: absolute;
   top: 90px;
-  padding-bottom:20px;
+  padding-bottom: 20px;
   border-radius: 8px;
   width: 100%;
   display: none;
-  box-shadow: rgba(50, 50, 93, 0.25) 0px 50px 100px -20px, rgba(0, 0, 0, 0.3) 0px 30px 60px -30px;
-
- 
+  box-shadow: rgba(50, 50, 93, 0.25) 0px 50px 100px -20px,
+    rgba(0, 0, 0, 0.3) 0px 30px 60px -30px;
 }
 
 .burgerMenuSection.open {
@@ -190,7 +216,7 @@ a {
     margin-bottom: 20px;
   }
 
-  .active{
+  .active {
     border: none;
   }
 }

@@ -54,8 +54,7 @@ export default function LogosSlider() {
                     
                       height={500}
 
-                      //sizes="(max-width: 640px) 700px , (min-width:1000px) 1920px"
-                      // srcset="../../public/images/eficience.jpg x1 , ../../banner2.webp x2 , ../../banneBlog.webp x3"
+                 
                       className="w-100"
                       placeholder="blur"
                    
@@ -95,8 +94,7 @@ export default function LogosSlider() {
                       src={img}
                  
                       height={500}
-                      //sizes="(max-width: 640px) 700px , (min-width:1000px) 1920px"
-                      // srcset="../../public/images/eficience.jpg x1 , ../../banner2.webp x2 , ../../banneBlog.webp x3"
+                      
                       className="w-100"
                       placeholder="blur"
                     />

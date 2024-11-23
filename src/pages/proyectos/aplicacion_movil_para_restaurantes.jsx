@@ -3,7 +3,7 @@ import Image from "next/image";
 import Layout from "../../components/Layout";
 import Link from "next/link";
 import Banners from "../../components/Banners";
-import banner1 from "../../../public/images/banneBlog.webp";
+import banner1 from "../../../public/images/background.jpg"
 import banner2 from "../../../public/images/banner2.webp";
 
 const AplicacionMovilParaRestaurantes = ({ posts }) => {

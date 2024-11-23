@@ -74,7 +74,7 @@
 }
 
 .backgroundContainer {
-  background-image: url("../../../public/images/banneBlog.webp");
+  background-image: url("../../../public/images/background.jpg");
   background-size: cover; /* ajusta la imagen para cubrir todo el elemento */
   background-position: center; /* centra la imagen */
   background-repeat: no-repeat; /* evita que la imagen se repita */
