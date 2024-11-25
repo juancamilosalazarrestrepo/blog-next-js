@@ -90,90 +90,93 @@ export default function Banners({ images }) {
                         height: "500px",
                       }}
                     >
-                      <div>
-                        {" "}
-                        <span
-                          //className="parkinsans-123456"
+                      <div
+                        style={{
+                          position: "absolute",
+                          top: "52%",
+                          left: "40%",
+                          transform: "translate(-50%, -50%)",
+                          width: "900px",
+                        }}
+                      >
+                        <div
                           style={{
-                            fontSize: "120px",
-                            color: "white",
-                            fontWeight: "700",
-                            position: "absolute",
-                            top: "35%",
-                            left: "35%",
-                            transform: "translate(-50%, -50%)",
-                            zIndex: 10, // Asegura que esté sobre la imagen
-                            //fontFamily: "drugs",
-                            /*   fontFamily: roboto.style.fontFamily,
-                          fontWeight: "bold",
-                          fontStyle: "italic", */
-                            fontFamily: "Teko",
+                            display: "flex",
+                            flexDirection: "column",
+                            alignItems: "flex-start",
                           }}
                         >
-                          Juan Camilo
-                        </span>
-                        <span
+                          {" "}
+                          <span
+                            //className="parkinsans-123456"
+                            style={{
+                              fontSize: "120px",
+                              color: "white",
+                              fontWeight: "700",
+                              fontFamily: "Teko",
+                              height: "100%",
+                              padding: "0px",
+                              margin: "0px",
+                              lineHeight: "100px",
+                            }}
+                          >
+                            Juan Camilo
+                          </span>
+                          <span
+                            style={{
+                              fontSize: "128px",
+                              color: "white",
+                              fontWeight: "300",
+                              fontFamily: "Teko",
+                              padding: "0px",
+                              margin: "0px",
+                              lineHeight: "100px",
+                            }}
+                          >
+                            Salazar Restrepo
+                          </span>
+                          <span
+                            style={{
+                              fontSize: "20px",
+                              color: "white",
+                              fontWeight: "100",
+                            }}
+                          >
+                            Especialista en desarrollo de software , impulsemos
+                            tus <br />
+                            proyectos rumbo al éxito.
+                          </span>
+                        </div>
+
+                        <div
                           style={{
-                            fontSize: "128px",
-                            color: "white",
-                            fontWeight: "300",
-                            position: "absolute",
-                            top: "55%",
-                            left: "35%",
-                            transform: "translate(-50%, -50%)",
-                            zIndex: 10, // Asegura que esté sobre la imagen
-                            fontFamily: "Teko",
+                            display: "flex",
+                            gap: "20px",
+
+                            marginTop: "20px",
                           }}
                         >
-                          Salazar Restrepo
-                        </span>
-                        <span
-                          style={{
-                            fontSize: "20px",
-                            color: "white",
-                            fontWeight: "100",
-                            position: "absolute",
-                            top: "71%",
-                            left: "32.5%",
-                            transform: "translate(-50%, -50%)",
-                            zIndex: 10, // Asegura que esté sobre la imagen
-                          }}
-                        >
-                          Especialista en desarrollo de software , impulsemos
-                          tus <br />
-                          proyectos rumbo al éxito.
-                        </span>
-                        <a
-                          style={{
-                            position: "absolute",
-                            top: "83%",
-                            left: "25.6%",
-                            transform: "translate(-50%, -50%)",
-                            zIndex: 10, // Asegura que esté sobre la imagen
-                          }}
-                          className=" max-sm:hidden group inline-flex items-center justify-center rounded-full py-2 px-4 text-sm font-semibold focus:outline-none focus-visible:outline-2 focus-visible:outline-offset-2 bg-[#0575E6] buttonHoverText text-white hover:text-slate-100 hover:bg-[#fff] active:bg-[#021B79] active:text-blue-100 focus-visible:outline-[#021B79]"
-                          href="/contact"
-                        >
-                          <span>Comunícate conmigo</span>
-                        </a>
-                        <a
-                          style={{
-                            position: "absolute",
-                            top: "83%",
-                            left: "33.5%",
-                            transform: "translate(-50%, -50%)",
-                            zIndex: 10, // Asegura que esté sobre la imagen
-                            color: "white", // Texto blanco
-                            border: "1px solid white", // Borde blanco de 1px
-                            borderRadius: "9999px", // Para que siga siendo redondeado
-                            padding: "7px 20px", // Espaciado interno
-                            textAlign: "center",
-                          }}
-                          className="buttonHoverText group inline-flex items-center justify-center text-sm font-semibold focus:outline-none focus-visible:outline-2 focus-visible:outline-offset-2 hover:bg-white hover:text-[#021B79] active:bg-white active:text-[#021B79] hover:bg-[#fff] focus-visible:outline-white"
-                          href="/portafolio"
-                        >
-                          <span>ver portafolio</span>
-                        </a>
+                          <a
+                            style={{}}
+                            className=" max-sm:hidden group inline-flex items-center justify-center rounded-full py-2 px-4 text-sm font-semibold focus:outline-none focus-visible:outline-2 focus-visible:outline-offset-2 bg-[#0575E6] buttonHoverText text-white hover:text-slate-100 hover:bg-[#fff] active:bg-[#021B79] active:text-blue-100 focus-visible:outline-[#021B79]"
+                            href="/contact"
+                          >
+                            <span>Comunícate conmigo</span>
+                          </a>
+                          <a
+                            style={{
+                              color: "white", // Texto blanco
+                              border: "1px solid white", // Borde blanco de 1px
+                              borderRadius: "9999px", // Para que siga siendo redondeado
+                              padding: "7px 20px", // Espaciado interno
+                              textAlign: "center",
+                            }}
+                            className="buttonHoverText group inline-flex items-center justify-center text-sm font-semibold focus:outline-none focus-visible:outline-2 focus-visible:outline-offset-2 hover:bg-white hover:text-[#021B79] active:bg-white active:text-[#021B79] hover:bg-[#fff] focus-visible:outline-white"
+                            href="/portafolio"
+                          >
+                            <span>ver portafolio</span>
+                          </a>
+                        </div>
                       </div>
 
                       <div>
