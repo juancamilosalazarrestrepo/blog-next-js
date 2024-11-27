@@ -201,7 +201,7 @@ export default function Banners({ images }) {
                               zIndex: 1, // Detrás
                               scale: "1.2",
                             }}
-                            className="w-100"
+                            className="w-100 computer"
                             placeholder="blur"
                           />
 
@@ -218,7 +218,7 @@ export default function Banners({ images }) {
                               zIndex: 2, // Encima
                               scale: "0.9",
                             }}
-                            className="w-100"
+                            className="w-100 phones"
                             placeholder="blur"
                           />
                         </div>

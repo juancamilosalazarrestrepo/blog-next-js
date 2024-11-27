@@ -18,12 +18,46 @@
 }
 
 .camiloText {
-  color: #22ffff;
+  background: linear-gradient(90deg, #22ffff, #00ff00);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  transition: background 0.3s ease-in-out;
 }
 
 .camiloText:hover {
-  color: #fff;
-  font-style: italic;
+  background: linear-gradient(90deg, #fff, #ffe600);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.computer {
+  transform: scale(1) rotate(0deg);
+  /*Escalainicialysinrotación*/
+  transition: transform 0.3s ease-in-out;
+}
+
+
+
+.computer:hover {
+  transform: scale(1.1) rotate(2deg);
+  -webkit-transform: scale(1.1) rotate(2deg);
+  -moz-transform: scale(1.1) rotate(2deg);
+  -ms-transform: scale(1.1) rotate(2deg);
+  -o-transform: scale(1.1) rotate(2deg);
+}
+
+.phones {
+  transform: scale(1) rotate(0deg);
+  /*Escalainicialysinrotación*/
+  transition: transform 0.3s ease-in-out;
+}
+
+.phones:hover {
+  transform: scale(1.1) rotate(2deg);
+  -webkit-transform: scale(1.1) rotate(2deg);
+  -moz-transform: scale(1.1) rotate(2deg);
+  -ms-transform: scale(1.1) rotate(2deg);
+  -o-transform: scale(1.1) rotate(2deg);
 }
 
 .anchoBanner {

@@ -54,6 +54,50 @@ const Home = ({ posts, lastProjects }) => {
       <main>
         <div className="py-8 container mx-auto px-44 ">
           <div className="mt-1 containerPerfil">
+        {/*   <h1 className="font-bold text-2xl mb-8 subTittle">
+            Ultimos proyectos
+          </h1> */}
+          <div className="grid grid-cols-3 gap-4 content-center max-sm:grid-cols-1 max-sm:w-full  max-sm:px-8 mb-20 proyectosBanner">
+            {lastProjects.map((proyecto, index) => {
+              return (
+                <Link
+                  href={proyecto.url}
+                  key={proyecto.url}
+                  className="max-w-sm max-sm:w-full shadow-2xl"
+                >
+                  <div className="max-w-sm bg-white border border-gray-200 rounded-lg shadow ">
+                    <Image src={proyecto.imagen} className="rounded-t-lg" />
+
+                    <div className="p-5 h-64">
+                      <h5 className="mb-2 text-2xl font-bold tracking-tight text-gray-900 tittleCard ">
+                        {proyecto.titulo}
+                      </h5>
+
+                      <p className="mb-3 font-normal text-gray-700 descriptionCard">
+                        {proyecto.description}
+                      </p>
+                      <p className="inline-flex items-center px-3 py-2 text-sm font-medium text-center text-white buttonColor rounded-lg 0 focus:ring-4 focus:outline-none focus:ring-blue-300 ">
+                        Leer mas
+                        <svg
+                          aria-hidden="true"
+                          className="w-4 h-4 ml-2 -mr-1"
+                          fill="currentColor"
+                          viewBox="0 0 20 20"
+                          xmlns="http://www.w3.org/2000/svg"
+                        >
+                          <path
+                            fillRule="evenodd"
+                            d="M10.293 3.293a1 1 0 011.414 0l6 6a1 1 0 010 1.414l-6 6a1 1 0 01-1.414-1.414L14.586 11H3a1 1 0 110-2h11.586l-4.293-4.293a1 1 0 010-1.414z"
+                            clipRule="evenodd"
+                          ></path>
+                        </svg>
+                      </p>
+                    </div>
+                  </div>
+                </Link>
+              );
+            })}
+          </div>
             <h1 className="text-3xl font-bold text-center title">
               Juan Camilo Salazar Restrepo
             </h1>
@@ -110,50 +154,7 @@ const Home = ({ posts, lastProjects }) => {
               </div>
             </div>
           </div>
-          <h1 className="font-bold text-2xl mb-8 subTittle">
-            Ultimos proyectos
-          </h1>
-          <div className="grid grid-cols-3 gap-4 content-center max-sm:grid-cols-1 max-sm:w-full  max-sm:px-8">
-            {lastProjects.map((proyecto, index) => {
-              return (
-                <Link
-                  href={proyecto.url}
-                  key={proyecto.url}
-                  className="max-w-sm max-sm:w-full shadow-2xl"
-                >
-                  <div className="max-w-sm bg-white border border-gray-200 rounded-lg shadow ">
-                    <Image src={proyecto.imagen} className="rounded-t-lg" />
-
-                    <div className="p-5 h-64">
-                      <h5 className="mb-2 text-2xl font-bold tracking-tight text-gray-900 tittleCard ">
-                        {proyecto.titulo}
-                      </h5>
-
-                      <p className="mb-3 font-normal text-gray-700 descriptionCard">
-                        {proyecto.description}
-                      </p>
-                      <p className="inline-flex items-center px-3 py-2 text-sm font-medium text-center text-white buttonColor rounded-lg 0 focus:ring-4 focus:outline-none focus:ring-blue-300 ">
-                        Leer mas
-                        <svg
-                          aria-hidden="true"
-                          className="w-4 h-4 ml-2 -mr-1"
-                          fill="currentColor"
-                          viewBox="0 0 20 20"
-                          xmlns="http://www.w3.org/2000/svg"
-                        >
-                          <path
-                            fillRule="evenodd"
-                            d="M10.293 3.293a1 1 0 011.414 0l6 6a1 1 0 010 1.414l-6 6a1 1 0 01-1.414-1.414L14.586 11H3a1 1 0 110-2h11.586l-4.293-4.293a1 1 0 010-1.414z"
-                            clipRule="evenodd"
-                          ></path>
-                        </svg>
-                      </p>
-                    </div>
-                  </div>
-                </Link>
-              );
-            })}
-          </div>
+         
           <h1 className="font-bold text-2xl mb-8 mt-8 subTittle">
             Ultimos Articulos
           </h1>
