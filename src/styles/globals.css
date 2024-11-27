@@ -17,11 +17,20 @@
   color: #0072ff;
 }
 
-.anchoBanner{
+.camiloText {
+  color: #22ffff;
+}
+
+.camiloText:hover {
+  color: #fff;
+  font-style: italic;
+}
+
+.anchoBanner {
   width: 100%;
 }
 
-.buttonHoverText:hover{
+.buttonHoverText:hover {
   color: #021b79 !important;
 }
 

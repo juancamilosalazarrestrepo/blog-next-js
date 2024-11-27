@@ -94,7 +94,7 @@ export default function Banners({ images }) {
                         style={{
                           position: "absolute",
                           top: "52%",
-                          left: "40%",
+                          left: "43%",
                           transform: "translate(-50%, -50%)",
                           width: "900px",
                         }}
@@ -120,7 +120,7 @@ export default function Banners({ images }) {
                               lineHeight: "100px",
                             }}
                           >
-                            Juan Camilo
+                            Juan <span className="camiloText">Camilo</span>
                           </span>
                           <span
                             style={{
