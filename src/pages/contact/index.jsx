@@ -3,7 +3,7 @@ import Image from "next/image";
 import Layout from "../../components/Layout";
 import Link from "next/link";
 import Banners from "../../components/Banners";
-import banner1 from "../../../public/images/background.jpg"
+import banner1 from "../../../public/images/background.jpg";
 import banner2 from "../../../public/images/banner2.webp";
 import calculatorDark from "../../../public/images/calculadoradark.webp";
 import cloneChatgpt from "../../../public/images/cloneChatGPT.webp";
@@ -22,6 +22,7 @@ import linkedinIcon from "../../../public/images/linkedin.png";
 import tiktokIcon from "../../../public/images/tiktok.png";
 import githubIcon from "../../../public/images/github.png";
 import behanceIcon from "../../../public/images/behance.png";
+import CalendlyWidget from "../../components/Clalendly";
 
 const Contact = () => {
   const images = [banner1, banner2];
@@ -136,6 +137,8 @@ const Contact = () => {
             </h1>
             <ContactForm />
           </div>
+
+          <CalendlyWidget />
         </div>
       </main>
     </div>

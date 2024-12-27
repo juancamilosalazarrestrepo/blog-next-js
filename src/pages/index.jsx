@@ -6,6 +6,7 @@ import NavBar from "../components/NavBar";
 import Slider from "../components/Slider";
 import Banners from "../components/Banners";
 import banner1 from "../../public/images/background.jpg";
+import banner3 from "../../public/images/background3.png";
 import banner2 from "../../public/images/banner2.webp";
 import whatsappIconBig from "../../public/images/whatsappBig.png";
 import EffectParticle from "../components/EffectParticle";
@@ -23,7 +24,7 @@ const Home = ({ posts, lastProjects }) => {
     frontMatter.title.toLowerCase().includes(search.toLowerCase())
   );
 
-  const images = [banner1];
+  const images = [banner3];
 
   return (
     <div className="">
