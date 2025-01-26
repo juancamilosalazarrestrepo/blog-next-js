@@ -138,7 +138,7 @@ const Contact = () => {
             <ContactForm />
           </div>
 
-          <CalendlyWidget />
+          
         </div>
       </main>
     </div>
