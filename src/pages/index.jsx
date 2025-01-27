@@ -112,7 +112,7 @@ const Home = ({ posts, lastProjects }) => {
                 width={320}
                 height={320}
                 alt=""
-                className="rounded-lg shadow-xl w-72 h-72"
+                className="rounded-lg shadow-xl w-72 h-72 imagenPerfil"
               />
 
               <div>
