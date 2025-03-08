@@ -117,7 +117,7 @@ const Home = ({ posts, lastProjects }) => {
 
               <div>
                 <p className="textDescription">
-                  Licenciado en Informática y Medios Audiovisuales de la
+                   Especialista en Informática y Medios Audiovisuales de la
                   Universidad de Córdoba, especializado en desarrollo de
                   software utilizando <strong>React</strong>,{" "}
                   <strong>Node.js</strong>, <strong>SQL</strong> y{" "}
