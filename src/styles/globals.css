@@ -25,7 +25,7 @@
 }
 
 
-.headerMobile{
+.headerMobile {
   height: 580px;
   background-color: #0072ff;
   display: flex;
@@ -35,7 +35,7 @@
   align-items: flex-start;
 }
 
-.headerTextMobile{
+.headerTextMobile {
 
   color: #fff;
   font-weight: 900;
@@ -44,14 +44,14 @@
 
 }
 
-.headerSubTextMobile{
+.headerSubTextMobile {
   color: #fff;
   font-weight: 200;
   font-size: 24px;
   margin-top: 10px;
 }
 
-.headerParagraphMobile{
+.headerParagraphMobile {
   color: #fff;
   font-weight: 100;
   font-size: 18px;
@@ -121,8 +121,10 @@ a {
 }
 
 .whatsappButtom {
-  position: fixed; /* Posiciona el elemento en relación a la ventana del navegador */
-  bottom: 30px; /* Espacio de 30px desde la parte inferior */
+  position: fixed;
+  /* Posiciona el elemento en relación a la ventana del navegador */
+  bottom: 30px;
+  /* Espacio de 30px desde la parte inferior */
   right: 30px;
   transition: 0.8s all cubic-bezier(0.215, 0.61, 0.355, 1);
 }
@@ -198,17 +200,16 @@ a {
 
 .active {
   color: #fdfdfd;
-  background: #00c6ff; /* fallback for old browsers */
-  background: -webkit-linear-gradient(
-    to right,
-    #0072ff,
-    #00c6ff
-  ); /* Chrome 10-25, Safari 5.1-6 */
-  background: linear-gradient(
-    to right,
-    #0072ff,
-    #00c6ff
-  ); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+  background: #00c6ff;
+  /* fallback for old browsers */
+  background: -webkit-linear-gradient(to right,
+      #0072ff,
+      #00c6ff);
+  /* Chrome 10-25, Safari 5.1-6 */
+  background: linear-gradient(to right,
+      #0072ff,
+      #00c6ff);
+  /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
   background-color: #0072ff;
   border-radius: 15px;
 
@@ -262,7 +263,16 @@ a {
 
   .containerPerfil {
     width: 100%;
+   
   }
+
+
+  .proyectosBanner {
+  
+    display: none;
+  }
+
+ 
 
   .perfil {
     justify-content: center;
@@ -270,26 +280,26 @@ a {
     flex-direction: column;
     margin-top: -150px;
     position: relative;
-    z-index: 99999;
+    z-index: 2;
   }
 
-  .socialNETSContainer{
+  .socialNETSContainer {
     color: #fdfdfd;
     display: flex;
     gap: 20px;
-   
+
     height: auto;
     width: 100%;
     margin-top: 40px;
   }
 
-  .containerButtonsMobile{
+  .containerButtonsMobile {
     display: flex;
     gap: 15px;
     margin-top: 40px;
   }
 
-  .imagenPerfil{
+  .imagenPerfil {
     z-index: 1000;
   }
 
