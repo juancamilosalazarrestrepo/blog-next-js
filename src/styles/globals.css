@@ -25,6 +25,13 @@
 }
 
 
+.imageDesigner{
+  position: absolute;
+  width: 500px;
+  height: 500px;
+  right: 240px;
+}
+
 .headerMobile {
   height: 580px;
   background-color: #0072ff;
@@ -330,5 +337,13 @@ a {
 
   .active {
     border: none;
+  }
+}
+
+@media (width >= 1700px) {
+  .imageDesigner {
+    width: 500px;
+    height: 500px;
+    right: 290px;
   }
 }

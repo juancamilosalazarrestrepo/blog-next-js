@@ -24,7 +24,7 @@ const Home = ({ posts, lastProjects }) => {
     frontMatter.title.toLowerCase().includes(search.toLowerCase())
   );
 
-  const images = [banner3];
+  const images = [banner1];
 
   return (
     <div className="">
