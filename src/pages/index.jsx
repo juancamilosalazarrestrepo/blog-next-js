@@ -117,40 +117,21 @@ const Home = ({ posts, lastProjects }) => {
 
               <div>
                 <p className="textDescription">
-                   Especialista en Informática y Medios Audiovisuales de la
-                  Universidad de Córdoba, especializado en desarrollo de
-                  software utilizando <strong>React</strong>,{" "}
-                  <strong>Node.js</strong>, <strong>SQL</strong> y{" "}
-                  <strong>Express</strong>, con conocimientos avanzados en{" "}
-                  <strong>JavaScript</strong>, <strong>HTML5</strong> y{" "}
-                  <strong>CSS</strong>. Tengo experiencia en la creación de{" "}
-                  <strong>SPA (Single Page Applications)</strong> con
-                  server-side rendering utilizando <strong>Next.js</strong> y en
-                  la creación de APIs con Express o dentro de proyectos de
-                  Next.js, así como en el consumo de <strong>APIs</strong> con{" "}
-                  <strong>fetch</strong> o <strong>axios</strong>. También he
-                  desarrollado <strong>aplicaciones móviles</strong> con{" "}
-                  <strong>React Native</strong>. Además, cuento con habilidades
-                  en frameworks CSS como <strong>Material UI</strong>,{" "}
-                  <strong>Bootstrap</strong> y <strong>TailwindCSS</strong>, así
-                  como en el manejo de <strong>bases de datos SQL</strong> con{" "}
-                  <strong>MySQL</strong> y <strong>SQL Server</strong>. Tengo
-                  experiencia en el control de versiones en plataformas como{" "}
-                  <strong>GitHub</strong> y <strong>BitBucket</strong>, y he
-                  desplegado aplicaciones de Next.js y React en{" "}
-                  <strong>AWS</strong>, <strong>Vercel</strong>,{" "}
-                  <strong>Netlify</strong> y <strong>Heroku</strong>. También he
-                  trabajado con librerías de JavaScript y React como{" "}
-                  <strong>ChartJS</strong>, <strong>ReactChart</strong> y{" "}
-                  <strong>React Flow</strong> para la creación de gráficos.
-                  Tengo experiencia en la implementación de microservicios en{" "}
-                  <strong>Azure</strong>, como <strong>Azure Functions</strong>{" "}
-                  y haciendo uso de <strong>Azure Blob Storage</strong>. En el
-                  back, tengo experiencia en la creación de servidores y APIs
-                  con frameworks como <strong>Node.js</strong> y{" "}
-                  <strong>Express</strong>, además de optimizar el procesamiento
-                  de grandes cantidades de datos procesándolos como{" "}
-                  <strong>streams</strong>.
+                  Desarrollador de software con pasión por la innovación tecnológica. Experto en la creación de aplicaciones web y móviles utilizando tecnologías modernas como Next.js, React, Node.js, SQL y Express.
+
+                  En cuanto al desarrollo frontend, poseo un conocimiento avanzado en React, JavaScript, HTML5 y CSS, y tengo una experiencia significativa en la creación de SPA (Single Page Applications) con renderizado del lado del servidor usando Next.js. También tengo experiencia en desarrollo con Angular. Además, tengo gran creatividad y pericia en el uso de CSS para crear estilos personalizados, y soy competente en marcos de trabajo de CSS como Material UI, Bootstrap y TailwindCSS. He trabajado con bibliotecas de JavaScript y React como ChartJS, ReactChart y React Flow para la creación de gráficos interactivos.
+
+                  En el desarrollo backend, he creado varios servidores y APIs en Node.js con Express. Además, tengo experiencia en el desarrollo de backends con C# y .NET, conectándolos a bases de datos SQL como MySQL o SQL Server. También tengo experiencia en la optimización del procesamiento de grandes volúmenes de datos manejándolos como flujos y hasta migrando funciones a microservicios en Azure.
+
+                  En el campo de los microservicios, he implementado soluciones en Azure, incluyendo Azure Functions y Azure Blob Storage.
+
+                  Mi experiencia en control de versiones incluye plataformas como GitHub y BitBucket. He desplegado aplicaciones de Next.js y React en servicios como AWS, Vercel, Netlify y Heroku.
+
+                  A lo largo de mis años de experiencia, he desarrollado diferentes tipos de proyectos, como aplicaciones con backend y frontend para paneles administrativos o páginas de aterrizaje, así como extensiones para Google Chrome para monitorear acciones de los usuarios en el navegador y guardarlas en bases de datos para el seguimiento del tiempo. También he desarrollado scripts de automatización de procesos que permiten a las empresas ahorrar tiempo y costos operativos, incrementando así la productividad.
+
+                  En cuanto al desarrollo móvil, he creado aplicaciones con React Native y planeo aprender Kotlin.
+
+                  Mi objetivo es seguir creciendo profesionalmente en el campo del desarrollo de software, aportando mi experiencia y conocimientos para crear soluciones innovadoras y de alto impacto.
                 </p>
               </div>
             </div>

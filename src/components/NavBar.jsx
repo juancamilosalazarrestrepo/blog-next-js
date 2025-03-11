@@ -79,6 +79,14 @@ export default function NavBar() {
               >
                 Certificados
               </Link>
+              <Link
+                href="/ecommerce"
+                className={`inline-block rounded-lg py-1 px-2 text-sm text-slate-700 hover:bg-slate-100  ${
+                  activeURL === "/ecommerce" ? "active" : ""
+                }`}
+              >
+                Desarrollo de E-commerce
+              </Link>
             </div>
           </div>
           <div className="flex items-center gap-x-5 md:gap-x-8">

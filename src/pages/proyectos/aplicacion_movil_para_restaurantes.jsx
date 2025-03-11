@@ -5,6 +5,8 @@ import Link from "next/link";
 import Banners from "../../components/Banners";
 import banner1 from "../../../public/images/background.jpg"
 import banner2 from "../../../public/images/banner2.webp";
+import moviles from "../../../public/images/phones.png"
+import LogosSlider from "../../components/LogosSlide";
 
 const AplicacionMovilParaRestaurantes = ({ posts }) => {
   const images = [banner1, banner2];
@@ -26,8 +28,23 @@ const AplicacionMovilParaRestaurantes = ({ posts }) => {
               marginTop: "1rem",
             }}
           >
-            Descripción del Proyecto
+            Aplicación móvil para restaurantes
           </h1>
+<div style={{
+  width:"100%",
+  display:"flex",
+  justifyContent:"center",
+  alignItems:"center"
+}}>
+
+<Image
+            src={moviles}
+
+            width={800}
+            alt=""
+
+          />
+</div>
           <p
             style={{
               marginBottom: "1rem",
@@ -36,7 +53,7 @@ const AplicacionMovilParaRestaurantes = ({ posts }) => {
           >
             Desarrollé una <strong>aplicación móvil para restaurantes</strong>{" "}
             utilizando
-            <strong>React Native</strong>, diseñada para mejorar la experiencia
+            <strong> React Native</strong>, diseñada para mejorar la experiencia
             de los clientes y optimizar la gestión operativa del restaurante. La
             aplicación cuenta con una interfaz intuitiva y moderna, adaptada
             tanto para iOS como para Android, que permite a los usuarios
@@ -92,6 +109,11 @@ const AplicacionMovilParaRestaurantes = ({ posts }) => {
           >
             Tecnologías Utilizadas
           </h3>
+          <div style={{
+              width:"100%",
+              margin:"50px"
+            }}> <LogosSlider /></div>
+         
           <ul>
             <li>
               <strong>Frontend:</strong> React Native, Redux para la gestión de
