@@ -1,6 +1,6 @@
 import styles from "../styles/BenefitsSection.module.css"; // Importa los estilos como módulo
 
-const BenefitsSection = () => {
+const AdvantageSection = () => {
   const benefits = [
     { icon: "🚀", title: "Tienda optimizada para ventas", description: "Maximiza conversiones con un diseño intuitivo y embudos de venta efectivos." },
     { icon: "🎨", title: "Diseño moderno y atractivo", description: "Creamos tiendas visualmente atractivas que reflejan tu marca y generan confianza." },
@@ -35,4 +35,4 @@ const BenefitsSection = () => {
   );
 };
 
-export default BenefitsSection;
+export default AdvantageSection;

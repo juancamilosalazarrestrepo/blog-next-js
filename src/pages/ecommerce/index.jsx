@@ -11,7 +11,7 @@ import cloneChatgpt from "../../../public/images/cloneChatGPT.webp";
 import LogosSlider from "../../components/LogosSlide";
 import certificados from "../../../data/certificados/certificados";
 import Camilo from "../../../public/images/camiloPaginaWeb.png";
-import BenefitsSection from "../../components/advantageSection";
+import AdvantageSection from "../../components/advantageSection";
 import ShopifyServices from "../../components/ShopifyServices";
 import Portfolio from "../../components/PortfolioSection";
 
@@ -28,7 +28,7 @@ const Ecommerce = () => {
           <div className="sloganContainer">
             <h1 className="sloganText">"Convierte tu idea en una tienda online poderosa con Shopify"</h1>
           </div>
-          <BenefitsSection/>
+          <AdvantageSection/>
           <ShopifyServices/>
           <Portfolio/>
           <LogosSlider />
