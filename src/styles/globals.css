@@ -32,6 +32,25 @@
   right: 240px;
 }
 
+.sloganContainer{
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100px;
+margin-bottom: 50px;
+
+}
+
+.sloganText{
+  font-size: 2.2rem;
+  font-weight: 700;
+  font-family: "Kanit", sans-serif;
+  font-weight: 100;
+  font-style: italic;
+
+}
+
 .headerMobile {
   height: 580px;
   background-color: #0072ff;

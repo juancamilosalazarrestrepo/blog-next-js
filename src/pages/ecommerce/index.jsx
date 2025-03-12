@@ -11,6 +11,9 @@ import cloneChatgpt from "../../../public/images/cloneChatGPT.webp";
 import LogosSlider from "../../components/LogosSlide";
 import certificados from "../../../data/certificados/certificados";
 import Camilo from "../../../public/images/camiloPaginaWeb.png";
+import BenefitsSection from "../../components/advantageSection";
+import ShopifyServices from "../../components/ShopifyServices";
+import Portfolio from "../../components/PortfolioSection";
 
 const Ecommerce = () => {
   const images = [banner1];
@@ -22,7 +25,12 @@ const Ecommerce = () => {
       </div>
       <main className="py-2 container mx-auto px-44 mt-1">
         <div className="w-full mt-20 mb-20">
-          <div>Ecommerce</div>
+          <div className="sloganContainer">
+            <h1 className="sloganText">"Convierte tu idea en una tienda online poderosa con Shopify"</h1>
+          </div>
+          <BenefitsSection/>
+          <ShopifyServices/>
+          <Portfolio/>
           <LogosSlider />
         </div>
       </main>

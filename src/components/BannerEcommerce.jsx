@@ -124,7 +124,7 @@ export default function BannersEcommerce({ images }) {
                         className=" group inline-flex items-center justify-center rounded-full py-2 px-4 text-sm font-semibold focus:outline-none focus-visible:outline-2 focus-visible:outline-offset-2 bg-[#fff] buttonHoverText text-blue hover:text-slate-100 hover:bg-[#fff] active:bg-[#021B79] active:text-blue-100 focus-visible:outline-[#021B79]"
                         href="/contact"
                     >
-                        <span>Comunícate conmigo</span>
+                        <span>Solicita una consulta gratuita</span>
                     </a>
                     <a
                         style={{
@@ -215,9 +215,7 @@ export default function BannersEcommerce({ images }) {
                                                         fontWeight: "100",
                                                     }}
                                                 >
-                                                    Especialista en desarrollo de software , impulsemos
-                                                    tus <br />
-                                                    proyectos rumbo al éxito.
+                                                    Desarrollo y personalización de e-commerce en Shopify para hacer crecer tu <br/> negocio online
                                                 </span>
                                             </div>
 
@@ -234,7 +232,7 @@ export default function BannersEcommerce({ images }) {
                                                     className=" max-sm:hidden group inline-flex items-center justify-center rounded-full py-2 px-4 text-sm font-semibold focus:outline-none focus-visible:outline-2 focus-visible:outline-offset-2 bg-[#0575E6] buttonHoverText text-white hover:text-slate-100 hover:bg-[#fff] active:bg-[#021B79] active:text-blue-100 focus-visible:outline-[#021B79]"
                                                     href="/contact"
                                                 >
-                                                    <span>Comunícate conmigo</span>
+                                                    <span>Solicita una consulta gratuita</span>
                                                 </a>
                                                 <a
                                                     style={{
@@ -247,15 +245,15 @@ export default function BannersEcommerce({ images }) {
                                                     className="buttonHoverText group inline-flex items-center justify-center text-sm font-semibold focus:outline-none focus-visible:outline-2 focus-visible:outline-offset-2 hover:bg-white hover:text-[#021B79] active:bg-white active:text-[#021B79] hover:bg-[#fff] focus-visible:outline-white"
                                                     href="/portafolio"
                                                 >
-                                                    <span>ver portafolio</span>
+                                                    <span>Contacta por whatsapp</span>
                                                 </a>
                                             </div>
                                         </div>
 
                                         <div>
                                             <div
-                                            className="imageDesigner"
-                                               
+                                                className="imageDesigner"
+
                                             >
                                                 {/* Imagen en el fondo */}
                                                 <Image
