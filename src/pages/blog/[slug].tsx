@@ -3,7 +3,7 @@ import Image from "next/image";
 import Layout from "@/components/Layout";
 import Head from "next/head";
 
-import { MDXRemote } from "next-mdx-remote";
+import { MDXRemote, MDXRemoteSerializeResult } from "next-mdx-remote";
 import ViewsCounter from "@/components/ViewCounter";
 import { getFiles, getFileBySlug } from "../../../lib/mdx";
 
@@ -23,9 +23,7 @@ type Props = {
       words: number;
     };
   };
-  mdxSource: {
-    compiledSource: string;
-  };
+  mdxSource: MDXRemoteSerializeResult;
 };
 
 import MDXComponents from "@/components/MDXComponents";
