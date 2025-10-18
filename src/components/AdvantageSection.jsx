@@ -16,8 +16,9 @@ const AdvantageSection = () => {
         {benefits.slice(0, 3).map((benefit, index) => (
           <div key={index} className={styles.benefitCard}>
             <div className={styles.benefitIcon}>{benefit.icon}</div>
-            <h3 className={styles.benefitTitle}>{benefit.title}</h3>
-            <p className={styles.benefitDescription}>{benefit.description}</p>
+            <div>    <h3 className={styles.benefitTitle}>{benefit.title}</h3>
+              <p className={styles.benefitDescription}>{benefit.description}</p></div>
+
           </div>
         ))}
       </div>
