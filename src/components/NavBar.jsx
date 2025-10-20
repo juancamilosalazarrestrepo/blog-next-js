@@ -31,21 +31,19 @@ export default function NavBar() {
             <div className="hidden md:flex md:gap-x-8 px-8">
               <Link
                 href="/portafolio"
-                className={`inline-block rounded-lg py-1 px-2 text-sm text-slate-700 hover:bg-slate-100  ${
-                  activeURL === "/portafolio" ? "active" : ""
-                }`}
+                className={`inline-block rounded-lg py-1 px-2 text-sm text-slate-700 hover:bg-slate-100  ${activeURL === "/portafolio" ? "active" : ""
+                  }`}
               >
                 Portafolio
               </Link>
               <Link
                 href="/blog"
-                className={`inline-block rounded-lg py-1 px-2 text-sm text-slate-700 hover:bg-slate-100 ${
-                  activeURL === "/blog" ? "active" : ""
-                }`}
+                className={`inline-block rounded-lg py-1 px-2 text-sm text-slate-700 hover:bg-slate-100 ${activeURL === "/blog" ? "active" : ""
+                  }`}
               >
                 Blog
               </Link>
-           {/*    <Link
+              {/*    <Link
                 href="/precios"
                 className={`inline-block rounded-lg py-1 px-2 text-sm text-slate-700 hover:bg-slate-100  ${
                   activeURL === "/precios" ? "active" : ""
@@ -56,14 +54,13 @@ export default function NavBar() {
               {console.log("este", activeURL)}
               <Link
                 href="/proyectos"
-                className={`inline-block rounded-lg py-1 px-2 text-sm text-slate-700 hover:bg-slate-100  ${
-                  activeURL === "/proyectos" ? " active" : ""
-                }`}
+                className={`inline-block rounded-lg py-1 px-2 text-sm text-slate-700 hover:bg-slate-100  ${activeURL === "/proyectos" ? " active" : ""
+                  }`}
               >
                 Proyectos
               </Link>
 
-             {/*  <Link
+              {/*  <Link
                 href="/cursos"
                 className={`inline-block rounded-lg py-1 px-2 text-sm text-slate-700 hover:bg-slate-100  ${
                   activeURL === "/cursos" ? "active" : ""
@@ -73,25 +70,22 @@ export default function NavBar() {
               </Link> */}
               <Link
                 href="/certificados"
-                className={`inline-block rounded-lg py-1 px-2 text-sm text-slate-700 hover:bg-slate-100  ${
-                  activeURL === "/certificados" ? "active" : ""
-                }`}
+                className={`inline-block rounded-lg py-1 px-2 text-sm text-slate-700 hover:bg-slate-100  ${activeURL === "/certificados" ? "active" : ""
+                  }`}
               >
                 Certificados
               </Link>
               <Link
                 href="/ecommerce"
-                className={`inline-block rounded-lg py-1 px-2 text-sm text-slate-700 hover:bg-slate-100  ${
-                  activeURL === "/ecommerce" ? "active" : ""
-                }`}
+                className={`inline-block rounded-lg py-1 px-2 text-sm text-slate-700 hover:bg-slate-100  ${activeURL === "/ecommerce" ? "active" : ""
+                  }`}
               >
                 Desarrollo de E-commerce
               </Link>
-                <Link
+              <Link
                 href="/services"
-                className={`inline-block rounded-lg py-1 px-2 text-sm text-slate-700 hover:bg-slate-100  ${
-                  activeURL === "/services" ? "active" : ""
-                }`}
+                className={`inline-block rounded-lg py-1 px-2 text-sm text-slate-700 hover:bg-slate-100  ${activeURL === "/services" ? "active" : ""
+                  }`}
               >
                 Servicios
               </Link>
@@ -159,60 +153,59 @@ export default function NavBar() {
       >
         <Link
           href="/portafolio"
-          className={`menuItem inline-block rounded-lg py-1 px-2 text-sm text-slate-700 hover:bg-slate-100  ${
-            activeURL === "/portafolio" ? "active" : ""
-          }`}
+          className={`menuItem inline-block rounded-lg py-1 px-2 text-sm text-slate-700 hover:bg-slate-100  ${activeURL === "/portafolio" ? "active" : ""
+            }`}
         >
           Portafolio
         </Link>
         <Link
           href="/blog"
-          className={`menuItem inline-block rounded-lg py-1 px-2 text-sm text-slate-700 hover:bg-slate-100 ${
-            activeURL === "/blog" ? "active" : ""
-          }`}
+          className={`menuItem inline-block rounded-lg py-1 px-2 text-sm text-slate-700 hover:bg-slate-100 ${activeURL === "/blog" ? "active" : ""
+            }`}
         >
           Blog
         </Link>
         <Link
           href="/precios"
-          className={`menuItem inline-block rounded-lg py-1 px-2 text-sm text-slate-700 hover:bg-slate-100  ${
-            activeURL === "/precios" ? "active" : ""
-          }`}
+          className={`menuItem inline-block rounded-lg py-1 px-2 text-sm text-slate-700 hover:bg-slate-100  ${activeURL === "/precios" ? "active" : ""
+            }`}
         >
           Precios
         </Link>
         {console.log("este", activeURL)}
         <Link
           href="/proyectos"
-          className={`menuItem inline-block rounded-lg py-1 px-2 text-sm text-slate-700 hover:bg-slate-100  ${
-            activeURL === "/proyectos" ? " active" : ""
-          }`}
+          className={`menuItem inline-block rounded-lg py-1 px-2 text-sm text-slate-700 hover:bg-slate-100  ${activeURL === "/proyectos" ? " active" : ""
+            }`}
         >
           Proyectos
         </Link>
 
         <Link
           href="/cursos"
-          className={`menuItem inline-block rounded-lg py-1 px-2 text-sm text-slate-700 hover:bg-slate-100  ${
-            activeURL === "/cursos" ? "active" : ""
-          }`}
+          className={`menuItem inline-block rounded-lg py-1 px-2 text-sm text-slate-700 hover:bg-slate-100  ${activeURL === "/cursos" ? "active" : ""
+            }`}
         >
           Cursos
         </Link>
         <Link
           href="/certificados"
-          className={`menuItem inline-block rounded-lg py-1 px-2 text-sm text-slate-700 hover:bg-slate-100  ${
-            activeURL === "/certificados" ? "active" : ""
-          }`}
+          className={`menuItem inline-block rounded-lg py-1 px-2 text-sm text-slate-700 hover:bg-slate-100  ${activeURL === "/certificados" ? "active" : ""
+            }`}
         >
           Certificados
         </Link>
-
+        <Link
+          href="/services"
+          className={`menuItem inline-block rounded-lg py-1 px-2 text-sm text-slate-700 hover:bg-slate-100  ${activeURL === "/contact" ? "active" : ""
+            }`}
+        >
+          Servicios
+        </Link>
         <Link
           href="/contact"
-          className={`menuItem inline-block rounded-lg py-1 px-2 text-sm text-slate-700 hover:bg-slate-100  ${
-            activeURL === "/contact" ? "active" : ""
-          }`}
+          className={`menuItem inline-block rounded-lg py-1 px-2 text-sm text-slate-700 hover:bg-slate-100  ${activeURL === "/contact" ? "active" : ""
+            }`}
         >
           Contacto
         </Link>
