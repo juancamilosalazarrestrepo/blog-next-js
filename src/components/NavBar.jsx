@@ -75,19 +75,26 @@ export default function NavBar() {
               >
                 Certificados
               </Link>
-              <Link
+      {/*         <Link
                 href="/ecommerce"
                 className={`inline-block rounded-lg py-1 px-2 text-sm text-slate-700 hover:bg-slate-100  ${activeURL === "/ecommerce" ? "active" : ""
                   }`}
               >
                 Desarrollo de E-commerce
-              </Link>
+              </Link> */}
               <Link
                 href="/services"
                 className={`inline-block rounded-lg py-1 px-2 text-sm text-slate-700 hover:bg-slate-100  ${activeURL === "/services" ? "active" : ""
                   }`}
               >
                 Servicios
+              </Link>
+                 <Link
+                href="/services"
+                className={`inline-block rounded-lg py-1 px-2 text-sm text-slate-700 hover:bg-slate-100  ${activeURL === "/services" ? "active" : ""
+                  }`}
+              >
+                Componentes UI
               </Link>
             </div>
           </div>
