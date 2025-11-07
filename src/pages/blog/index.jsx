@@ -47,40 +47,74 @@ const Blog = ({ posts }) => {
             />
           </svg>
         </div>
-        <div className="grid grid-cols-3 gap-4 content-center max-sm:grid-cols-1 max-sm:w-full  max-sm:px-8">
+        <div className="grid grid-cols-3 gap-6 content-center max-sm:grid-cols-1 max-sm:w-full max-sm:px-8">
           {filteredPosts.map((post) => (
             <Link
               href={`/blog/${post.slug}`}
               key={post.slug}
-              className="max-w-sm"
+              className="block"
             >
-              <div className="max-w-sm bg-white border border-gray-200 rounded-lg shadow ">
-                <img className="rounded-t-lg" src={post.thumb} alt="" />
+              <div className="bg-white border border-gray-200 rounded-lg shadow h-[500px] flex flex-col hover:shadow-xl transition-shadow duration-300">
+                {/* Contenedor de imagen con altura fija */}
+                <div className="relative w-full h-64 overflow-hidden rounded-t-lg bg-gray-100">
+                  <img
+                    src={post.thumb}
+                    alt={post.title}
+                    className="absolute inset-0 w-full h-full object-cover"
+                    loading="lazy"
+                  />
+                </div>
 
-                <div className="p-5">
-                  <h5 className="mb-2 text-2xl font-bold tracking-tight text-gray-900 ">
+                {/* Contenido con flex para distribuir espacio */}
+                <div className="p-5 flex flex-col flex-1">
+                  {/* Título con máximo 2 líneas */}
+                  <h5
+                    className="mb-2 text-xl font-bold tracking-tight text-gray-900"
+                    style={{
+                      display: "-webkit-box",
+                      WebkitLineClamp: 2,
+                      WebkitBoxOrient: "vertical",
+                      overflow: "hidden",
+                      minHeight: "3.5rem",
+                    }}
+                    title={post.title}
+                  >
                     {post.title}
                   </h5>
 
-                  <p className="mb-3 font-normal text-gray-700 ">
+                  {/* Descripción con máximo 2 líneas */}
+                  <p
+                    className="mb-4 font-normal text-gray-700 flex-1"
+                    style={{
+                      display: "-webkit-box",
+                      WebkitLineClamp: 2,
+                      WebkitBoxOrient: "vertical",
+                      overflow: "hidden",
+                    }}
+                    title={post.subtitle}
+                  >
                     {post.subtitle}
                   </p>
-                  <p className="inline-flex items-center px-3 py-2 text-sm font-medium text-center text-white bg-blue-700 rounded-lg hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 ">
-                    Read more
-                    <svg
-                      aria-hidden="true"
-                      className="w-4 h-4 ml-2 -mr-1"
-                      fill="currentColor"
-                      viewBox="0 0 20 20"
-                      xmlns="http://www.w3.org/2000/svg"
-                    >
-                      <path
-                        fillRule="evenodd"
-                        d="M10.293 3.293a1 1 0 011.414 0l6 6a1 1 0 010 1.414l-6 6a1 1 0 01-1.414-1.414L14.586 11H3a1 1 0 110-2h11.586l-4.293-4.293a1 1 0 010-1.414z"
-                        clipRule="evenodd"
-                      ></path>
-                    </svg>
-                  </p>
+
+                  {/* Botón siempre pegado al fondo */}
+                  <div className="mt-auto">
+                    <span className="inline-flex items-center px-3 py-2 text-sm font-medium text-white bg-blue-700 rounded-lg hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300">
+                      Read more
+                      <svg
+                        aria-hidden="true"
+                        className="w-4 h-4 ml-2 -mr-1"
+                        fill="currentColor"
+                        viewBox="0 0 20 20"
+                        xmlns="http://www.w3.org/2000/svg"
+                      >
+                        <path
+                          fillRule="evenodd"
+                          d="M10.293 3.293a1 1 0 011.414 0l6 6a1 1 0 010 1.414l-6 6a1 1 0 01-1.414-1.414L14.586 11H3a1 1 0 110-2h11.586l-4.293-4.293a1 1 0 010-1.414z"
+                          clipRule="evenodd"
+                        />
+                      </svg>
+                    </span>
+                  </div>
                 </div>
               </div>
             </Link>

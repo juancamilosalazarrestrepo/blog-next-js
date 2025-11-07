@@ -4,9 +4,17 @@ import mercadoLiebre from "../../public/images/mercadoliebre.webp";
 import tarjeta from "../../public/images/tarjeta.webp";
 import parallaxLanding from "../../public/images/parallax.webp";
 import littleLemonApp from "../../public/images/littleLemonApp.png";
+import realEstateApp from "../../public/images/realEstateApp.webp";
 
 
 const proyectos = [
+  {
+    titulo: "Sistema de Gestión Inmobiliaria con Clean Architecture",
+    imagen: realEstateApp, 
+    description:
+      "Plataforma inmobiliaria: gestiona propiedades, precios y usuarios con backend .NET (Clean Architecture) y frontend Next.js moderno.",
+    url: "/proyectos/sistema_gestion_inmobiliaria",
+  },
   {
     titulo: "Aplicación Movil para Restaurante",
     imagen: littleLemonApp,
@@ -49,7 +57,7 @@ const proyectos = [
       "Clon de ChatGPT creado con Next.js y Tailwind CSS, que permite interactuar con un chatbot generador de respuestas a través de la API de GPT-3 de OpenAI",
     url: "/portafolio/clonechatgpt",
   },
-  
+
 ];
 
 export default proyectos;
