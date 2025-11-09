@@ -5,9 +5,17 @@ import tarjeta from "../../public/images/tarjeta.webp";
 import parallaxLanding from "../../public/images/parallax.webp";
 import littleLemonApp from "../../public/images/littleLemonApp.png";
 import realEstateApp from "../../public/images/realEstateApp.webp";
+import niceGradientApp from "../../public/images/nice-gradient-mockup.webp";
 
 
 const proyectos = [
+  {
+    titulo: "Nice Gradient - Generador de Gradientes con IA",
+    imagen: niceGradientApp, 
+    description:
+      "Generador de gradientes impulsado por IA con Next.js 14. Colección curada de gradientes, editor visual y exportación CSS/PNG.",
+    url: "/proyectos/nice_gradient",
+  },
   {
     titulo: "Sistema de Gestión Inmobiliaria con Clean Architecture",
     imagen: realEstateApp, 
