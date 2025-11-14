@@ -1,11 +1,90 @@
 import Layout from '../../components/Layout';
 import styles from '../../styles/NiceGradient.module.css';
 import Link from 'next/link';
+import Head from 'next/head';
 
 export default function NiceGradientProject() {
   return (
-    <Layout>
-      <div className={styles.projectContainer}>
+    <>
+      <Head>
+        {/* Metadatos básicos */}
+        <title>Nice Gradient - Generador de Gradientes con IA | Juan Camilo Salazar</title>
+        <meta name="description" content="Generador de gradientes impulsado por Inteligencia Artificial. Crea gradientes únicos con IA, explora una colección curada de más de 500 gradientes y descarga código CSS o imágenes PNG." />
+        <meta name="keywords" content="nice gradient, generador gradientes, inteligencia artificial, css gradients, design tools, next.js, ai generator, gradient maker, web design" />
+        <meta name="author" content="Juan Camilo Salazar" />
+        
+        {/* Open Graph para Facebook */}
+        <meta property="og:type" content="website" />
+        <meta property="og:site_name" content="Juan Camilo Salazar - Portfolio" />
+        <meta property="og:title" content="Nice Gradient - Generador de Gradientes con IA" />
+        <meta property="og:description" content="🤖 Genera gradientes únicos con Inteligencia Artificial. Plataforma completa con +500 gradientes curados, editor visual avanzado y exportación CSS/PNG. Construido con Next.js 14, OpenAI y TypeScript." />
+        <meta property="og:url" content="https://www.salazarcode.com/proyectos/nice_gradient" />
+        <meta property="og:image" content="https://www.salazarcode.com/images/nice-gradient-mockup.webp" />
+        <meta property="og:image:alt" content="Nice Gradient - Generador de gradientes con Inteligencia Artificial" />
+        <meta property="og:image:width" content="1200" />
+        <meta property="og:image:height" content="630" />
+        <meta property="og:locale" content="es_ES" />
+        
+        {/* Twitter Cards */}
+        <meta name="twitter:card" content="summary_large_image" />
+        <meta name="twitter:site" content="@juancamilosalazar" />
+        <meta name="twitter:creator" content="@juancamilosalazar" />
+        <meta name="twitter:title" content="Nice Gradient - Generador de Gradientes con IA" />
+        <meta name="twitter:description" content="🤖 Genera gradientes únicos con IA. Editor visual avanzado, +500 gradientes curados y exportación CSS/PNG. Construido con Next.js 14 y OpenAI." />
+        <meta name="twitter:image" content="https://www.salazarcode.com/images/nice-gradient-mockup.webp" />
+        <meta name="twitter:image:alt" content="Nice Gradient - Generador de gradientes con Inteligencia Artificial" />
+        
+        {/* LinkedIn específico */}
+        <meta property="og:image:secure_url" content="https://www.salazarcode.com/images/nice-gradient-mockup.webp" />
+        <meta property="article:author" content="Juan Camilo Salazar" />
+        <meta property="article:section" content="Desarrollo Web" />
+        <meta property="article:tag" content="Inteligencia Artificial" />
+        <meta property="article:tag" content="Next.js" />
+        <meta property="article:tag" content="React" />
+        <meta property="article:tag" content="TypeScript" />
+        <meta property="article:tag" content="OpenAI" />
+        <meta property="article:tag" content="Design Tools" />
+        
+        {/* Schema.org para mejor SEO */}
+        <script type="application/ld+json">
+          {JSON.stringify({
+            "@context": "https://schema.org",
+            "@type": "SoftwareApplication",
+            "name": "Nice Gradient",
+            "description": "Generador de gradientes impulsado por Inteligencia Artificial que combina creatividad y tecnología para crear gradientes únicos.",
+            "url": "https://nice-gradient.vercel.app/",
+            "author": {
+              "@type": "Person",
+              "name": "Juan Camilo Salazar",
+              "url": "https://www.salazarcode.com"
+            },
+            "applicationCategory": "DesignApplication",
+            "operatingSystem": "Web Browser",
+            "offers": {
+              "@type": "Offer",
+              "price": "0",
+              "priceCurrency": "USD"
+            },
+            "featureList": [
+              "Generación de gradientes con IA",
+              "Colección curada de +500 gradientes",
+              "Editor visual avanzado",
+              "Exportación CSS y PNG",
+              "Interfaz responsive"
+            ]
+          })}
+        </script>
+        
+        {/* Canonical URL */}
+        <link rel="canonical" href="https://www.salazarcode.com/proyectos/nice_gradient" />
+        
+        {/* Prefetch para mejor performance */}
+        <link rel="preconnect" href="https://nice-gradient.vercel.app" />
+        <link rel="preconnect" href="https://github.com" />
+      </Head>
+      
+      <Layout>
+        <div className={styles.projectContainer}>
         {/* Hero Section */}
         <section className={styles.heroSection}>
           <div className={styles.heroContent}>
@@ -454,6 +533,7 @@ export default function NiceGradientProject() {
         </div>
       </div>
     </Layout>
+    </>
   );
 }
 
