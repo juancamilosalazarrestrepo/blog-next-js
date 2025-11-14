@@ -9,18 +9,18 @@ export default function NiceGradientProject() {
       <Head>
         {/* Metadatos básicos */}
         <title>Nice Gradient - Generador de Gradientes con IA | Juan Camilo Salazar</title>
-        <meta name="description" content="Generador de gradientes impulsado por Inteligencia Artificial. Crea gradientes únicos con IA, explora una colección curada de más de 500 gradientes y descarga código CSS o imágenes PNG." />
+        <meta name="description" content="Herramienta profesional de gradientes con IA. Genera gradientes únicos, +500 gradientes curados, editor visual y exportación CSS/PNG. Desarrollado con Next.js 14 y OpenAI por Juan Camilo Salazar." />
         <meta name="keywords" content="nice gradient, generador gradientes, inteligencia artificial, css gradients, design tools, next.js, ai generator, gradient maker, web design" />
         <meta name="author" content="Juan Camilo Salazar" />
         
-        {/* Open Graph para Facebook */}
+        {/* Open Graph para redes sociales */}
         <meta property="og:type" content="website" />
         <meta property="og:site_name" content="Juan Camilo Salazar - Portfolio" />
-        <meta property="og:title" content="Nice Gradient - Generador de Gradientes con IA" />
-        <meta property="og:description" content="🤖 Genera gradientes únicos con Inteligencia Artificial. Plataforma completa con +500 gradientes curados, editor visual avanzado y exportación CSS/PNG. Construido con Next.js 14, OpenAI y TypeScript." />
+        <meta property="og:title" content="Nice Gradient - Generador de Gradientes con IA | Juan Camilo Salazar" />
+        <meta property="og:description" content="Herramienta profesional de gradientes impulsada por Inteligencia Artificial. Genera gradientes únicos, explora +500 gradientes curados, editor visual avanzado y exportación CSS/PNG. Desarrollado con Next.js 14, OpenAI y TypeScript por Juan Camilo Salazar." />
         <meta property="og:url" content="https://www.salazarcode.com/proyectos/nice_gradient" />
         <meta property="og:image" content="https://www.salazarcode.com/images/nice-gradient-mockup.webp" />
-        <meta property="og:image:alt" content="Nice Gradient - Generador de gradientes con Inteligencia Artificial" />
+        <meta property="og:image:alt" content="Nice Gradient - Generador de gradientes con Inteligencia Artificial desarrollado por Juan Camilo Salazar" />
         <meta property="og:image:width" content="1200" />
         <meta property="og:image:height" content="630" />
         <meta property="og:locale" content="es_ES" />
@@ -36,6 +36,7 @@ export default function NiceGradientProject() {
         
         {/* LinkedIn específico */}
         <meta property="og:image:secure_url" content="https://www.salazarcode.com/images/nice-gradient-mockup.webp" />
+        <meta property="og:image:type" content="image/webp" />
         <meta property="article:author" content="Juan Camilo Salazar" />
         <meta property="article:section" content="Desarrollo Web" />
         <meta property="article:tag" content="Inteligencia Artificial" />
@@ -44,6 +45,16 @@ export default function NiceGradientProject() {
         <meta property="article:tag" content="TypeScript" />
         <meta property="article:tag" content="OpenAI" />
         <meta property="article:tag" content="Design Tools" />
+        
+        {/* Metadatos adicionales para LinkedIn */}
+        <meta property="og:determiner" content="the" />
+        <meta property="og:updated_time" content="2024-11-13T00:00:00Z" />
+        <meta name="linkedin:owner" content="Juan Camilo Salazar" />
+        <meta name="robots" content="index, follow" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        
+        {/* Canonical URL */}
+        <link rel="canonical" href="https://www.salazarcode.com/proyectos/nice_gradient" />
         
         {/* Schema.org para mejor SEO */}
         <script type="application/ld+json">

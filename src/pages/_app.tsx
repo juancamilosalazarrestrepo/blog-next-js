@@ -4,6 +4,7 @@ import { useEffect } from 'react'
 import { useRouter } from 'next/router'
 import GoogleAnalytics from '../components/GoogleAnalytics'
 import { pageview } from '../../lib/analytics'
+import { Analytics } from '@vercel/analytics/react'
 
 export default function App({ Component, pageProps }: AppProps) {
   const router = useRouter()
@@ -29,6 +30,9 @@ export default function App({ Component, pageProps }: AppProps) {
       
       {/* Tu aplicación */}
       <Component {...pageProps} />
+      
+      {/* Vercel Analytics */}
+      <Analytics />
     </>
   )
 }
