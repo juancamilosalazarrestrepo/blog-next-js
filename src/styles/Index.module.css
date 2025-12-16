@@ -1,0 +1,22 @@
+.descriptionCard {
+    color: #212427;
+    font-size: 0.9rem !important;
+    margin-bottom: 20px;
+    line-height: normal;
+}
+
+.descriptionCardContainer {
+    height: 250px;
+    overflow: hidden;
+    padding: 24px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+
+}
+
+ .textDescription {
+    padding: 0 1rem;
+    font-size: 0.9rem;
+     line-height: normal;
+  }

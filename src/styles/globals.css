@@ -18,9 +18,8 @@
 }
 
 .camiloText {
-  background: linear-gradient(90deg, #22ffff, #00ff00);
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
+ 
+
   transition: background 0.3s ease-in-out;
 }
 
@@ -85,7 +84,7 @@ margin-bottom: 50px;
 }
 
 .camiloText:hover {
-  background: linear-gradient(90deg, #fff, #ffe600);
+  background: linear-gradient(90deg, #fff, #60d5f8);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
 }
@@ -161,11 +160,11 @@ a {
 
 .buttonColor {
   background-color: #0575e6;
+  width: 110px;
 }
 
 .buttonColor:hover {
   background-color: #021b79;
-  box-shadow: rgba(0, 0, 0, 0.16) 0px 1px 4px, rgb(51, 51, 51) 0px 0px 0px 3px;
 }
 
 .container {
@@ -349,8 +348,9 @@ a {
   }
 
   .descriptionCard {
-    font-size: 1rem;
-    line-height: normal;
+    font-size:1px !important;
+    color: #0072ff;
+    line-height:normal;
     margin-bottom: 20px;
   }
 

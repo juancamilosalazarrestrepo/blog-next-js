@@ -10,6 +10,8 @@ import banner3 from "../../public/images/background3.png";
 import banner2 from "../../public/images/banner2.webp";
 import whatsappIconBig from "../../public/images/whatsappBig.png";
 import EffectParticle from "../components/EffectParticle";
+import styles from "../styles/Index.module.css";
+
 
 import Layout from "../components/Layout";
 import LogosSlider from "../components/LogosSlide";
@@ -58,7 +60,7 @@ const Home = ({ posts, lastProjects }) => {
             {/*   <h1 className="font-bold text-2xl mb-8 subTittle">
             Ultimos proyectos
           </h1> */}
-            <div className="grid grid-cols-3 gap-4 content-center max-sm:grid-cols-1 max-sm:w-full  max-sm:px-8 mb-20 proyectosBanner">
+            <div className="grid grid-cols-3 gap-4 content-center max-sm:grid-cols-1 max-sm:w-full  max-sm:px-8 mb-20 ">
               {lastProjects.map((proyecto, index) => {
                 return (
                   <Link
@@ -69,14 +71,14 @@ const Home = ({ posts, lastProjects }) => {
                     <div className="max-w-sm bg-white border border-gray-200 rounded-lg shadow ">
                       <Image src={proyecto.imagen} className="rounded-t-lg" />
 
-                      <div className="p-5 h-64">
-                        <h5 className="mb-2 text-2xl font-bold tracking-tight text-gray-900 tittleCard ">
+                      <div className={styles.descriptionCardContainer}>
+                        <h5 className="mb-2 text-xl font-bold tracking-tight text-gray-900 tittleCard ">
                           {proyecto.titulo}
                         </h5>
 
-                        <p className="mb-3 font-normal text-gray-700 descriptionCard">
+                        <div className={styles.descriptionCard}>
                           {proyecto.description}
-                        </p>
+                        </div>
                         <p className="inline-flex items-center px-3 py-2 text-sm font-medium text-center text-white buttonColor rounded-lg 0 focus:ring-4 focus:outline-none focus:ring-blue-300 ">
                           Leer mas
                           <svg
@@ -116,7 +118,7 @@ const Home = ({ posts, lastProjects }) => {
               />
 
               <div>
-                <p className="textDescription">
+                <p className={styles.textDescription}>
                   Desarrollador de software con pasión por la innovación tecnológica. Experto en la creación de aplicaciones web y móviles utilizando tecnologías modernas como Next.js, React, Node.js, SQL y Express.
 
                   En cuanto al desarrollo frontend, poseo un conocimiento avanzado en React, JavaScript, HTML5 y CSS, y tengo una experiencia significativa en la creación de SPA (Single Page Applications) con renderizado del lado del servidor usando Next.js. También tengo experiencia en desarrollo con Angular. Además, tengo gran creatividad y pericia en el uso de CSS para crear estilos personalizados, y soy competente en marcos de trabajo de CSS como Material UI, Bootstrap y TailwindCSS. He trabajado con bibliotecas de JavaScript y React como ChartJS, ReactChart y React Flow para la creación de gráficos interactivos.
@@ -139,25 +141,25 @@ const Home = ({ posts, lastProjects }) => {
           <h1 className="font-bold text-2xl mb-8 mt-8 subTittle">
             Proyectos Recientes
           </h1>
-          <div className="grid grid-cols-3 gap-4 content-center max-sm:grid-cols-1 max-sm:w-full  max-sm:px-8 mb-20 proyectosBannerMobile">
+            <div className="grid grid-cols-3 gap-4 content-center max-sm:grid-cols-1 max-sm:w-full  max-sm:px-8 mb-20 proyectosBanner">
             {lastProjects.map((proyecto, index) => {
               return (
                 <Link
                   href={proyecto.url}
                   key={proyecto.url}
-                  className="max-w-sm max-sm:w-full shadow-2xl"
+                    className="max-w-sm max-sm:w-full shadow-2xl"
                 >
-                  <div className="max-w-sm bg-white border border-gray-200 rounded-lg shadow ">
+                    <div className="max-w-sm bg-white border border-gray-200 rounded-lg shadow ">
                     <Image src={proyecto.imagen} className="rounded-t-lg" />
 
-                    <div className="p-5 h-64">
-                      <h5 className="mb-2 text-2xl font-bold tracking-tight text-gray-900 tittleCard ">
+                    <div className={styles.descriptionCardContainer}>
+                        <h5 className="mb-2 text-xl font-bold tracking-tight text-gray-900 tittleCard ">
                         {proyecto.titulo}
                       </h5>
 
-                      <p className="mb-3 font-normal text-gray-700 descriptionCard">
+                      <div className={styles.descriptionCard}>
                         {proyecto.description}
-                      </p>
+                      </div>
                       <p className="inline-flex items-center px-3 py-2 text-sm font-medium text-center text-white buttonColor rounded-lg 0 focus:ring-4 focus:outline-none focus:ring-blue-300 ">
                         Leer mas
                         <svg
@@ -183,26 +185,25 @@ const Home = ({ posts, lastProjects }) => {
           <h1 className="font-bold text-2xl mb-8 mt-8 subTittle">
             Articulos Recientes
           </h1>
-          <div className="grid grid-cols-3 gap-4 content-center max-sm:grid-cols-1 max-sm:w-full  max-sm:px-8">
+            <div className="grid grid-cols-3 gap-4 content-center max-sm:grid-cols-1 max-sm:w-full  max-sm:px-8 mb-20 proyectosBanner">
             {posts.map((post, index) => {
               return (
                 <Link
                   href={`/blog/${post.slug}`}
                   key={post.slug}
-                  className="max-w-sm max-sm:w-full shadow-2xl"
+                    className="max-w-sm max-sm:w-full shadow-2xl"
                 >
-                  <div className="max-w-sm bg-white border border-gray-200 rounded-lg shadow ">
+                    <div className="max-w-sm bg-white border border-gray-200 rounded-lg shadow ">
                     <img src={post.thumb} className="rounded-t-lg" />
 
-                    <div className="p-5">
-                      <h5 className="mb-2 text-2xl font-bold tracking-tight text-gray-900 tittleCard">
+                    <div className={styles.descriptionCardContainer}>
+                        <h5 className="mb-2 text-xl font-bold tracking-tight text-gray-900 tittleCard ">
                         {post.title}
                       </h5>
 
-                      <p className="mb-3 font-normal text-gray-700 descriptionCard">
-                        Here are the biggest enterprise technology acquisitions
-                        of 2021 so far, in reverse chronological order.
-                      </p>
+                      <div className={styles.descriptionCard}>
+                     {post.title}
+                      </div>
                       <p className="inline-flex items-center px-3 py-2 text-sm font-medium text-center text-white buttonColor rounded-lg  focus:ring-4 focus:outline-none focus:ring-blue-300 ">
                         Leer mas
                         <svg

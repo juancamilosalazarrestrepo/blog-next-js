@@ -26,7 +26,7 @@ export default function Banners({ images }) {
   return (
     <div>
       <div className="sm:hidden headerMobile">
-        <span className="headerTextMobile">Frontend</span>
+        <span className="headerTextMobile">Fullstack</span>
         <span className="headerTextMobile">Developer.</span>
         <span className="headerSubTextMobile ">Juan Camilo Salazar Restrepo</span>
         <p className="headerParagraphMobile ">Especialista en desarrollo de software
@@ -201,7 +201,7 @@ export default function Banners({ images }) {
                             lineHeight: "100px",
                           }}
                         >
-                          Juan <span className="camiloText">Camilo</span>
+                          Juan <span >Camilo</span>
                         </span>
                         <span
                           style={{

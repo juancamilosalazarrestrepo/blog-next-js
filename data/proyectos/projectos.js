@@ -10,14 +10,14 @@ import niceGradientApp from "../../public/images/nice-gradient-mockup.webp";
 
 const proyectos = [
   {
-    titulo: "Nice Gradient - Generador de Gradientes con IA",
+    titulo: "Nice Gradient - Gradientes con IA",
     imagen: niceGradientApp, 
     description:
       "Generador de gradientes impulsado por IA con Next.js 14. Colección curada de gradientes, editor visual y exportación CSS/PNG.",
     url: "/proyectos/nice_gradient",
   },
   {
-    titulo: "Sistema de Gestión Inmobiliaria con Clean Architecture",
+    titulo: "Sistema de Gestión Inmobiliaria",
     imagen: realEstateApp, 
     description:
       "Plataforma inmobiliaria: gestiona propiedades, precios y usuarios con backend .NET (Clean Architecture) y frontend Next.js moderno.",
