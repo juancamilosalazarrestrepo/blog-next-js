@@ -4,6 +4,7 @@ import contactIcon from "../../public/images/customer-service.png";
 import Image from "next/image";
 import { useEffect, useState } from "react";
 import { useRouter } from "next/router";
+import styles from "../styles/Navbar.module.css";
 
 export default function NavBar() {
   const [activeURL, setActiveURL] = useState("");
@@ -22,13 +23,13 @@ export default function NavBar() {
 
   return (
     <div>
-      <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-        <nav className="relative z-2 flex justify-between">
-          <div className="flex items-center md:gap-x-14">
+      <div className={styles.navbarContainer}>
+        <nav className={styles.navbarContent}>
+          <div className={styles.menuItemsContainer}>
             <Link href="/" aria-label="Home">
               <Image src={logo} width={200} height={60} />
             </Link>
-            <div className="hidden md:flex md:gap-x-8 px-8">
+            <div className={styles.linksContainer}>
               <Link
                 href="/portafolio"
                 className={`inline-block rounded-lg py-1 px-2 text-sm text-slate-700 hover:bg-slate-100  ${activeURL === "/portafolio" ? "active" : ""
@@ -103,7 +104,7 @@ export default function NavBar() {
               className=" max-sm:hidden group inline-flex items-center justify-center rounded-full py-2 px-4 text-sm font-semibold focus:outline-none focus-visible:outline-2 focus-visible:outline-offset-2 bg-[#0575E6] text-white hover:text-slate-100 hover:bg-[#021B79] active:bg-[#021B79] active:text-blue-100 focus-visible:outline-[#021B79]"
               href="/contact"
             >
-              <span>Comunícate conmigo</span>
+              <span>Contacto</span>
             </a>{" "}
             <div className="-mr-1 md:hidden">
               <div data-headlessui-state="">

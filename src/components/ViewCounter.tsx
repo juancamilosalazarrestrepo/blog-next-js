@@ -4,7 +4,7 @@ import styles from "./viewsCounter.module.css";
 
 import Fetcher from "lib/fetcher";
 
-export default function ViewsCounter({ slug }: { slug: string }): JSX.Element {
+export default function ViewsCounter({ slug }: { slug: string }): React.JSX.Element {
   const { data } = useSWR(`/api/views/${slug}`, Fetcher);
   const views = (data as unknown as Record<string, number>)?.total;
 

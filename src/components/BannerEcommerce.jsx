@@ -1,5 +1,5 @@
 import { Swiper, SwiperSlide } from "swiper/react";
-import { Navigation, Pagination, Scrollbar, A11y } from "swiper";
+import { Navigation, Pagination, Scrollbar, A11y } from "swiper/modules";
 import Image from "next/image";
 import smallImage from "../../public/images/jsframe.png";
 import laptop from "../../public/images/laptop.png";
@@ -8,6 +8,7 @@ import phones from "../../public/images/phones.png";
 
 // Import Swiper styles
 import "swiper/css";
+import "swiper/css/navigation";
 import "swiper/css/pagination";
 import "swiper/css/scrollbar";
 

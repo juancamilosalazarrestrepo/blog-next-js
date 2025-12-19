@@ -1,12 +1,14 @@
 import { Swiper, SwiperSlide } from "swiper/react";
-import { Navigation, Pagination, Scrollbar, A11y } from "swiper";
+import { Navigation, Pagination, Scrollbar, A11y } from "swiper/modules";
 import Image from "next/image";
 import smallImage from "../../public/images/jsframe.png";
 import laptop from "../../public/images/laptop.png";
 import phones from "../../public/images/phones.png";
+import styles from "../styles/Banners.module.css";
 
 // Import Swiper styles
 import "swiper/css";
+import "swiper/css/navigation";
 import "swiper/css/pagination";
 import "swiper/css/scrollbar";
 
@@ -25,7 +27,7 @@ export default function Banners({ images }) {
   console.log("images", images);
   return (
     <div>
-      <div className="sm:hidden headerMobile">
+      <div className={styles.headerMobile}>
         <span className="headerTextMobile">Fullstack</span>
         <span className="headerTextMobile">Developer.</span>
         <span className="headerSubTextMobile ">Juan Camilo Salazar Restrepo</span>
@@ -123,7 +125,7 @@ export default function Banners({ images }) {
             className=" group inline-flex items-center justify-center rounded-full py-2 px-4 text-sm font-semibold focus:outline-none focus-visible:outline-2 focus-visible:outline-offset-2 bg-[#fff] buttonHoverText text-blue hover:text-slate-100 hover:bg-[#fff] active:bg-[#021B79] active:text-blue-100 focus-visible:outline-[#021B79]"
             href="/contact"
           >
-            <span>Comunícate conmigo</span>
+            <span>Contacto</span>
           </a>
           <a
             style={{
@@ -141,8 +143,9 @@ export default function Banners({ images }) {
         </div>
       </div>
 
-      <div className="max-sm:hidden">
+      <div className={styles.headerDesktop}>
         <Swiper
+        className={styles.swiperBannerContainer}
           modules={[Navigation, Pagination, Scrollbar, A11y]}
           spaceBetween={0}
           slidesPerView={1}
@@ -165,20 +168,10 @@ export default function Banners({ images }) {
                 <SwiperSlide key={index}>
                   {" "}
                   <div
-                    style={{
-                      position: "relative",
-                      width: "100%",
-                      height: "500px",
-                    }}
+                   className={styles.sliderContainer}
                   >
                     <div
-                      style={{
-                        position: "absolute",
-                        top: "52%",
-                        left: "43%",
-                        transform: "translate(-50%, -50%)",
-                        width: "900px",
-                      }}
+                      className={styles.letfHeaderSection}
                     >
                       <div
                         style={{
@@ -190,38 +183,17 @@ export default function Banners({ images }) {
                         {" "}
                         <span
                           //className="parkinsans-123456"
-                          style={{
-                            fontSize: "120px",
-                            color: "white",
-                            fontWeight: "700",
-                            fontFamily: "Teko",
-                            height: "100%",
-                            padding: "0px",
-                            margin: "0px",
-                            lineHeight: "100px",
-                          }}
+                          className={styles.titleHeaderDesktop}
                         >
-                          Juan <span >Camilo</span>
+                          Juan Camilo
                         </span>
                         <span
-                          style={{
-                            fontSize: "128px",
-                            color: "white",
-                            fontWeight: "300",
-                            fontFamily: "Teko",
-                            padding: "0px",
-                            margin: "0px",
-                            lineHeight: "100px",
-                          }}
+                      className={styles.subtitleHeaderDesktop}
                         >
                           Salazar Restrepo
                         </span>
                         <span
-                          style={{
-                            fontSize: "20px",
-                            color: "white",
-                            fontWeight: "100",
-                          }}
+                         className={styles.textHeaderDesktop}
                         >
                           Especialista en desarrollo de software , impulsemos
                           tus <br />
@@ -242,7 +214,7 @@ export default function Banners({ images }) {
                           className=" max-sm:hidden group inline-flex items-center justify-center rounded-full py-2 px-4 text-sm font-semibold focus:outline-none focus-visible:outline-2 focus-visible:outline-offset-2 bg-[#0575E6] buttonHoverText text-white hover:text-slate-100 hover:bg-[#fff] active:bg-[#021B79] active:text-blue-100 focus-visible:outline-[#021B79]"
                           href="/contact"
                         >
-                          <span>Comunícate conmigo</span>
+                          <span>Contacto</span>
                         </a>
                         <a
                           style={{

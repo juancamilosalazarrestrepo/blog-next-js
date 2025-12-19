@@ -1,5 +1,5 @@
 import { Swiper, SwiperSlide } from "swiper/react";
-import { Navigation, Pagination, Scrollbar, A11y } from "swiper";
+import { Navigation, Pagination, Scrollbar, A11y } from "swiper/modules";
 import Image from "next/image";
 import smallImage from "../../public/images/jsframe.webp";
 import awsLogo from "../../public/images/logos/awsLogo.webp";
@@ -16,6 +16,7 @@ import azureLogo from "../../public/images/logos/azureLogo.webp";
 
 // Import Swiper styles
 import "swiper/css";
+import "swiper/css/navigation";
 import "swiper/css/pagination";
 import "swiper/css/scrollbar";
 
