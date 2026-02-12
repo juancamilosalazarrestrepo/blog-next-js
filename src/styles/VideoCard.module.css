@@ -24,7 +24,6 @@
 }
 
 .card .box:nth-child(1)::before {
-
   content: ' ';
   position: absolute;
   top: 105px;
@@ -38,7 +37,6 @@
 }
 
 .card .box:nth-child(1)::after {
-
   content: ' ';
   position: absolute;
   bottom: -1px;
@@ -51,14 +49,10 @@
   box-shadow: -6px 6px #021E73;
 }
 
-
-
 .card .box:nth-child(2) {
   background: #fff;
   height: 220px;
   width: 100%;
-
-
 }
 
 .card .box:nth-child(2)::before {
@@ -87,7 +81,6 @@
   box-shadow: -6px -6px #021E73;
 }
 
-
 .card .circle {
   position: absolute;
   width: 180px;
@@ -106,7 +99,6 @@
   inset: 0;
   overflow: hidden;
   border-radius: 50%;
-
 }
 
 .card .box .imgBx {
@@ -129,8 +121,6 @@
   align-items: center;
   flex-direction: column;
   gap: 20;
-
-
 }
 
 .card .box .content h2 {
@@ -180,7 +170,6 @@
 .card .box .content ul li span {
   font-size: 1.65em;
   color: #333;
-
 }
 
 .card .box .content button {
@@ -196,37 +185,12 @@
   letter-spacing: 0.2em;
   font-weight: 500;
   cursor: pointer;
-  border: 5px solid #021E73;
-  box-shadow: 0 0 0 10px #fff;
+  border: 4px solid #021E73;
+  box-shadow: 0 0 0 8px #fff;
   transition: 0.5s;
-
 }
 
 .card .box .content button:hover {
   letter-spacing: 0.5em;
   background: #ff3d7f;
-}
-
-.card .box .content button::before {
-  content: '';
-  position: absolute;
-  top: 25px;
-  left: -29px;
-  width: 20px;
-  height: 20px;
-  background: transparent;
-  border-top-right-radius: 20px;
-  box-shadow: 5px -7px #fff;
-}
-
-.card .box .content button::after {
-  content: '';
-  position: absolute;
-  top: 25px;
-  right: -29px;
-  width: 20px;
-  height: 20px;
-  background: transparent;
-  border-top-left-radius: 20px;
-  box-shadow: -5px -7px #fff;
 }

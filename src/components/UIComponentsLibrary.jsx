@@ -1,16 +1,16 @@
 import styles from "../styles/UIComponentsLibrary.module.css";
 import Image from "next/image";
 import Link from "next/link";
-
+/*  */
 // Imágenes placeholder de los assets existentes — reemplazalas por screenshots reales
-import img1 from "../../public/images/tarjeta.webp";
-import img2 from "../../public/images/niceGradient.webp";
+import img1 from "../../public/images/tarjetavideo.webp";
+/* import img2 from "../../public/images/niceGradient.webp";
 import img3 from "../../public/images/parallax.webp";
 import img4 from "../../public/images/calculadoradark.webp";
 import img5 from "../../public/images/cloneChatGPT.webp";
 import img6 from "../../public/images/423shots_so.webp";
 import img7 from "../../public/images/nice-gradient-mockup2.webp";
-import img8 from "../../public/images/jsframeworks.webp";
+import img8 from "../../public/images/jsframeworks.webp"; */
 
 const uiComponents = [
     {
@@ -22,7 +22,7 @@ const uiComponents = [
         image: img1,
         href: "/videoCardElementPage",
         available: true,
-    },
+    }/* ,
     {
         id: "glassmorphism-button",
         title: "Glassmorphism Button",
@@ -92,7 +92,7 @@ const uiComponents = [
         image: img8,
         href: "#",
         available: false,
-    },
+    }, */
 ];
 
 const UIComponentsLibrary = () => {
