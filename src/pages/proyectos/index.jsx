@@ -1,74 +1,108 @@
-import * as React from "react";
 import Image from "next/image";
 import Layout from "../../components/Layout";
 import Link from "next/link";
 import Banners from "../../components/Banners";
-import banner1 from "../../../public/images/background.jpg"
+import banner1 from "../../../public/images/background.jpg";
 import banner2 from "../../../public/images/banner2.webp";
-import calculatorDark from "../../../public/images/calculadoradark.webp";
-import cloneChatgpt from "../../../public/images/cloneChatGPT.webp";
 import LogosSlider from "../../components/LogosSlide";
 import proyectos from "../../../data/proyectos/projectos";
-import Camilo from "../../../public/images/camiloPaginaWeb.png";
 
-
-const Portfolio = ({proyectos}) => {
+const Portfolio = ({ proyectos }) => {
   const images = [banner1, banner2];
 
- 
-
   return (
-    <div className="">
-      <div
-        style={{ position: "relative", width: "1wv", margin: "0", zIndex: "2" }}
-      >
+    <div>
+      <div style={{ position: "relative", width: "100%", margin: "0", zIndex: "2" }}>
         <Banners images={images} />
       </div>
 
-      <main className="py-8 container mx-auto px-44 ">
-      
-      
-        <div className="grid grid-cols-3 gap-4 content-center max-sm:grid-cols-1 max-sm:w-full  max-sm:px-8 mt-20">
-          {proyectos.map((proyecto, index) => {
-            return (
-              <Link
-                href={proyecto.url}
-                key={proyecto.url}
-                className="max-w-sm max-sm:w-full"
+      <main className="py-8 container mx-auto px-6 md:px-12 lg:px-24 xl:px-44">
+        {/* Título de sección */}
+        <h2 style={{
+          fontSize: "1.75rem",
+          fontWeight: 700,
+          color: "#1a1a2e",
+          textAlign: "center",
+          marginBottom: "40px",
+          marginTop: "20px",
+          position: "relative",
+          paddingBottom: "14px",
+        }}>
+          Proyectos
+          <span style={{
+            position: "absolute",
+            bottom: 0,
+            left: "50%",
+            transform: "translateX(-50%)",
+            width: "60px",
+            height: "4px",
+            background: "linear-gradient(135deg, #0072ff, #00c6ff)",
+            borderRadius: "2px",
+            display: "block",
+          }} />
+        </h2>
+
+        {/* Cards grid */}
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+          {proyectos.map((proyecto) => (
+            <Link href={proyecto.url} key={proyecto.url} style={{ textDecoration: "none" }}>
+              <div style={{
+                background: "#fff",
+                borderRadius: "16px",
+                overflow: "hidden",
+                boxShadow: "0 4px 16px rgba(0,0,0,0.06)",
+                border: "1px solid rgba(0,0,0,0.04)",
+                transition: "transform 0.35s cubic-bezier(.25,.46,.45,.94), box-shadow 0.35s cubic-bezier(.25,.46,.45,.94)",
+                display: "flex",
+                flexDirection: "column",
+                height: "100%",
+              }}
+                onMouseEnter={(e) => {
+                  e.currentTarget.style.transform = "translateY(-8px)";
+                  e.currentTarget.style.boxShadow = "0 16px 40px rgba(0,114,255,0.12), 0 4px 12px rgba(0,0,0,0.06)";
+                }}
+                onMouseLeave={(e) => {
+                  e.currentTarget.style.transform = "translateY(0)";
+                  e.currentTarget.style.boxShadow = "0 4px 16px rgba(0,0,0,0.06)";
+                }}
               >
-                <div className="max-w-sm bg-white border border-gray-200 rounded-lg shadow ">
-                  <Image src={proyecto.imagen} className="rounded-t-lg" />
-
-                  <div className="p-5">
-                    <h5 className="mb-2 text-2xl font-bold tracking-tight text-gray-900 ">
-                      {proyecto.titulo}
-                    </h5>
-
-                    <p className="mb-3 font-normal text-gray-700 ">
-                      {proyecto.description}
-                    </p>
-                    <p className="inline-flex items-center px-3 py-2 text-sm font-medium text-center text-white buttonColor rounded-lg  focus:ring-4 focus:outline-none focus:ring-blue-300 ">
-                      Leer mas
-                      <svg
-                        aria-hidden="true"
-                        className="w-4 h-4 ml-2 -mr-1"
-                        fill="currentColor"
-                        viewBox="0 0 20 20"
-                        xmlns="http://www.w3.org/2000/svg"
-                      >
-                        <path
-                          fillRule="evenodd"
-                          d="M10.293 3.293a1 1 0 011.414 0l6 6a1 1 0 010 1.414l-6 6a1 1 0 01-1.414-1.414L14.586 11H3a1 1 0 110-2h11.586l-4.293-4.293a1 1 0 010-1.414z"
-                          clipRule="evenodd"
-                        ></path>
-                      </svg>
-                    </p>
-                  </div>
+                <div style={{ overflow: "hidden", position: "relative", height: "200px" }}>
+                  <Image
+                    src={proyecto.imagen}
+                    alt={proyecto.titulo}
+                    width={600}
+                    height={400}
+                    style={{ objectFit: "cover", width: "100%", height: "100%", transition: "transform 0.4s ease" }}
+                  />
                 </div>
-              </Link>
-            );
-          })}
+                <div style={{ padding: "24px", display: "flex", flexDirection: "column", flex: 1 }}>
+                  <h3 style={{ fontSize: "1.05rem", fontWeight: 700, color: "#1a1a2e", marginBottom: "8px", lineHeight: 1.3 }}>
+                    {proyecto.titulo}
+                  </h3>
+                  <p style={{ color: "#6b7280", fontSize: "0.88rem", lineHeight: 1.5, flex: 1, marginBottom: "16px" }}>
+                    {proyecto.description}
+                  </p>
+                  <span style={{
+                    display: "inline-flex",
+                    alignItems: "center",
+                    gap: "8px",
+                    background: "linear-gradient(135deg, #0072ff, #0575e6)",
+                    color: "#fff",
+                    fontSize: "0.85rem",
+                    fontWeight: 600,
+                    padding: "10px 20px",
+                    borderRadius: "10px",
+                    width: "fit-content",
+                    boxShadow: "0 3px 10px rgba(0,114,255,0.2)",
+                  }}>
+                    Leer más →
+                  </span>
+                </div>
+              </div>
+            </Link>
+          ))}
         </div>
+
         <div className="w-full mt-20 mb-20">
           <LogosSlider />
         </div>
@@ -78,18 +112,15 @@ const Portfolio = ({proyectos}) => {
 };
 
 export const getStaticProps = async () => {
-
-  
-
   return {
     props: { proyectos },
   };
 };
 
-export default function BlogTemplate({ proyectos }) {
+export default function ProyectosTemplate({ proyectos }) {
   return (
     <Layout>
-      <Portfolio  proyectos={proyectos} />
+      <Portfolio proyectos={proyectos} />
     </Layout>
   );
 }

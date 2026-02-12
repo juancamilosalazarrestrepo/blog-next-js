@@ -1,10 +1,9 @@
 import { Swiper, SwiperSlide } from "swiper/react";
 import { Navigation, Pagination, Scrollbar, A11y } from "swiper/modules";
 import Image from "next/image";
-import smallImage from "../../public/images/jsframe.png";
+
 import laptop from "../../public/images/laptop.png";
-import designer from "../../public/images/designer.png"
-import phones from "../../public/images/phones.png";
+
 
 // Import Swiper styles
 import "swiper/css";
@@ -12,14 +11,9 @@ import "swiper/css/navigation";
 import "swiper/css/pagination";
 import "swiper/css/scrollbar";
 
-import { Roboto } from "next/font/google";
 
-const roboto = Roboto({
-    subsets: ["latin"], // Idiomas soportados
-    weight: ["400", "700"], // Pesos (opcional)
-    style: ["normal", "italic"], // Estilos opcionales
-    display: "swap", // Mejora el rendimiento (opcional)
-});
+
+
 
 // <uniquifier>: Use a unique and descriptive class name
 
@@ -216,7 +210,7 @@ export default function BannersEcommerce({ images }) {
                                                         fontWeight: "100",
                                                     }}
                                                 >
-                                                    Desarrollo y personalización de e-commerce en Shopify para hacer crecer tu <br/> negocio online
+                                                    Desarrollo y personalización de e-commerce en Shopify para hacer crecer tu <br /> negocio online
                                                 </span>
                                             </div>
 

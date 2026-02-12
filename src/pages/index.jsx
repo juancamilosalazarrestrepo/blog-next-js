@@ -1,35 +1,22 @@
-import * as React from "react";
-import { NextPage, GetStaticProps } from "next";
 import { getAllFilesFrontMatter } from "lib/mdx";
 import Link from "next/link";
-import NavBar from "../components/NavBar";
-import Slider from "../components/Slider";
 import Banners from "../components/Banners";
 import banner1 from "../../public/images/background.jpg";
-import banner3 from "../../public/images/background3.png";
-import banner2 from "../../public/images/banner2.webp";
 import whatsappIconBig from "../../public/images/whatsappBig.png";
-import EffectParticle from "../components/EffectParticle";
 import styles from "../styles/Index.module.css";
-
-
 import Layout from "../components/Layout";
 import LogosSlider from "../components/LogosSlide";
 import proyectos from "../../data/proyectos/projectos";
 import Image from "next/image";
-import Camilo from "../../public/images/camiloPaginaWeb.png";
+import Camilo from "../../public/images/camiloPaginaWeb.webp";
 
 const Home = ({ posts, lastProjects }) => {
-  const [search, setSearch] = React.useState("");
   const phoneNumber = "573042093951";
-  const filteredPosts = posts.filter((frontMatter) =>
-    frontMatter.title.toLowerCase().includes(search.toLowerCase())
-  );
-
   const images = [banner1];
 
   return (
-    <div className="">
+    <div>
+      {/* WhatsApp floating button */}
       <div className="whatsappButtom">
         <a
           href={`https://wa.me/${phoneNumber}`}
@@ -40,196 +27,154 @@ const Home = ({ posts, lastProjects }) => {
             src={whatsappIconBig}
             width={60}
             height={60}
-            alt="whatsapp button"
+            alt="Contactar por WhatsApp"
             style={{
               filter: "drop-shadow(5px 5px 8px rgba(100, 50, 0, 0.2))",
-              borderRadius: "8px", // Opcional: añade un borde redondeado
+              borderRadius: "8px",
             }}
           />
         </a>
       </div>
-      <div
-        style={{ position: "relative", width: "1wv", margin: "0", zIndex: "2" }}
-      >
+
+      {/* Hero Banner */}
+      <div style={{ position: "relative", width: "100%", margin: "0", zIndex: "2" }}>
         <Banners images={images} />
       </div>
 
       <main>
-        <div className="py-8 container mx-auto px-44 ">
-          <div className="mt-1 containerPerfil">
-            {/*   <h1 className="font-bold text-2xl mb-8 subTittle">
-            Ultimos proyectos
-          </h1> */}
-            <div className="grid grid-cols-3 gap-4 content-center max-sm:grid-cols-1 max-sm:w-full  max-sm:px-8 mb-20 ">
-              {lastProjects.map((proyecto, index) => {
-                return (
-                  <Link
-                    href={proyecto.url}
-                    key={proyecto.url}
-                    className="max-w-sm max-sm:w-full shadow-2xl"
-                  >
-                    <div className="max-w-sm bg-white border border-gray-200 rounded-lg shadow ">
-                      <Image src={proyecto.imagen} className="rounded-t-lg" />
-
-                      <div className={styles.descriptionCardContainer}>
-                        <h5 className="mb-2 text-xl font-bold tracking-tight text-gray-900 tittleCard ">
-                          {proyecto.titulo}
-                        </h5>
-
-                        <div className={styles.descriptionCard}>
-                          {proyecto.description}
-                        </div>
-                        <p className="inline-flex items-center px-3 py-2 text-sm font-medium text-center text-white buttonColor rounded-lg 0 focus:ring-4 focus:outline-none focus:ring-blue-300 ">
-                          Leer mas
-                          <svg
-                            aria-hidden="true"
-                            className="w-4 h-4 ml-2 -mr-1"
-                            fill="currentColor"
-                            viewBox="0 0 20 20"
-                            xmlns="http://www.w3.org/2000/svg"
-                          >
-                            <path
-                              fillRule="evenodd"
-                              d="M10.293 3.293a1 1 0 011.414 0l6 6a1 1 0 010 1.414l-6 6a1 1 0 01-1.414-1.414L14.586 11H3a1 1 0 110-2h11.586l-4.293-4.293a1 1 0 010-1.414z"
-                              clipRule="evenodd"
-                            ></path>
-                          </svg>
-                        </p>
-                      </div>
-                    </div>
-                  </Link>
-                );
-              })}
-            </div>
-            <h1 className="text-3xl font-bold text-center title">
-              Juan Camilo Salazar Restrepo
-            </h1>
-            <h1 className="text-large mb-3 text-center subtile-job">
-              Desarrollador FullStack
-            </h1>
-            <hr />
-            <div className="flex gap-8 mb-8 mt-8 perfil">
+        <div className={styles.mainContainer}>
+          {/* ===== Sobre Mí ===== */}
+          <h2 className={styles.sectionTitle}>Sobre Mí</h2>
+          <div className={styles.aboutSection}>
+            {/* Tarjeta de perfil */}
+            <div className={styles.profileCard}>
               <Image
                 src={Camilo}
-                width={320}
-                height={320}
-                alt=""
-                className="rounded-lg shadow-xl w-72 h-72 imagenPerfil"
+                width={220}
+                height={220}
+                alt="Juan Camilo Salazar Restrepo"
+                className={styles.profileImage}
               />
+              <h2 className={styles.profileName}>Juan Camilo Salazar</h2>
+              <p className={styles.profileRole}>Fullstack Developer</p>
+              <div className={styles.profileSocials}>
+                <a href="https://github.com/juancamilosalazarrestrepo" className={styles.socialLink} aria-label="GitHub" target="_blank" rel="noopener noreferrer">
+                  <svg width="18" height="18" fill="currentColor" viewBox="0 0 24 24"><path fillRule="evenodd" d="M12 2C6.477 2 2 6.484 2 12.017c0 4.425 2.865 8.18 6.839 9.504.5.092.682-.217.682-.483 0-.237-.008-.868-.013-1.703-2.782.605-3.369-1.343-3.369-1.343-.454-1.158-1.11-1.466-1.11-1.466-.908-.62.069-.608.069-.608 1.003.07 1.531 1.032 1.531 1.032.892 1.53 2.341 1.088 2.91.832.092-.647.35-1.088.636-1.338-2.22-.253-4.555-1.113-4.555-4.951 0-1.093.39-1.988 1.029-2.688-.103-.253-.446-1.272.098-2.65 0 0 .84-.27 2.75 1.026A9.564 9.564 0 0112 6.844c.85.004 1.705.115 2.504.337 1.909-1.296 2.747-1.027 2.747-1.027.546 1.379.202 2.398.1 2.651.64.7 1.028 1.595 1.028 2.688 0 3.848-2.339 4.695-4.566 4.943.359.309.678.92.678 1.855 0 1.338-.012 2.419-.012 2.747 0 .268.18.58.688.482A10.019 10.019 0 0022 12.017C22 6.484 17.522 2 12 2z" clipRule="evenodd" /></svg>
+                </a>
+                <a href="https://www.linkedin.com/in/juancamilosalazarrestrepo/" className={styles.socialLink} aria-label="LinkedIn" target="_blank" rel="noopener noreferrer">
+                  <svg width="18" height="18" fill="currentColor" viewBox="0 0 50 50"><path d="M41,4H9C6.21,4,4,6.24,4,9v32c0,2.76,2.21,5,5,5h32c2.76,0,5-2.21,5-5V9C46,6.21,43.76,4,41,4z M17,20v19h-6V20H17z M11,14.47c0-1.4,1.2-2.47,3-2.47s2.93,1.07,3,2.47c0,1.4-1.12,2.53-3,2.53C12.2,17,11,15.87,11,14.47z M39,39h-6c0,0,0-9.26,0-10 c0-2-1-4-3.5-4.04h-0.08C27,24.96,26,27.02,26,29c0,0.91,0,10,0,10h-6V20h6v2.56c0,0,1.93-2.56,5.81-2.56 c3.97,0,7.19,2.73,7.19,8.26V39z" /></svg>
+                </a>
+                <a href="https://www.instagram.com/salazarcode14/" className={styles.socialLink} aria-label="Instagram" target="_blank" rel="noopener noreferrer">
+                  <svg width="18" height="18" fill="currentColor" viewBox="0 0 24 24"><path fillRule="evenodd" d="M12.315 2c2.43 0 2.784.013 3.808.06 1.064.049 1.791.218 2.427.465a4.902 4.902 0 011.772 1.153 4.902 4.902 0 011.153 1.772c.247.636.416 1.363.465 2.427.048 1.067.06 1.407.06 4.123v.08c0 2.643-.012 2.987-.06 4.043-.049 1.064-.218 1.791-.465 2.427a4.902 4.902 0 01-1.153 1.772 4.902 4.902 0 01-1.772 1.153c-.636.247-1.363.416-2.427.465-1.067.048-1.407.06-4.123.06h-.08c-2.643 0-2.987-.012-4.043-.06-1.064-.049-1.791-.218-2.427-.465a4.902 4.902 0 01-1.772-1.153 4.902 4.902 0 01-1.153-1.772c-.247-.636-.416-1.363-.465-2.427-.047-1.024-.06-1.379-.06-3.808v-.63c0-2.43.013-2.784.06-3.808.049-1.064.218-1.791.465-2.427a4.902 4.902 0 011.153-1.772A4.902 4.902 0 015.45 2.525c.636-.247 1.363-.416 2.427-.465C8.901 2.013 9.256 2 11.685 2h.63zm-.081 1.802h-.468c-2.456 0-2.784.011-3.807.058-.975.045-1.504.207-1.857.344-.467.182-.8.398-1.15.748-.35.35-.566.683-.748 1.15-.137.353-.3.882-.344 1.857-.047 1.023-.058 1.351-.058 3.807v.468c0 2.456.011 2.784.058 3.807.045.975.207 1.504.344 1.857.182.466.399.8.748 1.15.35.35.683.566 1.15.748.353.137.882.3 1.857.344 1.054.048 1.37.058 4.041.058h.08c2.597 0 2.917-.01 3.96-.058.976-.045 1.505-.207 1.858-.344.466-.182.8-.398 1.15-.748.35-.35.566-.683.748-1.15.137-.353.3-.882.344-1.857.048-1.055.058-1.37.058-4.041v-.08c0-2.597-.01-2.917-.058-3.96-.045-.976-.207-1.505-.344-1.858a3.097 3.097 0 00-.748-1.15 3.098 3.098 0 00-1.15-.748c-.353-.137-.882-.3-1.857-.344-1.023-.047-1.351-.058-3.807-.058zM12 6.865a5.135 5.135 0 110 10.27 5.135 5.135 0 010-10.27zm0 1.802a3.333 3.333 0 100 6.666 3.333 3.333 0 000-6.666zm5.338-3.205a1.2 1.2 0 110 2.4 1.2 1.2 0 010-2.4z" clipRule="evenodd" /></svg>
+                </a>
+                <a href="https://www.facebook.com/profile.php?id=61557592842009" className={styles.socialLink} aria-label="Facebook" target="_blank" rel="noopener noreferrer">
+                  <svg width="18" height="18" fill="currentColor" viewBox="0 0 24 24"><path fillRule="evenodd" d="M22 12c0-5.523-4.477-10-10-10S2 6.477 2 12c0 4.991 3.657 9.128 8.438 9.878v-6.987h-2.54V12h2.54V9.797c0-2.506 1.492-3.89 3.777-3.89 1.094 0 2.238.195 2.238.195v2.46h-1.26c-1.243 0-1.63.771-1.63 1.562V12h2.773l-.443 2.89h-2.33v6.988C18.343 21.128 22 16.991 22 12z" clipRule="evenodd" /></svg>
+                </a>
+              </div>
+            </div>
 
-              <div>
-                <p className={styles.textDescription}>
-                  Desarrollador de software con pasión por la innovación tecnológica. Experto en la creación de aplicaciones web y móviles utilizando tecnologías modernas como Next.js, React, Node.js, SQL y Express.
+            {/* Contenido about */}
+            <div className={styles.aboutContent}>
+              <p className={styles.aboutBio}>
+                Desarrollador de software con pasión por la innovación tecnológica. Experto en la creación de aplicaciones web y móviles utilizando tecnologías modernas como Next.js, React, Node.js, .NET y bases de datos SQL. Con experiencia en plataformas cloud como Azure y AWS, me especializo en construir soluciones escalables, seguras y de alto rendimiento.
+              </p>
 
-                  En cuanto al desarrollo frontend, poseo un conocimiento avanzado en React, JavaScript, HTML5 y CSS, y tengo una experiencia significativa en la creación de SPA (Single Page Applications) con renderizado del lado del servidor usando Next.js. También tengo experiencia en desarrollo con Angular. Además, tengo gran creatividad y pericia en el uso de CSS para crear estilos personalizados, y soy competente en marcos de trabajo de CSS como Material UI, Bootstrap y TailwindCSS. He trabajado con bibliotecas de JavaScript y React como ChartJS, ReactChart y React Flow para la creación de gráficos interactivos.
-
-                  En el desarrollo backend, he creado varios servidores y APIs en Node.js con Express. Además, tengo experiencia en el desarrollo de backends con C# y .NET, conectándolos a bases de datos SQL como MySQL o SQL Server. También tengo experiencia en la optimización del procesamiento de grandes volúmenes de datos manejándolos como flujos y hasta migrando funciones a microservicios en Azure.
-
-                  En el campo de los microservicios, he implementado soluciones en Azure, incluyendo Azure Functions y Azure Blob Storage.
-
-                  Mi experiencia en control de versiones incluye plataformas como GitHub y BitBucket. He desplegado aplicaciones de Next.js y React en servicios como AWS, Vercel, Netlify y Heroku.
-
-                  A lo largo de mis años de experiencia, he desarrollado diferentes tipos de proyectos, como aplicaciones con backend y frontend para paneles administrativos o páginas de aterrizaje, así como extensiones para Google Chrome para monitorear acciones de los usuarios en el navegador y guardarlas en bases de datos para el seguimiento del tiempo. También he desarrollado scripts de automatización de procesos que permiten a las empresas ahorrar tiempo y costos operativos, incrementando así la productividad.
-
-                  En cuanto al desarrollo móvil, he creado aplicaciones con React Native y planeo aprender Kotlin.
-
-                  Mi objetivo es seguir creciendo profesionalmente en el campo del desarrollo de software, aportando mi experiencia y conocimientos para crear soluciones innovadoras y de alto impacto.
-                </p>
+              <div className={styles.highlightGrid}>
+                <div className={styles.highlightCard}>
+                  <span className={styles.highlightIcon}>💻</span>
+                  <h4 className={styles.highlightTitle}>5+ años de experiencia</h4>
+                  <p className={styles.highlightText}>Desarrollando software profesional para empresas y startups</p>
+                </div>
+                <div className={styles.highlightCard}>
+                  <span className={styles.highlightIcon}>⚛️</span>
+                  <h4 className={styles.highlightTitle}>React / Next.js / Node</h4>
+                  <p className={styles.highlightText}>Stack moderno para frontend y backend de alto rendimiento</p>
+                </div>
+                <div className={styles.highlightCard}>
+                  <span className={styles.highlightIcon}>☁️</span>
+                  <h4 className={styles.highlightTitle}>Azure & AWS</h4>
+                  <p className={styles.highlightText}>Microservicios, Functions y despliegues en la nube</p>
+                </div>
+                <div className={styles.highlightCard}>
+                  <span className={styles.highlightIcon}>📱</span>
+                  <h4 className={styles.highlightTitle}>Apps Web y Móviles</h4>
+                  <p className={styles.highlightText}>React Native, e-commerce, paneles admin y automatización</p>
+                </div>
               </div>
             </div>
           </div>
-          <h1 className="font-bold text-2xl mb-8 mt-8 subTittle">
-            Proyectos Recientes
-          </h1>
-            <div className="grid grid-cols-3 gap-4 content-center max-sm:grid-cols-1 max-sm:w-full  max-sm:px-8 mb-20 proyectosBanner">
-            {lastProjects.map((proyecto, index) => {
-              return (
-                <Link
-                  href={proyecto.url}
-                  key={proyecto.url}
-                    className="max-w-sm max-sm:w-full shadow-2xl"
-                >
-                    <div className="max-w-sm bg-white border border-gray-200 rounded-lg shadow ">
-                    <Image src={proyecto.imagen} className="rounded-t-lg" />
 
-                    <div className={styles.descriptionCardContainer}>
-                        <h5 className="mb-2 text-xl font-bold tracking-tight text-gray-900 tittleCard ">
-                        {proyecto.titulo}
-                      </h5>
-
-                      <div className={styles.descriptionCard}>
-                        {proyecto.description}
-                      </div>
-                      <p className="inline-flex items-center px-3 py-2 text-sm font-medium text-center text-white buttonColor rounded-lg 0 focus:ring-4 focus:outline-none focus:ring-blue-300 ">
-                        Leer mas
-                        <svg
-                          aria-hidden="true"
-                          className="w-4 h-4 ml-2 -mr-1"
-                          fill="currentColor"
-                          viewBox="0 0 20 20"
-                          xmlns="http://www.w3.org/2000/svg"
-                        >
-                          <path
-                            fillRule="evenodd"
-                            d="M10.293 3.293a1 1 0 011.414 0l6 6a1 1 0 010 1.414l-6 6a1 1 0 01-1.414-1.414L14.586 11H3a1 1 0 110-2h11.586l-4.293-4.293a1 1 0 010-1.414z"
-                            clipRule="evenodd"
-                          ></path>
-                        </svg>
-                      </p>
-                    </div>
+          {/* ===== Proyectos Recientes ===== */}
+          <h2 className={styles.sectionTitle}>Proyectos Recientes</h2>
+          <div className={styles.cardsGrid}>
+            {lastProjects.map((proyecto) => (
+              <Link href={proyecto.url} key={proyecto.url} style={{ textDecoration: 'none' }}>
+                <div className={styles.projectCard}>
+                  <div className={styles.projectCardImageWrapper}>
+                    <Image
+                      src={proyecto.imagen}
+                      alt={proyecto.titulo}
+                      width={600}
+                      height={400}
+                      style={{ objectFit: "cover", width: "100%", height: "100%" }}
+                    />
                   </div>
-                </Link>
-              );
-            })}
-          </div>
-          <h1 className="font-bold text-2xl mb-8 mt-8 subTittle">
-            Articulos Recientes
-          </h1>
-            <div className="grid grid-cols-3 gap-4 content-center max-sm:grid-cols-1 max-sm:w-full  max-sm:px-8 mb-20 proyectosBanner">
-            {posts.map((post, index) => {
-              return (
-                <Link
-                  href={`/blog/${post.slug}`}
-                  key={post.slug}
-                    className="max-w-sm max-sm:w-full shadow-2xl"
-                >
-                    <div className="max-w-sm bg-white border border-gray-200 rounded-lg shadow ">
-                    <img src={post.thumb} className="rounded-t-lg" />
-
-                    <div className={styles.descriptionCardContainer}>
-                        <h5 className="mb-2 text-xl font-bold tracking-tight text-gray-900 tittleCard ">
-                        {post.title}
-                      </h5>
-
-                      <div className={styles.descriptionCard}>
-                     {post.title}
-                      </div>
-                      <p className="inline-flex items-center px-3 py-2 text-sm font-medium text-center text-white buttonColor rounded-lg  focus:ring-4 focus:outline-none focus:ring-blue-300 ">
-                        Leer mas
-                        <svg
-                          aria-hidden="true"
-                          className="w-4 h-4 ml-2 -mr-1"
-                          fill="currentColor"
-                          viewBox="0 0 20 20"
-                          xmlns="http://www.w3.org/2000/svg"
-                        >
-                          <path
-                            fillRule="evenodd"
-                            d="M10.293 3.293a1 1 0 011.414 0l6 6a1 1 0 010 1.414l-6 6a1 1 0 01-1.414-1.414L14.586 11H3a1 1 0 110-2h11.586l-4.293-4.293a1 1 0 010-1.414z"
-                            clipRule="evenodd"
-                          ></path>
-                        </svg>
-                      </p>
-                    </div>
+                  <div className={styles.descriptionCardContainer}>
+                    <h3 className={styles.cardTitle}>{proyecto.titulo}</h3>
+                    <p className={styles.descriptionCard}>{proyecto.description}</p>
+                    <span className={styles.readMoreButton}>
+                      Leer más
+                      <span className={styles.readMoreArrow}>→</span>
+                    </span>
                   </div>
-                </Link>
-              );
-            })}
+                </div>
+              </Link>
+            ))}
           </div>
-        </div>
 
-        <div className="w-full mt-20">
-          <LogosSlider />
+          {/* ===== Artículos Recientes ===== */}
+          <h2 className={styles.sectionTitle}>Artículos Recientes</h2>
+          <div className={styles.cardsGrid}>
+            {posts.map((post) => (
+              <Link href={`/blog/${post.slug}`} key={post.slug} style={{ textDecoration: 'none' }}>
+                <div className={styles.projectCard}>
+                  <div className={styles.projectCardImageWrapper}>
+                    <Image
+                      src={post.thumb}
+                      alt={post.title}
+                      width={600}
+                      height={400}
+                      style={{ objectFit: "cover", width: "100%", height: "100%" }}
+                    />
+                  </div>
+                  <div className={styles.descriptionCardContainer}>
+                    <h3 className={styles.cardTitle}>{post.title}</h3>
+                    <p className={styles.descriptionCard}>{post.title}</p>
+                    <span className={styles.readMoreButton}>
+                      Leer más
+                      <span className={styles.readMoreArrow}>→</span>
+                    </span>
+                  </div>
+                </div>
+              </Link>
+            ))}
+          </div>
+
+          {/* ===== CTA Section ===== */}
+          <div className={styles.ctaSection}>
+            <h2 className={styles.ctaTitle}>¿Listo para impulsar tu proyecto?</h2>
+            <p className={styles.ctaText}>
+              Hablemos de cómo puedo ayudarte a crear software de calidad que marque la diferencia.
+            </p>
+            <Link href="/contact" className={styles.ctaButton}>
+              Trabajemos juntos <span>→</span>
+            </Link>
+          </div>
+
+          {/* ===== Logos Slider ===== */}
+          <div className="w-full">
+            <LogosSlider />
+          </div>
         </div>
       </main>
     </div>
@@ -238,9 +183,7 @@ const Home = ({ posts, lastProjects }) => {
 
 export const getStaticProps = async () => {
   let posts = await getAllFilesFrontMatter("posts");
-  console.log(posts);
   posts = posts.slice(0, 3);
-  console.log(proyectos);
   const lastProjects = proyectos.slice(0, 3);
 
   return {

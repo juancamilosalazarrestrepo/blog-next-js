@@ -11,7 +11,6 @@
     z-index: 2;
     display: flex;
     justify-content: space-between;
-
 }
 
 .menuItemsContainer {
@@ -38,6 +37,19 @@
     display: none;
     box-shadow: rgba(50, 50, 93, 0.25) 0px 50px 100px -20px,
         rgba(0, 0, 0, 0.3) 0px 30px 60px -30px;
+    animation: slideDown 0.3s ease-out;
+}
+
+@keyframes slideDown {
+    from {
+        opacity: 0;
+        transform: translateY(-10px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
 }
 
 .open {
@@ -48,11 +60,8 @@
     display: none;
 }
 
-/* Móviles */
-@media (max-width: 640px) {
-
-   
-
+/* Tablets y abajo — burger menu visible */
+@media (max-width: 1024px) {
     .burgerMenuSection {
         display: flex;
     }
@@ -61,12 +70,3 @@
         display: none;
     }
 }
-
-/* Tablets */
-@media (max-width: 768px) {}
-
-/* Laptops */
-@media (max-width: 1024px) {}
-
-/* Pantallas grandes */
-@media (max-width: 1280px) {}

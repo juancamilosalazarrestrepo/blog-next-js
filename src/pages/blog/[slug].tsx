@@ -27,11 +27,8 @@ type Props = {
 };
 
 import MDXComponents from "@/components/MDXComponents";
-import Banners from "@/components/Banners";
 
 const DynamicPost: NextPage<Props> = ({ frontMatter, mdxSource }) => {
-  console.log("front matter", frontMatter);
-  console.log("fdd", frontMatter.image);
   return (
     <div>
       <Head>
@@ -43,19 +40,25 @@ const DynamicPost: NextPage<Props> = ({ frontMatter, mdxSource }) => {
           content={`https://www.salazarcode.com/blog/${frontMatter.slug}`}
         />
         <meta property="og:type" content="article" />
-        <meta name="twitter:card" content={frontMatter.thumb} />
+        <meta name="twitter:card" content="summary_large_image" />
+        <meta name="twitter:image" content={frontMatter.thumb} />
       </Head>
       <div>
-        <div>
+        <div style={{ overflow: "hidden", borderRadius: "0 0 16px 16px" }}>
           <Image
             className="overflow-hidden object-cover h-96 mb-14"
             src={frontMatter.image}
             width={1920}
             height={500}
-            alt="imagen"
+            alt={frontMatter.title}
+            style={{
+              objectFit: "cover",
+              width: "100%",
+              maxHeight: "400px",
+            }}
           />
         </div>
-        <article className="prose mx-auto max-w-none w-3/4">
+        <article className="prose mx-auto max-w-3xl px-6 md:px-8">
           <MDXRemote {...mdxSource} components={MDXComponents} />
           <div className="flex justify-center mt-8">
             <ViewsCounter slug={frontMatter.slug} />

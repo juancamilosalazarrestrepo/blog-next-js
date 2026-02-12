@@ -17,7 +17,6 @@ export default function NavBar() {
   }, [router.asPath]);
 
   const toggleBurgerMenu = () => {
-    console.log("hola");
     setOpenBurgerMenu(!openBurgerMenu);
   };
 
@@ -52,7 +51,7 @@ export default function NavBar() {
               >
                 Precios
               </Link> */}
-              {console.log("este", activeURL)}
+
               <Link
                 href="/proyectos"
                 className={`inline-block rounded-lg py-1 px-2 text-sm text-slate-700 hover:bg-slate-100  ${activeURL === "/proyectos" ? " active" : ""
@@ -76,7 +75,7 @@ export default function NavBar() {
               >
                 Certificados
               </Link>
-      {/*         <Link
+              {/*         <Link
                 href="/ecommerce"
                 className={`inline-block rounded-lg py-1 px-2 text-sm text-slate-700 hover:bg-slate-100  ${activeURL === "/ecommerce" ? "active" : ""
                   }`}
@@ -90,7 +89,7 @@ export default function NavBar() {
               >
                 Servicios
               </Link>
-                 <Link
+              <Link
                 href="/elements"
                 className={`inline-block rounded-lg py-1 px-2 text-sm text-slate-700 hover:bg-slate-100  ${activeURL === "/elements" ? "active" : ""
                   }`}

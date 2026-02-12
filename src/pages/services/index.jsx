@@ -1,27 +1,40 @@
-import * as React from "react";
-import Image from "next/image";
 import Layout from "../../components/Layout";
-import Link from "next/link";
-import Banners from "../../components/Banners";
-import BannersEcommerce from "../../components/BannerEcommerce";
-import banner1 from "../../../public/images/background.jpg"
-import banner2 from "../../../public/images/banner2.webp";
 import LogosSlider from "../../components/LogosSlide";
-import certificados from "../../../data/certificados/certificados";
-import Camilo from "../../../public/images/camiloPaginaWeb.png";
 import ServicesSection from "../../components/ServicesSection";
-
 import Portfolio from "../../components/PortfolioSection";
 
-const Ecommerce = () => {
-  const images = [banner1];
-
+const Services = () => {
   return (
-    <div className="">
-      <main className="py-2 container mx-auto px-44 mt-1">
-        <div className="w-full mt-20 mb-20">
-          <ServicesSection/>
-          <Portfolio/>
+    <div>
+      <main className="py-8 container mx-auto px-6 md:px-12 lg:px-24 xl:px-44">
+        {/* Título de sección */}
+        <h2 style={{
+          fontSize: "1.75rem",
+          fontWeight: 700,
+          color: "#1a1a2e",
+          textAlign: "center",
+          marginBottom: "40px",
+          marginTop: "40px",
+          position: "relative",
+          paddingBottom: "14px",
+        }}>
+          Servicios
+          <span style={{
+            position: "absolute",
+            bottom: 0,
+            left: "50%",
+            transform: "translateX(-50%)",
+            width: "60px",
+            height: "4px",
+            background: "linear-gradient(135deg, #0072ff, #00c6ff)",
+            borderRadius: "2px",
+            display: "block",
+          }} />
+        </h2>
+
+        <div className="w-full mb-20">
+          <ServicesSection />
+          <Portfolio />
           <LogosSlider />
         </div>
       </main>
@@ -29,16 +42,10 @@ const Ecommerce = () => {
   );
 };
 
-export const getStaticProps = async () => {
-  return {
-    props: { certificados },
-  };
-};
-
-export default function BlogTemplate({ certificados }) {
+export default function ServicesTemplate() {
   return (
     <Layout>
-      <Ecommerce />
+      <Services />
     </Layout>
   );
 }

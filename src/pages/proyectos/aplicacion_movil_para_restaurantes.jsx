@@ -1,7 +1,5 @@
-import * as React from "react";
 import Image from "next/image";
 import Layout from "../../components/Layout";
-import Link from "next/link";
 import Banners from "../../components/Banners";
 import banner1 from "../../../public/images/background.jpg"
 import banner2 from "../../../public/images/banner2.webp";
@@ -30,21 +28,21 @@ const AplicacionMovilParaRestaurantes = ({ posts }) => {
           >
             Aplicación móvil para restaurantes
           </h1>
-<div style={{
-  width:"100%",
-  display:"flex",
-  justifyContent:"center",
-  alignItems:"center"
-}}>
+          <div style={{
+            width: "100%",
+            display: "flex",
+            justifyContent: "center",
+            alignItems: "center"
+          }}>
 
-<Image
-            src={moviles}
+            <Image
+              src={moviles}
 
-            width={800}
-            alt=""
+              width={800}
+              alt=""
 
-          />
-</div>
+            />
+          </div>
           <p
             style={{
               marginBottom: "1rem",
@@ -110,10 +108,10 @@ const AplicacionMovilParaRestaurantes = ({ posts }) => {
             Tecnologías Utilizadas
           </h3>
           <div style={{
-              width:"100%",
-              margin:"50px"
-            }}> <LogosSlider /></div>
-         
+            width: "100%",
+            margin: "50px"
+          }}> <LogosSlider /></div>
+
           <ul>
             <li>
               <strong>Frontend:</strong> React Native, Redux para la gestión de

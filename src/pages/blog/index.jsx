@@ -5,7 +5,6 @@ import Link from "next/link";
 import Banners from "../../components/Banners";
 import banner1 from "../../../public/images/background.jpg";
 import banner2 from "../../../public/images/banner2.webp";
-import { NextPage, GetStaticProps } from "next";
 import { getAllFilesFrontMatter } from "lib/mdx";
 
 const Blog = ({ posts }) => {
@@ -17,23 +16,57 @@ const Blog = ({ posts }) => {
   const images = [banner1, banner2];
 
   return (
-    <div className="">
-      <div style={{ width: "1wv", margin: "0", zIndex: "-15" }}>
+    <div>
+      <div style={{ position: "relative", width: "100%", margin: "0", zIndex: "2" }}>
         <Banners images={images} />
       </div>
 
-      <main className="py-8 container mx-auto px-44">
-        <div className="relative w-full mb-4">
+      <main className="py-8 container mx-auto px-6 md:px-12 lg:px-24 xl:px-44">
+        {/* Título de sección */}
+        <h2 style={{
+          fontSize: "1.75rem",
+          fontWeight: 700,
+          color: "#1a1a2e",
+          textAlign: "center",
+          marginBottom: "40px",
+          position: "relative",
+          paddingBottom: "14px",
+        }}>
+          Artículos
+          <span style={{
+            position: "absolute",
+            bottom: 0,
+            left: "50%",
+            transform: "translateX(-50%)",
+            width: "60px",
+            height: "4px",
+            background: "linear-gradient(135deg, #0072ff, #00c6ff)",
+            borderRadius: "2px",
+            display: "block",
+          }} />
+        </h2>
+
+        {/* Search */}
+        <div className="relative w-full mb-8">
           <input
             type="text"
             aria-label="Buscar articulos"
             onChange={(e) => setSearch(e.target.value)}
-            placeholder="Buscar articulos"
-            className="px-4 py-2 border border-gray-300 focus:ring-blue-500 focus:border-blue-500   block w-full rounded-md bg-white
-             text-gray-900 "
+            placeholder="Buscar articulos..."
+            style={{
+              padding: "12px 48px 12px 20px",
+              border: "1px solid #e5e7eb",
+              borderRadius: "14px",
+              width: "100%",
+              fontSize: "0.95rem",
+              background: "#fff",
+              boxShadow: "0 2px 8px rgba(0,0,0,0.04)",
+              outline: "none",
+              transition: "all 0.3s ease",
+            }}
           />
           <svg
-            className="absolute right-3 top-3 h-5 w-5 text-gray-400"
+            className="absolute right-4 top-3.5 h-5 w-5 text-gray-400"
             xmlns="http://www.w3.org/2000/svg"
             fill="none"
             viewBox="0 0 24 24"
@@ -47,72 +80,96 @@ const Blog = ({ posts }) => {
             />
           </svg>
         </div>
-        <div className="grid grid-cols-3 gap-6 content-center max-sm:grid-cols-1 max-sm:w-full max-sm:px-8">
+
+        {/* Cards grid */}
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
           {filteredPosts.map((post) => (
             <Link
               href={`/blog/${post.slug}`}
               key={post.slug}
-              className="block"
+              style={{ textDecoration: "none" }}
             >
-              <div className="bg-white border border-gray-200 rounded-lg shadow h-[500px] flex flex-col hover:shadow-xl transition-shadow duration-300">
-                {/* Contenedor de imagen con altura fija */}
-                <div className="relative w-full h-64 overflow-hidden rounded-t-lg bg-gray-100">
-                  <img
+              <div style={{
+                background: "#fff",
+                borderRadius: "16px",
+                overflow: "hidden",
+                boxShadow: "0 4px 16px rgba(0,0,0,0.06)",
+                border: "1px solid rgba(0,0,0,0.04)",
+                transition: "transform 0.35s cubic-bezier(.25,.46,.45,.94), box-shadow 0.35s cubic-bezier(.25,.46,.45,.94)",
+                display: "flex",
+                flexDirection: "column",
+                height: "100%",
+              }}
+                onMouseEnter={(e) => {
+                  e.currentTarget.style.transform = "translateY(-8px)";
+                  e.currentTarget.style.boxShadow = "0 16px 40px rgba(0,114,255,0.12), 0 4px 12px rgba(0,0,0,0.06)";
+                }}
+                onMouseLeave={(e) => {
+                  e.currentTarget.style.transform = "translateY(0)";
+                  e.currentTarget.style.boxShadow = "0 4px 16px rgba(0,0,0,0.06)";
+                }}
+              >
+                {/* Image */}
+                <div style={{ overflow: "hidden", position: "relative", height: "200px" }}>
+                  <Image
                     src={post.thumb}
                     alt={post.title}
-                    className="absolute inset-0 w-full h-full object-cover"
-                    loading="lazy"
+                    width={600}
+                    height={400}
+                    style={{ objectFit: "cover", width: "100%", height: "100%", transition: "transform 0.4s ease" }}
                   />
                 </div>
 
-                {/* Contenido con flex para distribuir espacio */}
-                <div className="p-5 flex flex-col flex-1">
-                  {/* Título con máximo 2 líneas */}
+                {/* Content */}
+                <div style={{ padding: "24px", display: "flex", flexDirection: "column", flex: 1 }}>
                   <h5
-                    className="mb-2 text-xl font-bold tracking-tight text-gray-900"
                     style={{
+                      fontSize: "1.05rem",
+                      fontWeight: 700,
+                      color: "#1a1a2e",
+                      marginBottom: "8px",
+                      lineHeight: 1.3,
                       display: "-webkit-box",
                       WebkitLineClamp: 2,
                       WebkitBoxOrient: "vertical",
                       overflow: "hidden",
-                      minHeight: "3.5rem",
                     }}
                     title={post.title}
                   >
                     {post.title}
                   </h5>
 
-                  {/* Descripción con máximo 2 líneas */}
                   <p
-                    className="mb-4 font-normal text-gray-700 flex-1"
                     style={{
+                      color: "#6b7280",
+                      fontSize: "0.88rem",
+                      lineHeight: 1.5,
+                      flex: 1,
                       display: "-webkit-box",
                       WebkitLineClamp: 2,
                       WebkitBoxOrient: "vertical",
                       overflow: "hidden",
+                      marginBottom: "16px",
                     }}
                     title={post.subtitle}
                   >
                     {post.subtitle}
                   </p>
 
-                  {/* Botón siempre pegado al fondo */}
-                  <div className="mt-auto">
-                    <span className="inline-flex items-center px-3 py-2 text-sm font-medium text-white bg-blue-700 rounded-lg hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300">
-                      Read more
-                      <svg
-                        aria-hidden="true"
-                        className="w-4 h-4 ml-2 -mr-1"
-                        fill="currentColor"
-                        viewBox="0 0 20 20"
-                        xmlns="http://www.w3.org/2000/svg"
-                      >
-                        <path
-                          fillRule="evenodd"
-                          d="M10.293 3.293a1 1 0 011.414 0l6 6a1 1 0 010 1.414l-6 6a1 1 0 01-1.414-1.414L14.586 11H3a1 1 0 110-2h11.586l-4.293-4.293a1 1 0 010-1.414z"
-                          clipRule="evenodd"
-                        />
-                      </svg>
+                  <div style={{ marginTop: "auto" }}>
+                    <span style={{
+                      display: "inline-flex",
+                      alignItems: "center",
+                      gap: "8px",
+                      background: "linear-gradient(135deg, #0072ff, #0575e6)",
+                      color: "#fff",
+                      fontSize: "0.85rem",
+                      fontWeight: 600,
+                      padding: "10px 20px",
+                      borderRadius: "10px",
+                      boxShadow: "0 3px 10px rgba(0,114,255,0.2)",
+                    }}>
+                      Leer más →
                     </span>
                   </div>
                 </div>

@@ -1,7 +1,4 @@
-import * as React from "react";
-import Image from "next/image";
 import Layout from "../../components/Layout";
-import Link from "next/link";
 import Banners from "../../components/Banners";
 import banner1 from "../../../public/images/background.jpg"
 import banner2 from "../../../public/images/banner2.webp";
@@ -35,7 +32,7 @@ const Calculadora = ({ posts }) => {
           proyecto es una muestra de habilidades y experiencia en el desarrollo
           de aplicaciones móviles con React Native.
         </p>
-        <img src={banner2} alt=""/>
+        <img src={banner2} alt="" />
       </main>
     </div>
   );

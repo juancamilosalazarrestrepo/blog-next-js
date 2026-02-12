@@ -8,25 +8,45 @@ import certificadoFullStack from "../../public/images/certificadoFullStack.png";
 import certificadoContentMarketing from "../../public/images/certificadocontentMarketing.png";
 import certificadoScrum from "../../public/images/certificadoScrum.png";
 import certificadoReactNative from "../../public/images/certificadoReactNative.jpg";
-
+import certificadoPython from "../../public/images/certificadopython.webp";
+import certificadoML from "../../public/images/certificadoMachineLearning_1.webp";
+import certificadoCleanArch from "../../public/images/certificadoclean.webp";
 
 const certificados = [
   {
+    titulo: "Machine Learning with Python",
+    imagen: certificadoML,
+    description: "Curso completo de Machine Learning con Python, abarcando algoritmos de regresión, clasificación y clustering.",
+    url: "*",
+  },
+  {
+    titulo: "Python for Data Science, AI & Development",
+    imagen: certificadoPython,
+    description: "Fundamentos de Python aplicados a Ciencia de Datos e Inteligencia Artificial.",
+    url: "*",
+  },
+  {
+    titulo: "Clean Architecture en .Net",
+    imagen: certificadoCleanArch,
+    description: "Implementación de Arquitectura Limpia en .NET para construir software escalable y mantenible.",
+    url: "*",
+  },
+  {
     titulo: "Desarrollo de aplicaciones moviles con React Native",
     imagen: certificadoReactNative,
-    description:"Desarrollo de Aplicaciones Moviles con React Native, para desarrollar aplicaciones moviles multiplataforma.",
+    description: "Desarrollo de Aplicaciones Moviles con React Native, para desarrollar aplicaciones moviles multiplataforma.",
     url: "*",
   },
   {
     titulo: "Programacion Backend con C# .NET 8",
     imagen: certificadoNet8,
-    description:"Desarrollo de API con C# .NET 8, programación orientada a objetos y arquitectura limpia para soluciones backend eficientes.",
+    description: "Desarrollo de API con C# .NET 8, programación orientada a objetos y arquitectura limpia para soluciones backend eficientes.",
     url: "*",
   },
   {
     titulo: "Angular - NET Core - Aplicacion de Preguntas y Respuestas",
     imagen: certificadoNet,
-    description:"Curso de desarrollo con Angular para el front y .Net core para el back , donde se desarrollo una aplicacion de preguntas y respuestas.",
+    description: "Curso de desarrollo con Angular para el front y .Net core para el back , donde se desarrollo una aplicacion de preguntas y respuestas.",
     url: "*",
   },
   {

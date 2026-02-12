@@ -1,10 +1,8 @@
-import * as React from "react";
-import Image from "next/image";
 import Layout from "../../components/Layout";
-import Link from "next/link";
 import Banners from "../../components/Banners";
 import banner1 from "../../../public/images/background.jpg"
 import banner2 from "../../../public/images/banner2.webp";
+
 
 const Calculadora = ({ posts }) => {
   const images = [banner1, banner2];
@@ -37,7 +35,7 @@ const Calculadora = ({ posts }) => {
         </p>
       </main>
 
-     
+
     </div>
   );
 };

@@ -1,11 +1,6 @@
-import * as React from "react";
-import Image from "next/image";
 import Layout from "../../components/Layout";
-import Link from "next/link";
 import Banners from "../../components/Banners";
-import banner1 from "../../../public/images/background.jpg"
 import bannerGlass from "../../../public/images/bannerGlass.jpg";
-import glassCard from "../../../public/images/tarjeta.webp";
 
 const SneakersCards = ({ posts }) => {
   const images = [bannerGlass];
@@ -21,7 +16,7 @@ const SneakersCards = ({ posts }) => {
           {" "}
           Tarjeta Animada con Glasmorfismo:
         </h2>
-      
+
         {/*         <Image className="mx-auto rounded-md" src={glassCard} alt="" width={400}/>
          */}
         <div>
@@ -36,12 +31,12 @@ const SneakersCards = ({ posts }) => {
             </p>
           </section>
           <iframe
-          className="mx-auto rounded-md mt-8"
-          src="https://awesome-lalande-09ef8d.netlify.app/"
-          width="1200"
-          height="500"
-          title="glassmorfism card"
-        ></iframe>
+            className="mx-auto rounded-md mt-8"
+            src="https://awesome-lalande-09ef8d.netlify.app/"
+            width="1200"
+            height="500"
+            title="glassmorfism card"
+          ></iframe>
           <section>
             <h2 class="text-2xl font-semibold mt-6 mb-4">Características</h2>
             <ul class="list-disc pl-6 space-y-2">
@@ -101,9 +96,9 @@ const SneakersCards = ({ posts }) => {
           </section>
           <h2 class="text-2xl font-semibold mt-6 mb-4">Demo:</h2>
 
-          <a  target="_blank"
+          <a target="_blank"
             className="font-semibold"
-            href="          https://awesome-lalande-09ef8d.netlify.app/">Demo en Heroku</a><br/>
+            href="          https://awesome-lalande-09ef8d.netlify.app/">Demo en Heroku</a><br />
           <a
             target="_blank"
             className="font-semibold"

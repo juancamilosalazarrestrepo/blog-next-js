@@ -1,7 +1,6 @@
 import { Swiper, SwiperSlide } from "swiper/react";
-import { Navigation, Pagination, Scrollbar, A11y } from "swiper/modules";
+import { Autoplay } from "swiper/modules";
 import Image from "next/image";
-import smallImage from "../../public/images/jsframe.webp";
 import awsLogo from "../../public/images/logos/awsLogo.webp";
 import reactLogo from "../../public/images/logos/reactLogo.webp";
 import nodeLogo from "../../public/images/logos/nodeLogo.webp";
@@ -14,97 +13,40 @@ import angulaLogo from "../../public/images/logos/angular.webp";
 import dotNetLogo from "../../public/images/logos/netlogo.webp";
 import azureLogo from "../../public/images/logos/azureLogo.webp";
 
-// Import Swiper styles
 import "swiper/css";
-import "swiper/css/navigation";
-import "swiper/css/pagination";
-import "swiper/css/scrollbar";
 
 export default function LogosSlider() {
-  let images =[awsLogo,reactLogo,expressLogo,nodeLogo,vercelLogo,nextJsLogo,reactNativeLogo,sqlServerLogo,angulaLogo,dotNetLogo,azureLogo]
+  const images = [
+    awsLogo, reactLogo, expressLogo, nodeLogo, vercelLogo,
+    nextJsLogo, reactNativeLogo, sqlServerLogo, angulaLogo,
+    dotNetLogo, azureLogo,
+  ];
+
   return (
     <div className="logoSliderContainer">
-      <div className="sm:hidden">
-        <Swiper
-          modules={[Navigation, Pagination, Scrollbar, A11y]}
-          spaceBetween={0}
-          slidesPerView={3}
-          loop={true}
-          
-       
-          onSlideChange={() => console.log("slide change")}
-          onSwiper={(swiper) => console.log(swiper)}
-          /* breakpoints= {{
-        768: {
-          slidesPerView: 2,
-          spaceBetween: 20
-        },
-        480: {
-          slidesPerView: 1,
-          spaceBetween: 10
-        }
-      }}*/
-        >
-          {images
-            ? images.map((img, index) => {
-                return (
-                  <SwiperSlide key={index}>
-                    {" "}
-                    <Image
-                      src={img}
-                    
-                      height={500}
-
-                 
-                      className="w-100"
-                      placeholder="blur"
-                   
-                    />
-                  </SwiperSlide>
-                );
-              })
-            : null}
-        </Swiper>
-      </div>
-      <div className="max-sm:hidden">
-        <Swiper
-          modules={[Navigation, Pagination, Scrollbar, A11y]}
-          spaceBetween={1}
-          slidesPerView={4}
-          loop={true}
-          onSlideChange={() => console.log("slide change")}
-          onSwiper={(swiper) => console.log(swiper)}
-          /* breakpoints= {{
-        768: {
-          slidesPerView: 2,
-          spaceBetween: 20
-        },
-        480: {
-          slidesPerView: 1,
-          spaceBetween: 10
-        }
-      }}*/
-        >
-          {images
-            ? images.map((img, index) => {
-                return (
-                  <SwiperSlide key={index}>
-                    {" "}
-                    <Image
-                  //  isDuplicate={true}
-                      src={img}
-                 
-                      height={500}
-                      
-                      className="w-100"
-                      placeholder="blur"
-                    />
-                  </SwiperSlide>
-                );
-              })
-            : null}
-        </Swiper>
-      </div>
+      <Swiper
+        modules={[Autoplay]}
+        spaceBetween={10}
+        loop={true}
+        autoplay={{ delay: 2000, disableOnInteraction: false }}
+        breakpoints={{
+          0: { slidesPerView: 3 },
+          640: { slidesPerView: 4 },
+          1024: { slidesPerView: 5 },
+        }}
+      >
+        {images.map((img, index) => (
+          <SwiperSlide key={index}>
+            <Image
+              src={img}
+              height={500}
+              className="w-100"
+              placeholder="blur"
+              alt={`Technology logo ${index + 1}`}
+            />
+          </SwiperSlide>
+        ))}
+      </Swiper>
     </div>
   );
 }

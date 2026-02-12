@@ -1,16 +1,8 @@
-import * as React from "react";
-import Image from "next/image";
 import Layout from "../../components/Layout";
-import Link from "next/link";
-import Banners from "../../components/Banners";
 import BannersEcommerce from "../../components/BannerEcommerce";
 import banner1 from "../../../public/images/background.jpg"
-import banner2 from "../../../public/images/banner2.webp";
-import calculatorDark from "../../../public/images/calculadoradark.webp";
-import cloneChatgpt from "../../../public/images/cloneChatGPT.webp";
 import LogosSlider from "../../components/LogosSlide";
 import certificados from "../../../data/certificados/certificados";
-import Camilo from "../../../public/images/camiloPaginaWeb.png";
 import AdvantageSections from "../../components/AdvantageSections";
 import ShopifyServices from "../../components/ShopifyServices";
 import Portfolio from "../../components/PortfolioSection";

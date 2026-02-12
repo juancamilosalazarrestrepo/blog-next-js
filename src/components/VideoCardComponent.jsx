@@ -1,5 +1,5 @@
 import styles from "../styles/VideoCard.module.css";
-import userImage from "../../public/images/camiloPaginaWeb.png";
+import userImage from "../../public/images/camiloPaginaWeb.webp";
 import Image from "next/image";
 
 // Importa los estilos como módulo
