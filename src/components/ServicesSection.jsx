@@ -1,3 +1,4 @@
+import Link from "next/link";
 import styles from "../styles/BenefitsSection.module.css"; // Importa los estilos como módulo
 import Image from "next/image";
 import shopifyImage from "../../public/images/shopify.webp";
@@ -46,14 +47,15 @@ const ServicesSection = () => {
       image: uiuxImage,
       title: "Diseño UX/UI de landing pages",
       description:
-        "Diseñamos landing pages atractivas, funcionales y enfocadas en la conversión. Combinamos una estética moderna con una experiencia de usuario clara e intuitiva para maximizar resultados. Aplicamos principios de UX/UI, diseño responsivo y psicología del color, garantizando que cada visitante encuentre valor y dé el siguiente paso hacia tu objetivo."
+        "Diseñamos landing pages atractivas, funcionales y enfocadas en la conversión. Combinamos una estética moderna con una experiencia de usuario clara e intuitiva para maximizar resultados. Aplicamos principios de UX/UI, diseño responsivo y psicología del color, garantizando que cada visitante encuentre valor y dé el siguiente paso hacia tu objetivo.",
+      link: "/desarrollo-web"
     },
     {
-  image: webLayoutImage,
-  title: "Maquetación web profesional",
-  description:
-    "Convertimos tus diseños en sitios web totalmente funcionales, optimizados y responsivos. Nos enfocamos en una estructura limpia, semántica y adaptable a cualquier dispositivo. Garantizamos una maquetación fiel al diseño original, con tiempos de carga rápidos y compatibilidad entre navegadores, asegurando una experiencia fluida para todos los usuarios."
-}
+      image: webLayoutImage,
+      title: "Maquetación web profesional",
+      description:
+        "Convertimos tus diseños en sitios web totalmente funcionales, optimizados y responsivos. Nos enfocamos en una estructura limpia, semántica y adaptable a cualquier dispositivo. Garantizamos una maquetación fiel al diseño original, con tiempos de carga rápidos y compatibilidad entre navegadores, asegurando una experiencia fluida para todos los usuarios."
+    }
   ];
 
 
@@ -72,6 +74,11 @@ const ServicesSection = () => {
           <div className={styles.servicesContent}>
             <h3 className={styles.benefitTitle}>{service.title}</h3>
             <p className={styles.serviceDescription}>{service.description}</p>
+            {service.link && (
+              <Link href={service.link} className="mt-4 inline-block text-blue-600 font-semibold hover:text-blue-800 transition-colors">
+                Ver más &rarr;
+              </Link>
+            )}
           </div>
         </div>
       ))}
