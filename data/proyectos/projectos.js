@@ -6,19 +6,34 @@ import parallaxLanding from "../../public/images/parallax.webp";
 import littleLemonApp from "../../public/images/littleLemonApp.png";
 import realEstateApp from "../../public/images/realEstateApp.webp";
 import niceGradientApp from "../../public/images/nice-gradient-mockup.webp";
-
+import portadaMedico from "../../public/images/portadaMedico.png";
+import portadaReserve from "../../public/images/portadaReserve.png";
 
 const proyectos = [
   {
     titulo: "Nice Gradient - Gradientes con IA",
-    imagen: niceGradientApp, 
+    imagen: niceGradientApp,
     description:
       "Generador de gradientes impulsado por IA con Next.js 14. Colección curada de gradientes, editor visual y exportación CSS/PNG.",
     url: "/proyectos/nice_gradient",
   },
   {
+    titulo: "Dr. Cristian Machado - Diagnóstico Web",
+    imagen: portadaMedico,
+    description:
+      "Sitio web médico profesional con optimización SEO para el Dr. Cristian Machado, especialista en radiología avanzada en Buenos Aires.",
+    url: "/proyectos/dr_machado_diagnostics",
+  },
+  {
+    titulo: "Motor de Reservas - Yates y Apartamentos",
+    imagen: portadaReserve,
+    description:
+      "Plataforma de alta gama (Dark Mode) en Next.js para reservas exclusivas de apartamentos de lujo y yates privados con pagos seguros.",
+    url: "/proyectos/luxury_booking_engine",
+  },
+  {
     titulo: "Sistema de Gestión Inmobiliaria",
-    imagen: realEstateApp, 
+    imagen: realEstateApp,
     description:
       "Plataforma inmobiliaria: gestiona propiedades, precios y usuarios con backend .NET (Clean Architecture) y frontend Next.js moderno.",
     url: "/proyectos/sistema_gestion_inmobiliaria",
