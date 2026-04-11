@@ -1,19 +1,21 @@
-import Head from "next/head";
+import SEO from "../components/SEO";
 import Layout from "../components/Layout";
 import Link from "next/link";
 import Image from "next/image";
+import Head from "next/head";
 
 export default function DesarrolloWeb() {
     const phoneNumber = "573042093951";
 
     return (
         <Layout>
+            <SEO 
+                title="Desarrollo de Páginas Web Profesionales y Modernas"
+                description="Diseño y desarrollo de plataformas web rápidas, responsivas y optimizadas para SEO. Expertos en E-commerce, Next.js y React."
+                keywords={['desarrollo de paginas web', 'diseño web profesional', 'programador web freelance', 'sitios web en nextjs', 'paginas de alta velocidad', 'desarrollo ecommerce']}
+                image="https://lh3.googleusercontent.com/aida-public/AB6AXuBq-uZ4Mu0RrGEn3tp_uEKvV10vw5bDb1zNc5UM6qMF9YpU1SFpkLIgdgHzxVxG5j3lf7rqIuCpRZcjtbSsTr5Jghv8Kw9gBl_6Au4oKcFrxx9Qh57HvgbTMM4aLg6WmCiywj8xEDIWbClb5onUm7BzoKCt8pCLC4zlescOFvB04otiP0tIqHL4r0Tk0t_rCf7F_wwZX7TdGOYCLk3k8pm6NHV7tnq3pF3LRrSEde3_Sukvquwm12SDwICqveWQgMIYvB8cQDx8R-w"
+            />
             <Head>
-                <title>Desarrollo de Páginas Web Profesionales - Salazar Code</title>
-                <meta
-                    name="description"
-                    content="Diseño y desarrollo de páginas web modernas, rápidas y optimizadas para SEO. Expertos en Next.js, React y Shopify. ¡Impulsa tu negocio hoy!"
-                />
                 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet" />
                 <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap" rel="stylesheet" />
             </Head>

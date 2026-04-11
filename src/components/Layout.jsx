@@ -16,8 +16,8 @@ export default function Layout({ children }) {
         <link rel="icon" href="/favicon.ico" />
       </Head>
       <header className="py-10 shadow-xl ">
-        <div className="relative z-10">
-          <div className="fixed bg-white w-full py-6 top-0 left-0 right-0">
+        <div className="relative z-50">
+          <div className="fixed z-50 shadow-md bg-white w-full py-6 top-0 left-0 right-0">
             <NavBar />
           </div>
         </div>

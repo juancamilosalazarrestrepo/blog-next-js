@@ -1,6 +1,8 @@
 import { getAllFilesFrontMatter } from "lib/mdx";
 import Link from "next/link";
 import Banners from "../components/Banners";
+import AIAgentsSection from "../components/AIAgentsSection";
+import WebDevSection from "../components/WebDevSection";
 import banner1 from "../../public/images/background.jpg";
 import whatsappIconBig from "../../public/images/whatsappBig.png";
 import styles from "../styles/Index.module.css";
@@ -9,6 +11,7 @@ import LogosSlider from "../components/LogosSlide";
 import proyectos from "../../data/proyectos/projectos";
 import Image from "next/image";
 import Camilo from "../../public/images/camiloPaginaWeb.webp";
+import SEO from "../components/SEO";
 
 const Home = ({ posts, lastProjects }) => {
   const phoneNumber = "573042093951";
@@ -16,6 +19,12 @@ const Home = ({ posts, lastProjects }) => {
 
   return (
     <div>
+      <SEO 
+        title="Juan Camilo Salazar | Desarrollador Full Stack, Especialista en IA y Web"
+        description="Impulsa tu negocio con soluciones tecnológicas avanzadas. Desarrollo de sitios web modernos con React/Next.js y creación de Agentes de Inteligencia Artificial para ventas y automatización 24/7."
+        keywords={['desarrollador full stack', 'inteligencia artificial', 'agentes ia', 'desarrollo web', 'nextjs', 'react', 'automatización empresarial']}
+        image="/images/camiloPaginaWeb.webp"
+      />
       {/* WhatsApp floating button */}
       <div className="whatsappButtom">
         <a
@@ -43,6 +52,8 @@ const Home = ({ posts, lastProjects }) => {
 
       <main>
         <div className={styles.mainContainer}>
+
+
           {/* ===== Sobre Mí ===== */}
           <h2 className={styles.sectionTitle}>Sobre Mí</h2>
           <div className={styles.aboutSection}>
@@ -132,6 +143,15 @@ const Home = ({ posts, lastProjects }) => {
             ))}
           </div>
 
+        </div>
+
+        {/* ===== Sección Destacada: Agentes IA (Full Width) ===== */}
+        <AIAgentsSection />
+
+        {/* ===== Sección Destacada: Desarrollo Web (Full Width) ===== */}
+        <WebDevSection />
+
+        <div className={styles.mainContainer}>
           {/* ===== Artículos Recientes ===== */}
           <h2 className={styles.sectionTitle}>Artículos Recientes</h2>
           <div className={styles.cardsGrid}>
@@ -159,7 +179,6 @@ const Home = ({ posts, lastProjects }) => {
               </Link>
             ))}
           </div>
-
           {/* ===== CTA Section ===== */}
           <div className={styles.ctaSection}>
             <h2 className={styles.ctaTitle}>¿Listo para impulsar tu proyecto?</h2>

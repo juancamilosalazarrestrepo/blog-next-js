@@ -1,0 +1,8 @@
+User-agent: *
+Allow: /
+
+# Host
+Host: https://salazarcode.com
+
+# Sitemaps
+Sitemap: https://salazarcode.com/sitemap.xml

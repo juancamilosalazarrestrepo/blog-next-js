@@ -15,9 +15,8 @@ export default function Banners({ images }) {
     <div>
       {/* Mobile Header */}
       <div className={styles.headerMobile}>
-        <span className="headerTextMobile">Fullstack</span>
-        <span className="headerTextMobile">Developer.</span>
-        <span className="headerSubTextMobile">Juan Camilo Salazar Restrepo</span>
+        <h1 className="headerTextMobile" style={{ margin: 0, padding: 0 }}>Fullstack Developer.</h1>
+        <h2 className="headerSubTextMobile" style={{ margin: 0, padding: 0 }}>Juan Camilo Salazar Restrepo</h2>
         <p className="headerParagraphMobile">
           Especialista en desarrollo de software, impulsemos tus proyectos rumbo al éxito.
         </p>
@@ -68,12 +67,13 @@ export default function Banners({ images }) {
                   <div className={styles.sliderContainer}>
                     <div className={styles.letfHeaderSection}>
                       <div style={{ display: "flex", flexDirection: "column", alignItems: "flex-start" }}>
-                        <span className={styles.titleHeaderDesktop}>Juan Camilo</span>
-                        <span className={styles.subtitleHeaderDesktop}>Salazar Restrepo</span>
-                        <span className={styles.textHeaderDesktop}>
+                        <h1 className={styles.titleHeaderDesktop} style={{ margin: 0, padding: 0 }}>Juan Camilo<br/>
+                          <span className={styles.subtitleHeaderDesktop}>Salazar Restrepo</span>
+                        </h1>
+                        <h2 className={styles.textHeaderDesktop} style={{ margin: 0, padding: 0, fontSize: "inherit", fontWeight: "inherit" }}>
                           Especialista en desarrollo de software, impulsemos tus<br />
                           proyectos rumbo al éxito.
-                        </span>
+                        </h2>
                       </div>
 
                       <div className={styles.heroButtonsRow}>
