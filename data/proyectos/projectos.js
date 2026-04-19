@@ -8,8 +8,16 @@ import realEstateApp from "../../public/images/realEstateApp.webp";
 import niceGradientApp from "../../public/images/nice-gradient-mockup.webp";
 import portadaMedico from "../../public/images/portadaMedico.png";
 import portadaReserve from "../../public/images/portadaReserve.png";
+import velmax from "../../public/images/velmax.png";
 
 const proyectos = [
+  {
+    titulo: "Velmax Consultorios Médicos",
+    imagen: velmax,
+    description:
+      "Plataforma médica integral e informativa para Velmax Consultorios en Berazategui. Incluye directorio, especialidades y agendamiento online.",
+    url: "/proyectos/velmax_consultorios",
+  },
   {
     titulo: "Nice Gradient - Gradientes con IA",
     imagen: niceGradientApp,
