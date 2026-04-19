@@ -1,11 +1,11 @@
 import { useState } from "react";
-import Head from "next/head";
 import Image from "next/image";
 import Link from "next/link";
 import Layout from "../../components/Layout";
 import styles from "../../styles/ProyectoDetalle.module.css";
 import reserveDesktop from "../../../public/images/reserveDesktop.png";
 import reservePhone from "../../../public/images/reservePhone.png";
+import SEO from "../../components/SEO";
 
 const LuxuryBookingEngine = () => {
     const [activeTab, setActiveTab] = useState("features");
@@ -73,13 +73,11 @@ const LuxuryBookingEngine = () => {
 
     return (
         <Layout>
-            <Head>
-                <title>Motor de Reservas | Yates y Apartamentos de Lujo - Portfolio</title>
-                <meta
-                    name="description"
-                    content="Plataforma premium para reserva de yates exclusivos y apartamentos de lujo empleando Next.js y Dark Mode."
-                />
-            </Head>
+            <SEO 
+                title="Motor de Reservas | Yates y Apartamentos de Lujo - Portfolio"
+                description="Plataforma premium para reserva de yates exclusivos y apartamentos de lujo empleando Next.js y Dark Mode."
+                keywords={["motor de reservas", "booking engine", "yachts", "apartamentos lujo", "nextjs", "react"]}
+            />
 
             {/* Hero Section */}
             <section

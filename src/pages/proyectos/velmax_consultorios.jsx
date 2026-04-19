@@ -1,28 +1,29 @@
-import Head from "next/head";
 import Image from "next/image";
 import Link from "next/link";
 import Layout from "../../components/Layout";
-import velmax from "../../../public/images/velmax.png";
+import velmaxMockup from "../../../public/images/velmax-mockup.png";
+import SEO from "../../components/SEO";
 
 const VelmaxConsultorios = () => {
     return (
         <Layout>
-            <Head>
-                <title>Velmax Consultorios | Caso de Éxito de Desarrollo Web Médico</title>
-                <meta
-                    name="description"
-                    content="Desarrollo de página web moderna y optimizada para Velmax Consultorios Médicos. Más de 30 especialidades con agendamiento online."
-                />
-            </Head>
+            <SEO 
+                title="Velmax Consultorios | Caso de Éxito de Desarrollo Web Médico"
+                description="Desarrollo de página web moderna y optimizada para Velmax Consultorios Médicos. Más de 30 especialidades con agendamiento online."
+                keywords={["diseño web médico", "desarrollo web clinica", "velmax consultorios", "agendamiento medico online"]}
+            />
 
             <main className="font-sans text-slate-900 dark:text-slate-100">
                 {/* Hero Section */}
                 <section
-                    className="relative w-full overflow-hidden flex flex-col items-center px-6 py-12 md:py-24 lg:py-32 bg-gradient-to-br from-[#004e4a] via-[#008f86] to-[#004e4a]"
+                    className="relative w-full overflow-hidden flex flex-col items-center px-6 py-12 md:py-24 lg:py-32"
                     style={{
                         borderBottomLeftRadius: 'clamp(20px, 10vw, 80px)',
                         borderBottomRightRadius: 'clamp(20px, 10vw, 80px)',
                         color: '#ffffff',
+                        backgroundImage: "linear-gradient(rgba(0,0,0,0.35), rgba(0,0,0,0.35)), linear-gradient(to right, rgba(17, 153, 142, 0.9), rgba(56, 239, 125, 0.8), rgba(60, 165, 92, 0.9)), url('https://images.unsplash.com/photo-1586773860418-d37222d8fce3?q=80&w=2073&auto=format&fit=crop')",
+                        backgroundSize: 'cover',
+                        backgroundPosition: 'center',
                     }}
                 >
                     {/* Adding keyframes for the float animation */}
@@ -64,9 +65,9 @@ const VelmaxConsultorios = () => {
                         </div>
 
                         <div className="w-full lg:flex-1 relative flex justify-center lg:justify-end items-center z-10 mt-10 lg:mt-0">
-                            <div className="relative w-full max-w-[800px] h-full flex items-center justify-center animate-[float_5s_ease-in-out_infinite] rounded-2xl overflow-hidden shadow-[0_20px_50px_rgba(0,0,0,0.3)] border-4 border-white/20">
+                            <div className="relative w-full max-w-[1000px] lg:scale-110 xl:scale-125 origin-center lg:origin-right h-full flex items-center justify-center animate-[float_5s_ease-in-out_infinite] drop-shadow-2xl">
                                 <Image
-                                    src={velmax}
+                                    src={velmaxMockup}
                                     alt="Velmax Consultorios Médicos Mockup"
                                     width={1200}
                                     height={800}
@@ -141,7 +142,7 @@ const VelmaxConsultorios = () => {
                         <div className="bg-white dark:bg-[#151c2f] rounded-[2.5rem] overflow-hidden shadow-xl border border-slate-100 dark:border-slate-800 flex flex-col md:flex-row">
                             <div className="md:w-5/12 relative min-h-[300px] md:min-h-full">
                                 <Image
-                                    src={velmax}
+                                    src={velmaxMockup}
                                     alt="Velmax"
                                     layout="fill"
                                     objectFit="cover"

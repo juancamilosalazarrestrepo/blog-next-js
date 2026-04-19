@@ -10,8 +10,6 @@ export default function Layout({ children }) {
   return (
     <>
       <Head>
-        <title>Salazar Code</title>
-        <meta name="description" content="Desarrollador de Software" />
         <meta name="viewport" content="width=device-width, initial-scale=1" />
         <link rel="icon" href="/favicon.ico" />
       </Head>

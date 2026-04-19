@@ -6,6 +6,7 @@ import certificados from "../../../data/certificados/certificados";
 import AdvantageSections from "../../components/AdvantageSections";
 import ShopifyServices from "../../components/ShopifyServices";
 import Portfolio from "../../components/PortfolioSection";
+import SEO from "../../components/SEO";
 
 const Ecommerce = () => {
   const images = [banner1];
@@ -39,6 +40,11 @@ export const getStaticProps = async () => {
 export default function BlogTemplate({ certificados }) {
   return (
     <Layout>
+      <SEO 
+        title="Desarrollo de Tiendas Ecommerce y Shopify | Salazar Code"
+        description="Convierte tu idea en una tienda online poderosa con Shopify. Servicio profesional de desarrollo de e-commerce, integración de pagos y optimización en ventas."
+        keywords={["tienda online", "ecommerce", "shopify experta", "desarrollo de tiendas", "ventas online", "Salazar Code"]}
+      />
       <Ecommerce />
     </Layout>
   );

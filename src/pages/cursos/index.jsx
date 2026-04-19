@@ -6,6 +6,7 @@ import banner1 from "../../../public/images/background.jpg"
 import banner2 from "../../../public/images/banner2.webp";
 import LogosSlider from "../../components/LogosSlide";
 import certificados from "../../../data/certificados/certificados";
+import SEO from "../../components/SEO";
 
 
 const Certificados = ({ certificados }) => {
@@ -85,6 +86,11 @@ export const getStaticProps = async () => {
 export default function BlogTemplate({ certificados }) {
   return (
     <Layout>
+      <SEO 
+        title="Cursos y Certificaciones | Salazar Code"
+        description="Aprende y certifícate con los mejores cursos de desarrollo web, inteligencia artificial y programación ofrecidos por Juan Camilo Salazar."
+        keywords={["cursos de programacion", "certificados tech", "aprender a programar", "desarrollo web", "Salazar Code"]}
+      />
       <Certificados certificados={certificados} />
     </Layout>
   );

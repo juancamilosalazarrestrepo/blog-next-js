@@ -6,6 +6,7 @@ import banner1 from "../../../public/images/background.jpg";
 import banner2 from "../../../public/images/banner2.webp";
 import LogosSlider from "../../components/LogosSlide";
 import proyectos from "../../../data/proyectos/projectos";
+import SEO from "../../components/SEO";
 
 const Portfolio = ({ proyectos }) => {
   const images = [banner1, banner2];
@@ -120,6 +121,11 @@ export const getStaticProps = async () => {
 export default function PortfolioTemplate({ proyectos }) {
   return (
     <Layout>
+      <SEO 
+        title="Portafolio de Proyectos | Salazar Code"
+        description="Explora mis proyectos recientes de desarrollo web, desarrollo móvil, inteligencia artificial y aplicaciones Full Stack creadas por Juan Camilo Salazar."
+        keywords={["portafolio web", "proyectos web", "desarrollo móvil", "proyectos React Nextjs", "Salazar Code portafolio"]}
+      />
       <Portfolio proyectos={proyectos} />
     </Layout>
   );

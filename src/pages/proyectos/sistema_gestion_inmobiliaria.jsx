@@ -1,10 +1,10 @@
 import { useState } from "react";
-import Head from "next/head";
 import Image from "next/image";
 import Link from "next/link";
 import Layout from "../../components/Layout";
 import styles from "../../styles/ProyectoDetalle.module.css";
 import realEstateApp from "../../../public/images/realEstateApp.webp";
+import SEO from "../../components/SEO";
 
 const SistemaGestionInmobiliaria = () => {
   const [activeTab, setActiveTab] = useState("features");
@@ -79,13 +79,11 @@ const SistemaGestionInmobiliaria = () => {
 
   return (
     <Layout>
-      <Head>
-        <title>Sistema de Gestión Inmobiliaria | Proyecto Portfolio</title>
-        <meta
-          name="description"
-          content="Plataforma inmobiliaria completa con backend .NET (Clean Architecture) y frontend Next.js moderno"
-        />
-      </Head>
+      <SEO 
+        title="Sistema de Gestión Inmobiliaria | Proyecto Portfolio"
+        description="Plataforma inmobiliaria completa con backend .NET (Clean Architecture) y frontend Next.js moderno"
+        keywords={["sistema gestion inmobiliaria", "proyecto inmobiliario", "desarrollo .net", "nextjs portfolio", "clean architecture"]}
+      />
 
       {/* Hero Section */}
       <section className={styles.hero}>

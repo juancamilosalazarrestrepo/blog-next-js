@@ -2,6 +2,7 @@ import Layout from "../../components/Layout";
 import LogosSlider from "../../components/LogosSlide";
 import ServicesSection from "../../components/ServicesSection";
 import Portfolio from "../../components/PortfolioSection";
+import SEO from "../../components/SEO";
 
 const Services = () => {
   return (
@@ -45,6 +46,11 @@ const Services = () => {
 export default function ServicesTemplate() {
   return (
     <Layout>
+      <SEO 
+        title="Servicios de Desarrollo Web e IA | Salazar Code"
+        description="Servicios profesionales de desarrollo web Full Stack (React, Next.js, .NET), integraciones de Inteligencia Artificial (Agentes IA) y consultoría tecnológica."
+        keywords={["servicios desarrollo web", "agentes ia", "inteligencia artificial empresas", "react nextjs developer", "Salazar Code servicios"]}
+      />
       <Services />
     </Layout>
   );

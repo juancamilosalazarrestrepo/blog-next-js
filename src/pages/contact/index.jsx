@@ -2,6 +2,7 @@ import Image from "next/image";
 import Layout from "../../components/Layout";
 import LogosSlider from "../../components/LogosSlide";
 import ContactForm from "../../components/contactForm";
+import SEO from "../../components/SEO";
 import contacStyles from "./contact.module.css";
 import phoneIcon from "../../../public/images/phoneIcon.png";
 import emailIcon from "../../../public/images/emailIcon.png";
@@ -83,6 +84,11 @@ const Contact = () => {
 export default function ContactTemplate() {
   return (
     <Layout>
+      <SEO 
+        title="Contacto y Asesoría | Salazar Code - Soluciones Tech"
+        description="Ponte en contacto con Juan Camilo Salazar. Hablemos de cómo puedo ayudarte a crear software de calidad, desde sitios web modernos hasta Agentes de Inteligencia Artificial."
+        keywords={["contacto", "asesoría tech", "desarrollo web", "contratar programador", "Salazar Code"]}
+      />
       <Contact />
       <div className="mt-20 mb-20">
         <LogosSlider />

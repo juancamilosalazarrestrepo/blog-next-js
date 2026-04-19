@@ -1,7 +1,7 @@
-import Head from "next/head";
 import Image from "next/image";
 import Link from "next/link";
 import Layout from "../../components/Layout";
+import SEO from "../../components/SEO";
 import mockupMedico from "../../../public/images/mockupMedico.png";
 import mockupCelMedico from "../../../public/images/MockupCelMedico.png";
 import doctor3 from "../../../public/images/doctor3.webp";
@@ -9,13 +9,11 @@ import doctor3 from "../../../public/images/doctor3.webp";
 const DrMachadoDiagnostics = () => {
     return (
         <Layout>
-            <Head>
-                <title>MedWeb | Páginas Web para Doctores y Clínicas</title>
-                <meta
-                    name="description"
-                    content="Diseño profesional y funcional exclusivo para especialistas de la salud. Potencia tu presencia digital y atrae más pacientes."
-                />
-            </Head>
+            <SEO 
+                title="MedWeb | Páginas Web para Doctores y Clínicas"
+                description="Diseño profesional y funcional exclusivo para especialistas de la salud. Potencia tu presencia digital y atrae más pacientes."
+                keywords={["diseño web medicos", "paginas web doctores", "marketing salud", "sitios web clinicas", "medweb"]}
+            />
 
             <main className="font-sans text-slate-900 dark:text-slate-100">
                 {/* Hero Section */}
