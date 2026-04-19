@@ -62,6 +62,7 @@ export default function NiceGradientProject() {
             "@context": "https://schema.org",
             "@type": "SoftwareApplication",
             "name": "Nice Gradient",
+            "image": "https://www.salazarcode.com/images/nice-gradient-mockup.webp",
             "description": "Generador de gradientes impulsado por Inteligencia Artificial que combina creatividad y tecnología para crear gradientes únicos.",
             "url": "https://nice-gradient.vercel.app/",
             "author": {

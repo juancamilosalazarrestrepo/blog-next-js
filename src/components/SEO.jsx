@@ -54,18 +54,19 @@ const SEO = ({
     "image": imageUrl,
     "author": {
       "@type": "Person",
-      "name": author
+      "name": author,
+      "url": currentUrl
     },
     "publisher": {
       "@type": "Organization",
       "name": siteName,
       "logo": {
         "@type": "ImageObject",
-        "url": `${siteUrl}/logo.png`
+        "url": `${siteUrl}/images/og-default.jpg`
       }
     },
-    "datePublished": date,
-    "dateModified": date,
+    "datePublished": date || new Date().toISOString().split('T')[0],
+    "dateModified": date || new Date().toISOString().split('T')[0],
     "mainEntityOfPage": {
       "@type": "WebPage",
       "@id": currentUrl

@@ -20,7 +20,7 @@ export default function DesarrolloWeb() {
                 <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap" rel="stylesheet" />
             </Head>
 
-            <div className="bg-[#f6f6f8] dark:bg-[#101622] text-slate-900 dark:text-slate-100 font-sans transition-colors duration-300">
+            <div className="bg-[#f6f6f8] text-slate-900 font-sans transition-colors duration-300">
 
                 {/* Floating WhatsApp Action from Stitch (adapted) */}
                 <a className="fixed bottom-8 right-8 z-[100] bg-[#25D366] text-white p-4 rounded-full shadow-2xl hover:scale-110 active:scale-95 transition-all group" href={`https://wa.me/${phoneNumber}`}>
@@ -38,10 +38,10 @@ export default function DesarrolloWeb() {
                         <div className="flex flex-col gap-8 order-2 lg:order-1">
                             <div className="space-y-4">
                                 <span className="inline-block px-4 py-1.5 bg-[#1152d4]/10 text-[#1152d4] text-xs font-bold uppercase tracking-widest rounded-full">Soluciones Digitales de Élite</span>
-                                <h1 className="text-5xl lg:text-7xl font-black leading-[1.1] text-slate-900 dark:text-white">
+                                <h1 className="text-5xl lg:text-7xl font-black leading-[1.1] text-slate-900">
                                     Diseñamos Webs que <span className="text-[#1152d4]">Venden</span> y Convierten
                                 </h1>
-                                <p className="text-lg lg:text-xl text-slate-600 dark:text-slate-400 leading-relaxed max-w-xl">
+                                <p className="text-lg lg:text-xl text-slate-600 leading-relaxed max-w-xl">
                                     No solo creamos sitios web, construimos herramientas de marketing poderosas que transforman cada visita en una oportunidad de negocio real.
                                 </p>
                             </div>
@@ -50,7 +50,7 @@ export default function DesarrolloWeb() {
                                     Solicitar Cotización Gratis
                                     <span className="material-symbols-outlined text-xl">arrow_forward</span>
                                 </a>
-                                <Link href="/proyectos/calculadora" className="flex items-center justify-center gap-2 bg-white dark:bg-slate-800 border-2 border-slate-200 dark:border-slate-700 px-8 py-4 rounded-xl font-bold text-lg hover:bg-slate-50 transition-all text-center">
+                                <Link href="/proyectos/calculadora" className="flex items-center justify-center gap-2 bg-white border-2 border-slate-200 px-8 py-4 rounded-xl font-bold text-lg hover:bg-slate-50 transition-all text-center">
                                     Ver Portafolio
                                 </Link>
                             </div>
@@ -60,7 +60,7 @@ export default function DesarrolloWeb() {
                                     <div className="w-10 h-10 rounded-full border-2 border-white bg-slate-200 bg-cover" style={{ backgroundImage: "url('https://lh3.googleusercontent.com/aida-public/AB6AXuBEBgcVd954T6NjHSRtD0rOrq3sJFmCRunvBYWhrKZUCALSB4SN1VMMaurHwYIlWe9LS8DFdbmdz7R9hYHm6wkGzU-tCmAoy9EDSl-kt8j7rnJinrX2UWPUeBIrxxrq6UWkIbS1Tx9AO5BoSLTUke1pAFLN78MtWbZBwtf3MCGxxW3iYiPnEeQ05AZw8Ou5KS0Nk-EtoEQprXvkHrL9uNxZbN_qyIwNNpvP2XYvW-rno9AR-02Vj6mToWmIU_LGCkpdLeSVLUxc_t0')" }}></div>
                                     <div className="w-10 h-10 rounded-full border-2 border-white bg-slate-200 bg-cover" style={{ backgroundImage: "url('https://lh3.googleusercontent.com/aida-public/AB6AXuDs8L7MDWzNANCquCUnLZaOhM6k0VVwj70LETcUFKNR9qV-3z9O9R8U8hp3aqT78vxR1ARmIxy-NdLQT8uf_diLKNMOcnVimC7Mkow9lQiLiwen6r0NWJCVsdzf_vVTWYX1ocIzQNuSDb7iyXhMtg10VSXPY86F95Pg0HhH7sx5Gck-2_GXtPzN768ZqQJaeDG3dV1qlL_RGPAjlihar4VwXk83hdMPIZ5wZg_eHaDXqZ3T3PnqBS0m6T0z9bURgVF5YjL2xkOCgvo')" }}></div>
                                 </div>
-                                <p className="text-sm font-medium text-slate-500">Más de <span className="text-slate-900 dark:text-white font-bold">500+</span> empresas confían en nosotros</p>
+                                <p className="text-sm font-medium text-slate-500">Más de <span className="text-slate-900 font-bold">500+</span> empresas confían en nosotros</p>
                             </div>
                         </div>
                         <div className="order-1 lg:order-2">
@@ -74,45 +74,45 @@ export default function DesarrolloWeb() {
                 </section>
 
                 {/* Why Choose Us: 3 Large Cards */}
-                <section className="py-24 px-6 bg-white dark:bg-slate-900/50" id="servicios">
+                <section className="py-24 px-6 bg-white" id="servicios">
                     <div className="max-w-7xl mx-auto">
                         <div className="text-center mb-16 space-y-4">
-                            <h2 className="text-4xl font-bold text-slate-900 dark:text-white">¿Por qué elegirnos?</h2>
+                            <h2 className="text-4xl font-bold text-slate-900">¿Por qué elegirnos?</h2>
                             <div className="w-20 h-1.5 bg-[#1152d4] mx-auto rounded-full"></div>
-                            <p className="text-slate-600 dark:text-slate-400 max-w-2xl mx-auto">Combinamos tecnología de punta con diseño centrado en el usuario para garantizar resultados excepcionales.</p>
+                            <p className="text-slate-600 max-w-2xl mx-auto">Combinamos tecnología de punta con diseño centrado en el usuario para garantizar resultados excepcionales.</p>
                         </div>
                         <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
                             {/* Speed Card */}
-                            <div className="group relative overflow-hidden rounded-2xl bg-slate-100 dark:bg-slate-800 border border-slate-200/50 dark:border-slate-700/50 transition-all hover:-translate-y-2 hover:shadow-2xl">
+                            <div className="group relative overflow-hidden rounded-2xl bg-slate-100 border border-slate-200/50 transition-all hover:-translate-y-2 hover:shadow-2xl">
                                 <div className="h-64 bg-cover bg-center" style={{ backgroundImage: "url('https://lh3.googleusercontent.com/aida-public/AB6AXuBchIqrxuuDDDGpsv4wUHhA6CFZK12THQVs0Z6h7Y90GzD-OBLX4tUe0avRr2wNnNyDO4pcYsMVKUzMebpbFsSrmLrNKxuhQdma8KnFfQVlKVaWqjc487GvYaXYxHnV39MT9b2TYdtnYu97Xc8eNhFELvnLWuU8DIVwZ4XlI1Am-DTtHWBKkeZJ1jhxY0azYvfjwqwncoAXVF-3HMYne6K8aMK9r2bRcVqOL5J1pZilBoCAZ36vpOdkJZ8ptb4URJ6OpeNtv-6PBMc')" }}></div>
                                 <div className="p-8">
                                     <div className="flex items-center gap-3 mb-4">
                                         <span className="material-symbols-outlined text-[#1152d4] font-bold">bolt</span>
                                         <h3 className="text-2xl font-bold">Velocidad Extrema</h3>
                                     </div>
-                                    <p className="text-slate-600 dark:text-slate-400">Sitios optimizados para cargar en menos de 1 segundo, mejorando tu SEO y la experiencia del usuario.</p>
+                                    <p className="text-slate-600">Sitios optimizados para cargar en menos de 1 segundo, mejorando tu SEO y la experiencia del usuario.</p>
                                 </div>
                             </div>
                             {/* Design Card */}
-                            <div className="group relative overflow-hidden rounded-2xl bg-slate-100 dark:bg-slate-800 border border-slate-200/50 dark:border-slate-700/50 transition-all hover:-translate-y-2 hover:shadow-2xl">
+                            <div className="group relative overflow-hidden rounded-2xl bg-slate-100 border border-slate-200/50 transition-all hover:-translate-y-2 hover:shadow-2xl">
                                 <div className="h-64 bg-cover bg-center" style={{ backgroundImage: "url('https://lh3.googleusercontent.com/aida-public/AB6AXuB3p4ej51yuXiYPt6vAl32p-shiw_JzZFWaW6sWGgF6fKdLWIrQvAYeVbWoChCAW8i6rBWYgLBZUIPl4gI7GVl-A_QX-Q5faohiisJ5-iPEI4hNJ2-i6JXzYJ-lY7trDx-nwbg1b4DO2Ouiy1Wf7gUYhKe8nIi2Uj4Bv7X2235YQyHy6cJ1iAICxQ1EXqYcPQvVb3aW4Do1PbZU_LIa1O9ktCHpnv6LJVNaZMRtvXtmaYpPxwgKCamj8wOwncsZVbgtYJ5VbzMDSRI')" }}></div>
                                 <div className="p-8">
                                     <div className="flex items-center gap-3 mb-4">
                                         <span className="material-symbols-outlined text-[#1152d4] font-bold">palette</span>
                                         <h3 className="text-2xl font-bold">Diseño Premium</h3>
                                     </div>
-                                    <p className="text-slate-600 dark:text-slate-400">Interfaces estéticas y funcionales que reflejan la autoridad y el prestigio de tu marca en el mercado.</p>
+                                    <p className="text-slate-600">Interfaces estéticas y funcionales que reflejan la autoridad y el prestigio de tu marca en el mercado.</p>
                                 </div>
                             </div>
                             {/* Support Card */}
-                            <div className="group relative overflow-hidden rounded-2xl bg-slate-100 dark:bg-slate-800 border border-slate-200/50 dark:border-slate-700/50 transition-all hover:-translate-y-2 hover:shadow-2xl">
+                            <div className="group relative overflow-hidden rounded-2xl bg-slate-100 border border-slate-200/50 transition-all hover:-translate-y-2 hover:shadow-2xl">
                                 <div className="h-64 bg-cover bg-center" style={{ backgroundImage: "url('https://lh3.googleusercontent.com/aida-public/AB6AXuBTBBS589vfq4osalOpAXdw6tYS9C9iKu3FattkP854O4ed3oWnNc3S2bHyAwUcQEqBk7UIpU_xcVhrID4OSLmOdmO8DR1mte6HgLof-w_JSHjEbM1rXbElc2SxbD7FvZkzYhM_gijlmTbk6b88omqkoGbCL7IcLEVqUJsoc8nNXbCmg4ktEXcn69wB-96aLcugrLQ9uu1XcJjxMnvVXSuyovjGeM0vdisLCDGSW4T8xRvQDj6mmCZdlOJyg_EkpjZ6D-b3PO4vWk8')" }}></div>
                                 <div className="p-8">
                                     <div className="flex items-center gap-3 mb-4">
                                         <span className="material-symbols-outlined text-[#1152d4] font-bold">support_agent</span>
                                         <h3 className="text-2xl font-bold">Soporte Directo</h3>
                                     </div>
-                                    <p className="text-slate-600 dark:text-slate-400">Atención personalizada y rápida. Estamos contigo en cada paso, desde la idea hasta el mantenimiento.</p>
+                                    <p className="text-slate-600">Atención personalizada y rápida. Estamos contigo en cada paso, desde la idea hasta el mantenimiento.</p>
                                 </div>
                             </div>
                         </div>
@@ -123,18 +123,18 @@ export default function DesarrolloWeb() {
                 <section className="py-24 px-6 overflow-hidden" id="proceso">
                     <div className="max-w-7xl mx-auto space-y-32">
                         <div className="text-center space-y-4 mb-24">
-                            <h2 className="text-4xl font-bold text-slate-900 dark:text-white">Nuestro Proceso de Trabajo</h2>
+                            <h2 className="text-4xl font-bold text-slate-900">Nuestro Proceso de Trabajo</h2>
                             <div className="w-20 h-1.5 bg-[#1152d4] mx-auto rounded-full"></div>
                         </div>
                         {/* Step 1 */}
                         <div className="flex flex-col lg:flex-row items-center gap-12 lg:gap-24">
                             <div className="w-full lg:w-1/2 relative">
-                                <div className="absolute -top-10 -left-10 text-[180px] font-black text-slate-100 dark:text-slate-800/30 -z-10">01</div>
+                                <div className="absolute -top-10 -left-10 text-[180px] font-black text-slate-100 -z-10">01</div>
                                 <div className="aspect-video bg-slate-200 rounded-3xl overflow-hidden shadow-xl bg-cover bg-center" style={{ backgroundImage: "url('https://lh3.googleusercontent.com/aida-public/AB6AXuBLw3fxX0my5XYwE27YzwuiAabPIMBcy0x9GqMY8ZcyvzjmTvEvsY3hx4CqtorpZLFOMx6zOqNhnwgxw-7c-yGuukXHKB8ykSFcidnWcCgS5ZgJuBCgFUPIFNjt6EU3dSYF2P4ehBCn0T0METoB0kMAjYVeSNU1PoZj8TUAOrOsdikW6BEw4eGLmuJv8pYLVJUlc-Mdk8DyLlvDVL2OxqI0njrW-HYLrHqZ_nZDsZPlOA7WPiGnZFTNycDdEa1J5QqTncZgDNDGxNs')" }}></div>
                             </div>
                             <div className="w-full lg:w-1/2 space-y-6">
-                                <h3 className="text-4xl font-bold text-slate-900 dark:text-white">Consultoría &amp; Estrategia</h3>
-                                <p className="text-lg text-slate-600 dark:text-slate-400 leading-relaxed">
+                                <h3 className="text-4xl font-bold text-slate-900">Consultoría &amp; Estrategia</h3>
+                                <p className="text-lg text-slate-600 leading-relaxed">
                                     Analizamos a fondo tus objetivos comerciales, tu audiencia y tu competencia para trazar la hoja de ruta más efectiva hacia el éxito digital. No programamos sin antes entender qué hace vibrar a tu negocio.
                                 </p>
                                 <ul className="space-y-3">
@@ -146,12 +146,12 @@ export default function DesarrolloWeb() {
                         {/* Step 2 */}
                         <div className="flex flex-col lg:flex-row-reverse items-center gap-12 lg:gap-24">
                             <div className="w-full lg:w-1/2 relative">
-                                <div className="absolute -top-10 -right-10 text-[180px] font-black text-slate-100 dark:text-slate-800/30 -z-10">02</div>
+                                <div className="absolute -top-10 -right-10 text-[180px] font-black text-slate-100 -z-10">02</div>
                                 <div className="aspect-video bg-slate-200 rounded-3xl overflow-hidden shadow-xl bg-cover bg-center" style={{ backgroundImage: "url('https://lh3.googleusercontent.com/aida-public/AB6AXuC5RP82JRYwTd4gHp-Enxj7xemRuwAbccVlaZ4MB1h1NFoVTBRiswplaPw5yKSnk27j_1-QHf73BODhP9W5PT5lOA1T4xxKyw3pdyzYlGEMGfbJFEsBp4-aUeqNdiCJhQX0sRpRCicdHUumPhUYf3m7y6xsgR5eyfz8sWO3QLR3k0I3JePHVVf-B5xUs6J12fddAet096HAdtSz7-7EQvK1gOuZC_uprfQv7NerGcCfSCO02tjEz0erFhZ94SIADZbtwm_LFGAaAFU')" }}></div>
                             </div>
                             <div className="w-full lg:w-1/2 space-y-6">
-                                <h3 className="text-4xl font-bold text-slate-900 dark:text-white">Desarrollo &amp; Diseño</h3>
-                                <p className="text-lg text-slate-600 dark:text-slate-400 leading-relaxed">
+                                <h3 className="text-4xl font-bold text-slate-900">Desarrollo &amp; Diseño</h3>
+                                <p className="text-lg text-slate-600 leading-relaxed">
                                     Nuestros expertos en UX/UI y desarrolladores senior trabajan en conjunto para dar vida a una plataforma rápida, segura y estéticamente impecable que funciona perfectamente en cualquier dispositivo.
                                 </p>
                                 <ul className="space-y-3">
@@ -163,12 +163,12 @@ export default function DesarrolloWeb() {
                         {/* Step 3 */}
                         <div className="flex flex-col lg:flex-row items-center gap-12 lg:gap-24">
                             <div className="w-full lg:w-1/2 relative">
-                                <div className="absolute -top-10 -left-10 text-[180px] font-black text-slate-100 dark:text-slate-800/30 -z-10">03</div>
+                                <div className="absolute -top-10 -left-10 text-[180px] font-black text-slate-100 -z-10">03</div>
                                 <div className="aspect-video bg-slate-200 rounded-3xl overflow-hidden shadow-xl bg-cover bg-center" style={{ backgroundImage: "url('https://lh3.googleusercontent.com/aida-public/AB6AXuBLTYtykbWnUvGrzLMj-D4GzHkaCjT_RxqIAFkJxTy8iowg0OKTlT_j3r1PHWiHNrLG7RsdrqeqtaY8BLw8PCJZc3M0zwMXkjWZXcj6pqs121ol_HudAZVXXGFEci_is-wDfEK9sELX1wlK3kAMB4H20PkrOX1JoV7P_HRtYEhsL_7zafTsfQSldCSF2mLp6fYr8_uDqXYQbSAFsSa0yYoZzWVlgmPKZz1EtX4TbgkA0Kj81c3M8B1rhK977FdFRiSL7OMsc6I_Fdw')" }}></div>
                             </div>
                             <div className="w-full lg:w-1/2 space-y-6">
-                                <h3 className="text-4xl font-bold text-slate-900 dark:text-white">Lanzamiento &amp; Crecimiento</h3>
-                                <p className="text-lg text-slate-600 dark:text-slate-400 leading-relaxed">
+                                <h3 className="text-4xl font-bold text-slate-900">Lanzamiento &amp; Crecimiento</h3>
+                                <p className="text-lg text-slate-600 leading-relaxed">
                                     No solo entregamos el sitio; nos aseguramos de que despegue con éxito. Realizamos pruebas de rendimiento finales, configuración de analytics y capacitación para que gestiones tu contenido sin fricciones.
                                 </p>
                                 <ul className="space-y-3">
