@@ -1,8 +1,9 @@
 import { Swiper, SwiperSlide } from "swiper/react";
 import { Navigation, Pagination, Scrollbar, A11y } from "swiper/modules";
 import Image from "next/image";
-import laptop from "../../public/images/laptop.png";
+import laptops from "../../public/images/laptop.png";
 import phones from "../../public/images/phones.png";
+import mobileBg from "../../public/images/mobile_banner_bg.png";
 import styles from "../styles/Banners.module.css";
 
 import "swiper/css";
@@ -15,6 +16,15 @@ export default function Banners({ images }) {
     <div>
       {/* Mobile Header */}
       <div className={styles.headerMobile}>
+        {/* Background Image & Overlay */}
+        <Image 
+          src={mobileBg} 
+          alt="Abstract tech background"
+          className={styles.heroMobileBgImage}
+          placeholder="empty"
+        />
+        <div className={styles.heroMobileOverlay}></div>
+
         <h1 className="headerTextMobile" style={{ margin: 0, padding: 0 }}>Fullstack Developer.</h1>
         <h2 className="headerSubTextMobile" style={{ margin: 0, padding: 0 }}>Juan Camilo Salazar Restrepo</h2>
         <p className="headerParagraphMobile">
@@ -90,7 +100,7 @@ export default function Banners({ images }) {
                     <div>
                       <div className={styles.heroImagesWrapper}>
                         <Image
-                          src={laptop}
+                          src={laptops}
                           alt="Laptop"
                           width={700}
                           height={700}
