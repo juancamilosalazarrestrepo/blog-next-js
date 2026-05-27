@@ -20,7 +20,7 @@ import { useRouter } from 'next/router';
 const SEO = ({
   title = 'Desarrollador Full Stack | Especialista en Next.js, React y .NET',
   description = 'Portafolio de Juan Camilo Salazar. Desarrollador Full Stack especializado en Next.js, React, .NET y desarrollo web moderno. Explora mis proyectos y artículos sobre programación.',
-  image = '/images/og-default.jpg',
+  image = '/images/camiloPaginaWeb.webp',
   imageAlt = 'Juan Camilo Salazar - Desarrollador Full Stack',
   type = 'website',
   date,
@@ -34,7 +34,7 @@ const SEO = ({
   const router = useRouter();
   const siteUrl = process.env.NEXT_PUBLIC_SITE_URL || 'https://tudominio.com';
   const siteName = 'Juan Camilo Salazar';
-  const twitterHandle = '@tuusuario'; // Cambia esto por tu usuario real
+  const twitterHandle = '@juancsalazarc';
   
   // Construir URL completa de la página actual
   const currentUrl = canonical || `${siteUrl}${router.asPath}`;
@@ -62,7 +62,7 @@ const SEO = ({
       "name": siteName,
       "logo": {
         "@type": "ImageObject",
-        "url": `${siteUrl}/images/og-default.jpg`
+        "url": `${siteUrl}/images/camiloPaginaWeb.webp`
       }
     },
     "datePublished": date || new Date().toISOString().split('T')[0],
