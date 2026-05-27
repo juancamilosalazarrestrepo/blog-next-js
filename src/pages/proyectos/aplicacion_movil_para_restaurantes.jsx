@@ -1,6 +1,7 @@
 import Image from "next/image";
 import Layout from "../../components/Layout";
 import Banners from "../../components/Banners";
+import SEO from "../../components/SEO";
 import banner1 from "../../../public/images/background.webp"
 import banner2 from "../../../public/images/banner2.webp";
 import moviles from "../../../public/images/phones.png"
@@ -145,6 +146,7 @@ const AplicacionMovilParaRestaurantes = ({ posts }) => {
 export default function BlogTemplate() {
   return (
     <Layout>
+      <SEO title="App Móvil para Restaurantes con React Native" description="Aplicación móvil para restaurantes desarrollada con React Native, con suscripción a newsletter y funcionalidades para el sector gastronómico." />
       <AplicacionMovilParaRestaurantes />
     </Layout>
   );

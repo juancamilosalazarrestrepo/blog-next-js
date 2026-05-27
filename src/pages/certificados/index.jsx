@@ -1,6 +1,7 @@
 import Image from "next/image";
 import Layout from "../../components/Layout";
 import Link from "next/link";
+import SEO from "../../components/SEO";
 import LogosSlider from "../../components/LogosSlide";
 import certificados from "../../../data/certificados/certificados";
 import styles from "./index.module.css";
@@ -8,6 +9,10 @@ import styles from "./index.module.css";
 const Certificados = ({ certificados }) => {
   return (
     <div>
+      <SEO
+        title="Certificaciones Profesionales en Tecnología"
+        description="Certificaciones profesionales en desarrollo web, .NET, React, Next.js, AWS, Scrum, marketing digital y más. Formación continua en tecnología."
+      />
       <main className="py-8 container mx-auto px-6 md:px-12 lg:px-24 xl:px-44 mt-1">
         {/* Título de sección */}
         <h2 style={{

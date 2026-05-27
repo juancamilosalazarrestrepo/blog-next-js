@@ -1,5 +1,6 @@
 import { useState } from "react";
 import Layout from "../../components/Layout";
+import SEO from "../../components/SEO";
 import VideoCardComponent from "../../components/VideoCardComponent";
 import styles from "../../styles/CodeViewer.module.css";
 
@@ -198,6 +199,7 @@ const VideoCardElementPage = () => {
 export default function BlogTemplate() {
   return (
     <Layout>
+      <SEO title="Componente de Video Tarjeta | Elementos UI" description="Componente de video tarjeta con reproductor integrado para proyectos web. Elemento UI reutilizable con Next.js." />
       <VideoCardElementPage />
     </Layout>
   );

@@ -1,5 +1,6 @@
 import Layout from "../../components/Layout";
 import Banners from "../../components/Banners";
+import SEO from "../../components/SEO";
 import bannerGlass from "../../../public/images/bannerGlass.jpg";
 
 const SneakersCards = ({ posts }) => {
@@ -115,6 +116,7 @@ const SneakersCards = ({ posts }) => {
 export default function BlogTemplate() {
   return (
     <Layout>
+      <SEO title="Tarjeta Animada con Glasmorfismo | Portafolio" description="Tarjeta interactiva con efecto glasmorfismo y cambio de color dinámico. Proyecto demo de CSS y diseño UI moderno." />
       <SneakersCards />
     </Layout>
   );

@@ -1,5 +1,6 @@
 import Layout from "../../components/Layout";
 import Banners from "../../components/Banners";
+import SEO from "../../components/SEO";
 import banner1 from "../../../public/images/background.webp"
 import banner2 from "../../../public/images/banner2.webp";
 
@@ -41,6 +42,7 @@ const Calculadora = ({ posts }) => {
 export default function BlogTemplate() {
   return (
     <Layout>
+      <SEO title="Clon de ChatGPT con Next.js | Portafolio" description="Clon de ChatGPT creado con Next.js y Tailwind CSS, integrando la API de GPT-3 de OpenAI. Proyecto demo de chatbot con IA." />
       <Calculadora />
     </Layout>
   );

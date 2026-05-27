@@ -3,7 +3,7 @@ import { GoogleAnalytics } from "@next/third-parties/google";
 
 export default function Document() {
   return (
-    <Html lang="en">
+    <Html lang="es">
       <Head>
         <link rel="preconnect" href="https://fonts.googleapis.com" />
         <link rel="preconnect" href="https://fonts.gstatic.com" />

@@ -2,6 +2,7 @@ import Image from "next/image";
 import Layout from "../../components/Layout";
 import Link from "next/link";
 import Banners from "../../components/Banners";
+import SEO from "../../components/SEO";
 import banner1 from "../../../public/images/background.webp";
 import banner2 from "../../../public/images/banner2.webp";
 import LogosSlider from "../../components/LogosSlide";
@@ -12,6 +13,10 @@ const Portfolio = ({ proyectos }) => {
 
   return (
     <div>
+      <SEO
+        title="Proyectos de Desarrollo Web y Aplicaciones"
+        description="Explora mis proyectos destacados: aplicaciones web con Next.js, React Native, .NET, plataformas médicas, motores de reservas y sistemas de gestión inmobiliaria."
+      />
       <div style={{ position: "relative", width: "100%", margin: "0", zIndex: "2" }}>
         <Banners images={images} />
       </div>

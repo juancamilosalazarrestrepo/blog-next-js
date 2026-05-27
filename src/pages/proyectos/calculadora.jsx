@@ -1,5 +1,6 @@
 import Layout from "../../components/Layout";
 import Banners from "../../components/Banners";
+import SEO from "../../components/SEO";
 import banner1 from "../../../public/images/background.webp"
 import banner2 from "../../../public/images/banner2.webp";
 
@@ -42,6 +43,7 @@ const Calculadora = ({ posts }) => {
 export default function BlogTemplate() {
   return (
     <Layout>
+      <SEO title="Calculadora en React Native | Proyecto" description="Calculadora desarrollada en React Native con diseño moderno y modo oscuro. Proyecto de aplicación móvil multiplataforma." />
       <Calculadora />
     </Layout>
   );

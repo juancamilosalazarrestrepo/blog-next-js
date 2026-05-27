@@ -17,6 +17,7 @@ import { useRouter } from 'next/router';
  * @param {string} props.canonical - URL canónica personalizada
  * @param {Object} props.schema - Schema.org personalizado (opcional)
  */
+/** @param {import('react').ComponentProps<'meta'> & { title?: string; description?: string; image?: string; imageAlt?: string; type?: string; date?: string; author?: string; keywords?: string[]; category?: string; noindex?: boolean; canonical?: string; schema?: object }} props */
 const SEO = ({
   title = 'Desarrollador Full Stack | Especialista en Next.js, React y .NET',
   description = 'Portafolio de Juan Camilo Salazar. Desarrollador Full Stack especializado en Next.js, React, .NET y desarrollo web moderno. Explora mis proyectos y artículos sobre programación.',

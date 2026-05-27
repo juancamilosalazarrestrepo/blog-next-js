@@ -3,6 +3,7 @@ import Image from "next/image";
 import Layout from "../../components/Layout";
 import Link from "next/link";
 import Banners from "../../components/Banners";
+import SEO from "../../components/SEO";
 import banner1 from "../../../public/images/background.webp";
 import banner2 from "../../../public/images/banner2.webp";
 import { getAllFilesFrontMatter } from "lib/mdx";
@@ -17,6 +18,10 @@ const Blog = ({ posts }) => {
 
   return (
     <div>
+      <SEO
+        title="Blog de Tecnología y Desarrollo Full Stack"
+        description="Artículos y tutoriales sobre Next.js, React, .NET, automatización de procesos, RPA y las últimas tendencias en desarrollo web moderno."
+      />
       <div style={{ position: "relative", width: "100%", margin: "0", zIndex: "2" }}>
         <Banners images={images} />
       </div>

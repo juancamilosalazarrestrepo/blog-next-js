@@ -1,8 +1,7 @@
 import { NextPage, GetStaticPaths, GetStaticProps } from "next";
 import Image from "next/image";
 import Layout from "@/components/Layout";
-import Head from "next/head";
-
+import SEO from "@/components/SEO";
 import { MDXRemote, MDXRemoteSerializeResult } from "next-mdx-remote";
 import ViewsCounter from "@/components/ViewCounter";
 import { getFiles, getFileBySlug } from "../../../lib/mdx";
@@ -31,18 +30,15 @@ import MDXComponents from "@/components/MDXComponents";
 const DynamicPost: NextPage<Props> = ({ frontMatter, mdxSource }) => {
   return (
     <div>
-      <Head>
-        <meta property="og:title" content={frontMatter.title} />
-        <meta property="og:image" content="https://i.imgur.com/mzDySPu.png" />
-        <meta property="og:description" content={frontMatter.subtitle} />
-        <meta
-          property="og:url"
-          content={`https://www.salazarcode.com/blog/${frontMatter.slug}`}
-        />
-        <meta property="og:type" content="article" />
-        <meta name="twitter:card" content="summary_large_image" />
-        <meta name="twitter:image" content={frontMatter.thumb} />
-      </Head>
+      <SEO
+        title={frontMatter.title}
+        description={frontMatter.subtitle}
+        image={frontMatter.imageOG || frontMatter.image}
+        imageAlt={frontMatter.title}
+        type="article"
+        author="Juan Camilo Salazar"
+        keywords={['desarrollo web', 'blog', 'programacion', frontMatter.title]}
+      />
       <div>
         <div style={{ overflow: "hidden", borderRadius: "0 0 16px 16px" }}>
           <Image
