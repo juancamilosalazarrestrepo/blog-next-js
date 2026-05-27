@@ -8,7 +8,7 @@ import realEstateApp from "../../public/images/realEstateApp.webp";
 import niceGradientApp from "../../public/images/nice-gradient-mockup.webp";
 import portadaMedico from "../../public/images/portadaMedico.png";
 import portadaReserve from "../../public/images/portadaReserve.png";
-import velmax from "../../public/images/velmax.png";
+import velmax from "../../public/images/velmax.webp";
 
 const proyectos = [
   {

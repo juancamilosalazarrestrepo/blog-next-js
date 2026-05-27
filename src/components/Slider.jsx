@@ -1,6 +1,6 @@
 import Image from "next/image";
 
-import banner1 from "../../public/images/background.jpg"
+import banner1 from "../../public/images/background.webp"
 import banner2 from "../../public/images/banner2.webp";
 import { useState } from "react";
 

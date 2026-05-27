@@ -13,7 +13,7 @@ export default function AgentesAI() {
                 title="Agentes de Inteligencia Artificial para Empresas"
                 description="Automatiza la atención al cliente y optimiza tus ventas 24/7 con Agentes de Inteligencia Artificial integrados. Reduce costos operativos hoy."
                 keywords={['agentes de inteligencia artificial', 'ia para empresas', 'automatización de ventas', 'chatbots', 'whatsapp bots con ia', 'desarrollo de ia']}
-                image="/assets/ai/ai_hero.png"
+                image="/assets/ai/ai_hero.webp"
             />
             <Head>
                 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet" />
@@ -33,7 +33,7 @@ export default function AgentesAI() {
                 </a>
 
                 {/* Hero Section */}
-                <section className="relative min-h-[90vh] flex items-center overflow-hidden px-6 lg:px-20 py-12 lg:py-0 bg-cover bg-center" style={{ backgroundImage: "url('/assets/ai/ai_process.png')" }}>
+                <section className="relative min-h-[90vh] flex items-center overflow-hidden px-6 lg:px-20 py-12 lg:py-0 bg-cover bg-center" style={{ backgroundImage: "url('/assets/ai/ai_process.webp')" }}>
                     {/* Overlay Degradado Azul */}
                     <div className="absolute inset-0 bg-gradient-to-r from-[#072461] via-[#1152d4]/90 to-[#1152d4]/60 z-0"></div>
 
@@ -69,7 +69,7 @@ export default function AgentesAI() {
                         <div className="order-1 lg:order-2">
                             <div className="relative group">
                                 <div className="absolute -inset-4 bg-blue-400/10 rounded-[2rem] blur-2xl group-hover:bg-blue-400/30 transition-all"></div>
-                                <div className="relative aspect-square lg:aspect-auto lg:h-[600px] w-full bg-slate-200 rounded-3xl overflow-hidden shadow-[0_20px_50px_rgba(0,0,0,0.5)] border border-white/10 bg-cover bg-center" style={{ backgroundImage: "url('/assets/ai/ai_hero.png')" }}>
+                                <div className="relative aspect-square lg:aspect-auto lg:h-[600px] w-full bg-slate-200 rounded-3xl overflow-hidden shadow-[0_20px_50px_rgba(0,0,0,0.5)] border border-white/10 bg-cover bg-center" style={{ backgroundImage: "url('/assets/ai/ai_hero.webp')" }}>
                                     <div className="absolute inset-0 bg-gradient-to-t from-black/50 to-transparent"></div>
                                 </div>
                             </div>
@@ -87,7 +87,7 @@ export default function AgentesAI() {
                         </div>
                         <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
                             <div className="group relative overflow-hidden rounded-2xl bg-slate-100 dark:bg-slate-800 border border-slate-200/50 dark:border-slate-700/50 transition-all hover:-translate-y-2 hover:shadow-2xl">
-                                <div className="h-64 bg-cover bg-center" style={{ backgroundImage: "url('/assets/ai/ai_support.png')" }}></div>
+                                <div className="h-64 bg-cover bg-center" style={{ backgroundImage: "url('/assets/ai/ai_support.webp')" }}></div>
                                 <div className="p-8">
                                     <div className="flex items-center gap-3 mb-4">
                                         <span className="material-symbols-outlined text-[#1152d4] font-bold">headset_mic</span>
@@ -97,7 +97,7 @@ export default function AgentesAI() {
                                 </div>
                             </div>
                             <div className="group relative overflow-hidden rounded-2xl bg-slate-100 dark:bg-slate-800 border border-slate-200/50 dark:border-slate-700/50 transition-all hover:-translate-y-2 hover:shadow-2xl">
-                                <div className="h-64 bg-cover bg-center" style={{ backgroundImage: "url('/assets/ai/ai_sales.png')" }}></div>
+                                <div className="h-64 bg-cover bg-center" style={{ backgroundImage: "url('/assets/ai/ai_sales.webp')" }}></div>
                                 <div className="p-8">
                                     <div className="flex items-center gap-3 mb-4">
                                         <span className="material-symbols-outlined text-[#1152d4] font-bold">smart_toy</span>
@@ -107,7 +107,7 @@ export default function AgentesAI() {
                                 </div>
                             </div>
                             <div className="group relative overflow-hidden rounded-2xl bg-slate-100 dark:bg-slate-800 border border-slate-200/50 dark:border-slate-700/50 transition-all hover:-translate-y-2 hover:shadow-2xl">
-                                <div className="h-64 bg-cover bg-center" style={{ backgroundImage: "url('/assets/ai/ai_process.png')" }}></div>
+                                <div className="h-64 bg-cover bg-center" style={{ backgroundImage: "url('/assets/ai/ai_process.webp')" }}></div>
                                 <div className="p-8">
                                     <div className="flex items-center gap-3 mb-4">
                                         <span className="material-symbols-outlined text-[#1152d4] font-bold">work_history</span>
@@ -131,7 +131,7 @@ export default function AgentesAI() {
                         <div className="flex flex-col lg:flex-row items-center gap-12 lg:gap-24">
                             <div className="w-full lg:w-1/2 relative">
                                 <div className="absolute -top-10 -left-10 text-[180px] font-black text-slate-100 dark:text-slate-800/30 -z-10">01</div>
-                                <div className="aspect-video bg-slate-200 rounded-3xl overflow-hidden shadow-xl bg-cover bg-center" style={{ backgroundImage: "url('/assets/ai/ai_consulting.png')" }}></div>
+                                <div className="aspect-video bg-slate-200 rounded-3xl overflow-hidden shadow-xl bg-cover bg-center" style={{ backgroundImage: "url('/assets/ai/ai_consulting.webp')" }}></div>
                             </div>
                             <div className="w-full lg:w-1/2 space-y-6">
                                 <h3 className="text-4xl font-bold text-slate-900 dark:text-white">Identificación y Consultoría</h3>
@@ -148,7 +148,7 @@ export default function AgentesAI() {
                         <div className="flex flex-col lg:flex-row-reverse items-center gap-12 lg:gap-24">
                             <div className="w-full lg:w-1/2 relative">
                                 <div className="absolute -top-10 -right-10 text-[180px] font-black text-slate-100 dark:text-slate-800/30 -z-10">02</div>
-                                <div className="aspect-video bg-slate-200 rounded-3xl overflow-hidden shadow-xl bg-cover bg-center" style={{ backgroundImage: "url('/assets/ai/ai_training.png')" }}></div>
+                                <div className="aspect-video bg-slate-200 rounded-3xl overflow-hidden shadow-xl bg-cover bg-center" style={{ backgroundImage: "url('/assets/ai/ai_training.webp')" }}></div>
                             </div>
                             <div className="w-full lg:w-1/2 space-y-6">
                                 <h3 className="text-4xl font-bold text-slate-900 dark:text-white">Desarrollo y Entrenamiento del Agente</h3>
@@ -165,7 +165,7 @@ export default function AgentesAI() {
                         <div className="flex flex-col lg:flex-row items-center gap-12 lg:gap-24">
                             <div className="w-full lg:w-1/2 relative">
                                 <div className="absolute -top-10 -left-10 text-[180px] font-black text-slate-100 dark:text-slate-800/30 -z-10">03</div>
-                                <div className="aspect-video bg-slate-200 rounded-3xl overflow-hidden shadow-xl bg-cover bg-center" style={{ backgroundImage: "url('/assets/ai/ai_deployment.png')" }}></div>
+                                <div className="aspect-video bg-slate-200 rounded-3xl overflow-hidden shadow-xl bg-cover bg-center" style={{ backgroundImage: "url('/assets/ai/ai_deployment.webp')" }}></div>
                             </div>
                             <div className="w-full lg:w-1/2 space-y-6">
                                 <h3 className="text-4xl font-bold text-slate-900 dark:text-white">Despliegue y Optimización Continua</h3>

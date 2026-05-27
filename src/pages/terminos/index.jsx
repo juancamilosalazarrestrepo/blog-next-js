@@ -1,7 +1,7 @@
 
 import Layout from "../../components/Layout";
 
-import banner1 from "../../../public/images/background.jpg"
+import banner1 from "../../../public/images/background.webp"
 import banner2 from "../../../public/images/banner2.webp";
 import LogosSlider from "../../components/LogosSlide";
 import certificados from "../../../data/certificados/certificados";

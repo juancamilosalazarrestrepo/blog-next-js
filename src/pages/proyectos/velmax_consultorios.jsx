@@ -1,7 +1,7 @@
 import Image from "next/image";
 import Link from "next/link";
 import Layout from "../../components/Layout";
-import velmaxMockup from "../../../public/images/velmax-mockup.png";
+import velmaxMockup from "../../../public/images/velmax-mockup.webp";
 import SEO from "../../components/SEO";
 
 const VelmaxConsultorios = () => {

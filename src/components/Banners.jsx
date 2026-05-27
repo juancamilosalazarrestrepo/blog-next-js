@@ -3,7 +3,7 @@ import { Navigation, Pagination, Scrollbar, A11y } from "swiper/modules";
 import Image from "next/image";
 import laptops from "../../public/images/laptop.png";
 import phones from "../../public/images/phones.png";
-import mobileBg from "../../public/images/mobile_banner_bg.png";
+import mobileBg from "../../public/images/mobile_banner_bg.webp";
 import styles from "../styles/Banners.module.css";
 
 import "swiper/css";

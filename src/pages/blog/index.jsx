@@ -3,7 +3,7 @@ import Image from "next/image";
 import Layout from "../../components/Layout";
 import Link from "next/link";
 import Banners from "../../components/Banners";
-import banner1 from "../../../public/images/background.jpg";
+import banner1 from "../../../public/images/background.webp";
 import banner2 from "../../../public/images/banner2.webp";
 import { getAllFilesFrontMatter } from "lib/mdx";
 

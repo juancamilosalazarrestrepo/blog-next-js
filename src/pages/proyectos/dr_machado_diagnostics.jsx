@@ -2,8 +2,8 @@ import Image from "next/image";
 import Link from "next/link";
 import Layout from "../../components/Layout";
 import SEO from "../../components/SEO";
-import mockupMedico from "../../../public/images/mockupMedico.png";
-import mockupCelMedico from "../../../public/images/MockupCelMedico.png";
+import mockupMedico from "../../../public/images/mockupMedico.webp";
+import mockupCelMedico from "../../../public/images/MockupCelMedico.webp";
 import doctor3 from "../../../public/images/doctor3.webp";
 
 const DrMachadoDiagnostics = () => {

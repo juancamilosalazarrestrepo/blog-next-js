@@ -3,7 +3,7 @@ import Link from "next/link";
 import Banners from "../components/Banners";
 import AIAgentsSection from "../components/AIAgentsSection";
 import WebDevSection from "../components/WebDevSection";
-import banner1 from "../../public/images/background.jpg";
+import banner1 from "../../public/images/background.webp";
 import whatsappIconBig from "../../public/images/whatsappBig.png";
 import styles from "../styles/Index.module.css";
 import Layout from "../components/Layout";

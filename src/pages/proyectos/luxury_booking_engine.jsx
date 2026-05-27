@@ -3,8 +3,8 @@ import Image from "next/image";
 import Link from "next/link";
 import Layout from "../../components/Layout";
 import styles from "../../styles/ProyectoDetalle.module.css";
-import reserveDesktop from "../../../public/images/reserveDesktop.png";
-import reservePhone from "../../../public/images/reservePhone.png";
+import reserveDesktop from "../../../public/images/reserveDesktop.webp";
+import reservePhone from "../../../public/images/reservePhone.webp";
 import SEO from "../../components/SEO";
 
 const LuxuryBookingEngine = () => {

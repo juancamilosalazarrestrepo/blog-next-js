@@ -3,7 +3,7 @@ import Image from 'next/image';
 
 export default function AIAgentsSection() {
     return (
-        <section className="w-full py-24 md:py-32 mb-12 text-white shadow-2xl relative group overflow-hidden bg-cover bg-center bg-fixed" style={{ backgroundImage: "url('/assets/ai/ai_deployment.png')" }}>
+        <section className="w-full py-24 md:py-32 mb-12 text-white shadow-2xl relative group overflow-hidden bg-cover bg-center bg-fixed" style={{ backgroundImage: "url('/assets/ai/ai_deployment.webp')" }}>
             {/* Overlay Degradado Azul c/ Opacidad */}
             <div className="absolute inset-0 bg-gradient-to-r from-[#072461]/95 via-[#1152d4]/90 to-[#1152d4]/70 z-0"></div>
 
@@ -31,7 +31,7 @@ export default function AIAgentsSection() {
                 </div>
                 
                 <div className="w-full lg:w-2/5 flex justify-center lg:justify-end">
-                    <div className="relative w-full max-w-[380px] aspect-square rounded-3xl overflow-hidden shadow-[0_20px_50px_rgba(0,0,0,0.4)] border border-white/10 group-hover:rotate-1 group-hover:scale-[1.03] transition-all duration-500 bg-slate-800 bg-cover bg-center" style={{ backgroundImage: "url('/assets/ai/ai_process.png')" }}>
+                    <div className="relative w-full max-w-[380px] aspect-square rounded-3xl overflow-hidden shadow-[0_20px_50px_rgba(0,0,0,0.4)] border border-white/10 group-hover:rotate-1 group-hover:scale-[1.03] transition-all duration-500 bg-slate-800 bg-cover bg-center" style={{ backgroundImage: "url('/assets/ai/ai_process.webp')" }}>
                         <div className="absolute inset-0 bg-gradient-to-bl from-transparent via-[#1152d4]/20 to-[#072461]/80"></div>
                         <div className="absolute bottom-6 left-6 right-6 backdrop-blur-md bg-white/10 border border-white/20 p-4 rounded-2xl">
                             <div className="flex items-center gap-3">
