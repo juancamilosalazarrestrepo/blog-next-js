@@ -3,10 +3,12 @@ import LogosSlider from "../../components/LogosSlide";
 import ServicesSection from "../../components/ServicesSection";
 import Portfolio from "../../components/PortfolioSection";
 import SEO from "../../components/SEO";
+import AIBanner from "../../components/AIBanner";
 
 const Services = () => {
   return (
     <div>
+      <AIBanner />
       <main className="py-8 container mx-auto px-6 md:px-12 lg:px-24 xl:px-44">
         {/* Título de sección */}
         <h2 style={{

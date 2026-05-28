@@ -2,6 +2,11 @@ import Image from "next/image";
 import Link from "next/link";
 import Layout from "../../components/Layout";
 import velmaxMockup from "../../../public/images/velmax-mockup.webp";
+import velmaxMobile1 from "../../../public/images/proyecto-velmax/velmax-mobile-design.png";
+import velmaxMobile2 from "../../../public/images/proyecto-velmax/velmax-mobile-design-2.png";
+import velmaxMobile3 from "../../../public/images/proyecto-velmax/velmax-mobile-design-3.png";
+import velmaxDesktop3 from "../../../public/images/proyecto-velmax/velmax-desktop-design-3.png";
+import velmaxDesktop4 from "../../../public/images/proyecto-velmax/velmax-desktop-design-4.png";
 import SEO from "../../components/SEO";
 
 const VelmaxConsultorios = () => {
@@ -18,10 +23,8 @@ const VelmaxConsultorios = () => {
                 <section
                     className="relative w-full overflow-hidden flex flex-col items-center px-6 py-12 md:py-24 lg:py-32"
                     style={{
-                        borderBottomLeftRadius: 'clamp(20px, 10vw, 80px)',
-                        borderBottomRightRadius: 'clamp(20px, 10vw, 80px)',
                         color: '#ffffff',
-                        backgroundImage: "linear-gradient(rgba(0,0,0,0.35), rgba(0,0,0,0.35)), linear-gradient(to right, rgba(17, 153, 142, 0.9), rgba(56, 239, 125, 0.8), rgba(60, 165, 92, 0.9)), url('https://images.unsplash.com/photo-1586773860418-d37222d8fce3?q=80&w=2073&auto=format&fit=crop')",
+                        backgroundImage: "linear-gradient(rgba(0,0,0,0.35), rgba(0,0,0,0.35)), linear-gradient(to right, rgba(37, 99, 235, 0.9), rgba(30, 58, 138, 0.9)), url('https://images.unsplash.com/photo-1586773860418-d37222d8fce3?q=80&w=2073&auto=format&fit=crop')",
                         backgroundSize: 'cover',
                         backgroundPosition: 'center',
                     }}
@@ -47,7 +50,7 @@ const VelmaxConsultorios = () => {
                                 Plataforma Clínica Integral
                             </span>
                             <h1 className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-black mb-6 leading-[1.05] tracking-tight">
-                                Proyecto <span className="text-[#a8e6cf]">Velmax</span> Consultorios
+                                Proyecto <span className="text-[#7dd3fc]">Velmax</span> Consultorios
                             </h1>
                             <p className="text-lg md:text-xl lg:text-2xl opacity-90 mb-10 font-medium leading-relaxed max-w-2xl mx-auto lg:mx-0">
                                 Diseño y desarrollo de una plataforma web completa de alto rendimiento para el centro médico más grande de Berazategui, con más de 30 especialidades y agendamiento integrado.
@@ -57,7 +60,7 @@ const VelmaxConsultorios = () => {
                                     href="https://velmaxsalud.com/"
                                     target="_blank"
                                     rel="noopener noreferrer"
-                                    className="bg-white text-[#004e4a] px-10 py-4 rounded-2xl font-black text-lg hover:scale-105 transition-all shadow-2xl text-center active:scale-95"
+                                    className="bg-white text-[#1e3a8a] px-10 py-4 rounded-2xl font-black text-lg hover:scale-105 transition-all shadow-2xl text-center active:scale-95"
                                 >
                                     Ver Sitio en Vivo
                                 </a>
@@ -90,7 +93,7 @@ const VelmaxConsultorios = () => {
                         <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
                             {/* Feature 1 */}
                             <div className="flex flex-col gap-5 p-8 rounded-3xl bg-slate-50 dark:bg-slate-800/50 border border-slate-100 dark:border-slate-800 shadow-[0_4px_20px_-4px_rgba(0,0,0,0.05)] hover:shadow-lg transition-shadow">
-                                <div className="w-14 h-14 rounded-2xl bg-[#008f86]/10 flex items-center justify-center text-[#008f86]">
+                                <div className="w-14 h-14 rounded-2xl bg-[#2563eb]/10 flex items-center justify-center text-[#2563eb]">
                                     <svg className="w-8 h-8" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                                         <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 11H5m14 0a2 2 0 012 2v6a2 2 0 01-2 2H5a2 2 0 01-2-2v-6a2 2 0 012-2m14 0V9a2 2 0 00-2-2M5 11V9a2 2 0 012-2m0 0V5a2 2 0 012-2h6a2 2 0 012 2v2M7 7h10" />
                                     </svg>
@@ -103,7 +106,7 @@ const VelmaxConsultorios = () => {
 
                             {/* Feature 2 */}
                             <div className="flex flex-col gap-5 p-8 rounded-3xl bg-slate-50 dark:bg-slate-800/50 border border-slate-100 dark:border-slate-800 shadow-[0_4px_20px_-4px_rgba(0,0,0,0.05)] hover:shadow-lg transition-shadow">
-                                <div className="w-14 h-14 rounded-2xl bg-[#004e4a]/10 flex items-center justify-center text-[#004e4a] dark:text-[#a8e6cf]">
+                                <div className="w-14 h-14 rounded-2xl bg-[#1e3a8a]/10 flex items-center justify-center text-[#1e3a8a] dark:text-[#7dd3fc]">
                                     <svg className="w-8 h-8" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                                         <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z" />
                                     </svg>
@@ -116,7 +119,7 @@ const VelmaxConsultorios = () => {
 
                             {/* Feature 3 */}
                             <div className="flex flex-col gap-5 p-8 rounded-3xl bg-slate-50 dark:bg-slate-800/50 border border-slate-100 dark:border-slate-800 shadow-[0_4px_20px_-4px_rgba(0,0,0,0.05)] hover:shadow-lg transition-shadow">
-                                <div className="w-14 h-14 rounded-2xl bg-[#2a9d8f]/10 flex items-center justify-center text-[#2a9d8f]">
+                                <div className="w-14 h-14 rounded-2xl bg-[#3b82f6]/10 flex items-center justify-center text-[#3b82f6]">
                                     <svg className="w-8 h-8" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                                         <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M21 12a9 9 0 01-9 9m9-9a9 9 0 00-9-9m9 9H3m9 9a9 9 0 01-9-9m9 9c1.657 0 3-4.03 3-9s-1.343-9-3-9m0 18c-1.657 0-3-4.03-3-9s1.343-9 3-9m-9 9a9 9 0 019-9" />
                                     </svg>
@@ -148,21 +151,16 @@ const VelmaxConsultorios = () => {
                                     objectFit="cover"
                                     className="opacity-90 mt-4 md:mt-0 object-left"
                                 />
-                                <div className="absolute inset-0 bg-gradient-to-t md:bg-gradient-to-r from-[#004e4a]/90 to-transparent flex items-end md:items-center p-8">
-                                    <h3 className="text-white text-3xl font-black leading-tight drop-shadow-md">
-                                        Evolución<br />Digital
-                                    </h3>
-                                </div>
                             </div>
 
                             <div className="md:w-7/12 p-10 lg:p-14 flex flex-col justify-center">
                                 <div className="grid grid-cols-2 gap-6 mb-10">
-                                    <div className="bg-[#008f86]/5 p-6 rounded-3xl text-center border border-[#008f86]/20">
-                                        <span className="block text-4xl font-black text-[#008f86] mb-1">30+</span>
+                                    <div className="bg-[#2563eb]/5 p-6 rounded-3xl text-center border border-[#2563eb]/20">
+                                        <span className="block text-4xl font-black text-[#2563eb] mb-1">30+</span>
                                         <span className="text-xs text-slate-500 dark:text-slate-400 font-bold uppercase tracking-wider">Especialidades</span>
                                     </div>
-                                    <div className="bg-[#2a9d8f]/5 p-6 rounded-3xl text-center border border-[#2a9d8f]/20">
-                                        <span className="block text-4xl font-black text-[#2a9d8f] mb-1">3x</span>
+                                    <div className="bg-[#3b82f6]/5 p-6 rounded-3xl text-center border border-[#3b82f6]/20">
+                                        <span className="block text-4xl font-black text-[#3b82f6] mb-1">3x</span>
                                         <span className="text-xs text-slate-500 dark:text-slate-400 font-bold uppercase tracking-wider">Tráfico Web</span>
                                     </div>
                                 </div>
@@ -175,10 +173,73 @@ const VelmaxConsultorios = () => {
                     </div>
                 </section>
 
+                {/* Gallery Section */}
+                <section className="px-6 py-20 bg-white dark:bg-slate-900">
+                    <div className="max-w-6xl mx-auto">
+                        <div className="flex flex-col gap-20">
+                            {/* Mobile Design 1 - Image left, Text right */}
+                            {/* Desktop Design 1 - Landing Page - Image left, Text right */}
+                            <div className="flex flex-col md:flex-row items-center gap-8 md:gap-12 overflow-visible">
+                                <div className="flex-1 relative z-10 flex justify-center overflow-visible">
+                                    <Image src={velmaxDesktop4} alt="Landing Page Velmax" width={1600} height={1200} className="w-full h-auto object-contain" />
+                                </div>
+                                <div className="flex-1 z-20 relative text-center md:text-left">
+                                    <h3 className="text-2xl font-bold text-slate-900 dark:text-white mb-4">Landing Page Principal</h3>
+                                    <p className="text-slate-600 dark:text-slate-400 text-lg leading-relaxed">Diseño moderno y profesional para la página de inicio, destacando especialidades y servicios del centro.</p>
+                                </div>
+                            </div>
+
+                            {/* Desktop Design 2 - Galería de Médicos - Image right, Text left */}
+                            <div className="flex flex-col md:flex-row items-center gap-8 md:gap-12 overflow-visible">
+                                <div className="flex-1 z-20 relative text-center md:text-left">
+                                    <h3 className="text-2xl font-bold text-slate-900 dark:text-white mb-4">Galería de Médicos</h3>
+                                    <p className="text-slate-600 dark:text-slate-400 text-lg leading-relaxed">Sección dedicada al staff médico con perfiles completos, especialidades y filtros inteligentes para una búsqueda ágil.</p>
+                                </div>
+                                <div className="flex-1 relative z-10 flex justify-center overflow-visible">
+                                    <Image src={velmaxDesktop3} alt="Galería de Médicos Velmax" width={1600} height={1200} className="w-full h-auto object-contain" />
+                                </div>
+                            </div>
+
+                            {/* Mobile Design 1 - Image left, Text right */}
+                            <div className="flex flex-col md:flex-row items-center gap-8 md:gap-16 overflow-visible">
+                                <div className="flex-1 relative z-10 flex justify-center overflow-visible md:-mr-40">
+                                    <Image src={velmaxMobile1} alt="Diseño mobile Velmax" width={1400} height={2800} className="w-full h-auto object-contain" />
+                                </div>
+                                <div className="flex-1 relative z-0 text-center md:text-left">
+                                    <h3 className="text-2xl font-bold text-slate-900 dark:text-white mb-4">Navegación Mobile Intuitiva</h3>
+                                    <p className="text-slate-600 dark:text-slate-400 text-lg leading-relaxed">Diseño mobile-first que garantiza una experiencia de navegación fluida y acceso directo a especialidades médicas desde cualquier dispositivo. Cada elemento está pensado para minimizar la fricción y maximizar la conversión en dispositivos táctiles.</p>
+                                </div>
+                            </div>
+
+                            {/* Mobile Design 2 - Text left, Image right */}
+                            <div className="flex flex-col md:flex-row-reverse items-center gap-8 md:gap-16 overflow-visible">
+                                <div className="flex-1 relative z-10 flex justify-center overflow-visible md:-ml-40">
+                                    <Image src={velmaxMobile2} alt="Diseño mobile Velmax 2" width={1400} height={2800} className="w-full h-auto object-contain" />
+                                </div>
+                                <div className="flex-1 relative z-0 text-center md:text-left">
+                                    <h3 className="text-2xl font-bold text-slate-900 dark:text-white mb-4">Perfiles y Agendamiento Móvil</h3>
+                                    <p className="text-slate-600 dark:text-slate-400 text-lg leading-relaxed">Los pacientes pueden explorar perfiles de profesionales, conocer sus especialidades y agendar turnos directamente desde su celular. Una experiencia optimizada para la acción rápida que reduce los pasos al mínimo indispensable.</p>
+                                </div>
+                            </div>
+
+                            {/* Mobile Design 3 - Image left, Text right */}
+                            <div className="flex flex-col md:flex-row items-center gap-8 md:gap-16 overflow-visible">
+                                <div className="flex-1 relative z-10 flex justify-center overflow-visible md:-mr-40">
+                                    <Image src={velmaxMobile3} alt="Diseño mobile Velmax 3" width={1400} height={2800} className="w-full h-auto object-contain" />
+                                </div>
+                                <div className="flex-1 relative z-0 text-center md:text-left">
+                                    <h3 className="text-2xl font-bold text-slate-900 dark:text-white mb-4">UX Adaptativo y Conversión</h3>
+                                    <p className="text-slate-600 dark:text-slate-400 text-lg leading-relaxed">Cada pantalla se adapta perfectamente al tamaño de la pantalla del usuario, priorizando el confort visual y la jerarquía de contenido. Una experiencia de usuario pulida que transmite profesionalismo desde el primer clic.</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+
                 {/* CTA Section */}
                 <section className="px-6 py-24 text-center bg-white dark:bg-slate-900">
                     <div className="max-w-3xl mx-auto flex flex-col items-center">
-                        <div className="w-20 h-20 bg-[#008f86]/10 rounded-full flex items-center justify-center mb-8 text-[#008f86]">
+                        <div className="w-20 h-20 bg-[#2563eb]/10 rounded-full flex items-center justify-center mb-8 text-[#2563eb]">
                             <svg className="w-10 h-10" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                                 <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M21 13.255A23.931 23.931 0 0112 15c-3.183 0-6.22-.62-9-1.745M16 6V4a2 2 0 00-2-2h-4a2 2 0 00-2 2v2m4 6h.01M5 20h14a2 2 0 002-2V8a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" />
                             </svg>
@@ -189,7 +250,7 @@ const VelmaxConsultorios = () => {
                         <div className="flex flex-col sm:flex-row gap-5 w-full justify-center">
                             <Link
                                 href="/contact"
-                                className="bg-[#004e4a] hover:bg-[#006e68] text-white px-10 py-5 rounded-2xl font-bold text-xl shadow-[0_10px_30px_rgba(0,78,74,0.4)] transition-all transform hover:-translate-y-1"
+                                className="bg-[#1e3a8a] hover:bg-[#2563eb] text-white px-10 py-5 rounded-2xl font-bold text-xl shadow-[0_10px_30px_rgba(30,58,138,0.4)] transition-all transform hover:-translate-y-1"
                             >
                                 Iniciar Mi Proyecto
                             </Link>
