@@ -1,5 +1,5 @@
 import React, { useEffect, useRef } from 'react';
-import styles from '../styles/CreativeWebDesign.module.css';
+import styles from '../styles/LavaBackgroundBlue.module.css';
 
 const LavaBackground = () => {
     const interactiveBlobRef = useRef(null);
@@ -46,24 +46,23 @@ const LavaBackground = () => {
 
     return (
         <div className={styles.lavaWrapper} ref={containerRef}>
-            <div className={`${styles.blob} ${styles.blobPurple}`}></div>
-            <div className={`${styles.blob} ${styles.blobPink}`}></div>
-            <div className={`${styles.blob} ${styles.blobBlue}`}></div>
-            <div className={`${styles.blob} ${styles.blobYellow}`}></div>
-            <div className={`${styles.blob} ${styles.blobOrange}`}></div>
-            <div className={`${styles.blob} ${styles.blobLime}`}></div>
-            <div className={`${styles.blob} ${styles.blobCyan}`}></div>
-            <div className={`${styles.blob} ${styles.blobTeal}`}></div>
-            <div className={`${styles.blob} ${styles.blobIndigo}`}></div>
-            <div className={`${styles.blob} ${styles.blobRose}`}></div>
+            <div className={`${styles.blob} ${styles.blobDeepBlue}`}></div>
+            <div className={`${styles.blob} ${styles.blobMidBlue}`}></div>
+            <div className={`${styles.blob} ${styles.blobLightBlue}`}></div>
+            <div className={`${styles.blob} ${styles.blobGrad1}`}></div>
+            <div className={`${styles.blob} ${styles.blobGrad2}`}></div>
+            <div className={`${styles.blob} ${styles.blobGrad3}`}></div>
+            <div className={`${styles.blob} ${styles.blobGrad4}`}></div>
+            <div className={`${styles.blob} ${styles.blobGrad5}`}></div>
+            <div className={`${styles.blob} ${styles.blobGrad6}`}></div>
             
             <div className={`${styles.blob} ${styles.blobInteractive}`} ref={interactiveBlobRef}></div>
 
             <svg xmlns="http://www.w3.org/2000/svg" style={{ display: 'none' }}>
                 <defs>
-                    <filter id="vibrant-goo">
-                        <feGaussianBlur in="SourceGraphic" stdDeviation="45" result="blur" />
-                        <feColorMatrix in="blur" mode="matrix" values="1 0 0 0 0  0 1 0 0 0  0 0 1 0 0  0 0 0 35 -15" result="goo" />
+                    <filter id="blue-goo">
+                        <feGaussianBlur in="SourceGraphic" stdDeviation="40" result="blur" />
+                        <feColorMatrix in="blur" mode="matrix" values="1 0 0 0 0  0 1 0 0 0  0 0 1 0 0  0 0 0 38 -17" result="goo" />
                     </filter>
                 </defs>
             </svg>

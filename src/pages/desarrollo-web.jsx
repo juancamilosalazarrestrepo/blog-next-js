@@ -4,6 +4,7 @@ import Link from "next/link";
 import Image from "next/image";
 import Head from "next/head";
 import LavaBackground from "../components/LavaBackground";
+import velmax4 from "../../public/images/proyecto-velmax/velmax-desktop-design-4.png";
 
 export default function DesarrolloWeb() {
     const phoneNumber = "573042093951";
@@ -34,16 +35,16 @@ export default function DesarrolloWeb() {
                 </a>
 
                 {/* Hero Section: Split Screen */}
-                <section className="relative min-h-[90vh] flex items-center overflow-hidden px-6 lg:px-20 py-12 lg:py-0 bg-[#f8fafc]">
+                <section className="relative min-h-[90vh] flex items-center overflow-hidden px-6 lg:px-20 py-12 lg:py-0" style={{ background: 'radial-gradient(ellipse at center, #003973 0%, #1d2671 50%, #240b36 100%)' }}>
                     <LavaBackground />
                     <div className="max-w-7xl mx-auto grid grid-cols-1 lg:grid-cols-2 gap-16 items-center relative z-10">
                         <div className="flex flex-col gap-8 order-2 lg:order-1">
-                            <div className="space-y-4">
-                                <span className="inline-block px-4 py-1.5 bg-[#1152d4]/10 text-[#1152d4] text-xs font-bold uppercase tracking-widest rounded-full">Soluciones Digitales de Élite</span>
-                                <h1 className="text-5xl lg:text-7xl font-black leading-[1.1] text-slate-900">
-                                    Diseñamos Webs que <span className="text-[#fde047] drop-shadow-md">Venden</span> y Convierten
+                            <div className="space-y-4" style={{ mixBlendMode: 'difference' }}>
+                                <span className="inline-block px-4 py-1.5 bg-transparent border border-white text-white text-xs font-bold uppercase tracking-widest rounded-full">Soluciones Digitales de Élite</span>
+                                <h1 className="text-5xl lg:text-7xl font-black leading-[1.1] text-white">
+                                    Diseñamos Webs que <span className="text-white">Venden</span> y Convierten
                                 </h1>
-                                <p className="text-lg lg:text-xl text-slate-600 leading-relaxed max-w-xl">
+                                <p className="text-lg lg:text-xl text-white leading-relaxed max-w-xl">
                                     No solo creamos sitios web, construimos herramientas de marketing poderosas que transforman cada visita en una oportunidad de negocio real.
                                 </p>
                             </div>
@@ -62,14 +63,19 @@ export default function DesarrolloWeb() {
                                     <div className="w-10 h-10 rounded-full border-2 border-white bg-slate-200 bg-cover" style={{ backgroundImage: "url('https://lh3.googleusercontent.com/aida-public/AB6AXuBEBgcVd954T6NjHSRtD0rOrq3sJFmCRunvBYWhrKZUCALSB4SN1VMMaurHwYIlWe9LS8DFdbmdz7R9hYHm6wkGzU-tCmAoy9EDSl-kt8j7rnJinrX2UWPUeBIrxxrq6UWkIbS1Tx9AO5BoSLTUke1pAFLN78MtWbZBwtf3MCGxxW3iYiPnEeQ05AZw8Ou5KS0Nk-EtoEQprXvkHrL9uNxZbN_qyIwNNpvP2XYvW-rno9AR-02Vj6mToWmIU_LGCkpdLeSVLUxc_t0')" }}></div>
                                     <div className="w-10 h-10 rounded-full border-2 border-white bg-slate-200 bg-cover" style={{ backgroundImage: "url('https://lh3.googleusercontent.com/aida-public/AB6AXuDs8L7MDWzNANCquCUnLZaOhM6k0VVwj70LETcUFKNR9qV-3z9O9R8U8hp3aqT78vxR1ARmIxy-NdLQT8uf_diLKNMOcnVimC7Mkow9lQiLiwen6r0NWJCVsdzf_vVTWYX1ocIzQNuSDb7iyXhMtg10VSXPY86F95Pg0HhH7sx5Gck-2_GXtPzN768ZqQJaeDG3dV1qlL_RGPAjlihar4VwXk83hdMPIZ5wZg_eHaDXqZ3T3PnqBS0m6T0z9bURgVF5YjL2xkOCgvo')" }}></div>
                                 </div>
-                                <p className="text-sm font-medium text-slate-500">Más de <span className="text-slate-900 font-bold">500+</span> empresas confían en nosotros</p>
+                                <p className="text-sm font-medium text-white">Más de <span className="text-white font-bold">500+</span> empresas confían en nosotros</p>
                             </div>
                         </div>
-                        <div className="order-1 lg:order-2">
-                            <div className="relative group">
-                                <div className="absolute -inset-4 bg-[#1152d4]/20 rounded-[2rem] blur-2xl group-hover:bg-[#1152d4]/30 transition-all"></div>
-                                <div className="relative aspect-square lg:aspect-auto lg:h-[600px] w-full bg-slate-200 rounded-3xl overflow-hidden shadow-2xl bg-cover bg-center" style={{ backgroundImage: "url('https://lh3.googleusercontent.com/aida-public/AB6AXuBq-uZ4Mu0RrGEn3tp_uEKvV10vw5bDb1zNc5UM6qMF9YpU1SFpkLIgdgHzxVxG5j3lf7rqIuCpRZcjtbSsTr5Jghv8Kw9gBl_6Au4oKcFrxx9Qh57HvgbTMM4aLg6WmCiywj8xEDIWbClb5onUm7BzoKCt8pCLC4zlescOFvB04otiP0tIqHL4r0Tk0t_rCf7F_wwZX7TdGOYCLk3k8pm6NHV7tnq3pF3LRrSEde3_Sukvquwm12SDwICqveWQgMIYvB8cQDx8R-w')" }}>
-                                </div>
+                        <div className="order-1 lg:order-2 self-stretch" style={{ isolation: 'isolate', mixBlendMode: 'normal' }}>
+                            <div className="relative w-full h-full min-h-[75vh]">
+                                <Image
+                                    src={velmax4}
+                                    alt="Diseño web profesional Velmax - Panel de administración"
+                                    fill
+                                    style={{ objectFit: 'cover', objectPosition: 'center center' }}
+                                    sizes="(max-width: 1024px) 100vw, 50vw"
+                                    priority
+                                />
                             </div>
                         </div>
                     </div>
