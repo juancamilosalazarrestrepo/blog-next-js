@@ -3,6 +3,7 @@ import Layout from "../components/Layout";
 import Link from "next/link";
 import Image from "next/image";
 import Head from "next/head";
+import LavaBackground from "../components/LavaBackground";
 
 export default function DesarrolloWeb() {
     const phoneNumber = "573042093951";
@@ -33,13 +34,14 @@ export default function DesarrolloWeb() {
                 </a>
 
                 {/* Hero Section: Split Screen */}
-                <section className="relative min-h-[90vh] flex items-center overflow-hidden px-6 lg:px-20 py-12 lg:py-0">
-                    <div className="max-w-7xl mx-auto grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
+                <section className="relative min-h-[90vh] flex items-center overflow-hidden px-6 lg:px-20 py-12 lg:py-0 bg-[#f8fafc]">
+                    <LavaBackground />
+                    <div className="max-w-7xl mx-auto grid grid-cols-1 lg:grid-cols-2 gap-16 items-center relative z-10">
                         <div className="flex flex-col gap-8 order-2 lg:order-1">
                             <div className="space-y-4">
                                 <span className="inline-block px-4 py-1.5 bg-[#1152d4]/10 text-[#1152d4] text-xs font-bold uppercase tracking-widest rounded-full">Soluciones Digitales de Élite</span>
                                 <h1 className="text-5xl lg:text-7xl font-black leading-[1.1] text-slate-900">
-                                    Diseñamos Webs que <span className="text-[#1152d4]">Venden</span> y Convierten
+                                    Diseñamos Webs que <span className="text-[#fde047] drop-shadow-md">Venden</span> y Convierten
                                 </h1>
                                 <p className="text-lg lg:text-xl text-slate-600 leading-relaxed max-w-xl">
                                     No solo creamos sitios web, construimos herramientas de marketing poderosas que transforman cada visita en una oportunidad de negocio real.

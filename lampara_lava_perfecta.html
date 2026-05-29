@@ -1,0 +1,230 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lámpara de Lava Interactiva - Definida y Responsiva</title>
+    <style>
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            background-color: #f8fafc; /* Fondo claro y limpio estilo Google */
+            overflow: hidden;
+            height: 100vh;
+            width: 100vw;
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+        }
+
+        .banner-container {
+            position: relative;
+            width: 100%;
+            height: 100%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            overflow: hidden;
+        }
+
+        /* CORRECCIÓN PARA EL "MUY DEGRADADO":
+           Aplicamos el filtro SVG directamente al contenedor. La combinación de feGaussianBlur 
+           y feColorMatrix (un multiplicador de contraste alfa alta) obliga a que los bordes 
+           dejen de ser borrosos y se vuelvan DEFINIDOS, con consistencia líquida (metaballs).
+        */
+        .lava-wrapper {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            filter: url(#vibrant-goo); /* Filtro de fusión líquida definido */
+            z-index: 1;
+        }
+
+        /* Esferas con colores sólidos y vivos (no gradientes hiper-desenfocados) 
+           para que no pierdan intensidad al mezclarse.
+        */
+        .blob {
+            position: absolute;
+            border-radius: 50%;
+            will-change: transform;
+        }
+
+        /* Blobs Autónomos (Flotan solos) */
+        .blob-purple {
+            background-color: #c084fc; /* Púrpura vivo */
+            width: 320px;
+            height: 320px;
+            top: 15%;
+            left: 20%;
+            animation: floatOrganic1 22s ease-in-out infinite alternate;
+        }
+
+        .blob-pink {
+            background-color: #f472b6; /* Rosado vivo */
+            width: 380px;
+            height: 380px;
+            top: 35%;
+            left: 55%;
+            animation: floatOrganic2 28s ease-in-out infinite alternate;
+        }
+
+        .blob-blue {
+            background-color: #60a5fa; /* Azul Google */
+            width: 290px;
+            height: 290px;
+            top: 55%;
+            left: 15%;
+            animation: floatOrganic3 18s ease-in-out infinite alternate;
+        }
+
+        .blob-yellow {
+            background-color: #fde047; /* Amarillo Search Labs */
+            width: 260px;
+            height: 260px;
+            top: 10%;
+            left: 65%;
+            animation: floatOrganic1 25s ease-in-out infinite alternate-reverse;
+        }
+
+        /* CORRECCIÓN PARA EL MOUSE:
+           Creamos un "Blob Interactivo" dedicado que sigue al cursor al 100%.
+           Cuando este pase cerca de los otros, se fusionarán como gotas de cera reales.
+        */
+        .blob-interactive {
+            background-color: #2dd4bf; /* Turquesa vibrante */
+            width: 280px;
+            height: 280px;
+            position: absolute;
+            top: 0;
+            left: 0;
+            transform: translate(-50%, -50%);
+            /* Asegura una interpolación limpia mediante JS */
+            transition: transform 0.08s ease-out; 
+        }
+
+        /* Animaciones con trayectorias más amplias y variadas */
+        @keyframes floatOrganic1 {
+            0% { transform: translate(0, 0) scale(1); }
+            50% { transform: translate(180px, 80px) scale(1.2); }
+            100% { transform: translate(-40px, 140px) scale(0.9); }
+        }
+
+        @keyframes floatOrganic2 {
+            0% { transform: translate(0, 0) scale(1.1); }
+            50% { transform: translate(-150px, -120px) scale(0.85); }
+            100% { transform: translate(100px, 60px) scale(1.15); }
+        }
+
+        @keyframes floatOrganic3 {
+            0% { transform: translate(0, 0) scale(0.95); }
+            33% { transform: translate(140px, -140px) scale(1.25); }
+            66% { transform: translate(-100px, 60px) scale(0.85); }
+            100% { transform: translate(0, 0) scale(0.95); }
+        }
+
+        /* Capa de Interfaz */
+        .content {
+            position: relative;
+            z-index: 10;
+            text-align: center;
+            color: #0f172a;
+            max-width: 600px;
+            padding: 24px;
+            pointer-events: none; /* Permite que los eventos de mouse atraviesen el texto */
+        }
+
+        .icon {
+            font-size: 3.5rem;
+            margin-bottom: 16px;
+        }
+
+        h1 {
+            font-size: 3.2rem;
+            font-weight: 800;
+            letter-spacing: -0.04em;
+            margin-bottom: 12px;
+            color: #0f172a;
+        }
+
+        p {
+            font-size: 1.2rem;
+            color: #334155;
+            font-weight: 400;
+            line-height: 1.6;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="banner-container">
+        <!-- Contenedor con Filtro Líquido Real -->
+        <div class="lava-wrapper">
+            <!-- Esferas Autónomas -->
+            <div class="blob blob-purple"></div>
+            <div class="blob blob-pink"></div>
+            <div class="blob blob-blue"></div>
+            <div class="blob blob-yellow"></div>
+            
+            <!-- ESFERA INTERACTIVA: Sigue al puntero directamente -->
+            <div class="blob blob-interactive" id="interactiveBlob"></div>
+        </div>
+
+        <!-- Contenido Central -->
+        <div class="content">
+            <div class="icon">🧪</div>
+            <p style="text-transform: uppercase; letter-spacing: 0.1em; font-size: 0.85rem; font-weight: 700; margin-bottom: 8px; color: #475569;">Search Labs</p>
+            <h1>Efecto Líquido Real</h1>
+            <p>Mueve el mouse por cualquier zona. Verás una gota turquesa que sigue tu cursor y se fusiona físicamente con las demás esferas al tocarlas.</p>
+        </div>
+    </div>
+
+    <!-- 
+      FILTRO SVG GOOEY REELABORADO:
+      Usamos un stdDeviation balanceado (40) y un contraste de matriz ALTO (colormatrix de 30 -15).
+      Esto corta el degradado excesivo y crea un "borde sólido y viscoso" perfecto de lámpara de lava.
+    -->
+    <svg xmlns="http://www.w3.org/2000/svg" style="display: none;">
+        <defs>
+            <filter id="vibrant-goo">
+                <feGaussianBlur in="SourceGraphic" stdDeviation="45" result="blur" />
+                <feColorMatrix in="blur" mode="matrix" values="1 0 0 0 0  0 1 0 0 0  0 0 1 0 0  0 0 0 35 -15" result="goo" />
+            </filter>
+        </defs>
+    </svg>
+
+    <script>
+        const interactiveBlob = document.getElementById('interactiveBlob');
+        
+        // Coordenadas actuales y objetivo para suavizar el movimiento (efecto elástico)
+        let currentX = window.innerWidth / 2;
+        let currentY = window.innerHeight / 2;
+        let targetX = currentX;
+        let targetY = currentY;
+
+        // Escucha el movimiento real del mouse en toda la ventana
+        window.addEventListener('mousemove', (e) => {
+            targetX = e.clientX;
+            targetY = e.clientY;
+        });
+
+        // Bucle de animación de alta tasa de refresco (60fps+) para mover el fluido con el mouse
+        function animateMouseBlob() {
+            // Interpolación lineal (Lerp) para dar efecto de fluidez líquida al seguir el mouse
+            currentX += (targetX - currentX) * 0.12;
+            currentY += (targetY - currentY) * 0.12;
+
+            // Movemos la esfera interactiva basándonos en su centro
+            interactiveBlob.style.transform = `translate(${currentX}px, ${currentY}px)`;
+            
+            requestAnimationFrame(animateMouseBlob);
+        }
+
+        // Inicializa el bucle
+        animateMouseBlob();
+    </script>
+</body>
+</html>

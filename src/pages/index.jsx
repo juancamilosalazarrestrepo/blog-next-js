@@ -3,6 +3,7 @@ import Link from "next/link";
 import Banners from "../components/Banners";
 import AIAgentsSection from "../components/AIAgentsSection";
 import WebDevSection from "../components/WebDevSection";
+import CreativeWebDesign from "../components/CreativeWebDesign";
 import banner1 from "../../public/images/background.webp";
 import whatsappIconBig from "../../public/images/whatsappBig.png";
 import styles from "../styles/Index.module.css";
@@ -150,6 +151,9 @@ const Home = ({ posts, lastProjects }) => {
 
         {/* ===== Sección Destacada: Desarrollo Web (Full Width) ===== */}
         <WebDevSection />
+
+        {/* ===== Sección Destacada: Diseño Web Creativo (Full Width) ===== */}
+        <CreativeWebDesign />
 
         <div className={styles.mainContainer}>
           {/* ===== Artículos Recientes ===== */}
