@@ -65,7 +65,6 @@ const CreativeWebDesign = () => {
             </div>
 
             <div className={styles.content}>
-                <div className={styles.icon}>✨</div>
                 <div className={styles.badge}>Diseño Web Creativo</div>
                 <h2 className={styles.title}>Impacto Visual y Experiencias Únicas</h2>
                 <p className={styles.subtitle}>
