@@ -15,6 +15,8 @@ type Props = {
     thumb: string;
     subtitle: string;
     wordCount: number;
+    date?: string;
+    keywords?: string[];
     readingTime: {
       minutes: number;
       text: string;
@@ -37,7 +39,8 @@ const DynamicPost: NextPage<Props> = ({ frontMatter, mdxSource }) => {
         imageAlt={frontMatter.title}
         type="article"
         author="Juan Camilo Salazar"
-        keywords={['desarrollo web', 'blog', 'programacion', frontMatter.title]}
+        date={frontMatter.date}
+        keywords={frontMatter.keywords?.length ? frontMatter.keywords : ['desarrollo web', 'blog', 'programacion', frontMatter.title]}
       />
       <div>
         <div style={{ overflow: "hidden", borderRadius: "0 0 16px 16px" }}>

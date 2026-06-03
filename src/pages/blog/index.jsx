@@ -115,7 +115,7 @@ const Blog = ({ posts }) => {
                 }}
               >
                 {/* Image */}
-                <div style={{ overflow: "hidden", position: "relative", height: "200px" }}>
+                <div style={{ overflow: "hidden", position: "relative", height: "260px" }}>
                   <Image
                     src={post.thumb}
                     alt={post.title}

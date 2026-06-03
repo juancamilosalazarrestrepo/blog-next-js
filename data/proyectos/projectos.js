@@ -9,8 +9,23 @@ import niceGradientApp from "../../public/images/nice-gradient-mockup.webp";
 import portadaMedico from "../../public/images/portadaMedico.png";
 import portadaReserve from "../../public/images/portadaReserve.png";
 import velmax from "../../public/images/diseño-web-personalizado-cliente-velmax.webp";
+import colegioSanJustino from "../../public/images/diseño-web-personalizado-cliente-colegio-san-justino.webp";
 
 const proyectos = [
+  {
+    titulo: "App Fruver — Control de Inventario y Ventas",
+    imagen: "https://images.pexels.com/photos/1300975/pexels-photo-1300975.jpeg?auto=compress&cs=tinysrgb&w=600",
+    description:
+      "App Android para fruvers: control de inventario, registro de ventas y seguimiento de ganancias en tiempo real. Desarrollada con React Native y SQLite.",
+    url: "/proyectos/app_fruver",
+  },
+  {
+    titulo: "Colegio San Justino",
+    imagen: colegioSanJustino,
+    description:
+      "Sitio web institucional moderno para el Colegio San Justino. Incluye información académica, novedades, eventos y contacto directo para la comunidad educativa.",
+    url: "/proyectos/colegio_san_justino",
+  },
   {
     titulo: "Velmax Consultorios Médicos",
     imagen: velmax,
