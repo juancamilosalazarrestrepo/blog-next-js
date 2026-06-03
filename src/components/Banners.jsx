@@ -5,6 +5,8 @@ import laptops from "../../public/images/laptop.png";
 import phones from "../../public/images/phones.png";
 import mobileBg from "../../public/images/mobile_banner_bg.webp";
 import styles from "../styles/Banners.module.css";
+import { useTranslation } from "next-i18next";
+import LavaBackground from "./LavaBackground";
 
 import "swiper/css";
 import "swiper/css/navigation";
@@ -12,13 +14,14 @@ import "swiper/css/pagination";
 import "swiper/css/scrollbar";
 
 export default function Banners({ images }) {
+  const { t } = useTranslation("common");
+
   return (
     <div>
       {/* Mobile Header */}
       <div className={styles.headerMobile}>
-        {/* Background Image & Overlay */}
-        <Image 
-          src={mobileBg} 
+        <Image
+          src={mobileBg}
           alt="Abstract tech background"
           className={styles.heroMobileBgImage}
           placeholder="empty"
@@ -28,7 +31,7 @@ export default function Banners({ images }) {
         <h1 className="headerTextMobile" style={{ margin: 0, padding: 0 }}>Fullstack Developer.</h1>
         <h2 className="headerSubTextMobile" style={{ margin: 0, padding: 0 }}>Juan Camilo Salazar Restrepo</h2>
         <p className="headerParagraphMobile">
-          Especialista en desarrollo de software, impulsemos tus proyectos rumbo al éxito.
+          {t("banner.tagline")}
         </p>
         <div className="socialNETSContainer">
           <a href="https://www.facebook.com/profile.php?id=61557592842009" className="text-white hover:text-gray-900" aria-label="Facebook">
@@ -54,10 +57,10 @@ export default function Banners({ images }) {
         </div>
         <div className="containerButtonsMobile">
           <a className="group inline-flex items-center justify-center rounded-full py-2 px-4 text-sm font-semibold focus:outline-none bg-[#fff] buttonHoverText text-blue hover:text-slate-100 hover:bg-[#fff] active:bg-[#021B79] active:text-blue-100" href="/contact">
-            <span>Contacto</span>
+            <span>{t("banner.contact")}</span>
           </a>
           <a style={{ color: "white", border: "1px solid white", borderRadius: "9999px", padding: "7px 20px", textAlign: "center" }} className="buttonHoverText group inline-flex items-center justify-center text-sm font-semibold focus:outline-none hover:bg-white hover:text-[#021B79] active:bg-white active:text-[#021B79]" href="/portafolio">
-            <span>ver portafolio</span>
+            <span>{t("banner.portfolio")}</span>
           </a>
         </div>
       </div>
@@ -75,26 +78,47 @@ export default function Banners({ images }) {
               return (
                 <SwiperSlide key={index}>
                   <div className={styles.sliderContainer}>
+                    <LavaBackground />
                     <div className={styles.letfHeaderSection}>
-                      <div style={{ display: "flex", flexDirection: "column", alignItems: "flex-start" }}>
-                        <h1 className={styles.titleHeaderDesktop} style={{ margin: 0, padding: 0 }}>Juan Camilo<br/>
-                          <span className={styles.subtitleHeaderDesktop}>Salazar Restrepo</span>
-                        </h1>
-                        <h2 className={styles.textHeaderDesktop} style={{ margin: 0, padding: 0, fontSize: "inherit", fontWeight: "inherit" }}>
-                          Especialista en desarrollo de software, impulsemos tus<br />
-                          proyectos rumbo al éxito.
-                        </h2>
-                      </div>
-
-                      <div className={styles.heroButtonsRow}>
-                        <a className="max-sm:hidden group inline-flex items-center justify-center rounded-full py-2 px-4 text-sm font-semibold focus:outline-none bg-[#0575E6] buttonHoverText text-white hover:text-slate-100 hover:bg-[#fff] active:bg-[#021B79] active:text-blue-100" href="/contact">
-                          <span>Contacto</span>
-                        </a>
-                        <a style={{ color: "white", border: "1px solid white", borderRadius: "9999px", padding: "7px 20px", textAlign: "center" }} className="buttonHoverText group inline-flex items-center justify-center text-sm font-semibold focus:outline-none hover:bg-white hover:text-[#021B79] active:bg-white active:text-[#021B79]" href="/portafolio">
-                          <span>ver portafolio</span>
-                        </a>
+                      <div className="flex flex-col gap-6 items-start">
+                        <span className="inline-block px-4 py-1.5 bg-transparent border border-white text-white text-xs font-bold uppercase tracking-widest rounded-full">
+                          Fullstack Developer & AI
+                        </span>
+                        <div className="space-y-3">
+                          <h1 className="text-5xl lg:text-7xl font-black leading-[1.1] text-white">
+                            Juan Camilo<br />
+                            <span className="font-light">Salazar Restrepo</span>
+                          </h1>
+                          <p className="text-lg lg:text-xl text-white leading-relaxed max-w-xl" style={{ fontWeight: 300 }}>
+                            {t("banner.tagline")}
+                          </p>
+                        </div>
+                        <div className="flex flex-row gap-4 mt-2">
+                          <a
+                            href="/contact"
+                            className="flex items-center justify-center gap-2 bg-[#1152d4] text-white px-8 py-4 rounded-xl font-bold text-lg hover:bg-[#1152d4]/90 transition-all shadow-xl shadow-[#1152d4]/30"
+                          >
+                            {t("banner.contact")}
+                          </a>
+                          <a
+                            href="/portafolio"
+                            className="flex items-center justify-center gap-2 bg-white border-2 border-slate-200 text-slate-900 px-8 py-4 rounded-xl font-bold text-lg hover:bg-slate-50 transition-all"
+                          >
+                            {t("banner.portfolio")}
+                          </a>
+                        </div>
                       </div>
                     </div>
+
+                    {/* Background image */}
+                    <Image
+                      src={img}
+                      width={1920}
+                      height={500}
+                      className={`w-100 anchoBanner ${styles.heroBgImage}`}
+                      placeholder="blur"
+                      alt="Banner background"
+                    />
 
                     {/* Imágenes decorativas */}
                     <div>
@@ -118,15 +142,6 @@ export default function Banners({ images }) {
                       </div>
                     </div>
 
-                    {/* Background image */}
-                    <Image
-                      src={img}
-                      width={1920}
-                      height={500}
-                      className={`w-100 anchoBanner ${styles.heroBgImage}`}
-                      placeholder="blur"
-                      alt="Banner background"
-                    />
                   </div>
                 </SwiperSlide>
               );

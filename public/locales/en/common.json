@@ -64,6 +64,71 @@
     "badgeFast": "Fast Loading",
     "badgeSeo": "SEO Optimized"
   },
+  "projectsPage": {
+    "title": "Projects",
+    "seoTitle": "Web Development & Application Projects",
+    "seoDescription": "Explore my featured projects: web apps with Next.js, React Native, .NET, medical platforms, booking engines and real estate management systems.",
+    "readMore": "Read more →"
+  },
+  "projectsData": {
+    "app_fruver": {
+      "title": "Fruver App — Inventory & Sales Control",
+      "description": "Android app for produce stores: inventory control, sales tracking and real-time profit monitoring. Built with React Native and SQLite."
+    },
+    "colegio_san_justino": {
+      "title": "San Justino School",
+      "description": "Modern institutional website for San Justino School. Includes academic information, news, events and direct contact for the school community."
+    },
+    "velmax_consultorios": {
+      "title": "Velmax Medical Offices",
+      "description": "Comprehensive informational medical platform for Velmax Medical Offices in Berazategui. Includes directory, specialties and online appointment booking."
+    },
+    "nice_gradient": {
+      "title": "Nice Gradient - AI-Powered Gradients",
+      "description": "AI-powered gradient generator built with Next.js 14. Curated gradient collection, visual editor and CSS/PNG export."
+    },
+    "dr_machado_diagnostics": {
+      "title": "Dr. Cristian Machado - Medical Website",
+      "description": "Professional medical website with SEO optimization for Dr. Cristian Machado, advanced radiology specialist in Buenos Aires."
+    },
+    "luxury_booking_engine": {
+      "title": "Booking Engine - Yachts & Apartments",
+      "description": "High-end (Dark Mode) Next.js platform for exclusive bookings of luxury apartments and private yachts with secure payments."
+    },
+    "sistema_gestion_inmobiliaria": {
+      "title": "Real Estate Management System",
+      "description": "Real estate platform: manage properties, pricing and users with a .NET backend (Clean Architecture) and a modern Next.js frontend."
+    },
+    "aplicacion_movil_para_restaurantes": {
+      "title": "Mobile App for Restaurants",
+      "description": "Mobile app for restaurants, built with React Native; this app lets users subscribe to a newsletter."
+    },
+    "ecommerce_mercadolibre": {
+      "title": "MercadoLibre E-commerce Clone",
+      "description": "MercadoLibre clone built with JavaScript, allowing interaction with sections to browse products and categories."
+    },
+    "tarjeta_glasmorfismo": {
+      "title": "Animated Card with Glassmorphism Style",
+      "description": "Interactive CSS card for selling shoes; it changes color depending on the shoe selected."
+    },
+    "landing_parallax": {
+      "title": "Landing Page with Parallax Effect",
+      "description": "Landing page designed with a modern parallax effect formed by illustrations of a canyon in a desert at night."
+    },
+    "calculadora_react_native": {
+      "title": "React Native Calculator",
+      "description": "Calculator built with React Native, featuring a modern design and dark mode to improve the user experience when performing basic math operations."
+    },
+    "clon_chatgpt": {
+      "title": "ChatGPT Clone with Next.js",
+      "description": "ChatGPT clone built with Next.js and Tailwind CSS, enabling interaction with a response-generating chatbot through OpenAI's GPT-3 API."
+    }
+  },
+  "banner": {
+    "tagline": "Software development specialist — let's take your projects to the next level.",
+    "contact": "Contact",
+    "portfolio": "View portfolio"
+  },
   "creativeSection": {
     "badge": "Creative Web Design",
     "title": "Visual Impact and Unique Experiences",

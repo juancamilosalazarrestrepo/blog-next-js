@@ -3,6 +3,7 @@ import Layout from "../../components/Layout";
 import SEO from "../../components/SEO";
 import VideoCardComponent from "../../components/VideoCardComponent";
 import styles from "../../styles/CodeViewer.module.css";
+import { serverSideTranslations } from 'next-i18next/serverSideTranslations';
 
 const jsxCode = `import styles from "../styles/VideoCard.module.css";
 import userImage from "../../public/images/camiloPaginaWeb.webp";
@@ -195,6 +196,14 @@ const VideoCardElementPage = () => {
     </div>
   );
 };
+
+export async function getStaticProps({ locale }) {
+  return {
+    props: {
+      ...(await serverSideTranslations(locale || 'es', ['common'])),
+    },
+  };
+}
 
 export default function BlogTemplate() {
   return (

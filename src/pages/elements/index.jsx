@@ -1,5 +1,6 @@
 import Layout from "../../components/Layout";
 import UIComponentsLibrary from "../../components/UIComponentsLibrary";
+import { serverSideTranslations } from 'next-i18next/serverSideTranslations';
 
 const Elements = () => {
   return (
@@ -12,6 +13,14 @@ const Elements = () => {
     </div>
   );
 };
+
+export async function getStaticProps({ locale }) {
+  return {
+    props: {
+      ...(await serverSideTranslations(locale || 'es', ['common'])),
+    },
+  };
+}
 
 export default function ElementsPage() {
   return (

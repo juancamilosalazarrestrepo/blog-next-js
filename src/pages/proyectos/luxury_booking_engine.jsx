@@ -6,42 +6,90 @@ import styles from "../../styles/ProyectoDetalle.module.css";
 import reserveDesktop from "../../../public/images/reserveDesktop.webp";
 import reservePhone from "../../../public/images/reservePhone.webp";
 import SEO from "../../components/SEO";
+import { serverSideTranslations } from 'next-i18next/serverSideTranslations';
+import { useRouter } from "next/router";
+
+const content = {
+  es: {
+    seoTitle: "Motor de Reservas | Yates y Apartamentos de Lujo - Portfolio",
+    seoDescription: "Plataforma premium para reserva de yates exclusivos y apartamentos de lujo empleando Next.js y Dark Mode.",
+    badge: "Web App High-End",
+    heroSubtitle: "Plataforma exclusiva que redefine las reservas de lujo. Motor unificado para conectar usuarios VIP con yates y apartamentos premium.",
+    btnFeatures: "Ver características",
+    btnTech: "Stack tecnológico",
+    cardTitle: "Servicio Premium",
+    featuresTitle: "Características Premium",
+    featuresSubtitle: "Componentes diseñados para usuarios exigentes",
+    features: [
+      { icon: "🛥️", title: "Reserva de Yates y Apartamentos", description: "Sistema unificado para reservar tanto experiencias náuticas (yates) como alojamientos de lujo." },
+      { icon: "📅", title: "Motor de Búsqueda Avanzado", description: "Búsqueda en tiempo real por destino, fechas y número de huéspedes con filtros de alta gama." },
+      { icon: "🌑", title: "Diseño Premium Dark Mode", description: "Interfaz exclusiva en tonos oscuros y metálicos (dorado) para transmitir lujo y sofisticación." },
+      { icon: "💳", title: "Pagos Seguros", description: "Integración de pasarela de pagos segura y encriptación de datos de alto nivel." },
+      { icon: "📷", title: "Galería de Alta Resolución", description: "Visualizador de imágenes en alta definición para mostrar cada detalle de la propiedad o yate." },
+      { icon: "🤖", title: "Asistente de Reservas", description: "Soporte automatizado 24/7 para ayudar a los clientes VIP con sus itinerarios y dudas." },
+    ],
+    techTitle: "Arquitectura Tecnológica",
+    techSubtitle: "Solución escalable para negocios globales",
+    tabBackend: "Backend / Database",
+    tabFrontend: "Frontend",
+    challengesTitle: "Desafíos y Soluciones",
+    challengesSubtitle: "Superando obstáculos técnicos de alto nivel",
+    solutionLabel: "Solución:",
+    challenges: [
+      { title: "Disponibilidad en Tiempo Real", description: "Manejar la concurrencia cuando varios usuarios VIP intentan reservar las mismas fechas para un yate exclusivo.", solution: "Implementación de bloqueos temporales en base de datos (pessimistic locking) durante el proceso de checkout." },
+      { title: "Identidad Visual de Lujo", description: "Crear una experiencia visual que justifique el ticket promedio alto (high-ticket).", solution: "Creación de un design system en dark mode puro con acentos color oro, tipografías elegantes (Plus Jakarta Sans) y micro-animaciones fluidas." },
+    ],
+    repoTitle: "App Conceptual",
+    repoDescription: "Este proyecto representa las capacidades de creación de plataformas transaccionales complejas de alto nivel adquisitivo.",
+    ctaTitle: "¿Deseas digitalizar tus reservas?",
+    ctaText: "Creamos motores de reservas robustos e interfaces enfocadas en la conversión.",
+    ctaContact: "Contactar",
+    ctaMore: "Ver más proyectos",
+  },
+  en: {
+    seoTitle: "Booking Engine | Luxury Yachts and Apartments - Portfolio",
+    seoDescription: "Premium platform for booking exclusive yachts and luxury apartments using Next.js and Dark Mode.",
+    badge: "High-End Web App",
+    heroSubtitle: "An exclusive platform that redefines luxury bookings. A unified engine to connect VIP users with premium yachts and apartments.",
+    btnFeatures: "View features",
+    btnTech: "Tech stack",
+    cardTitle: "Premium Service",
+    featuresTitle: "Premium Features",
+    featuresSubtitle: "Components designed for demanding users",
+    features: [
+      { icon: "🛥️", title: "Yacht and Apartment Booking", description: "Unified system to book both nautical experiences (yachts) and luxury accommodations." },
+      { icon: "📅", title: "Advanced Search Engine", description: "Real-time search by destination, dates and number of guests with high-end filters." },
+      { icon: "🌑", title: "Premium Dark Mode Design", description: "Exclusive interface in dark, metallic (gold) tones to convey luxury and sophistication." },
+      { icon: "💳", title: "Secure Payments", description: "Integration of a secure payment gateway and high-level data encryption." },
+      { icon: "📷", title: "High-Resolution Gallery", description: "High-definition image viewer to show every detail of the property or yacht." },
+      { icon: "🤖", title: "Booking Assistant", description: "Automated 24/7 support to help VIP clients with their itineraries and questions." },
+    ],
+    techTitle: "Technical Architecture",
+    techSubtitle: "Scalable solution for global businesses",
+    tabBackend: "Backend / Database",
+    tabFrontend: "Frontend",
+    challengesTitle: "Challenges and Solutions",
+    challengesSubtitle: "Overcoming high-level technical obstacles",
+    solutionLabel: "Solution:",
+    challenges: [
+      { title: "Real-Time Availability", description: "Handling concurrency when several VIP users try to book the same dates for an exclusive yacht.", solution: "Implementation of temporary database locks (pessimistic locking) during the checkout process." },
+      { title: "Luxury Visual Identity", description: "Creating a visual experience that justifies the high average ticket (high-ticket).", solution: "Creation of a pure dark mode design system with gold accents, elegant typography (Plus Jakarta Sans) and fluid micro-animations." },
+    ],
+    repoTitle: "Concept App",
+    repoDescription: "This project represents the capabilities for building complex, high-value transactional platforms.",
+    ctaTitle: "Want to digitize your bookings?",
+    ctaText: "We build robust booking engines and conversion-focused interfaces.",
+    ctaContact: "Contact",
+    ctaMore: "See more projects",
+  },
+};
 
 const LuxuryBookingEngine = () => {
+    const { locale } = useRouter();
+    const c = content[locale] || content.es;
     const [activeTab, setActiveTab] = useState("features");
 
-    const features = [
-        {
-            icon: "🛥️",
-            title: "Reserva de Yates y Apartamentos",
-            description: "Sistema unificado para reservar tanto experiencias náuticas (yates) como alojamientos de lujo."
-        },
-        {
-            icon: "📅",
-            title: "Motor de Búsqueda Avanzado",
-            description: "Búsqueda en tiempo real por destino, fechas y número de huéspedes con filtros de alta gama."
-        },
-        {
-            icon: "🌑",
-            title: "Diseño Premium Dark Mode",
-            description: "Interfaz exclusiva en tonos oscuros y metálicos (dorado) para transmitir lujo y sofisticación."
-        },
-        {
-            icon: "💳",
-            title: "Pagos Seguros",
-            description: "Integración de pasarela de pagos segura y encriptación de datos de alto nivel."
-        },
-        {
-            icon: "📷",
-            title: "Galería de Alta Resolución",
-            description: "Visualizador de imágenes en alta definición para mostrar cada detalle de la propiedad o yate."
-        },
-        {
-            icon: "🤖",
-            title: "Asistente de Reservas",
-            description: "Soporte automatizado 24/7 para ayudar a los clientes VIP con sus itinerarios y dudas."
-        }
-    ];
+    const features = c.features;
 
     const techStack = {
         backend: [
@@ -58,24 +106,13 @@ const LuxuryBookingEngine = () => {
         ]
     };
 
-    const challenges = [
-        {
-            title: "Disponibilidad en Tiempo Real",
-            description: "Manejar la concurrencia cuando varios usuarios VIP intentan reservar las mismas fechas para un yate exclusivo.",
-            solution: "Implementación de bloqueos temporales en base de datos (pessimistic locking) durante el proceso de checkout."
-        },
-        {
-            title: "Identidad Visual de Lujo",
-            description: "Crear una experiencia visual que justifique el ticket promedio alto (high-ticket).",
-            solution: "Creación de un design system en dark mode puro con acentos color oro, tipografías elegantes (Plus Jakarta Sans) y micro-animaciones fluidas."
-        }
-    ];
+    const challenges = c.challenges;
 
     return (
         <Layout>
-            <SEO 
-                title="Motor de Reservas | Yates y Apartamentos de Lujo - Portfolio"
-                description="Plataforma premium para reserva de yates exclusivos y apartamentos de lujo empleando Next.js y Dark Mode."
+            <SEO
+                title={c.seoTitle}
+                description={c.seoDescription}
                 keywords={["motor de reservas", "booking engine", "yachts", "apartamentos lujo", "nextjs", "react"]}
             />
 
@@ -91,13 +128,13 @@ const LuxuryBookingEngine = () => {
                 <div className="max-w-7xl w-full flex flex-col lg:flex-row items-center justify-between gap-12 lg:gap-8 overflow-visible">
                     <div className="w-full lg:flex-1 max-w-2xl lg:max-w-none text-center lg:text-left z-20">
                         <span className="bg-white/40 px-4 py-1.5 rounded-full text-[10px] md:text-xs font-bold uppercase tracking-widest mb-6 inline-block border border-[#1e3a8a]/20 backdrop-blur-md shadow-sm" style={{ color: '#1e3a8a' }}>
-                            Web App High-End
+                            {c.badge}
                         </span>
                         <h1 className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-black mb-6 leading-[1.05] tracking-tight" style={{ color: '#0f172a' }}>
                             Luxury Booking <span style={{ background: 'linear-gradient(90deg, #1e3a8a 0%, #3b82f6 100%)', WebkitBackgroundClip: 'text', WebkitTextFillColor: 'transparent' }}>Engine</span>
                         </h1>
                         <p className="text-lg md:text-xl lg:text-2xl mb-10 font-semibold leading-relaxed max-w-2xl mx-auto lg:mx-0 shadow-sm" style={{ color: '#1e293b' }}>
-                            Plataforma exclusiva que redefine las reservas de lujo. Motor unificado para conectar usuarios VIP con yates y apartamentos premium.
+                            {c.heroSubtitle}
                         </p>
                         <div className="flex flex-col sm:flex-row gap-4 justify-center lg:justify-start relative z-[7000]">
                             <a
@@ -105,13 +142,13 @@ const LuxuryBookingEngine = () => {
                                 className="px-10 py-4 rounded-2xl font-black text-lg hover:scale-105 transition-all shadow-xl text-center active:scale-95"
                                 style={{ background: '#1e3a8a', color: 'white' }}
                             >
-                                Ver características
+                                {c.btnFeatures}
                             </a>
                             <a
                                 href="#tech"
                                 className="bg-transparent border-2 border-[#1e3a8a] text-[#1e3a8a] px-10 py-4 rounded-2xl font-bold text-lg hover:bg-[#1e3a8a]/5 transition-all backdrop-blur-md text-center active:scale-95"
                             >
-                                Stack tecnológico
+                                {c.btnTech}
                             </a>
                         </div>
                     </div>
@@ -156,7 +193,7 @@ const LuxuryBookingEngine = () => {
                             <div className={styles.floatingCard} style={{ zIndex: 40 }}>
                                 <div className={styles.cardIcon}>⭐️</div>
                                 <div>
-                                    <p className={styles.cardTitle}>Servicio Premium</p>
+                                    <p className={styles.cardTitle}>{c.cardTitle}</p>
                                     <p className={styles.cardText}>High-ticket Bookings</p>
                                 </div>
                             </div>
@@ -169,9 +206,9 @@ const LuxuryBookingEngine = () => {
             <section id="features" className={styles.section}>
                 <div className={styles.container}>
                     <div className={styles.sectionHeader}>
-                        <h2 className={styles.sectionTitle}>Características Premium</h2>
+                        <h2 className={styles.sectionTitle}>{c.featuresTitle}</h2>
                         <p className={styles.sectionSubtitle}>
-                            Componentes diseñados para usuarios exigentes
+                            {c.featuresSubtitle}
                         </p>
                     </div>
                     <div className={styles.featuresGrid}>
@@ -190,9 +227,9 @@ const LuxuryBookingEngine = () => {
             <section id="tech" className={styles.techSection}>
                 <div className={styles.container}>
                     <div className={styles.sectionHeader}>
-                        <h2 className={styles.sectionTitle}>Arquitectura Tecnológica</h2>
+                        <h2 className={styles.sectionTitle}>{c.techTitle}</h2>
                         <p className={styles.sectionSubtitle}>
-                            Solución escalable para negocios globales
+                            {c.techSubtitle}
                         </p>
                     </div>
 
@@ -201,13 +238,13 @@ const LuxuryBookingEngine = () => {
                             className={`${styles.tabButton} ${activeTab === "features" ? styles.active : ""}`}
                             onClick={() => setActiveTab("features")}
                         >
-                            Backend / Database
+                            {c.tabBackend}
                         </button>
                         <button
                             className={`${styles.tabButton} ${activeTab === "frontend" ? styles.active : ""}`}
                             onClick={() => setActiveTab("frontend")}
                         >
-                            Frontend
+                            {c.tabFrontend}
                         </button>
                     </div>
 
@@ -236,9 +273,9 @@ const LuxuryBookingEngine = () => {
             <section className={styles.challengesSection}>
                 <div className={styles.container}>
                     <div className={styles.sectionHeader}>
-                        <h2 className={styles.sectionTitle}>Desafíos y Soluciones</h2>
+                        <h2 className={styles.sectionTitle}>{c.challengesTitle}</h2>
                         <p className={styles.sectionSubtitle}>
-                            Superando obstáculos técnicos de alto nivel
+                            {c.challengesSubtitle}
                         </p>
                     </div>
                     <div className={styles.challengesGrid}>
@@ -248,7 +285,7 @@ const LuxuryBookingEngine = () => {
                                 <h3 className={styles.challengeTitle}>{challenge.title}</h3>
                                 <p className={styles.challengeDescription}>{challenge.description}</p>
                                 <div className={styles.solution}>
-                                    <strong>Solución:</strong> {challenge.solution}
+                                    <strong>{c.solutionLabel}</strong> {challenge.solution}
                                 </div>
                             </div>
                         ))}
@@ -267,9 +304,9 @@ const LuxuryBookingEngine = () => {
                             </svg>
                         </div>
                         <div className={styles.repoText}>
-                            <h2 className={styles.repoTitle}>App Conceptual</h2>
+                            <h2 className={styles.repoTitle}>{c.repoTitle}</h2>
                             <p className={styles.repoDescription}>
-                                Este proyecto representa las capacidades de creación de plataformas transaccionales complejas de alto nivel adquisitivo.
+                                {c.repoDescription}
                             </p>
                         </div>
                     </div>
@@ -279,16 +316,16 @@ const LuxuryBookingEngine = () => {
             {/* CTA Section */}
             <section className={styles.ctaSection}>
                 <div className={styles.ctaContent}>
-                    <h2 className={styles.ctaTitle}>¿Deseas digitalizar tus reservas?</h2>
+                    <h2 className={styles.ctaTitle}>{c.ctaTitle}</h2>
                     <p className={styles.ctaText}>
-                        Creamos motores de reservas robustos e interfaces enfocadas en la conversión.
+                        {c.ctaText}
                     </p>
                     <div className={styles.ctaButtons}>
                         <Link href="/contact" className={styles.btnCta}>
-                            Contactar
+                            {c.ctaContact}
                         </Link>
                         <Link href="/proyectos" className={styles.btnCtaSecondary}>
-                            Ver más proyectos
+                            {c.ctaMore}
                         </Link>
                     </div>
                 </div>
@@ -296,5 +333,13 @@ const LuxuryBookingEngine = () => {
         </Layout>
     );
 };
+
+export async function getStaticProps({ locale }) {
+  return {
+    props: {
+      ...(await serverSideTranslations(locale || 'es', ['common'])),
+    },
+  };
+}
 
 export default LuxuryBookingEngine;

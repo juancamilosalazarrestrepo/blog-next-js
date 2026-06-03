@@ -38,24 +38,24 @@
 .headerDesktop {
     display: flex;
     width: 100vw;
-    background-color: #0072ff;
+    background: radial-gradient(ellipse at center, #003973 0%, #1d2671 50%, #240b36 100%);
 }
 
 .swiperBannerContainer {
     width: 100vw;
-    height: 500px;
+    height: 100vh;
 }
 
 .sliderContainer {
     position: relative;
     width: 100vw;
-    height: 500px;
+    height: 100vh;
     overflow: hidden;
 }
 
 .letfHeaderSection {
     position: absolute;
-    top: 52%;
+    top: 42%;
     left: 43%;
     transform: translate(-50%, -50%);
     width: 900px;
@@ -113,7 +113,7 @@
 
 .heroLaptop {
     position: absolute;
-    top: 50px;
+    top: 150px;
     left: 50px;
     z-index: 1;
     transform: scale(1.2);
@@ -126,7 +126,7 @@
 
 .heroPhones {
     position: absolute;
-    top: 30%;
+    top: calc(30% + 100px);
     left: -25%;
     z-index: 2;
     transform: scale(0.9);
@@ -164,11 +164,11 @@
 /* ===== Tablets ===== */
 @media (max-width: 768px) {
     .swiperBannerContainer {
-        height: 400px;
+        height: 500px;
     }
 
     .sliderContainer {
-        height: 400px;
+        height: 500px;
     }
 
     .letfHeaderSection {

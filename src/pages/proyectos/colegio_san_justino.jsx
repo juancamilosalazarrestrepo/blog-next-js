@@ -4,16 +4,109 @@ import Layout from "../../components/Layout";
 import SEO from "../../components/SEO";
 import colegioMockup from "../../../public/images/proyecto-colegio/web-colegio-mockup.avif";
 import colegioBanner from "../../../public/images/proyecto-colegio/banner-backgroud.webp";
+import { serverSideTranslations } from 'next-i18next/serverSideTranslations';
+import { useRouter } from "next/router";
+
+const content = {
+  es: {
+    seoTitle: "Colegio San Justino | Sitio Web Institucional",
+    seoDescription: "Desarrollo del sitio web institucional del Colegio San Justino. Diseño moderno, información académica, noticias y contacto para la comunidad educativa.",
+    seoImageAlt: "Mockup sitio web Colegio San Justino - Juan Camilo Salazar",
+    badge: "Sitio Web Institucional Educativo",
+    heroTitlePre: "Colegio ",
+    heroTitleHl: "San Justino",
+    heroSubtitle: "Diseño y desarrollo del sitio web institucional del Colegio San Justino. Una plataforma moderna que conecta a la comunidad educativa con información académica, noticias y canales de contacto.",
+    featuresTitle: "¿Qué incluye el sitio?",
+    featuresSubtitle: "Una plataforma pensada para la comunidad del colegio: alumnos, padres y docentes.",
+    f1Title: "Información Institucional",
+    f1Text: "Presentación del colegio, misión, visión, niveles educativos y propuesta pedagógica de forma clara y atractiva.",
+    f2Title: "Novedades y Eventos",
+    f2Text: "Sección de noticias y calendario de eventos para mantener a la comunidad educativa siempre informada.",
+    f3Title: "Contacto Directo",
+    f3Text: "Formulario de contacto, datos de la institución e integración con WhatsApp para consultas de inscripción y administración.",
+    resultsLabel: "Resultados del Proyecto",
+    statResponsive: "Responsive",
+    statSeo: "Optimizado",
+    statVisibility: "Visibilidad Digital",
+    impactTitle: "Presencia digital para una institución de confianza",
+    impactText: "El Colegio San Justino necesitaba un sitio web que reflejara la seriedad y calidez de su propuesta educativa. Desarrollé una plataforma moderna, rápida y fácil de navegar, adaptada tanto para familias que buscan información como para la gestión interna del colegio.",
+    impactList: [
+      "Diseño institucional profesional alineado con la identidad del colegio",
+      "Arquitectura de contenido pensada para familias y alumnos",
+      "Integración de formularios y canales de comunicación directa",
+      "Velocidad de carga optimizada con Next.js y buenas prácticas",
+    ],
+    processTitle: "Proceso de Desarrollo",
+    processSubtitle: "De la idea al sitio publicado: cómo construí la plataforma del colegio paso a paso.",
+    steps: [
+      { step: "01", title: "Relevamiento y Diseño", desc: "Reuniones con el equipo del colegio para entender sus necesidades, público objetivo y contenidos clave. Creación de wireframes y paleta de colores institucional.", color: "#0f3460" },
+      { step: "02", title: "Maquetado Responsive", desc: "Desarrollo del layout completo con Tailwind CSS, garantizando una experiencia perfecta en móviles, tablets y escritorio desde el primer día.", color: "#1a56a0" },
+      { step: "03", title: "Contenido y SEO", desc: "Estructuración de textos, metadatos, Open Graph y optimización técnica para mejorar el posicionamiento en Google y buscadores locales.", color: "#d97706" },
+      { step: "04", title: "Entrega y Capacitación", desc: "Publicación del sitio en producción y entrega de guía de uso para que el equipo del colegio pueda actualizar contenidos de forma autónoma.", color: "#059669" },
+    ],
+    stackTitle: "Stack Tecnológico",
+    stackSeoTech: "SEO Técnico",
+    ctaTitle: "¿Tu institución necesita un sitio web?",
+    ctaText: "Creo sitios web profesionales para colegios, institutos y organizaciones educativas. Rápidos, modernos y fáciles de gestionar.",
+    ctaButton: "Hablemos de tu Proyecto",
+    ctaSecondary: "Ver Más Proyectos",
+  },
+  en: {
+    seoTitle: "San Justino School | Institutional Website",
+    seoDescription: "Development of the institutional website for San Justino School. Modern design, academic information, news and contact for the school community.",
+    seoImageAlt: "San Justino School website mockup - Juan Camilo Salazar",
+    badge: "Educational Institutional Website",
+    heroTitlePre: "San Justino ",
+    heroTitleHl: "School",
+    heroSubtitle: "Design and development of the institutional website for San Justino School. A modern platform that connects the school community with academic information, news and contact channels.",
+    featuresTitle: "What does the site include?",
+    featuresSubtitle: "A platform built for the school community: students, parents and teachers.",
+    f1Title: "Institutional Information",
+    f1Text: "Presentation of the school, mission, vision, educational levels and pedagogical approach in a clear and attractive way.",
+    f2Title: "News and Events",
+    f2Text: "News section and event calendar to keep the school community always informed.",
+    f3Title: "Direct Contact",
+    f3Text: "Contact form, institution details and WhatsApp integration for enrollment and administration inquiries.",
+    resultsLabel: "Project Results",
+    statResponsive: "Responsive",
+    statSeo: "Optimized",
+    statVisibility: "Digital Visibility",
+    impactTitle: "A digital presence for a trusted institution",
+    impactText: "San Justino School needed a website that reflected the seriousness and warmth of its educational approach. I developed a modern, fast and easy-to-navigate platform, suited both for families looking for information and for the school's internal management.",
+    impactList: [
+      "Professional institutional design aligned with the school's identity",
+      "Content architecture designed for families and students",
+      "Integration of forms and direct communication channels",
+      "Load speed optimized with Next.js and best practices",
+    ],
+    processTitle: "Development Process",
+    processSubtitle: "From idea to published site: how I built the school's platform step by step.",
+    steps: [
+      { step: "01", title: "Research and Design", desc: "Meetings with the school team to understand their needs, target audience and key content. Creation of wireframes and institutional color palette.", color: "#0f3460" },
+      { step: "02", title: "Responsive Layout", desc: "Development of the complete layout with Tailwind CSS, ensuring a perfect experience on mobile, tablet and desktop from day one.", color: "#1a56a0" },
+      { step: "03", title: "Content and SEO", desc: "Structuring of text, metadata, Open Graph and technical optimization to improve ranking on Google and local search engines.", color: "#d97706" },
+      { step: "04", title: "Delivery and Training", desc: "Publishing the site to production and delivering a usage guide so the school team can update content independently.", color: "#059669" },
+    ],
+    stackTitle: "Tech Stack",
+    stackSeoTech: "Technical SEO",
+    ctaTitle: "Does your institution need a website?",
+    ctaText: "I build professional websites for schools, institutes and educational organizations. Fast, modern and easy to manage.",
+    ctaButton: "Let's Talk About Your Project",
+    ctaSecondary: "See More Projects",
+  },
+};
 
 const ColegioSanJustino = () => {
+    const { locale } = useRouter();
+    const c = content[locale] || content.es;
     return (
         <Layout>
             <SEO
-                title="Colegio San Justino | Sitio Web Institucional"
-                description="Desarrollo del sitio web institucional del Colegio San Justino. Diseño moderno, información académica, noticias y contacto para la comunidad educativa."
+                title={c.seoTitle}
+                description={c.seoDescription}
                 keywords={["diseño web colegio", "desarrollo web educativo", "colegio san justino", "sitio web institucional escuela", "pagina web educativa", "juan camilo salazar desarrollo web"]}
                 image="/images/proyecto-colegio/web-colegio-mockup.avif"
-                imageAlt="Mockup sitio web Colegio San Justino - Juan Camilo Salazar"
+                imageAlt={c.seoImageAlt}
                 type="website"
                 category="Desarrollo Web"
             />
@@ -43,13 +136,13 @@ const ColegioSanJustino = () => {
                     <div className="max-w-7xl w-full flex flex-col lg:flex-row items-center justify-between gap-12 lg:gap-8">
                         <div className="w-full lg:flex-1 max-w-2xl lg:max-w-none text-center lg:text-left z-20">
                             <span className="bg-white/20 px-4 py-1.5 rounded-full text-[10px] md:text-xs font-bold uppercase tracking-widest mb-6 inline-block backdrop-blur-sm border border-white/10 shadow-lg">
-                                Sitio Web Institucional Educativo
+                                {c.badge}
                             </span>
                             <h1 className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-black mb-6 leading-[1.05] tracking-tight">
-                                Colegio <span className="text-[#fbbf24]">San Justino</span>
+                                {c.heroTitlePre}<span className="text-[#fbbf24]">{c.heroTitleHl}</span>
                             </h1>
                             <p className="text-lg md:text-xl lg:text-2xl opacity-90 mb-10 font-medium leading-relaxed max-w-2xl mx-auto lg:mx-0">
-                                Diseño y desarrollo del sitio web institucional del Colegio San Justino. Una plataforma moderna que conecta a la comunidad educativa con información académica, noticias y canales de contacto.
+                                {c.heroSubtitle}
                             </p>
                             <div className="flex flex-wrap gap-3 justify-center lg:justify-start mb-10">
                                 {["Next.js", "Tailwind CSS", "Responsive Design", "SEO"].map((tech) => (
@@ -65,7 +158,7 @@ const ColegioSanJustino = () => {
                             <div className="relative w-full max-w-[720px] lg:scale-95 xl:scale-100 origin-center lg:origin-right flex items-center justify-center animate-[float_5s_ease-in-out_infinite] drop-shadow-2xl ml-auto">
                                 <Image
                                     src={colegioMockup}
-                                    alt="Mockup web Colegio San Justino"
+                                    alt={c.seoImageAlt}
                                     width={1200}
                                     height={800}
                                     className="w-full h-auto block object-cover"
@@ -80,8 +173,8 @@ const ColegioSanJustino = () => {
                 <section className="px-6 py-20 bg-white dark:bg-slate-900">
                     <div className="max-w-6xl mx-auto">
                         <div className="flex flex-col gap-4 mb-16 text-center max-w-2xl mx-auto">
-                            <h2 className="text-4xl font-black text-slate-900 dark:text-white tracking-tight">¿Qué incluye el sitio?</h2>
-                            <p className="text-slate-500 dark:text-slate-400 text-lg">Una plataforma pensada para la comunidad del colegio: alumnos, padres y docentes.</p>
+                            <h2 className="text-4xl font-black text-slate-900 dark:text-white tracking-tight">{c.featuresTitle}</h2>
+                            <p className="text-slate-500 dark:text-slate-400 text-lg">{c.featuresSubtitle}</p>
                         </div>
 
                         <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
@@ -92,8 +185,8 @@ const ColegioSanJustino = () => {
                                     </svg>
                                 </div>
                                 <div>
-                                    <h3 className="text-2xl font-bold text-slate-900 dark:text-white mb-3">Información Institucional</h3>
-                                    <p className="text-slate-600 dark:text-slate-400 leading-relaxed text-lg">Presentación del colegio, misión, visión, niveles educativos y propuesta pedagógica de forma clara y atractiva.</p>
+                                    <h3 className="text-2xl font-bold text-slate-900 dark:text-white mb-3">{c.f1Title}</h3>
+                                    <p className="text-slate-600 dark:text-slate-400 leading-relaxed text-lg">{c.f1Text}</p>
                                 </div>
                             </div>
 
@@ -104,8 +197,8 @@ const ColegioSanJustino = () => {
                                     </svg>
                                 </div>
                                 <div>
-                                    <h3 className="text-2xl font-bold text-slate-900 dark:text-white mb-3">Novedades y Eventos</h3>
-                                    <p className="text-slate-600 dark:text-slate-400 leading-relaxed text-lg">Sección de noticias y calendario de eventos para mantener a la comunidad educativa siempre informada.</p>
+                                    <h3 className="text-2xl font-bold text-slate-900 dark:text-white mb-3">{c.f2Title}</h3>
+                                    <p className="text-slate-600 dark:text-slate-400 leading-relaxed text-lg">{c.f2Text}</p>
                                 </div>
                             </div>
 
@@ -116,8 +209,8 @@ const ColegioSanJustino = () => {
                                     </svg>
                                 </div>
                                 <div>
-                                    <h3 className="text-2xl font-bold text-slate-900 dark:text-white mb-3">Contacto Directo</h3>
-                                    <p className="text-slate-600 dark:text-slate-400 leading-relaxed text-lg">Formulario de contacto, datos de la institución e integración con WhatsApp para consultas de inscripción y administración.</p>
+                                    <h3 className="text-2xl font-bold text-slate-900 dark:text-white mb-3">{c.f3Title}</h3>
+                                    <p className="text-slate-600 dark:text-slate-400 leading-relaxed text-lg">{c.f3Text}</p>
                                 </div>
                             </div>
                         </div>
@@ -129,7 +222,7 @@ const ColegioSanJustino = () => {
                     <div className="max-w-5xl mx-auto">
                         <div className="flex items-center gap-4 mb-12 justify-center">
                             <span className="h-px w-16 bg-slate-300 dark:bg-slate-700"></span>
-                            <span className="text-sm font-black text-slate-400 uppercase tracking-[0.2em]">Resultados del Proyecto</span>
+                            <span className="text-sm font-black text-slate-400 uppercase tracking-[0.2em]">{c.resultsLabel}</span>
                             <span className="h-px w-16 bg-slate-300 dark:bg-slate-700"></span>
                         </div>
 
@@ -138,32 +231,27 @@ const ColegioSanJustino = () => {
                             <div className="md:w-5/12 bg-gradient-to-br from-[#0f3460] to-[#1a56a0] flex flex-col items-center justify-center p-12 gap-8">
                                 <div className="text-center">
                                     <span className="block text-5xl font-black text-white mb-1">100%</span>
-                                    <span className="text-xs text-blue-200 font-bold uppercase tracking-wider">Responsive</span>
+                                    <span className="text-xs text-blue-200 font-bold uppercase tracking-wider">{c.statResponsive}</span>
                                 </div>
                                 <div className="w-16 h-px bg-white/20"></div>
                                 <div className="text-center">
                                     <span className="block text-5xl font-black text-[#fbbf24] mb-1">SEO</span>
-                                    <span className="text-xs text-blue-200 font-bold uppercase tracking-wider">Optimizado</span>
+                                    <span className="text-xs text-blue-200 font-bold uppercase tracking-wider">{c.statSeo}</span>
                                 </div>
                                 <div className="w-16 h-px bg-white/20"></div>
                                 <div className="text-center">
                                     <span className="block text-5xl font-black text-white mb-1">+</span>
-                                    <span className="text-xs text-blue-200 font-bold uppercase tracking-wider">Visibilidad Digital</span>
+                                    <span className="text-xs text-blue-200 font-bold uppercase tracking-wider">{c.statVisibility}</span>
                                 </div>
                             </div>
 
                             <div className="md:w-7/12 p-10 lg:p-14 flex flex-col justify-center">
-                                <h3 className="text-2xl font-black text-slate-900 dark:text-white mb-6">Presencia digital para una institución de confianza</h3>
+                                <h3 className="text-2xl font-black text-slate-900 dark:text-white mb-6">{c.impactTitle}</h3>
                                 <p className="text-slate-600 dark:text-slate-400 text-lg leading-relaxed mb-6">
-                                    El Colegio San Justino necesitaba un sitio web que reflejara la seriedad y calidez de su propuesta educativa. Desarrollé una plataforma moderna, rápida y fácil de navegar, adaptada tanto para familias que buscan información como para la gestión interna del colegio.
+                                    {c.impactText}
                                 </p>
                                 <ul className="flex flex-col gap-3">
-                                    {[
-                                        "Diseño institucional profesional alineado con la identidad del colegio",
-                                        "Arquitectura de contenido pensada para familias y alumnos",
-                                        "Integración de formularios y canales de comunicación directa",
-                                        "Velocidad de carga optimizada con Next.js y buenas prácticas",
-                                    ].map((item) => (
+                                    {c.impactList.map((item) => (
                                         <li key={item} className="flex items-start gap-3 text-slate-700 dark:text-slate-300">
                                             <svg className="w-5 h-5 mt-0.5 text-[#1a56a0] dark:text-[#fbbf24] shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                                                 <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2.5} d="M5 13l4 4L19 7" />
@@ -181,37 +269,12 @@ const ColegioSanJustino = () => {
                 <section className="px-6 py-20 bg-white dark:bg-slate-900">
                     <div className="max-w-6xl mx-auto">
                         <div className="flex flex-col gap-4 mb-16 text-center max-w-2xl mx-auto">
-                            <h2 className="text-4xl font-black text-slate-900 dark:text-white tracking-tight">Proceso de Desarrollo</h2>
-                            <p className="text-slate-500 dark:text-slate-400 text-lg">De la idea al sitio publicado: cómo construí la plataforma del colegio paso a paso.</p>
+                            <h2 className="text-4xl font-black text-slate-900 dark:text-white tracking-tight">{c.processTitle}</h2>
+                            <p className="text-slate-500 dark:text-slate-400 text-lg">{c.processSubtitle}</p>
                         </div>
 
                         <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
-                            {[
-                                {
-                                    step: "01",
-                                    title: "Relevamiento y Diseño",
-                                    desc: "Reuniones con el equipo del colegio para entender sus necesidades, público objetivo y contenidos clave. Creación de wireframes y paleta de colores institucional.",
-                                    color: "#0f3460",
-                                },
-                                {
-                                    step: "02",
-                                    title: "Maquetado Responsive",
-                                    desc: "Desarrollo del layout completo con Tailwind CSS, garantizando una experiencia perfecta en móviles, tablets y escritorio desde el primer día.",
-                                    color: "#1a56a0",
-                                },
-                                {
-                                    step: "03",
-                                    title: "Contenido y SEO",
-                                    desc: "Estructuración de textos, metadatos, Open Graph y optimización técnica para mejorar el posicionamiento en Google y buscadores locales.",
-                                    color: "#d97706",
-                                },
-                                {
-                                    step: "04",
-                                    title: "Entrega y Capacitación",
-                                    desc: "Publicación del sitio en producción y entrega de guía de uso para que el equipo del colegio pueda actualizar contenidos de forma autónoma.",
-                                    color: "#059669",
-                                },
-                            ].map(({ step, title, desc, color }) => (
+                            {c.steps.map(({ step, title, desc, color }) => (
                                 <div key={step} className="flex gap-6 p-8 rounded-3xl bg-slate-50 dark:bg-slate-800/50 border border-slate-100 dark:border-slate-800">
                                     <span className="text-5xl font-black opacity-10 leading-none shrink-0" style={{ color }}>{step}</span>
                                     <div>
@@ -227,14 +290,14 @@ const ColegioSanJustino = () => {
                 {/* Tech Stack */}
                 <section className="px-6 py-16 bg-slate-50 dark:bg-slate-800/30">
                     <div className="max-w-4xl mx-auto text-center">
-                        <h2 className="text-3xl font-black text-slate-900 dark:text-white mb-10">Stack Tecnológico</h2>
+                        <h2 className="text-3xl font-black text-slate-900 dark:text-white mb-10">{c.stackTitle}</h2>
                         <div className="flex flex-wrap justify-center gap-4">
                             {[
                                 { name: "Next.js", icon: "⚡" },
                                 { name: "React", icon: "⚛️" },
                                 { name: "Tailwind CSS", icon: "🎨" },
                                 { name: "Vercel", icon: "▲" },
-                                { name: "SEO Técnico", icon: "🔍" },
+                                { name: c.stackSeoTech, icon: "🔍" },
                                 { name: "WhatsApp API", icon: "💬" },
                             ].map(({ name, icon }) => (
                                 <div key={name} className="flex items-center gap-2 bg-white dark:bg-slate-800 border border-slate-200 dark:border-slate-700 px-5 py-3 rounded-2xl shadow-sm">
@@ -255,23 +318,23 @@ const ColegioSanJustino = () => {
                             </svg>
                         </div>
                         <h2 className="text-4xl md:text-5xl font-black text-slate-900 dark:text-white mb-6 leading-tight">
-                            ¿Tu institución necesita un sitio web?
+                            {c.ctaTitle}
                         </h2>
                         <p className="text-slate-500 dark:text-slate-400 mb-10 text-xl md:max-w-xl mx-auto">
-                            Creo sitios web profesionales para colegios, institutos y organizaciones educativas. Rápidos, modernos y fáciles de gestionar.
+                            {c.ctaText}
                         </p>
                         <div className="flex flex-col sm:flex-row gap-5 w-full justify-center">
                             <Link
                                 href="/contact"
                                 className="bg-[#0f3460] hover:bg-[#1a56a0] text-white px-10 py-5 rounded-2xl font-bold text-xl shadow-[0_10px_30px_rgba(15,52,96,0.4)] transition-all transform hover:-translate-y-1 text-center"
                             >
-                                Hablemos de tu Proyecto
+                                {c.ctaButton}
                             </Link>
                             <Link
                                 href="/proyectos"
                                 className="border-2 border-slate-200 dark:border-slate-700 text-slate-700 dark:text-slate-300 hover:border-[#0f3460] dark:hover:border-[#fbbf24] px-10 py-5 rounded-2xl font-bold text-xl transition-all text-center"
                             >
-                                Ver Más Proyectos
+                                {c.ctaSecondary}
                             </Link>
                         </div>
                     </div>
@@ -280,5 +343,13 @@ const ColegioSanJustino = () => {
         </Layout>
     );
 };
+
+export async function getStaticProps({ locale }) {
+  return {
+    props: {
+      ...(await serverSideTranslations(locale || 'es', ['common'])),
+    },
+  };
+}
 
 export default ColegioSanJustino;

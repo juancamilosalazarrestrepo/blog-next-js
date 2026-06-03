@@ -7,6 +7,7 @@ import banner2 from "../../../public/images/banner2.webp";
 import LogosSlider from "../../components/LogosSlide";
 import proyectos from "../../../data/proyectos/projectos";
 import SEO from "../../components/SEO";
+import { serverSideTranslations } from 'next-i18next/serverSideTranslations';
 
 const Portfolio = ({ proyectos }) => {
   const images = [banner1, banner2];
@@ -112,9 +113,10 @@ const Portfolio = ({ proyectos }) => {
   );
 };
 
-export const getStaticProps = async () => {
+export const getStaticProps = async ({ locale }) => {
   return {
-    props: { proyectos },
+    props: {
+      ...(await serverSideTranslations(locale || 'es', ['common'])), proyectos },
   };
 };
 

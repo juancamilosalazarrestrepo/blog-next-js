@@ -112,15 +112,15 @@ const Home = ({ posts, lastProjects }) => {
                   <div className={styles.projectCardImageWrapper}>
                     <Image
                       src={proyecto.imagen}
-                      alt={proyecto.titulo}
+                      alt={t(`projectsData.${proyecto.key}.title`, proyecto.titulo)}
                       width={600}
                       height={400}
                       style={{ objectFit: "cover", width: "100%", height: "100%" }}
                     />
                   </div>
                   <div className={styles.descriptionCardContainer}>
-                    <h3 className={styles.cardTitle}>{proyecto.titulo}</h3>
-                    <p className={styles.descriptionCard}>{proyecto.description}</p>
+                    <h3 className={styles.cardTitle}>{t(`projectsData.${proyecto.key}.title`, proyecto.titulo)}</h3>
+                    <p className={styles.descriptionCard}>{t(`projectsData.${proyecto.key}.description`, proyecto.description)}</p>
                     <span className={styles.readMoreButton}>
                       {t("home.readMore")}
                       <span className={styles.readMoreArrow}>→</span>

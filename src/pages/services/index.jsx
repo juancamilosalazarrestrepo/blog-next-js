@@ -4,6 +4,7 @@ import ServicesSection from "../../components/ServicesSection";
 import Portfolio from "../../components/PortfolioSection";
 import SEO from "../../components/SEO";
 import AIBanner from "../../components/AIBanner";
+import { serverSideTranslations } from 'next-i18next/serverSideTranslations';
 
 const Services = () => {
   return (
@@ -44,6 +45,14 @@ const Services = () => {
     </div>
   );
 };
+
+export async function getStaticProps({ locale }) {
+  return {
+    props: {
+      ...(await serverSideTranslations(locale || 'es', ['common'])),
+    },
+  };
+}
 
 export default function ServicesTemplate() {
   return (

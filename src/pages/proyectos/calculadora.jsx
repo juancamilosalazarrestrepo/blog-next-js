@@ -3,6 +3,7 @@ import Banners from "../../components/Banners";
 import SEO from "../../components/SEO";
 import banner1 from "../../../public/images/background.webp"
 import banner2 from "../../../public/images/banner2.webp";
+import { serverSideTranslations } from 'next-i18next/serverSideTranslations';
 
 const Calculadora = ({ posts }) => {
   const images = [banner1, banner2];
@@ -39,6 +40,14 @@ const Calculadora = ({ posts }) => {
     </div>
   );
 };
+
+export async function getStaticProps({ locale }) {
+  return {
+    props: {
+      ...(await serverSideTranslations(locale || 'es', ['common'])),
+    },
+  };
+}
 
 export default function BlogTemplate() {
   return (

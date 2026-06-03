@@ -3,6 +3,15 @@ import Layout from "../components/Layout";
 import Link from "next/link";
 import Image from "next/image";
 import Head from "next/head";
+import { serverSideTranslations } from 'next-i18next/serverSideTranslations';
+
+export async function getStaticProps({ locale }) {
+  return {
+    props: {
+      ...(await serverSideTranslations(locale || 'es', ['common'])),
+    },
+  };
+}
 
 export default function AgentesAI() {
     const phoneNumber = "573042093951";

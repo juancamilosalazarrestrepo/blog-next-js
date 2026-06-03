@@ -2,6 +2,7 @@ import Image from "next/image";
 import Link from "next/link";
 import Layout from "../../components/Layout";
 import SEO from "../../components/SEO";
+import { serverSideTranslations } from 'next-i18next/serverSideTranslations';
 
 const AppFruver = () => {
     return (
@@ -440,5 +441,13 @@ const AppFruver = () => {
         </Layout>
     );
 };
+
+export async function getStaticProps({ locale }) {
+  return {
+    props: {
+      ...(await serverSideTranslations(locale || 'es', ['common'])),
+    },
+  };
+}
 
 export default AppFruver;

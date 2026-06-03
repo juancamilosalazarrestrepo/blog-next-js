@@ -11,8 +11,11 @@ import portadaReserve from "../../public/images/portadaReserve.png";
 import velmax from "../../public/images/diseño-web-personalizado-cliente-velmax.webp";
 import colegioSanJustino from "../../public/images/diseño-web-personalizado-cliente-colegio-san-justino.webp";
 
+// `key` referencia la traducción en public/locales/<lang>/common.json -> projectsData.<key>
+// `titulo` y `description` se mantienen como fallback (español).
 const proyectos = [
   {
+    key: "app_fruver",
     titulo: "App Fruver — Control de Inventario y Ventas",
     imagen: "https://images.pexels.com/photos/1300975/pexels-photo-1300975.jpeg?auto=compress&cs=tinysrgb&w=600",
     description:
@@ -20,6 +23,7 @@ const proyectos = [
     url: "/proyectos/app_fruver",
   },
   {
+    key: "colegio_san_justino",
     titulo: "Colegio San Justino",
     imagen: colegioSanJustino,
     description:
@@ -27,6 +31,7 @@ const proyectos = [
     url: "/proyectos/colegio_san_justino",
   },
   {
+    key: "velmax_consultorios",
     titulo: "Velmax Consultorios Médicos",
     imagen: velmax,
     description:
@@ -34,6 +39,7 @@ const proyectos = [
     url: "/proyectos/velmax_consultorios",
   },
   {
+    key: "nice_gradient",
     titulo: "Nice Gradient - Gradientes con IA",
     imagen: niceGradientApp,
     description:
@@ -41,6 +47,7 @@ const proyectos = [
     url: "/proyectos/nice_gradient",
   },
   {
+    key: "dr_machado_diagnostics",
     titulo: "Dr. Cristian Machado - Diagnóstico Web",
     imagen: portadaMedico,
     description:
@@ -48,6 +55,7 @@ const proyectos = [
     url: "/proyectos/dr_machado_diagnostics",
   },
   {
+    key: "luxury_booking_engine",
     titulo: "Motor de Reservas - Yates y Apartamentos",
     imagen: portadaReserve,
     description:
@@ -55,6 +63,7 @@ const proyectos = [
     url: "/proyectos/luxury_booking_engine",
   },
   {
+    key: "sistema_gestion_inmobiliaria",
     titulo: "Sistema de Gestión Inmobiliaria",
     imagen: realEstateApp,
     description:
@@ -62,6 +71,7 @@ const proyectos = [
     url: "/proyectos/sistema_gestion_inmobiliaria",
   },
   {
+    key: "aplicacion_movil_para_restaurantes",
     titulo: "Aplicación Movil para Restaurante",
     imagen: littleLemonApp,
     description:
@@ -69,6 +79,7 @@ const proyectos = [
     url: "/proyectos/aplicacion_movil_para_restaurantes",
   },
   {
+    key: "ecommerce_mercadolibre",
     titulo: "E-commerce Clon de Mercadolibre",
     imagen: mercadoLiebre,
     description:
@@ -76,6 +87,7 @@ const proyectos = [
     url: "/portafolio/calculadora",
   },
   {
+    key: "tarjeta_glasmorfismo",
     titulo: "Tarjeta Animada con estilo Glasmorfismo",
     imagen: tarjeta,
     description:
@@ -83,6 +95,7 @@ const proyectos = [
     url: "/portafolio/sneakersCards",
   },
   {
+    key: "landing_parallax",
     titulo: "Landing page con efecto parallax",
     imagen: parallaxLanding,
     description:
@@ -90,6 +103,7 @@ const proyectos = [
     url: "/portafolio/calculadora",
   },
   {
+    key: "calculadora_react_native",
     titulo: "Calculadora en React Native",
     imagen: calculatorDark,
     description:
@@ -97,13 +111,13 @@ const proyectos = [
     url: "/portafolio/calculadora",
   },
   {
+    key: "clon_chatgpt",
     titulo: "Clon de ChatGpt con Next.js",
     imagen: cloneChatgpt,
     description:
       "Clon de ChatGPT creado con Next.js y Tailwind CSS, que permite interactuar con un chatbot generador de respuestas a través de la API de GPT-3 de OpenAI",
     url: "/portafolio/clonechatgpt",
   },
-
 ];
 
 export default proyectos;

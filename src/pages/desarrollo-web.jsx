@@ -4,7 +4,16 @@ import Link from "next/link";
 import Image from "next/image";
 import Head from "next/head";
 import LavaBackground from "../components/LavaBackground";
-import velmax4 from "../../public/images/proyecto-velmax/velmax-desktop-design-4.png";
+import mockupMedico from "../../public/images/mockupMedico.webp";
+import { serverSideTranslations } from 'next-i18next/serverSideTranslations';
+
+export async function getStaticProps({ locale }) {
+  return {
+    props: {
+      ...(await serverSideTranslations(locale || 'es', ['common'])),
+    },
+  };
+}
 
 export default function DesarrolloWeb() {
     const phoneNumber = "573042093951";
@@ -69,10 +78,10 @@ export default function DesarrolloWeb() {
                         <div className="order-1 lg:order-2 self-stretch" style={{ isolation: 'isolate', mixBlendMode: 'normal' }}>
                             <div className="relative w-full h-full min-h-[75vh]">
                                 <Image
-                                    src={velmax4}
-                                    alt="Diseño web profesional Velmax - Panel de administración"
+                                    src={mockupMedico}
+                                    alt="Diseño web profesional - Plataforma médica"
                                     fill
-                                    style={{ objectFit: 'cover', objectPosition: 'center center' }}
+                                    style={{ objectFit: 'contain', objectPosition: 'center center' }}
                                     sizes="(max-width: 1024px) 100vw, 50vw"
                                     priority
                                 />

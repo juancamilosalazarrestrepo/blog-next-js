@@ -12,6 +12,7 @@ import youtubeIcon from "../../../public/images/youtube.png";
 import linkedinIcon from "../../../public/images/linkedin.png";
 import behanceIcon from "../../../public/images/behance.png";
 import githubIcon from "../../../public/images/github.png";
+import { serverSideTranslations } from 'next-i18next/serverSideTranslations';
 
 const Contact = () => {
   return (
@@ -80,6 +81,14 @@ const Contact = () => {
     </div>
   );
 };
+
+export async function getStaticProps({ locale }) {
+  return {
+    props: {
+      ...(await serverSideTranslations(locale || 'es', ['common'])),
+    },
+  };
+}
 
 export default function ContactTemplate() {
   return (

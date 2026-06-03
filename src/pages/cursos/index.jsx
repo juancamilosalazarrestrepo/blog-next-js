@@ -7,6 +7,7 @@ import banner2 from "../../../public/images/banner2.webp";
 import LogosSlider from "../../components/LogosSlide";
 import certificados from "../../../data/certificados/certificados";
 import SEO from "../../components/SEO";
+import { serverSideTranslations } from 'next-i18next/serverSideTranslations';
 
 
 const Certificados = ({ certificados }) => {
@@ -74,12 +75,13 @@ const Certificados = ({ certificados }) => {
   );
 };
 
-export const getStaticProps = async () => {
+export const getStaticProps = async ({ locale }) => {
 
 
 
   return {
-    props: { certificados },
+    props: {
+      ...(await serverSideTranslations(locale || 'es', ['common'])), certificados },
   };
 };
 

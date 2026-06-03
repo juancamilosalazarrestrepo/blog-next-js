@@ -7,15 +7,18 @@ import banner1 from "../../../public/images/background.webp";
 import banner2 from "../../../public/images/banner2.webp";
 import LogosSlider from "../../components/LogosSlide";
 import proyectos from "../../../data/proyectos/projectos";
+import { serverSideTranslations } from 'next-i18next/serverSideTranslations';
+import { useTranslation } from "next-i18next";
 
 const Portfolio = ({ proyectos }) => {
+  const { t } = useTranslation("common");
   const images = [banner1, banner2];
 
   return (
     <div>
       <SEO
-        title="Proyectos de Desarrollo Web y Aplicaciones"
-        description="Explora mis proyectos destacados: aplicaciones web con Next.js, React Native, .NET, plataformas médicas, motores de reservas y sistemas de gestión inmobiliaria."
+        title={t("projectsPage.seoTitle")}
+        description={t("projectsPage.seoDescription")}
       />
       <div style={{ position: "relative", width: "100%", margin: "0", zIndex: "2" }}>
         <Banners images={images} />
@@ -33,7 +36,7 @@ const Portfolio = ({ proyectos }) => {
           position: "relative",
           paddingBottom: "14px",
         }}>
-          Proyectos
+          {t("projectsPage.title")}
           <span style={{
             position: "absolute",
             bottom: 0,
@@ -74,7 +77,7 @@ const Portfolio = ({ proyectos }) => {
                 <div style={{ overflow: "hidden", position: "relative", height: "200px" }}>
                   <Image
                     src={proyecto.imagen}
-                    alt={proyecto.titulo}
+                    alt={t(`projectsData.${proyecto.key}.title`, proyecto.titulo)}
                     width={600}
                     height={400}
                     style={{ objectFit: "cover", width: "100%", height: "100%", transition: "transform 0.4s ease" }}
@@ -82,10 +85,10 @@ const Portfolio = ({ proyectos }) => {
                 </div>
                 <div style={{ padding: "24px", display: "flex", flexDirection: "column", flex: 1 }}>
                   <h3 style={{ fontSize: "1.05rem", fontWeight: 700, color: "#1a1a2e", marginBottom: "8px", lineHeight: 1.3 }}>
-                    {proyecto.titulo}
+                    {t(`projectsData.${proyecto.key}.title`, proyecto.titulo)}
                   </h3>
                   <p style={{ color: "#6b7280", fontSize: "0.88rem", lineHeight: 1.5, flex: 1, marginBottom: "16px" }}>
-                    {proyecto.description}
+                    {t(`projectsData.${proyecto.key}.description`, proyecto.description)}
                   </p>
                   <span style={{
                     display: "inline-flex",
@@ -100,7 +103,7 @@ const Portfolio = ({ proyectos }) => {
                     width: "fit-content",
                     boxShadow: "0 3px 10px rgba(0,114,255,0.2)",
                   }}>
-                    Leer más →
+                    {t("projectsPage.readMore")}
                   </span>
                 </div>
               </div>
@@ -116,9 +119,10 @@ const Portfolio = ({ proyectos }) => {
   );
 };
 
-export const getStaticProps = async () => {
+export const getStaticProps = async ({ locale }) => {
   return {
-    props: { proyectos },
+    props: {
+      ...(await serverSideTranslations(locale || 'es', ['common'])), proyectos },
   };
 };
 

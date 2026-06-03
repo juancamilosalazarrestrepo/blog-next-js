@@ -2,6 +2,7 @@ import Layout from "../../components/Layout";
 import Banners from "../../components/Banners";
 import SEO from "../../components/SEO";
 import bannerGlass from "../../../public/images/bannerGlass.jpg";
+import { serverSideTranslations } from 'next-i18next/serverSideTranslations';
 
 const SneakersCards = ({ posts }) => {
   const images = [bannerGlass];
@@ -112,6 +113,14 @@ const SneakersCards = ({ posts }) => {
     </div>
   );
 };
+
+export async function getStaticProps({ locale }) {
+  return {
+    props: {
+      ...(await serverSideTranslations(locale || 'es', ['common'])),
+    },
+  };
+}
 
 export default function BlogTemplate() {
   return (

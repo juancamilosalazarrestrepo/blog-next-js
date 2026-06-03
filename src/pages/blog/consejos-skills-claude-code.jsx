@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import Head from "next/head";
 import Image from "next/image";
 import Layout from "@/components/Layout";
+import { serverSideTranslations } from 'next-i18next/serverSideTranslations';
 
 const SLUG = "consejos-skills-claude-code";
 const TITLE = "10 Consejos para Crear Skills para Claude Code que Realmente Funcionan";
@@ -230,6 +231,14 @@ function CodeBlock({ code, label }) {
       </pre>
     </div>
   );
+}
+
+export async function getStaticProps({ locale }) {
+  return {
+    props: {
+      ...(await serverSideTranslations(locale || 'es', ['common'])),
+    },
+  };
 }
 
 export default function ConsejosSkillsClaudeCode() {

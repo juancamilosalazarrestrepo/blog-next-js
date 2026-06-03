@@ -5,13 +5,74 @@ import SEO from "../../components/SEO";
 import mockupMedico from "../../../public/images/mockupMedico.webp";
 import mockupCelMedico from "../../../public/images/MockupCelMedico.webp";
 import doctor3 from "../../../public/images/doctor3.webp";
+import { serverSideTranslations } from 'next-i18next/serverSideTranslations';
+import { useRouter } from "next/router";
+
+const content = {
+  es: {
+    seoTitle: "MedWeb | Páginas Web para Doctores y Clínicas",
+    seoDescription: "Diseño profesional y funcional exclusivo para especialistas de la salud. Potencia tu presencia digital y atrae más pacientes.",
+    badge: "Exclusivo para Médicos",
+    heroTitlePre: "Páginas web para ",
+    heroTitleHl: "doctores",
+    heroSubtitle: "Diseño profesional y funcional exclusivo para especialistas de la salud. Potencia tu presencia digital y atrae más pacientes con una plataforma optimizada.",
+    ctaPlans: "Ver Planes",
+    ctaDemo: "Agendar Demo",
+    featuresTitle: "Soluciones para tu Clínica",
+    featuresSubtitle: "Creamos herramientas digitales que facilitan tu trabajo y generan confianza inmediata para tus pacientes.",
+    f1Title: "Diseño Profesional",
+    f1Text: "Estética premium que comunica autoridad y genera confianza desde el primer clic.",
+    f2Title: "Agendamiento de Citas",
+    f2Text: "Sistema inteligente para que tus pacientes reserven su consulta fácilmente las 24 horas del día.",
+    f3Title: "SEO Local",
+    f3Text: "Aparece en los primeros resultados cuando los pacientes busquen especialistas en tu ciudad o zona.",
+    caseLabel: "Caso de Éxito Real",
+    statPatients: "Pacientes nuevos",
+    statVisits: "Visitas orgánicas",
+    quote: "MedWeb transformó mi práctica privada en Buenos Aires. Mi agenda ahora se llena automáticamente y los pacientes constantemente comentan lo profesional y confiable que se ve mi sitio web. Es la mejor inversión que he hecho para mi clínica.",
+    doctorRole: "Especialista en Diagnóstico y Radiología",
+    ctaTitle: "Haz crecer tu consultorio médico hoy",
+    ctaText: "Únete a los doctores élite que ya digitalizaron su éxito y automatizaron la atracción de pacientes.",
+    ctaButton: "Comenzar Proyecto",
+    ctaNote: "Primera consulta gratuita de descubrimiento",
+  },
+  en: {
+    seoTitle: "MedWeb | Websites for Doctors and Clinics",
+    seoDescription: "Professional, functional design exclusively for healthcare specialists. Boost your digital presence and attract more patients.",
+    badge: "Exclusive for Doctors",
+    heroTitlePre: "Websites for ",
+    heroTitleHl: "doctors",
+    heroSubtitle: "Professional, functional design exclusively for healthcare specialists. Boost your digital presence and attract more patients with an optimized platform.",
+    ctaPlans: "View Plans",
+    ctaDemo: "Book a Demo",
+    featuresTitle: "Solutions for Your Clinic",
+    featuresSubtitle: "We build digital tools that make your work easier and instantly build trust with your patients.",
+    f1Title: "Professional Design",
+    f1Text: "Premium aesthetics that convey authority and build trust from the very first click.",
+    f2Title: "Appointment Booking",
+    f2Text: "Smart system so your patients can easily book their appointment 24 hours a day.",
+    f3Title: "Local SEO",
+    f3Text: "Appear in the top results when patients search for specialists in your city or area.",
+    caseLabel: "Real Success Story",
+    statPatients: "New patients",
+    statVisits: "Organic visits",
+    quote: "MedWeb transformed my private practice in Buenos Aires. My calendar now fills automatically and patients constantly comment on how professional and trustworthy my website looks. It's the best investment I've made for my clinic.",
+    doctorRole: "Diagnostics and Radiology Specialist",
+    ctaTitle: "Grow your medical practice today",
+    ctaText: "Join the elite doctors who have already digitized their success and automated patient acquisition.",
+    ctaButton: "Start Project",
+    ctaNote: "First discovery consultation free",
+  },
+};
 
 const DrMachadoDiagnostics = () => {
+    const { locale } = useRouter();
+    const c = content[locale] || content.es;
     return (
         <Layout>
-            <SEO 
-                title="MedWeb | Páginas Web para Doctores y Clínicas"
-                description="Diseño profesional y funcional exclusivo para especialistas de la salud. Potencia tu presencia digital y atrae más pacientes."
+            <SEO
+                title={c.seoTitle}
+                description={c.seoDescription}
                 keywords={["diseño web medicos", "paginas web doctores", "marketing salud", "sitios web clinicas", "medweb"]}
             />
 
@@ -43,26 +104,26 @@ const DrMachadoDiagnostics = () => {
                     <div className="max-w-7xl w-full flex flex-col lg:flex-row items-center justify-between gap-12 lg:gap-8 overflow-visible">
                         <div className="w-full lg:flex-1 max-w-2xl lg:max-w-none text-center lg:text-left z-20">
                             <span className="bg-white/20 px-4 py-1.5 rounded-full text-[10px] md:text-xs font-bold uppercase tracking-widest mb-6 inline-block backdrop-blur-sm border border-white/10 shadow-lg">
-                                Exclusivo para Médicos
+                                {c.badge}
                             </span>
                             <h1 className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-black mb-6 leading-[1.05] tracking-tight">
-                                Páginas web para <span className="text-blue-200">doctores</span>
+                                {c.heroTitlePre}<span className="text-blue-200">{c.heroTitleHl}</span>
                             </h1>
                             <p className="text-lg md:text-xl lg:text-2xl opacity-90 mb-10 font-medium leading-relaxed max-w-2xl mx-auto lg:mx-0">
-                                Diseño profesional y funcional exclusivo para especialistas de la salud. Potencia tu presencia digital y atrae más pacientes con una plataforma optimizada.
+                                {c.heroSubtitle}
                             </p>
                             <div className="flex flex-col sm:flex-row gap-4 justify-center lg:justify-start relative z-[7000]">
                                 <a
                                     href="#planes"
                                     className="bg-white text-[#1a2980] px-10 py-4 rounded-2xl font-black text-lg hover:scale-105 transition-all shadow-2xl text-center active:scale-95"
                                 >
-                                    Ver Planes
+                                    {c.ctaPlans}
                                 </a>
                                 <a
                                     href="#demo"
                                     className="bg-white/10 border-2 border-white/30 text-white px-10 py-4 rounded-2xl font-bold text-lg hover:bg-white/20 transition-all backdrop-blur-xl text-center active:scale-95"
                                 >
-                                    Agendar Demo
+                                    {c.ctaDemo}
                                 </a>
                             </div>
                         </div>
@@ -100,8 +161,8 @@ const DrMachadoDiagnostics = () => {
                 <section className="px-6 py-20 bg-white dark:bg-slate-900">
                     <div className="max-w-6xl mx-auto">
                         <div className="flex flex-col gap-4 mb-16 text-center max-w-2xl mx-auto">
-                            <h2 className="text-4xl font-black text-slate-900 dark:text-white tracking-tight">Soluciones para tu Clínica</h2>
-                            <p className="text-slate-500 dark:text-slate-400 text-lg">Creamos herramientas digitales que facilitan tu trabajo y generan confianza inmediata para tus pacientes.</p>
+                            <h2 className="text-4xl font-black text-slate-900 dark:text-white tracking-tight">{c.featuresTitle}</h2>
+                            <p className="text-slate-500 dark:text-slate-400 text-lg">{c.featuresSubtitle}</p>
                         </div>
 
                         <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
@@ -153,7 +214,7 @@ const DrMachadoDiagnostics = () => {
                     <div className="max-w-5xl mx-auto">
                         <div className="flex items-center gap-4 mb-12 justify-center">
                             <span className="h-px w-16 bg-slate-300 dark:bg-slate-700"></span>
-                            <span className="text-sm font-black text-slate-400 uppercase tracking-[0.2em]">Caso de Éxito Real</span>
+                            <span className="text-sm font-black text-slate-400 uppercase tracking-[0.2em]">{c.caseLabel}</span>
                             <span className="h-px w-16 bg-slate-300 dark:bg-slate-700"></span>
                         </div>
 
@@ -177,16 +238,16 @@ const DrMachadoDiagnostics = () => {
                                 <div className="grid grid-cols-2 gap-6 mb-10">
                                     <div className="bg-[#009ffd]/5 p-6 rounded-3xl text-center border border-[#009ffd]/20">
                                         <span className="block text-4xl font-black text-[#009ffd] mb-1">+150%</span>
-                                        <span className="text-xs text-slate-500 dark:text-slate-400 font-bold uppercase tracking-wider">Pacientes nuevos</span>
+                                        <span className="text-xs text-slate-500 dark:text-slate-400 font-bold uppercase tracking-wider">{c.statPatients}</span>
                                     </div>
                                     <div className="bg-[#a200ff]/5 p-6 rounded-3xl text-center border border-[#a200ff]/20">
                                         <span className="block text-4xl font-black text-[#a200ff] mb-1">10k+</span>
-                                        <span className="text-xs text-slate-500 dark:text-slate-400 font-bold uppercase tracking-wider">Visitas orgánicas</span>
+                                        <span className="text-xs text-slate-500 dark:text-slate-400 font-bold uppercase tracking-wider">{c.statVisits}</span>
                                     </div>
                                 </div>
                                 <blockquote className="text-slate-700 dark:text-slate-300 text-xl md:text-2xl leading-relaxed italic mb-8 font-medium relative">
                                     <span className="absolute -top-6 -left-4 text-6xl text-slate-200 dark:text-slate-700/50">"</span>
-                                    MedWeb transformó mi práctica privada en Buenos Aires. Mi agenda ahora se llena automáticamente y los pacientes constantemente comentan lo profesional y confiable que se ve mi sitio web. Es la mejor inversión que he hecho para mi clínica.
+                                    {c.quote}
                                 </blockquote>
                                 <div className="flex items-center gap-4">
                                     <div className="w-12 h-12 rounded-full bg-slate-200 dark:bg-slate-700 overflow-hidden relative">
@@ -194,7 +255,7 @@ const DrMachadoDiagnostics = () => {
                                     </div>
                                     <div>
                                         <p className="font-bold text-slate-900 dark:text-white">Dr. Cristian Machado Otero</p>
-                                        <p className="text-slate-500 text-sm">Especialista en Diagnóstico y Radiología</p>
+                                        <p className="text-slate-500 text-sm">{c.doctorRole}</p>
                                     </div>
                                 </div>
                             </div>
@@ -210,23 +271,31 @@ const DrMachadoDiagnostics = () => {
                                 <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M13 10V3L4 14h7v7l9-11h-7z" />
                             </svg>
                         </div>
-                        <h2 className="text-4xl md:text-5xl font-black text-slate-900 dark:text-white mb-6 leading-tight">Haz crecer tu consultorio médico hoy</h2>
-                        <p className="text-slate-500 dark:text-slate-400 mb-10 text-xl md:max-w-xl mx-auto">Únete a los doctores élite que ya digitalizaron su éxito y automatizaron la atracción de pacientes.</p>
+                        <h2 className="text-4xl md:text-5xl font-black text-slate-900 dark:text-white mb-6 leading-tight">{c.ctaTitle}</h2>
+                        <p className="text-slate-500 dark:text-slate-400 mb-10 text-xl md:max-w-xl mx-auto">{c.ctaText}</p>
 
                         <div className="flex flex-col sm:flex-row gap-5 w-full justify-center">
                             <Link
                                 href="/contact"
                                 className="bg-[#1a2980] hover:bg-[#2a2a72] text-white px-10 py-5 rounded-2xl font-bold text-xl shadow-[0_10px_30px_rgba(26,41,128,0.4)] transition-all transform hover:-translate-y-1"
                             >
-                                Comenzar Proyecto
+                                {c.ctaButton}
                             </Link>
                         </div>
-                        <p className="mt-8 text-slate-400 text-sm font-semibold uppercase tracking-widest">Primera consulta gratuita de descubrimiento</p>
+                        <p className="mt-8 text-slate-400 text-sm font-semibold uppercase tracking-widest">{c.ctaNote}</p>
                     </div>
                 </section>
             </main>
         </Layout>
     );
 };
+
+export async function getStaticProps({ locale }) {
+  return {
+    props: {
+      ...(await serverSideTranslations(locale || 'es', ['common'])),
+    },
+  };
+}
 
 export default DrMachadoDiagnostics;

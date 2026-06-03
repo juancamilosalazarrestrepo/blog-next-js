@@ -64,6 +64,71 @@
     "badgeFast": "Carga Rápida",
     "badgeSeo": "Optimizado SEO"
   },
+  "projectsPage": {
+    "title": "Proyectos",
+    "seoTitle": "Proyectos de Desarrollo Web y Aplicaciones",
+    "seoDescription": "Explora mis proyectos destacados: aplicaciones web con Next.js, React Native, .NET, plataformas médicas, motores de reservas y sistemas de gestión inmobiliaria.",
+    "readMore": "Leer más →"
+  },
+  "projectsData": {
+    "app_fruver": {
+      "title": "App Fruver — Control de Inventario y Ventas",
+      "description": "App Android para fruvers: control de inventario, registro de ventas y seguimiento de ganancias en tiempo real. Desarrollada con React Native y SQLite."
+    },
+    "colegio_san_justino": {
+      "title": "Colegio San Justino",
+      "description": "Sitio web institucional moderno para el Colegio San Justino. Incluye información académica, novedades, eventos y contacto directo para la comunidad educativa."
+    },
+    "velmax_consultorios": {
+      "title": "Velmax Consultorios Médicos",
+      "description": "Plataforma médica integral e informativa para Velmax Consultorios en Berazategui. Incluye directorio, especialidades y agendamiento online."
+    },
+    "nice_gradient": {
+      "title": "Nice Gradient - Gradientes con IA",
+      "description": "Generador de gradientes impulsado por IA con Next.js 14. Colección curada de gradientes, editor visual y exportación CSS/PNG."
+    },
+    "dr_machado_diagnostics": {
+      "title": "Dr. Cristian Machado - Diagnóstico Web",
+      "description": "Sitio web médico profesional con optimización SEO para el Dr. Cristian Machado, especialista en radiología avanzada en Buenos Aires."
+    },
+    "luxury_booking_engine": {
+      "title": "Motor de Reservas - Yates y Apartamentos",
+      "description": "Plataforma de alta gama (Dark Mode) en Next.js para reservas exclusivas de apartamentos de lujo y yates privados con pagos seguros."
+    },
+    "sistema_gestion_inmobiliaria": {
+      "title": "Sistema de Gestión Inmobiliaria",
+      "description": "Plataforma inmobiliaria: gestiona propiedades, precios y usuarios con backend .NET (Clean Architecture) y frontend Next.js moderno."
+    },
+    "aplicacion_movil_para_restaurantes": {
+      "title": "Aplicación Móvil para Restaurante",
+      "description": "Aplicación móvil para restaurantes, realizada con React Native; esta aplicación permite suscribirse a un newsletter."
+    },
+    "ecommerce_mercadolibre": {
+      "title": "E-commerce Clon de Mercadolibre",
+      "description": "Clon de Mercado Libre creado con JavaScript, que permite interactuar con secciones para ver productos y categorías."
+    },
+    "tarjeta_glasmorfismo": {
+      "title": "Tarjeta Animada con estilo Glasmorfismo",
+      "description": "Tarjeta interactiva hecha con CSS para venta de zapatos; cambia de color dependiendo del zapato que elijan."
+    },
+    "landing_parallax": {
+      "title": "Landing page con efecto parallax",
+      "description": "Landing page diseñada con un efecto moderno de parallax que se forma con ilustraciones de un barranco en un desierto de noche."
+    },
+    "calculadora_react_native": {
+      "title": "Calculadora en React Native",
+      "description": "Calculadora desarrollada en React Native, con un diseño moderno y modo oscuro para mejorar la experiencia del usuario al realizar operaciones matemáticas básicas."
+    },
+    "clon_chatgpt": {
+      "title": "Clon de ChatGPT con Next.js",
+      "description": "Clon de ChatGPT creado con Next.js y Tailwind CSS, que permite interactuar con un chatbot generador de respuestas a través de la API de GPT-3 de OpenAI."
+    }
+  },
+  "banner": {
+    "tagline": "Especialista en desarrollo de software, impulsemos tus proyectos rumbo al éxito.",
+    "contact": "Contacto",
+    "portfolio": "Ver portafolio"
+  },
   "creativeSection": {
     "badge": "Diseño Web Creativo",
     "title": "Impacto Visual y Experiencias Únicas",

@@ -5,6 +5,7 @@ import SEO from "../../components/SEO";
 import LogosSlider from "../../components/LogosSlide";
 import certificados from "../../../data/certificados/certificados";
 import styles from "./index.module.css";
+import { serverSideTranslations } from 'next-i18next/serverSideTranslations';
 
 const Certificados = ({ certificados }) => {
   return (
@@ -93,9 +94,10 @@ const Certificados = ({ certificados }) => {
   );
 };
 
-export const getStaticProps = async () => {
+export const getStaticProps = async ({ locale }) => {
   return {
-    props: { certificados },
+    props: {
+      ...(await serverSideTranslations(locale || 'es', ['common'])), certificados },
   };
 };
 

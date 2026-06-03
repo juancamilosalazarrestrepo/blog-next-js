@@ -5,6 +5,7 @@ import Layout from "../../components/Layout";
 import LogosSlider from "../../components/LogosSlide";
 import certificados from "../../../data/certificados/certificados";
 import SEO from "../../components/SEO";
+import { serverSideTranslations } from 'next-i18next/serverSideTranslations';
 
 const Precios = () => {
 
@@ -19,9 +20,10 @@ const Precios = () => {
   );
 };
 
-export const getStaticProps = async () => {
+export const getStaticProps = async ({ locale }) => {
   return {
-    props: { certificados },
+    props: {
+      ...(await serverSideTranslations(locale || 'es', ['common'])), certificados },
   };
 };
 
