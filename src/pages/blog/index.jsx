@@ -7,8 +7,11 @@ import SEO from "../../components/SEO";
 import banner1 from "../../../public/images/background.webp";
 import banner2 from "../../../public/images/banner2.webp";
 import { getAllFilesFrontMatter } from "lib/mdx";
+import { useTranslation } from "next-i18next";
+import { serverSideTranslations } from "next-i18next/serverSideTranslations";
 
 const Blog = ({ posts }) => {
+  const { t } = useTranslation("common");
   const [search, setSearch] = React.useState("");
   const filteredPosts = posts.filter((frontMatter) =>
     frontMatter.title.toLowerCase().includes(search.toLowerCase())
@@ -19,15 +22,14 @@ const Blog = ({ posts }) => {
   return (
     <div>
       <SEO
-        title="Blog de Tecnología y Desarrollo Full Stack"
-        description="Artículos y tutoriales sobre Next.js, React, .NET, automatización de procesos, RPA y las últimas tendencias en desarrollo web moderno."
+        title={t("blog.seoTitle")}
+        description={t("blog.seoDescription")}
       />
       <div style={{ position: "relative", width: "100%", margin: "0", zIndex: "2" }}>
         <Banners images={images} />
       </div>
 
       <main className="py-8 container mx-auto px-6 md:px-12 lg:px-24 xl:px-44">
-        {/* Título de sección */}
         <h2 style={{
           fontSize: "1.75rem",
           fontWeight: 700,
@@ -37,7 +39,7 @@ const Blog = ({ posts }) => {
           position: "relative",
           paddingBottom: "14px",
         }}>
-          Artículos
+          {t("blog.title")}
           <span style={{
             position: "absolute",
             bottom: 0,
@@ -51,13 +53,12 @@ const Blog = ({ posts }) => {
           }} />
         </h2>
 
-        {/* Search */}
         <div className="relative w-full mb-8">
           <input
             type="text"
-            aria-label="Buscar articulos"
+            aria-label={t("blog.searchPlaceholder")}
             onChange={(e) => setSearch(e.target.value)}
-            placeholder="Buscar articulos..."
+            placeholder={t("blog.searchPlaceholder")}
             style={{
               padding: "12px 48px 12px 20px",
               border: "1px solid #e5e7eb",
@@ -77,16 +78,10 @@ const Blog = ({ posts }) => {
             viewBox="0 0 24 24"
             stroke="currentColor"
           >
-            <path
-              strokeLinecap="round"
-              strokeLinejoin="round"
-              strokeWidth={2}
-              d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"
-            />
+            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z" />
           </svg>
         </div>
 
-        {/* Cards grid */}
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
           {filteredPosts.map((post) => (
             <Link
@@ -114,7 +109,6 @@ const Blog = ({ posts }) => {
                   e.currentTarget.style.boxShadow = "0 4px 16px rgba(0,0,0,0.06)";
                 }}
               >
-                {/* Image */}
                 <div style={{ overflow: "hidden", position: "relative", height: "260px" }}>
                   <Image
                     src={post.thumb}
@@ -125,7 +119,6 @@ const Blog = ({ posts }) => {
                   />
                 </div>
 
-                {/* Content */}
                 <div style={{ padding: "24px", display: "flex", flexDirection: "column", flex: 1 }}>
                   <h5
                     style={{
@@ -174,7 +167,7 @@ const Blog = ({ posts }) => {
                       borderRadius: "10px",
                       boxShadow: "0 3px 10px rgba(0,114,255,0.2)",
                     }}>
-                      Leer más →
+                      {t("blog.readMore")}
                     </span>
                   </div>
                 </div>
@@ -187,11 +180,14 @@ const Blog = ({ posts }) => {
   );
 };
 
-export const getStaticProps = async () => {
-  const posts = await getAllFilesFrontMatter("posts");
+export const getStaticProps = async ({ locale }) => {
+  const posts = await getAllFilesFrontMatter("posts", locale || 'es');
 
   return {
-    props: { posts },
+    props: {
+      posts,
+      ...(await serverSideTranslations(locale || 'es', ['common'])),
+    },
   };
 };
 

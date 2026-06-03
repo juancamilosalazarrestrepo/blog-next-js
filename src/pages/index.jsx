@@ -13,40 +13,34 @@ import proyectos from "../../data/proyectos/projectos";
 import Image from "next/image";
 import Camilo from "../../public/images/camiloPaginaWeb.webp";
 import SEO from "../components/SEO";
+import { useTranslation } from "next-i18next";
+import { serverSideTranslations } from "next-i18next/serverSideTranslations";
 
 const Home = ({ posts, lastProjects }) => {
+  const { t } = useTranslation("common");
   const phoneNumber = "573042093951";
   const images = [banner1];
 
   return (
     <div>
-      <SEO 
-        title="Juan Camilo Salazar | Desarrollador Full Stack, Especialista en IA y Web"
-        description="Impulsa tu negocio con soluciones tecnológicas avanzadas. Desarrollo de sitios web modernos con React/Next.js y creación de Agentes de Inteligencia Artificial para ventas y automatización 24/7."
+      <SEO
+        title={t("home.seoTitle")}
+        description={t("home.seoDescription")}
         keywords={['desarrollador full stack', 'inteligencia artificial', 'agentes ia', 'desarrollo web', 'nextjs', 'react', 'automatización empresarial']}
         image="/images/camiloPaginaWeb.webp"
       />
-      {/* WhatsApp floating button */}
       <div className="whatsappButtom">
-        <a
-          href={`https://wa.me/${phoneNumber}`}
-          target="_blank"
-          rel="noopener noreferrer"
-        >
+        <a href={`https://wa.me/${phoneNumber}`} target="_blank" rel="noopener noreferrer">
           <Image
             src={whatsappIconBig}
             width={60}
             height={60}
             alt="Contactar por WhatsApp"
-            style={{
-              filter: "drop-shadow(5px 5px 8px rgba(100, 50, 0, 0.2))",
-              borderRadius: "8px",
-            }}
+            style={{ filter: "drop-shadow(5px 5px 8px rgba(100, 50, 0, 0.2))", borderRadius: "8px" }}
           />
         </a>
       </div>
 
-      {/* Hero Banner */}
       <div style={{ position: "relative", width: "100%", margin: "0", zIndex: "2" }}>
         <Banners images={images} />
       </div>
@@ -54,11 +48,8 @@ const Home = ({ posts, lastProjects }) => {
       <main>
         <div className={styles.mainContainer}>
 
-
-          {/* ===== Sobre Mí ===== */}
-          <h2 className={styles.sectionTitle}>Sobre Mí</h2>
+          <h2 className={styles.sectionTitle}>{t("home.aboutTitle")}</h2>
           <div className={styles.aboutSection}>
-            {/* Tarjeta de perfil */}
             <div className={styles.profileCard}>
               <Image
                 src={Camilo}
@@ -68,7 +59,7 @@ const Home = ({ posts, lastProjects }) => {
                 className={styles.profileImage}
               />
               <h2 className={styles.profileName}>Juan Camilo Salazar</h2>
-              <p className={styles.profileRole}>Fullstack Developer</p>
+              <p className={styles.profileRole}>{t("home.role")}</p>
               <div className={styles.profileSocials}>
                 <a href="https://github.com/juancamilosalazarrestrepo" className={styles.socialLink} aria-label="GitHub" target="_blank" rel="noopener noreferrer">
                   <svg width="18" height="18" fill="currentColor" viewBox="0 0 24 24"><path fillRule="evenodd" d="M12 2C6.477 2 2 6.484 2 12.017c0 4.425 2.865 8.18 6.839 9.504.5.092.682-.217.682-.483 0-.237-.008-.868-.013-1.703-2.782.605-3.369-1.343-3.369-1.343-.454-1.158-1.11-1.466-1.11-1.466-.908-.62.069-.608.069-.608 1.003.07 1.531 1.032 1.531 1.032.892 1.53 2.341 1.088 2.91.832.092-.647.35-1.088.636-1.338-2.22-.253-4.555-1.113-4.555-4.951 0-1.093.39-1.988 1.029-2.688-.103-.253-.446-1.272.098-2.65 0 0 .84-.27 2.75 1.026A9.564 9.564 0 0112 6.844c.85.004 1.705.115 2.504.337 1.909-1.296 2.747-1.027 2.747-1.027.546 1.379.202 2.398.1 2.651.64.7 1.028 1.595 1.028 2.688 0 3.848-2.339 4.695-4.566 4.943.359.309.678.92.678 1.855 0 1.338-.012 2.419-.012 2.747 0 .268.18.58.688.482A10.019 10.019 0 0022 12.017C22 6.484 17.522 2 12 2z" clipRule="evenodd" /></svg>
@@ -85,39 +76,35 @@ const Home = ({ posts, lastProjects }) => {
               </div>
             </div>
 
-            {/* Contenido about */}
             <div className={styles.aboutContent}>
-              <p className={styles.aboutBio}>
-                Desarrollador de software con pasión por la innovación tecnológica. Experto en la creación de aplicaciones web y móviles utilizando tecnologías modernas como Next.js, React, Node.js, .NET y bases de datos SQL. Con experiencia en plataformas cloud como Azure y AWS, me especializo en construir soluciones escalables, seguras y de alto rendimiento.
-              </p>
+              <p className={styles.aboutBio}>{t("home.bio")}</p>
 
               <div className={styles.highlightGrid}>
                 <div className={styles.highlightCard}>
                   <span className={styles.highlightIcon}>💻</span>
-                  <h4 className={styles.highlightTitle}>5+ años de experiencia</h4>
-                  <p className={styles.highlightText}>Desarrollando software profesional para empresas y startups</p>
+                  <h4 className={styles.highlightTitle}>{t("home.highlight1Title")}</h4>
+                  <p className={styles.highlightText}>{t("home.highlight1Text")}</p>
                 </div>
                 <div className={styles.highlightCard}>
                   <span className={styles.highlightIcon}>⚛️</span>
-                  <h4 className={styles.highlightTitle}>React / Next.js / Node</h4>
-                  <p className={styles.highlightText}>Stack moderno para frontend y backend de alto rendimiento</p>
+                  <h4 className={styles.highlightTitle}>{t("home.highlight2Title")}</h4>
+                  <p className={styles.highlightText}>{t("home.highlight2Text")}</p>
                 </div>
                 <div className={styles.highlightCard}>
                   <span className={styles.highlightIcon}>☁️</span>
-                  <h4 className={styles.highlightTitle}>Azure & AWS</h4>
-                  <p className={styles.highlightText}>Microservicios, Functions y despliegues en la nube</p>
+                  <h4 className={styles.highlightTitle}>{t("home.highlight3Title")}</h4>
+                  <p className={styles.highlightText}>{t("home.highlight3Text")}</p>
                 </div>
                 <div className={styles.highlightCard}>
                   <span className={styles.highlightIcon}>📱</span>
-                  <h4 className={styles.highlightTitle}>Apps Web y Móviles</h4>
-                  <p className={styles.highlightText}>React Native, e-commerce, paneles admin y automatización</p>
+                  <h4 className={styles.highlightTitle}>{t("home.highlight4Title")}</h4>
+                  <p className={styles.highlightText}>{t("home.highlight4Text")}</p>
                 </div>
               </div>
             </div>
           </div>
 
-          {/* ===== Proyectos Recientes ===== */}
-          <h2 className={styles.sectionTitle}>Proyectos Recientes</h2>
+          <h2 className={styles.sectionTitle}>{t("home.recentProjects")}</h2>
           <div className={styles.cardsGrid}>
             {lastProjects.map((proyecto) => (
               <Link href={proyecto.url} key={proyecto.url} style={{ textDecoration: 'none' }}>
@@ -135,7 +122,7 @@ const Home = ({ posts, lastProjects }) => {
                     <h3 className={styles.cardTitle}>{proyecto.titulo}</h3>
                     <p className={styles.descriptionCard}>{proyecto.description}</p>
                     <span className={styles.readMoreButton}>
-                      Leer más
+                      {t("home.readMore")}
                       <span className={styles.readMoreArrow}>→</span>
                     </span>
                   </div>
@@ -143,21 +130,14 @@ const Home = ({ posts, lastProjects }) => {
               </Link>
             ))}
           </div>
-
         </div>
 
-        {/* ===== Sección Destacada: Agentes IA (Full Width) ===== */}
         <AIAgentsSection />
-
-        {/* ===== Sección Destacada: Desarrollo Web (Full Width) ===== */}
         <WebDevSection />
-
-        {/* ===== Sección Destacada: Diseño Web Creativo (Full Width) ===== */}
         <CreativeWebDesign />
 
         <div className={styles.mainContainer}>
-          {/* ===== Artículos Recientes ===== */}
-          <h2 className={styles.sectionTitle}>Artículos Recientes</h2>
+          <h2 className={styles.sectionTitle}>{t("home.recentArticles")}</h2>
           <div className={styles.cardsGrid}>
             {posts.map((post) => (
               <Link href={`/blog/${post.slug}`} key={post.slug} style={{ textDecoration: 'none' }}>
@@ -173,9 +153,9 @@ const Home = ({ posts, lastProjects }) => {
                   </div>
                   <div className={styles.descriptionCardContainer}>
                     <h3 className={styles.cardTitle}>{post.title}</h3>
-                    <p className={styles.descriptionCard}>{post.title}</p>
+                    <p className={styles.descriptionCard}>{post.subtitle}</p>
                     <span className={styles.readMoreButton}>
-                      Leer más
+                      {t("home.readMore")}
                       <span className={styles.readMoreArrow}>→</span>
                     </span>
                   </div>
@@ -183,18 +163,14 @@ const Home = ({ posts, lastProjects }) => {
               </Link>
             ))}
           </div>
-          {/* ===== CTA Section ===== */}
           <div className={styles.ctaSection}>
-            <h2 className={styles.ctaTitle}>¿Listo para impulsar tu proyecto?</h2>
-            <p className={styles.ctaText}>
-              Hablemos de cómo puedo ayudarte a crear software de calidad que marque la diferencia.
-            </p>
+            <h2 className={styles.ctaTitle}>{t("home.ctaTitle")}</h2>
+            <p className={styles.ctaText}>{t("home.ctaText")}</p>
             <Link href="/contact" className={styles.ctaButton}>
-              Trabajemos juntos <span>→</span>
+              {t("home.ctaButton")} <span>→</span>
             </Link>
           </div>
 
-          {/* ===== Logos Slider ===== */}
           <div className="w-full">
             <LogosSlider />
           </div>
@@ -204,13 +180,17 @@ const Home = ({ posts, lastProjects }) => {
   );
 };
 
-export const getStaticProps = async () => {
-  let posts = await getAllFilesFrontMatter("posts");
+export const getStaticProps = async ({ locale }) => {
+  let posts = await getAllFilesFrontMatter("posts", locale || 'es');
   posts = posts.slice(0, 3);
   const lastProjects = proyectos.slice(0, 3);
 
   return {
-    props: { posts, lastProjects },
+    props: {
+      posts,
+      lastProjects,
+      ...(await serverSideTranslations(locale || 'es', ['common'])),
+    },
   };
 };
 

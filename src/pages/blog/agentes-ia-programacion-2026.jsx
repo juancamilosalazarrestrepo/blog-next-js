@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import Head from "next/head";
 import Image from "next/image";
 import Layout from "@/components/Layout";
+import { serverSideTranslations } from "next-i18next/serverSideTranslations";
 
 const tools = [
   {
@@ -211,6 +212,14 @@ function FAQItem({ faq }) {
       )}
     </div>
   );
+}
+
+export async function getStaticProps({ locale }) {
+  return {
+    props: {
+      ...(await serverSideTranslations(locale || 'es', ['common'])),
+    },
+  };
 }
 
 export default function AgentesIA2026() {

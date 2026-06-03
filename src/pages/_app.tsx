@@ -5,19 +5,20 @@ import { useRouter } from 'next/router'
 import GoogleAnalytics from '../components/GoogleAnalytics'
 import { pageview } from '../../lib/analytics'
 import { Analytics } from '@vercel/analytics/react'
+import { appWithTranslation } from 'next-i18next'
+import nextI18NextConfig from '../../next-i18next.config'
 
-export default function App({ Component, pageProps }: AppProps) {
+function App({ Component, pageProps }: AppProps) {
   const router = useRouter()
   const GA_MEASUREMENT_ID = process.env.NEXT_PUBLIC_GA_MEASUREMENT_ID
 
-  // Track page views on route change
   useEffect(() => {
     const handleRouteChange = (url: string) => {
       pageview(url)
     }
 
     router.events.on('routeChangeComplete', handleRouteChange)
-    
+
     return () => {
       router.events.off('routeChangeComplete', handleRouteChange)
     }
@@ -25,14 +26,11 @@ export default function App({ Component, pageProps }: AppProps) {
 
   return (
     <>
-      {/* Google Analytics */}
       <GoogleAnalytics measurementId={GA_MEASUREMENT_ID} />
-      
-      {/* Tu aplicación */}
       <Component {...pageProps} />
-      
-      {/* Vercel Analytics */}
       <Analytics />
     </>
   )
 }
+
+export default appWithTranslation(App, nextI18NextConfig)

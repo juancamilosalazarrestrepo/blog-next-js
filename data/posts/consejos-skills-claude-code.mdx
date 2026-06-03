@@ -1,0 +1,55 @@
+---
+{
+  "title": "10 Consejos para Crear Skills para Claude Code que Realmente Funcionan",
+  "subtitle": "Los 10 errores más comunes al crear skills para Claude Code y cómo solucionarlos: triggers, estructura, ejemplos y versionado para workflows que realmente funcionan.",
+  "image": "/images/consejos-skills-claude-code.webp",
+  "imageOG": "/images/consejos-skills-claude-code.webp",
+  "thumb": "/images/consejos-skills-claude-code.webp",
+  "date": "2026-06-02",
+  "keywords": ["Claude Code", "skills Claude Code", "crear skills IA", "workflow IA", "productividad desarrollador", "automatización Claude", "SKILL.md", "agentes IA", "Anthropic", "herramientas IA 2026"]
+}
+---
+
+# 10 Consejos para Crear Skills para Claude Code que Realmente Funcionan
+
+La mayoría de skills para Claude Code no fallan por el contenido — fallan porque Claude nunca los activa. Este artículo reúne los 10 errores más comunes y sus soluciones.
+
+## 1. Empieza por el trigger, no por el contenido
+
+La descripción del skill es el mecanismo de activación. Si es genérica, el skill no se activa.
+
+## 2. Instrúyele a Claude que lea el skill antes de escribir código
+
+Incluye al inicio: "Antes de escribir cualquier línea de código, lee este SKILL.md completo."
+
+## 3. Estructura el SKILL.md con secciones claras
+
+Usa H2/H3: Cuándo usar, Qué hace, Fuera de scope, Proceso, Ejemplos, Errores comunes.
+
+## 4. Incluye explícitamente qué NO hace el skill
+
+La sección "Fuera de scope" evita que Claude intente resolver tareas para las que el skill no fue diseñado.
+
+## 5. Pon ejemplos reales de input → output
+
+Un ejemplo concreto vale más que diez líneas de instrucción abstracta.
+
+## 6. Nombra el skill con la acción o el formato
+
+Usa el formato de archivo o dominio específico: `docx`, `pdf`, `pptx` — no `document-processor`.
+
+## 7. Un skill, una responsabilidad
+
+Divide skills demasiado amplios. Usa referencias cruzadas entre skills relacionados.
+
+## 8. Prueba con casos límite
+
+Peticiones ambiguas, inglés mezclado, typos, conversaciones largas, arranque desde cero.
+
+## 9. Versiona tu SKILL.md como si fuera código
+
+Agrega `version` y `last_updated` al frontmatter, y un changelog mínimo al final.
+
+## 10. Documenta el "por qué" de tus decisiones
+
+Un skill bien documentado es un skill que mejora con el tiempo.

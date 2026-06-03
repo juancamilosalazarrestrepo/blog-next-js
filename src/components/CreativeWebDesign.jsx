@@ -1,14 +1,16 @@
 import React, { useEffect, useRef } from 'react';
 import styles from '../styles/CreativeWebDesign.module.css';
+import { useTranslation } from 'next-i18next';
 
 const CreativeWebDesign = () => {
+    const { t } = useTranslation('common');
     const interactiveBlobRef = useRef(null);
     const containerRef = useRef(null);
 
     useEffect(() => {
         const interactiveBlob = interactiveBlobRef.current;
         const container = containerRef.current;
-        
+
         if (!interactiveBlob || !container) return;
 
         let currentX = container.offsetWidth / 2;
@@ -19,13 +21,10 @@ const CreativeWebDesign = () => {
 
         const handleMouseMove = (e) => {
             const rect = container.getBoundingClientRect();
-            // Calculate mouse position relative to the container
             targetX = e.clientX - rect.left;
             targetY = e.clientY - rect.top;
         };
 
-        // Escucha el evento mousemove en toda la ventana, pero restringe las coordenadas al contenedor
-        // o mejor aún, escucha en el contenedor para que solo se mueva cuando pasas el mouse por encima.
         window.addEventListener('mousemove', handleMouseMove);
 
         const animateMouseBlob = () => {
@@ -35,7 +34,7 @@ const CreativeWebDesign = () => {
             if (interactiveBlob) {
                 interactiveBlob.style.transform = `translate(${currentX}px, ${currentY}px)`;
             }
-            
+
             animationFrameId = requestAnimationFrame(animateMouseBlob);
         };
 
@@ -60,16 +59,13 @@ const CreativeWebDesign = () => {
                 <div className={`${styles.blob} ${styles.blobTeal}`}></div>
                 <div className={`${styles.blob} ${styles.blobIndigo}`}></div>
                 <div className={`${styles.blob} ${styles.blobRose}`}></div>
-                
                 <div className={`${styles.blob} ${styles.blobInteractive}`} ref={interactiveBlobRef}></div>
             </div>
 
             <div className={styles.content}>
-                <div className={styles.badge}>Diseño Web Creativo</div>
-                <h2 className={styles.title}>Impacto Visual y Experiencias Únicas</h2>
-                <p className={styles.subtitle}>
-                    Transformamos ideas en interfaces asombrosas. Desarrollamos sitios web con diseños vibrantes, micro-interacciones fluidas y estética de vanguardia para destacar tu marca.
-                </p>
+                <div className={styles.badge}>{t('creativeSection.badge')}</div>
+                <h2 className={styles.title}>{t('creativeSection.title')}</h2>
+                <p className={styles.subtitle}>{t('creativeSection.description')}</p>
             </div>
 
             <svg xmlns="http://www.w3.org/2000/svg" style={{ display: 'none' }}>

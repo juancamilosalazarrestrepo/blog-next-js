@@ -1,0 +1,72 @@
+{
+  "nav": {
+    "portfolio": "Portfolio",
+    "blog": "Blog",
+    "projects": "Projects",
+    "certificates": "Certificates",
+    "services": "Services",
+    "uiComponents": "UI Components",
+    "contact": "Contact"
+  },
+  "footer": {
+    "content": "Content",
+    "articles": "Articles",
+    "portfolio": "Portfolio",
+    "socialMedia": "Social Media",
+    "legal": "Legal",
+    "privacyPolicy": "Privacy Policy",
+    "termsConditions": "Terms & Conditions",
+    "rights": "All rights reserved."
+  },
+  "home": {
+    "seoTitle": "Juan Camilo Salazar | Full Stack Developer, AI & Web Specialist",
+    "seoDescription": "Boost your business with advanced tech solutions. Modern web development with React/Next.js and AI Agents for sales automation and 24/7 customer engagement.",
+    "aboutTitle": "About Me",
+    "role": "Fullstack Developer",
+    "bio": "Software developer passionate about technological innovation. Expert in building web and mobile applications using modern technologies like Next.js, React, Node.js, .NET and SQL databases. With experience on cloud platforms like Azure and AWS, I specialize in building scalable, secure and high-performance solutions.",
+    "highlight1Title": "5+ years of experience",
+    "highlight1Text": "Building professional software for companies and startups",
+    "highlight2Title": "React / Next.js / Node",
+    "highlight2Text": "Modern stack for high-performance frontend and backend",
+    "highlight3Title": "Azure & AWS",
+    "highlight3Text": "Microservices, Functions and cloud deployments",
+    "highlight4Title": "Web & Mobile Apps",
+    "highlight4Text": "React Native, e-commerce, admin panels and automation",
+    "recentProjects": "Recent Projects",
+    "recentArticles": "Recent Articles",
+    "readMore": "Read more",
+    "ctaTitle": "Ready to boost your project?",
+    "ctaText": "Let's talk about how I can help you build quality software that makes a difference.",
+    "ctaButton": "Let's work together"
+  },
+  "blog": {
+    "seoTitle": "Tech Blog — Full Stack Development",
+    "seoDescription": "Articles and tutorials on Next.js, React, .NET, process automation, RPA and the latest trends in modern web development.",
+    "title": "Articles",
+    "searchPlaceholder": "Search articles...",
+    "readMore": "Read more →"
+  },
+  "aiSection": {
+    "badge": "New Premium Service",
+    "title": "Automate your business with",
+    "titleHighlight": "AI Agents",
+    "description": "24/7 customer service, autopilot lead qualification and optimized operational processes. We implement Artificial Intelligence tailored to your company's challenges.",
+    "cta": "Explore Solutions",
+    "status": "Operational Agent 24/7"
+  },
+  "webDevSection": {
+    "badge": "Web Design & Development",
+    "title": "Websites that",
+    "titleHighlight": "Sell",
+    "titleEnd": "and Convert",
+    "description": "We don't just build beautiful websites; we develop high-performance platforms. Perfect SEO optimization, ultra-fast load times and UX/UI design crafted to maximize your business conversions.",
+    "cta": "View Web Services",
+    "badgeFast": "Fast Loading",
+    "badgeSeo": "SEO Optimized"
+  },
+  "creativeSection": {
+    "badge": "Creative Web Design",
+    "title": "Visual Impact and Unique Experiences",
+    "description": "We transform ideas into amazing interfaces. We develop websites with vibrant designs, fluid micro-interactions and cutting-edge aesthetics to make your brand stand out."
+  }
+}

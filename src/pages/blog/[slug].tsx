@@ -5,6 +5,7 @@ import SEO from "@/components/SEO";
 import { MDXRemote, MDXRemoteSerializeResult } from "next-mdx-remote";
 import ViewsCounter from "@/components/ViewCounter";
 import { getFiles, getFileBySlug } from "../../../lib/mdx";
+import { serverSideTranslations } from "next-i18next/serverSideTranslations";
 
 type Props = {
   frontMatter: {
@@ -40,7 +41,7 @@ const DynamicPost: NextPage<Props> = ({ frontMatter, mdxSource }) => {
         type="article"
         author="Juan Camilo Salazar"
         date={frontMatter.date}
-        keywords={frontMatter.keywords?.length ? frontMatter.keywords : ['desarrollo web', 'blog', 'programacion', frontMatter.title]}
+        keywords={frontMatter.keywords?.length ? frontMatter.keywords : ['web development', 'blog', 'programming', frontMatter.title]}
       />
       <div>
         <div style={{ overflow: "hidden", borderRadius: "0 0 16px 16px" }}>
@@ -68,11 +69,22 @@ const DynamicPost: NextPage<Props> = ({ frontMatter, mdxSource }) => {
   );
 };
 
-export const getStaticPaths: GetStaticPaths = async () => {
-  const post = await getFiles("posts");
-  const paths = post.map((post) => ({
-    params: { slug: post.replace(/\.mdx/, "") },
-  }));
+// Slugs that have their own dedicated page file and shouldn't use the dynamic route
+const DEDICATED_PAGES_ES = ['agentes-ia-programacion-2026', 'consejos-skills-claude-code'];
+const DEDICATED_PAGES_EN = ['ai-agents-programming-2026'];
+
+export const getStaticPaths: GetStaticPaths = async ({ locales }) => {
+  const paths: { params: { slug: string }; locale: string }[] = [];
+
+  for (const locale of locales || ['es']) {
+    const files = await getFiles("posts", locale);
+    for (const file of files) {
+      const slug = file.replace(/\.mdx$/, "");
+      if (locale === 'es' && DEDICATED_PAGES_ES.includes(slug)) continue;
+      if (locale === 'en' && DEDICATED_PAGES_EN.includes(slug)) continue;
+      paths.push({ params: { slug }, locale });
+    }
+  }
 
   return {
     paths,
@@ -80,10 +92,13 @@ export const getStaticPaths: GetStaticPaths = async () => {
   };
 };
 
-export const getStaticProps: GetStaticProps = async ({ params }) => {
-  const post = await getFileBySlug("posts", String(params?.slug));
+export const getStaticProps: GetStaticProps = async ({ params, locale }) => {
+  const post = await getFileBySlug("posts", String(params?.slug), locale || 'es');
   return {
-    props: { ...post },
+    props: {
+      ...post,
+      ...(await serverSideTranslations(locale || 'es', ['common'])),
+    },
   };
 };
 

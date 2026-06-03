@@ -1,0 +1,72 @@
+{
+  "nav": {
+    "portfolio": "Portafolio",
+    "blog": "Blog",
+    "projects": "Proyectos",
+    "certificates": "Certificados",
+    "services": "Servicios",
+    "uiComponents": "Componentes UI",
+    "contact": "Contacto"
+  },
+  "footer": {
+    "content": "Contenido",
+    "articles": "Artículos",
+    "portfolio": "Portafolio",
+    "socialMedia": "Redes Sociales",
+    "legal": "Legal",
+    "privacyPolicy": "Políticas de Privacidad",
+    "termsConditions": "Términos & Condiciones",
+    "rights": "Todos los derechos reservados."
+  },
+  "home": {
+    "seoTitle": "Juan Camilo Salazar | Desarrollador Full Stack, Especialista en IA y Web",
+    "seoDescription": "Impulsa tu negocio con soluciones tecnológicas avanzadas. Desarrollo de sitios web modernos con React/Next.js y creación de Agentes de Inteligencia Artificial para ventas y automatización 24/7.",
+    "aboutTitle": "Sobre Mí",
+    "role": "Fullstack Developer",
+    "bio": "Desarrollador de software con pasión por la innovación tecnológica. Experto en la creación de aplicaciones web y móviles utilizando tecnologías modernas como Next.js, React, Node.js, .NET y bases de datos SQL. Con experiencia en plataformas cloud como Azure y AWS, me especializo en construir soluciones escalables, seguras y de alto rendimiento.",
+    "highlight1Title": "5+ años de experiencia",
+    "highlight1Text": "Desarrollando software profesional para empresas y startups",
+    "highlight2Title": "React / Next.js / Node",
+    "highlight2Text": "Stack moderno para frontend y backend de alto rendimiento",
+    "highlight3Title": "Azure & AWS",
+    "highlight3Text": "Microservicios, Functions y despliegues en la nube",
+    "highlight4Title": "Apps Web y Móviles",
+    "highlight4Text": "React Native, e-commerce, paneles admin y automatización",
+    "recentProjects": "Proyectos Recientes",
+    "recentArticles": "Artículos Recientes",
+    "readMore": "Leer más",
+    "ctaTitle": "¿Listo para impulsar tu proyecto?",
+    "ctaText": "Hablemos de cómo puedo ayudarte a crear software de calidad que marque la diferencia.",
+    "ctaButton": "Trabajemos juntos"
+  },
+  "blog": {
+    "seoTitle": "Blog de Tecnología y Desarrollo Full Stack",
+    "seoDescription": "Artículos y tutoriales sobre Next.js, React, .NET, automatización de procesos, RPA y las últimas tendencias en desarrollo web moderno.",
+    "title": "Artículos",
+    "searchPlaceholder": "Buscar artículos...",
+    "readMore": "Leer más →"
+  },
+  "aiSection": {
+    "badge": "Nuevo Servicio Premium",
+    "title": "Automatiza tu negocio con",
+    "titleHighlight": "Agentes de IA",
+    "description": "Atención al cliente 24/7, calificación de leads en piloto automático y procesos operativos optimizados. Implementamos Inteligencia Artificial a la medida de los retos de tu empresa.",
+    "cta": "Explorar Soluciones",
+    "status": "Agente Operativo 24/7"
+  },
+  "webDevSection": {
+    "badge": "Diseño y Desarrollo Web",
+    "title": "Páginas web que",
+    "titleHighlight": "Venden",
+    "titleEnd": "y Convierten",
+    "description": "No solo construimos webs bonitas; desarrollamos plataformas de alto rendimiento. Optimización SEO perfecta, tiempos de carga ultra rápidos y diseño UX/UI pensado para maximizar las conversiones de tu negocio.",
+    "cta": "Ver Servicios Web",
+    "badgeFast": "Carga Rápida",
+    "badgeSeo": "Optimizado SEO"
+  },
+  "creativeSection": {
+    "badge": "Diseño Web Creativo",
+    "title": "Impacto Visual y Experiencias Únicas",
+    "description": "Transformamos ideas en interfaces asombrosas. Desarrollamos sitios web con diseños vibrantes, micro-interacciones fluidas y estética de vanguardia para destacar tu marca."
+  }
+}

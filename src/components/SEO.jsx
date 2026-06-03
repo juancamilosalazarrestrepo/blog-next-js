@@ -1,52 +1,33 @@
 import Head from 'next/head';
 import { useRouter } from 'next/router';
 
-/**
- * Componente SEO reutilizable para optimización en motores de búsqueda
- * @param {Object} props - Propiedades del componente
- * @param {string} props.title - Título de la página (se añade " | Juan Camilo Salazar" automáticamente)
- * @param {string} props.description - Descripción meta de la página
- * @param {string} props.image - URL de la imagen para Open Graph (relativa o absoluta)
- * @param {string} props.imageAlt - Texto alternativo para la imagen OG
- * @param {string} props.type - Tipo de contenido: 'website' o 'article'
- * @param {string} props.date - Fecha de publicación (para artículos)
- * @param {string} props.author - Autor del contenido
- * @param {string[]} props.keywords - Array de palabras clave
- * @param {string} props.category - Categoría del contenido
- * @param {boolean} props.noindex - Si true, evita que se indexe la página
- * @param {string} props.canonical - URL canónica personalizada
- * @param {Object} props.schema - Schema.org personalizado (opcional)
- */
-/** @param {import('react').ComponentProps<'meta'> & { title?: string; description?: string; image?: string; imageAlt?: string; type?: string; date?: string; author?: string; keywords?: string[]; category?: string; noindex?: boolean; canonical?: string; schema?: object }} props */
 const SEO = ({
   title = 'Desarrollador Full Stack | Especialista en Next.js, React y .NET',
-  description = 'Portafolio de Juan Camilo Salazar. Desarrollador Full Stack especializado en Next.js, React, .NET y desarrollo web moderno. Explora mis proyectos y artículos sobre programación.',
+  description = 'Portafolio de Juan Camilo Salazar. Desarrollador Full Stack especializado en Next.js, React, .NET y desarrollo web moderno.',
   image = '/images/camiloPaginaWeb.webp',
   imageAlt = 'Juan Camilo Salazar - Desarrollador Full Stack',
   type = 'website',
   date,
   author = 'Juan Camilo Salazar',
   keywords = ['desarrollador web', 'react', 'nextjs', '.net', 'full stack', 'portfolio'],
-  category,
+  category = undefined,
   noindex = false,
-  canonical,
-  schema,
+  canonical = undefined,
+  schema = undefined,
 }) => {
   const router = useRouter();
-  const siteUrl = process.env.NEXT_PUBLIC_SITE_URL || 'https://tudominio.com';
+  const { locale, locales, asPath } = router;
+  const siteUrl = process.env.NEXT_PUBLIC_SITE_URL || 'https://www.salazarcode.com';
   const siteName = 'Juan Camilo Salazar';
   const twitterHandle = '@juancsalazarc';
-  
-  // Construir URL completa de la página actual
-  const currentUrl = canonical || `${siteUrl}${router.asPath}`;
-  
-  // Construir URL completa de la imagen
+
+  const currentUrl = canonical || `${siteUrl}${locale !== 'es' ? `/${locale}` : ''}${asPath}`;
   const imageUrl = image.startsWith('http') ? image : `${siteUrl}${image}`;
-  
-  // Título completo con branding
   const fullTitle = title.includes(siteName) ? title : `${title} | ${siteName}`;
 
-  // Schema.org por defecto
+  const ogLocale = locale === 'en' ? 'en_US' : 'es_ES';
+  const ogLocaleAlternate = locale === 'en' ? 'es_ES' : 'en_US';
+
   const defaultSchema = type === 'article' ? {
     "@context": "https://schema.org",
     "@type": "BlogPosting",
@@ -71,39 +52,40 @@ const SEO = ({
     "mainEntityOfPage": {
       "@type": "WebPage",
       "@id": currentUrl
-    }
+    },
+    "inLanguage": locale === 'en' ? 'en-US' : 'es-ES'
   } : {
     "@context": "https://schema.org",
     "@type": "WebPage",
     "name": title,
     "description": description,
     "url": currentUrl,
-    "image": imageUrl
+    "image": imageUrl,
+    "inLanguage": locale === 'en' ? 'en-US' : 'es-ES'
   };
 
   const schemaData = schema || defaultSchema;
 
+  const esUrl = `${siteUrl}${asPath}`;
+  const enUrl = `${siteUrl}/en${asPath}`;
+
   return (
     <Head>
-      {/* Título y descripción básicos */}
       <title>{fullTitle}</title>
       <meta name="description" content={description} />
-      
-      {/* Keywords */}
       {keywords && keywords.length > 0 && (
         <meta name="keywords" content={keywords.join(', ')} />
       )}
-      
-      {/* Autor */}
       <meta name="author" content={author} />
-      
-      {/* Robots */}
       <meta name="robots" content={noindex ? 'noindex, nofollow' : 'index, follow'} />
-      
-      {/* Canonical URL */}
       <link rel="canonical" href={currentUrl} />
-      
-      {/* Open Graph (Facebook, LinkedIn, etc.) */}
+
+      {/* hreflang for bilingual SEO */}
+      <link rel="alternate" hrefLang="es" href={esUrl} />
+      <link rel="alternate" hrefLang="en" href={enUrl} />
+      <link rel="alternate" hrefLang="x-default" href={esUrl} />
+
+      {/* Open Graph */}
       <meta property="og:type" content={type} />
       <meta property="og:url" content={currentUrl} />
       <meta property="og:title" content={fullTitle} />
@@ -113,9 +95,9 @@ const SEO = ({
       <meta property="og:image:width" content="1200" />
       <meta property="og:image:height" content="630" />
       <meta property="og:site_name" content={siteName} />
-      <meta property="og:locale" content="es_ES" />
-      
-      {/* Metadatos específicos para artículos */}
+      <meta property="og:locale" content={ogLocale} />
+      <meta property="og:locale:alternate" content={ogLocaleAlternate} />
+
       {type === 'article' && date && (
         <>
           <meta property="article:published_time" content={date} />
@@ -126,7 +108,7 @@ const SEO = ({
           )}
         </>
       )}
-      
+
       {/* Twitter Card */}
       <meta name="twitter:card" content="summary_large_image" />
       <meta name="twitter:site" content={twitterHandle} />
@@ -135,13 +117,11 @@ const SEO = ({
       <meta name="twitter:description" content={description} />
       <meta name="twitter:image" content={imageUrl} />
       <meta name="twitter:image:alt" content={imageAlt} />
-      
+
       {/* Schema.org JSON-LD */}
       <script
         type="application/ld+json"
-        dangerouslySetInnerHTML={{
-          __html: JSON.stringify(schemaData)
-        }}
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(schemaData) }}
       />
     </Head>
   );

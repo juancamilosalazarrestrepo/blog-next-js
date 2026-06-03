@@ -1,0 +1,55 @@
+---
+{
+  "title": "10 Tips for Creating Claude Code Skills That Actually Work",
+  "subtitle": "The 10 most common mistakes when building Claude Code skills and how to fix them: triggers, structure, examples, and versioning for workflows that really work.",
+  "image": "/images/consejos-skills-claude-code.webp",
+  "imageOG": "/images/consejos-skills-claude-code.webp",
+  "thumb": "/images/consejos-skills-claude-code.webp",
+  "date": "2026-06-02",
+  "keywords": ["Claude Code", "Claude Code skills", "AI skills", "AI workflow", "developer productivity", "Claude automation", "SKILL.md", "AI agents", "Anthropic", "AI tools 2026"]
+}
+---
+
+# 10 Tips for Creating Claude Code Skills That Actually Work
+
+Most Claude Code skills don't fail because of their content — they fail because Claude never activates them. This article covers the 10 most common mistakes and their solutions.
+
+## 1. Start with the trigger, not the content
+
+The skill description is the activation mechanism. If it's generic, the skill won't activate.
+
+## 2. Tell Claude to read the skill before writing code
+
+Include at the top: "Before writing any line of code, read this SKILL.md completely."
+
+## 3. Structure the SKILL.md with clear sections
+
+Use H2/H3: When to use, What it does, Out of scope, Step-by-step process, Examples, Common errors.
+
+## 4. Explicitly define what the skill does NOT do
+
+The "Out of scope" section prevents Claude from trying to solve tasks the skill wasn't designed for.
+
+## 5. Include real input → output examples
+
+A concrete example is worth more than ten lines of abstract instruction.
+
+## 6. Name the skill after the action or format
+
+Use the file format or specific domain: `docx`, `pdf`, `pptx` — not `document-processor`.
+
+## 7. One skill, one responsibility
+
+Split overly broad skills. Use cross-references between related skills.
+
+## 8. Test with edge cases
+
+Ambiguous requests, mixed-language input, typos, long conversations, cold starts.
+
+## 9. Version your SKILL.md like code
+
+Add `version` and `last_updated` to the frontmatter, and a minimal changelog at the bottom.
+
+## 10. Document the "why" behind your decisions
+
+A well-documented skill is a skill that improves over time.
