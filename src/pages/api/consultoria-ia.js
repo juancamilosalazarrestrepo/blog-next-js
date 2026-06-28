@@ -1,4 +1,6 @@
 import nodemailer from 'nodemailer';
+import { escapeHtml, stripNewlines } from '../../../lib/sanitize';
+import { checkRateLimit } from '../../../lib/rateLimit';
 
 export default async function handler(req, res) {
     if (req.method !== 'POST') {
@@ -6,7 +8,12 @@ export default async function handler(req, res) {
         return res.status(405).json({ error: `Method ${req.method} Not Allowed` });
     }
 
-    const { name, email, website, bottleneck } = req.body;
+    const { success } = await checkRateLimit(req, 'consultoria');
+    if (!success) {
+        return res.status(429).json({ error: 'Demasiadas solicitudes. Intenta de nuevo en un minuto.' });
+    }
+
+    const { name, email, website, bottleneck } = req.body || {};
 
     // Basic validation
     if (!name || !name.trim()) {
@@ -22,11 +29,28 @@ export default async function handler(req, res) {
         return res.status(400).json({ error: 'El correo electrónico no es válido.' });
     }
 
+    // Límites de longitud (evita payloads abusivos)
+    if (name.length > 200 || email.length > 320 ||
+        (website && website.length > 500) || (bottleneck && bottleneck.length > 5000)) {
+        return res.status(400).json({ error: 'Alguno de los campos excede la longitud permitida.' });
+    }
+
+    if (!process.env.GMAIL_USER || !process.env.GMAIL_APP_PASSWORD) {
+        console.error('Faltan variables de entorno GMAIL_USER / GMAIL_APP_PASSWORD');
+        return res.status(500).json({ error: 'El servidor de correo no está configurado.' });
+    }
+
+    // Versiones escapadas para interpolar de forma segura en el HTML/subject
+    const safeName = escapeHtml(name);
+    const safeEmail = escapeHtml(email);
+    const safeWebsite = escapeHtml(website);
+    const safeBottleneck = escapeHtml(bottleneck);
+
     const transporter = nodemailer.createTransport({
         service: 'gmail',
         auth: {
-            user: "juancamilosalazarrestrepo@gmail.com",
-            pass: "bwii cjeq dicq pfqg",
+            user: process.env.GMAIL_USER,
+            pass: process.env.GMAIL_APP_PASSWORD,
         },
     });
 
@@ -62,7 +86,7 @@ export default async function handler(req, res) {
                                     <tr>
                                         <td style="padding:16px 20px; background-color:#1a1a2e; border-radius:10px; border-left:4px solid #6d28d9;">
                                             <p style="margin:0 0 4px; color:#8b8ba3; font-size:12px; text-transform:uppercase; letter-spacing:1px;">Nombre</p>
-                                            <p style="margin:0; color:#e2e2f0; font-size:16px; font-weight:600;">${name}</p>
+                                            <p style="margin:0; color:#e2e2f0; font-size:16px; font-weight:600;">${safeName}</p>
                                         </td>
                                     </tr>
                                 </table>
@@ -72,7 +96,7 @@ export default async function handler(req, res) {
                                     <tr>
                                         <td style="padding:16px 20px; background-color:#1a1a2e; border-radius:10px; border-left:4px solid #2563eb;">
                                             <p style="margin:0 0 4px; color:#8b8ba3; font-size:12px; text-transform:uppercase; letter-spacing:1px;">Correo electrónico</p>
-                                            <a href="mailto:${email}" style="color:#60a5fa; font-size:16px; font-weight:600; text-decoration:none;">${email}</a>
+                                            <a href="mailto:${safeEmail}" style="color:#60a5fa; font-size:16px; font-weight:600; text-decoration:none;">${safeEmail}</a>
                                         </td>
                                     </tr>
                                 </table>
@@ -82,7 +106,7 @@ export default async function handler(req, res) {
                                     <tr>
                                         <td style="padding:16px 20px; background-color:#1a1a2e; border-radius:10px; border-left:4px solid #10b981;">
                                             <p style="margin:0 0 4px; color:#8b8ba3; font-size:12px; text-transform:uppercase; letter-spacing:1px;">Sitio web / Empresa</p>
-                                            <p style="margin:0; color:#e2e2f0; font-size:16px; font-weight:600;">${website ? website : '<span style="color:#555;">No proporcionado</span>'}</p>
+                                            <p style="margin:0; color:#e2e2f0; font-size:16px; font-weight:600;">${website ? safeWebsite : '<span style="color:#555;">No proporcionado</span>'}</p>
                                         </td>
                                     </tr>
                                 </table>
@@ -92,7 +116,7 @@ export default async function handler(req, res) {
                                     <tr>
                                         <td style="padding:16px 20px; background-color:#1a1a2e; border-radius:10px; border-left:4px solid #f59e0b;">
                                             <p style="margin:0 0 8px; color:#8b8ba3; font-size:12px; text-transform:uppercase; letter-spacing:1px;">Mayor cuello de botella</p>
-                                            <p style="margin:0; color:#e2e2f0; font-size:15px; line-height:1.6;">${bottleneck ? bottleneck : '<span style="color:#555;">No proporcionado</span>'}</p>
+                                            <p style="margin:0; color:#e2e2f0; font-size:15px; line-height:1.6;">${bottleneck ? safeBottleneck : '<span style="color:#555;">No proporcionado</span>'}</p>
                                         </td>
                                     </tr>
                                 </table>
@@ -116,9 +140,10 @@ export default async function handler(req, res) {
     `;
 
     const mailOptions = {
-        from: email,
-        to: "juancamilosalazarrestrepo@gmail.com",
-        subject: `🚀 Nueva Solicitud de Consultoría IA - ${name}`,
+        from: process.env.GMAIL_USER,
+        replyTo: email,
+        to: process.env.GMAIL_USER,
+        subject: `🚀 Nueva Solicitud de Consultoría IA - ${stripNewlines(name)}`,
         html: htmlBody,
         text: `Nueva Solicitud de Consultoría IA\n\nNombre: ${name}\nEmail: ${email}\nSitio web: ${website || 'No proporcionado'}\nCuello de botella: ${bottleneck || 'No proporcionado'}`,
     };
