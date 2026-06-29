@@ -175,7 +175,7 @@
     max-width: 800px;
     padding: 32px;
     pointer-events: none;
-    mix-blend-mode: difference;
+    mix-blend-mode: normal;
 }
 
 .icon {
@@ -188,13 +188,13 @@
     font-weight: 800;
     letter-spacing: -0.04em;
     margin-bottom: 24px;
-    color: #ffffff;
+    color: #000000;
     line-height: 1.1;
 }
 
 .subtitle {
     font-size: 1.25rem;
-    color: #ffffff;
+    color: #000000;
     font-weight: 500;
     line-height: 1.6;
     margin-bottom: 32px;
@@ -206,12 +206,12 @@
     font-size: 0.85rem;
     font-weight: 700;
     margin-bottom: 16px;
-    color: #ffffff;
+    color: #000000;
     background-color: transparent;
     padding: 8px 16px;
     border-radius: 999px;
     display: inline-block;
-    border: 2px solid #ffffff;
+    border: 2px solid #000000;
 }
 
 @media (max-width: 768px) {

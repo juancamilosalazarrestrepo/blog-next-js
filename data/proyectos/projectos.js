@@ -6,14 +6,23 @@ import parallaxLanding from "../../public/images/parallax.webp";
 import littleLemonApp from "../../public/images/littleLemonApp.png";
 import realEstateApp from "../../public/images/realEstateApp.webp";
 import niceGradientApp from "../../public/images/nice-gradient-mockup.webp";
-import portadaMedico from "../../public/images/portadaMedico.png";
-import portadaReserve from "../../public/images/portadaReserve.png";
+import portadaMedico from "../../public/images/portadaMedico.webp";
+import portadaReserve from "../../public/images/portadaReserve.webp";
 import velmax from "../../public/images/diseño-web-personalizado-cliente-velmax.webp";
 import colegioSanJustino from "../../public/images/diseño-web-personalizado-cliente-colegio-san-justino.webp";
+import mundialSimulator from "../../public/images/mundial-simulator-portada.webp";
 
 // `key` referencia la traducción en public/locales/<lang>/common.json -> projectsData.<key>
 // `titulo` y `description` se mantienen como fallback (español).
 const proyectos = [
+  {
+    key: "mundial_simulator",
+    titulo: "Mundial Simulator — Simulador del Mundial 2026 + TCG",
+    imagen: mundialSimulator,
+    description:
+      "Plataforma web y app móvil para simular el Mundial 2026: predice los 104 partidos, arma el bracket y compite en el ranking global. Incluye un juego de cartas de fútbol (TCG) coleccionables por rareza.",
+    url: "/proyectos/mundial_simulator",
+  },
   {
     key: "app_fruver",
     titulo: "App Fruver — Control de Inventario y Ventas",

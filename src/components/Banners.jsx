@@ -1,8 +1,7 @@
 import { Swiper, SwiperSlide } from "swiper/react";
 import { Navigation, Pagination, Scrollbar, A11y } from "swiper/modules";
 import Image from "next/image";
-import laptops from "../../public/images/laptop.png";
-import phones from "../../public/images/phones.png";
+import colegioMockup from "../../public/images/proyecto-colegio/web-colegio-mockup.avif";
 import mobileBg from "../../public/images/mobile_banner_bg.webp";
 import styles from "../styles/Banners.module.css";
 import { useTranslation } from "next-i18next";
@@ -79,8 +78,20 @@ export default function Banners({ images }) {
                 <SwiperSlide key={index}>
                   <div className={styles.sliderContainer}>
                     <LavaBackground />
-                    <div className={styles.letfHeaderSection}>
-                      <div className="flex flex-col gap-6 items-start">
+
+                    {/* Background image */}
+                    <Image
+                      src={img}
+                      width={1920}
+                      height={500}
+                      className={`w-100 anchoBanner ${styles.heroBgImage}`}
+                      placeholder="blur"
+                      alt="Banner background"
+                    />
+
+                    {/* Contenido: texto + mockup en dos columnas */}
+                    <div className={styles.bannerContent}>
+                      <div className={styles.bannerText}>
                         <span className="inline-block px-4 py-1.5 bg-transparent border border-white text-white text-xs font-bold uppercase tracking-widest rounded-full">
                           Fullstack Developer & AI
                         </span>
@@ -108,35 +119,14 @@ export default function Banners({ images }) {
                           </a>
                         </div>
                       </div>
-                    </div>
 
-                    {/* Background image */}
-                    <Image
-                      src={img}
-                      width={1920}
-                      height={500}
-                      className={`w-100 anchoBanner ${styles.heroBgImage}`}
-                      placeholder="blur"
-                      alt="Banner background"
-                    />
-
-                    {/* Imágenes decorativas */}
-                    <div>
-                      <div className={styles.heroImagesWrapper}>
+                      <div className={styles.bannerImage}>
                         <Image
-                          src={laptops}
-                          alt="Laptop"
-                          width={700}
-                          height={700}
-                          className={styles.heroLaptop}
-                          placeholder="blur"
-                        />
-                        <Image
-                          src={phones}
-                          alt="Phones"
-                          width={500}
-                          height={500}
-                          className={styles.heroPhones}
+                          src={colegioMockup}
+                          alt="Proyecto web colegio"
+                          width={1000}
+                          height={1000}
+                          className={styles.heroMockup}
                           placeholder="blur"
                         />
                       </div>

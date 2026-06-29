@@ -1,9 +1,9 @@
 import Image from "next/image";
 import styles from "../styles/Portfolio.module.css";
 
-import shop1 from "../../public/images/shop1.png";
-import shop2 from "../../public/images/shop2.png";
-import shop3 from "../../public/images/shop3.png";
+import shop1 from "../../public/images/shop1.webp";
+import shop2 from "../../public/images/shop2.webp";
+import shop3 from "../../public/images/shop3.webp";
 
 const Portfolio = () => {
     const projects = [

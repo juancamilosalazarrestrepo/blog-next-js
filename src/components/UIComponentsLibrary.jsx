@@ -4,6 +4,7 @@ import Link from "next/link";
 /*  */
 // Imágenes placeholder de los assets existentes — reemplazalas por screenshots reales
 import img1 from "../../public/images/tarjetavideo.webp";
+import imgLava from "../../public/images/lava_lamp.webp";
 /* import img2 from "../../public/images/niceGradient.webp";
 import img3 from "../../public/images/parallax.webp";
 import img4 from "../../public/images/calculadoradark.webp";
@@ -13,6 +14,16 @@ import img7 from "../../public/images/nice-gradient-mockup2.webp";
 import img8 from "../../public/images/jsframeworks.webp"; */
 
 const uiComponents = [
+    {
+        id: "lava-banner",
+        title: "Lava Lamp Banner",
+        description:
+            "Banner hero con fondo animado de lámpara de lava azul. Blobs orgánicos con filtro SVG goo y blob interactivo que sigue el cursor.",
+        category: "Banners",
+        image: imgLava,
+        href: "/lavaBannerElementPage",
+        available: true,
+    },
     {
         id: "video-card",
         title: "Video Card Component",

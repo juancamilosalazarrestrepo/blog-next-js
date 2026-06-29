@@ -4,7 +4,7 @@ import Banners from "../../components/Banners";
 import SEO from "../../components/SEO";
 import banner1 from "../../../public/images/background.webp"
 import banner2 from "../../../public/images/banner2.webp";
-import moviles from "../../../public/images/phones.png"
+import moviles from "../../../public/images/phones.webp"
 import LogosSlider from "../../components/LogosSlide";
 import { serverSideTranslations } from 'next-i18next/serverSideTranslations';
 import { useRouter } from "next/router";
