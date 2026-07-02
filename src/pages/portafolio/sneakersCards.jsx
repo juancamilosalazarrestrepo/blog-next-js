@@ -96,13 +96,15 @@ const SneakersCards = ({ posts }) => {
               atractiva y tecnológicamente avanzada.
             </p>
           </section>
-          <h2 class="text-2xl font-semibold mt-6 mb-4">Demo:</h2>
+          <h2 className="text-2xl font-semibold mt-6 mb-4">Demo:</h2>
 
           <a target="_blank"
+            rel="noopener noreferrer"
             className="font-semibold"
-            href="          https://awesome-lalande-09ef8d.netlify.app/">Demo en Heroku</a><br />
+            href="https://awesome-lalande-09ef8d.netlify.app/">Demo en Heroku</a><br />
           <a
             target="_blank"
+            rel="noopener noreferrer"
             className="font-semibold"
             href="https://github.com/juancamilosalazarrestrepo/Product-Card-Glassmorphism"
           >

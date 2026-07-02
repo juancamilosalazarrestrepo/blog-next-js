@@ -1,8 +1,11 @@
 // Next.js API route support: https://nextjs.org/docs/api-routes/introduction
 import type { NextApiRequest, NextApiResponse } from 'next'
+import type { Transaction, DocumentReference } from 'firebase-admin/firestore'
 
 import db from "../../../../lib/firebase.js"
 import { isValidSlug } from "../../../../lib/validSlugs.js"
+// @ts-ignore - módulo JS sin tipos
+import { checkRateLimit } from "../../../../lib/rateLimit.js"
 
 export default async function handler(
     req: NextApiRequest,
@@ -16,17 +19,21 @@ export default async function handler(
     }
 
     if (req.method === "POST") {
-        const docRef = db.collection("views").doc(slug);
+        // Limita la inflación artificial de contadores de vistas.
+        const { success } = await checkRateLimit(req, "views-post");
+        if (!success) {
+            return res.status(429).json({ error: "Too many requests" });
+        }
+        const docRef: DocumentReference = db.collection("views").doc(slug);
         const document = await docRef.get();
 
         if (!document.data()?.value) {
             await docRef.set({ value: 1 });
         } else {
-            await db.runTransaction(async (transaction) => {
-                return transaction.get(docRef).then((doc) => {
-                    transaction.update(docRef, {
-                        value: Number(doc.data()?.value || 0) + 1,
-                    })
+            await db.runTransaction(async (transaction: Transaction) => {
+                const doc = await transaction.get(docRef);
+                transaction.update(docRef, {
+                    value: Number(doc.data()?.value || 0) + 1,
                 })
             })
         }
@@ -43,6 +50,8 @@ export default async function handler(
 
         const views = snapshot.data()?.value;
 
+        // El CDN de Vercel absorbe el tráfico y reduce lecturas de Firestore.
+        res.setHeader("Cache-Control", "public, s-maxage=300, stale-while-revalidate=600");
         return res.status(200).json({ total: views || 0 })
     }
 

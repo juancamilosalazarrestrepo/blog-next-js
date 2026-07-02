@@ -17,7 +17,7 @@ const SEO = ({
 }) => {
   const router = useRouter();
   const { locale, locales, asPath } = router;
-  const siteUrl = process.env.NEXT_PUBLIC_SITE_URL || 'https://www.salazarcode.com';
+  const siteUrl = process.env.NEXT_PUBLIC_SITE_URL || 'https://salazarcode.com';
   const siteName = 'Juan Camilo Salazar';
   const twitterHandle = '@juancsalazarc';
 
@@ -121,7 +121,8 @@ const SEO = ({
       {/* Schema.org JSON-LD */}
       <script
         type="application/ld+json"
-        dangerouslySetInnerHTML={{ __html: JSON.stringify(schemaData) }}
+        // Escapar "<" evita que un "</script>" en el contenido rompa el tag (XSS)
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(schemaData).replace(/</g, '\\u003c') }}
       />
     </Head>
   );
