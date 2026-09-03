@@ -3,12 +3,10 @@ import SEO from "@/components/SEO";
 import CourseLayout from "@/components/CourseLayout";
 import MDXComponents from "@/components/MDXComponents";
 import { MDXRemote } from "next-mdx-remote";
-import { getFiles, getFileBySlug, getAllFilesFrontMatter } from "../../../../lib/mdx";
+import { getFiles, getFileBySlug, getAllFilesFrontMatter, stripOrderPrefix } from "../../../../lib/mdx";
 import { serverSideTranslations } from "next-i18next/serverSideTranslations";
 
 const COURSE_TYPE = "cursos/javascript";
-
-const stripOrderPrefix = (slug) => slug.replace(/^\d+-/, "");
 
 export const getStaticPaths = async ({ locales }) => {
   const paths = [];
@@ -26,6 +24,9 @@ export const getStaticProps = async ({ params, locale }) => {
   const activeLocale = locale || "es";
   const files = await getFiles(COURSE_TYPE, activeLocale);
   const fileName = files.find((f) => stripOrderPrefix(f.replace(/\.mdx$/, "")) === params.capitulo);
+  if (!fileName) {
+    return { notFound: true };
+  }
   const { mdxSource, frontMatter } = await getFileBySlug(COURSE_TYPE, fileName.replace(/\.mdx$/, ""), activeLocale);
 
   const rawChapters = await getAllFilesFrontMatter(COURSE_TYPE, activeLocale);
@@ -45,11 +46,12 @@ export const getStaticProps = async ({ params, locale }) => {
       mdxSource,
       frontMatter: toSerializable({ ...frontMatter, slug: params.capitulo }),
       chapters: toSerializable(chapters),
+      activeLocale,
     },
   };
 };
 
-export default function CapituloPage({ mdxSource, frontMatter, chapters }) {
+export default function CapituloPage({ mdxSource, frontMatter, chapters, activeLocale }) {
   return (
     <Layout>
       <SEO
@@ -57,6 +59,7 @@ export default function CapituloPage({ mdxSource, frontMatter, chapters }) {
         description={frontMatter.subtitle}
         type="article"
         keywords={frontMatter.keywords?.length ? frontMatter.keywords : ["curso de javascript", frontMatter.title]}
+        noindex={activeLocale !== "es"}
       />
       <CourseLayout chapters={chapters} currentSlug={frontMatter.slug}>
         <MDXRemote {...mdxSource} components={MDXComponents} />

@@ -1,6 +1,8 @@
 import Link from "next/link";
+import { useRouter } from "next/router";
 
 const CourseLayout = ({ chapters, currentSlug, children }) => {
+  const router = useRouter();
   const sorted = [...chapters].sort((a, b) => a.order - b.order);
   const currentIndex = sorted.findIndex((c) => c.slug === currentSlug);
   const current = sorted[currentIndex];
@@ -75,8 +77,9 @@ const CourseLayout = ({ chapters, currentSlug, children }) => {
           <select
             value={currentSlug}
             onChange={(e) => {
-              window.location.href = `/cursos/javascript/${e.target.value}`;
+              router.push(`/cursos/javascript/${e.target.value}`, undefined, { locale: router.locale });
             }}
+            aria-label="Seleccionar capítulo"
             style={{ width: "100%", padding: "10px 12px", borderRadius: "8px", border: "1px solid #e5e7eb", fontSize: "0.9rem" }}
           >
             {sorted.map((chapter) => (
@@ -88,6 +91,17 @@ const CourseLayout = ({ chapters, currentSlug, children }) => {
         </div>
 
         <main style={{ flex: 1, minWidth: 0 }}>
+          <div style={{ marginBottom: "24px" }}>
+            <p style={{ fontSize: "0.8rem", fontWeight: 700, color: "#0072ff", marginBottom: "6px" }}>
+              Capítulo {current?.order}
+            </p>
+            <h1 style={{ fontSize: "2rem", fontWeight: 800, color: "#1a1a2e", marginBottom: "8px", lineHeight: 1.25 }}>
+              {current?.title}
+            </h1>
+            {current?.duration && (
+              <p style={{ color: "#64748b", fontSize: "0.9rem" }}>⏱️ {current.duration}</p>
+            )}
+          </div>
           <article className="prose" style={{ maxWidth: "720px" }}>
             {children}
           </article>

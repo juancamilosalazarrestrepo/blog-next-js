@@ -1,10 +1,8 @@
 import Link from "next/link";
 import Layout from "@/components/Layout";
 import SEO from "@/components/SEO";
-import { getAllFilesFrontMatter } from "../../../../lib/mdx";
+import { getAllFilesFrontMatter, stripOrderPrefix } from "../../../../lib/mdx";
 import { serverSideTranslations } from "next-i18next/serverSideTranslations";
-
-const stripOrderPrefix = (slug) => slug.replace(/^\d+-/, "");
 
 const APRENDIZAJES = [
   "A pensar un problema paso a paso, como un algoritmo",
@@ -164,17 +162,19 @@ export const getStaticProps = async ({ locale }) => {
     props: {
       ...(await serverSideTranslations(activeLocale, ["common"])),
       chapters,
+      activeLocale,
     },
   };
 };
 
-export default function CursoJavaScriptPage({ chapters }) {
+export default function CursoJavaScriptPage({ chapters, activeLocale }) {
   return (
     <Layout>
       <SEO
         title="Curso de JavaScript Gratis: Lógica de Programación | Salazar Code"
         description="Aprende lógica de programación con JavaScript desde cero: variables, operadores, condicionales, bucles y funciones, con teoría simple y diagramas."
         keywords={["curso de javascript", "logica de programacion", "aprender a programar", "javascript para principiantes", "curso gratis de programacion"]}
+        noindex={activeLocale !== "es"}
       />
       <CursoJavaScript chapters={chapters} />
     </Layout>
