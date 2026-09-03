@@ -25,6 +25,49 @@ const Certificados = ({ certificados }) => {
 
       <main className="py-8 container mx-auto px-44 ">
 
+        <section style={{ marginBottom: "56px" }}>
+          <h2 style={{ fontSize: "1.6rem", fontWeight: 700, marginBottom: "20px", color: "#1a1a2e" }}>
+            Cursos
+          </h2>
+          <Link
+            href="/cursos/javascript"
+            style={{
+              display: "flex",
+              alignItems: "center",
+              gap: "20px",
+              padding: "24px",
+              borderRadius: "14px",
+              border: "1px solid #e5e7eb",
+              textDecoration: "none",
+              maxWidth: "560px",
+            }}
+          >
+            <span
+              style={{
+                flexShrink: 0,
+                width: "56px",
+                height: "56px",
+                borderRadius: "12px",
+                background: "linear-gradient(135deg, #0072ff, #7c3aed)",
+                display: "flex",
+                alignItems: "center",
+                justifyContent: "center",
+                fontSize: "1.6rem",
+              }}
+            >
+              🟨
+            </span>
+            <div style={{ flex: 1 }}>
+              <p style={{ fontWeight: 700, color: "#1a1a2e", fontSize: "1.05rem", marginBottom: "4px" }}>
+                Curso de JavaScript: Lógica de Programación
+              </p>
+              <p style={{ color: "#64748b", fontSize: "0.9rem", margin: 0 }}>
+                6 capítulos gratis · ~70 min · Variables, condicionales, bucles y funciones
+              </p>
+            </div>
+            <span style={{ flexShrink: 0, color: "#0072ff", fontWeight: 700 }}>Ver curso →</span>
+          </Link>
+        </section>
 
         <div className="grid grid-cols-3 gap-4 content-center max-sm:grid-cols-1 max-sm:w-full  max-sm:px-8 mt-20">
           {certificados.map((proyecto, index) => {
