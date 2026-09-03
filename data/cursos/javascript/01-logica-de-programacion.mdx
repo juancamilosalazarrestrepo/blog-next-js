@@ -1,0 +1,79 @@
+---
+title: "¿Qué es programar? Lógica de programación"
+subtitle: "Cómo pensar como programador antes de escribir una sola línea de código"
+order: 1
+duration: "10 min"
+keywords: ["logica de programacion", "curso de javascript", "aprender a programar", "algoritmos"]
+---
+
+## ¿Qué significa "programar"?
+
+Programar es explicarle a la computadora, paso a paso, exactamente qué hacer. La computadora
+no "entiende" ni "adivina" nada: solo sigue instrucciones, en el orden en que se las diste.
+
+A esa secuencia ordenada de pasos para resolver un problema se le llama **algoritmo**. Antes
+de escribir una sola línea de JavaScript, la habilidad más importante que vas a desarrollar en
+este curso es pensar en algoritmos.
+
+<Callout type="tip">
+  Piensa en una receta de cocina: ingredientes (los datos de entrada), pasos numerados en un
+  orden específico (el algoritmo) y un plato terminado (el resultado). Programar es lo mismo,
+  pero la "cocina" es la computadora.
+</Callout>
+
+## Un algoritmo de la vida real
+
+Antes de pensar en código, pensemos en pasos. Así es como preparar una taza de café en pasos:
+
+1. Poner agua en la tetera.
+2. Encender la tetera y esperar a que hierva.
+3. Poner café molido en el filtro.
+4. Verter el agua caliente sobre el café.
+5. Servir en una taza.
+
+Cada paso es claro, ocurre en orden, y no hay ambigüedad sobre qué hacer. Eso es exactamente
+lo que necesita una computadora: instrucciones **claras**, **ordenadas** y **sin ambigüedad**.
+
+## De los pasos al código
+
+Cuando programamos, traducimos esos pasos a instrucciones que el lenguaje (en este caso,
+JavaScript) puede ejecutar. Por ejemplo, un algoritmo para saludar a alguien:
+
+```js
+// Paso 1: guardar el nombre de la persona
+const nombre = "Camilo";
+
+// Paso 2: construir el mensaje de saludo
+const saludo = "Hola, " + nombre + "!";
+
+// Paso 3: mostrar el resultado
+console.log(saludo);
+```
+
+Cada línea es un paso. La computadora las ejecuta **en orden, de arriba hacia abajo**, salvo que
+más adelante aprendamos a cambiar ese orden con condicionales y bucles.
+
+## Las 3 estructuras que vas a dominar en este curso
+
+Todo programa, sin importar qué tan complejo sea, se construye combinando solo tres tipos de
+estructuras:
+
+- **Secuencia**: instrucciones que se ejecutan una tras otra (lo que ya viste arriba).
+- **Selección**: elegir un camino u otro según una condición (capítulo de condicionales).
+- **Iteración**: repetir un paso varias veces (capítulo de bucles).
+
+<ConditionalDiagram
+  condition="¿Ya sabes qué es un algoritmo?"
+  ifTrue="Sigamos con variables"
+  ifFalse="Vuelve a leer este capítulo"
+/>
+
+Ese diagrama de arriba es justo un ejemplo de "selección": según la respuesta a una pregunta,
+el camino que sigues es distinto. Lo vas a usar constantemente en programación.
+
+## Para recordar
+
+- Programar es dar instrucciones claras, ordenadas y sin ambigüedad.
+- Un algoritmo es la secuencia de pasos para resolver un problema.
+- Todo programa se construye con secuencia, selección e iteración.
+- Antes de escribir código, practica escribir los pasos en español simple.
