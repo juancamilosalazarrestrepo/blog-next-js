@@ -1,0 +1,68 @@
+---
+title: "Variables y tipos de datos"
+subtitle: "Cómo guardar información en la memoria de tu programa"
+order: 2
+duration: "12 min"
+keywords: ["variables javascript", "tipos de datos javascript", "let const", "curso de javascript"]
+---
+
+## ¿Qué es una variable?
+
+Una variable es una **caja con nombre** donde guardas un valor para usarlo más adelante. Le
+pones una etiqueta (el nombre) y adentro guardas algo (el valor).
+
+<VariableDiagram name="edad" value="25" type="number" />
+
+En JavaScript, creas una variable con `let` o con `const`:
+
+```js
+let edad = 25;      // puede cambiar más adelante
+const nombre = "Ana"; // no va a cambiar
+```
+
+<Callout type="nota">
+  Usa <code>const</code> por defecto. Solo usa <code>let</code> cuando sepas que el valor de esa
+  variable va a cambiar en algún momento del programa (por ejemplo, un contador).
+</Callout>
+
+## Los tipos de datos básicos
+
+JavaScript tiene varios tipos de datos. Los que vas a usar todo el tiempo son:
+
+| Tipo | Ejemplo | Para qué sirve |
+| --- | --- | --- |
+| `number` | `25`, `3.14` | Números, con o sin decimales |
+| `string` | `"Camilo"` | Texto, siempre entre comillas |
+| `boolean` | `true`, `false` | Verdadero o falso |
+| `undefined` | — | Una variable declarada pero sin valor asignado |
+| `null` | `null` | "Sin valor", asignado a propósito |
+
+```js
+let edad = 25;            // number
+let nombre = "Camilo";    // string
+let esEstudiante = true;  // boolean
+let apodo;                // undefined (no se le asignó nada)
+let telefono = null;      // null (a propósito, "no tiene")
+```
+
+Puedes preguntarle a JavaScript qué tipo es una variable con `typeof`:
+
+```js
+console.log(typeof edad);         // "number"
+console.log(typeof nombre);       // "string"
+console.log(typeof esEstudiante); // "boolean"
+```
+
+## Reglas para nombrar variables
+
+- No pueden empezar con un número (`1nombre` ❌, `nombre1` ✅).
+- No pueden tener espacios (`nombre completo` ❌, `nombreCompleto` ✅).
+- Por convención, en JavaScript se usa `camelCase`: `edadUsuario`, `nombreCompleto`.
+- El nombre debe describir qué guarda la variable. `x` no dice nada; `precioTotal` sí.
+
+## Para recordar
+
+- Una variable es una caja con nombre que guarda un valor.
+- `const` para valores que no cambian, `let` para los que sí.
+- Los tipos básicos son `number`, `string`, `boolean`, `undefined` y `null`.
+- Nombra tus variables de forma clara, en `camelCase`.

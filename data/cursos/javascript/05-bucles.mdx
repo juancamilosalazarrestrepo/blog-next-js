@@ -1,0 +1,70 @@
+---
+title: "Bucles"
+subtitle: "Cómo repetir una tarea sin copiar y pegar código"
+order: 5
+duration: "12 min"
+keywords: ["bucles javascript", "for javascript", "while javascript", "curso de javascript"]
+---
+
+## ¿Por qué usar bucles?
+
+Imagina que quieres imprimir los números del 1 al 5. Podrías escribir cinco `console.log`
+seguidos... pero si fueran 1000 números, eso sería imposible de mantener. Para eso existen los
+**bucles**: repiten un bloque de código mientras se cumpla una condición.
+
+<LoopDiagram condition="i < 5" body="console.log(i)" />
+
+## El bucle for
+
+Es el más usado cuando **sabes de antemano** cuántas veces quieres repetir algo:
+
+```js
+for (let i = 0; i < 5; i++) {
+  console.log(i);
+}
+// Imprime: 0, 1, 2, 3, 4
+```
+
+El `for` tiene tres partes separadas por `;`:
+
+1. **Inicialización** (`let i = 0`): se ejecuta una sola vez, al empezar.
+2. **Condición** (`i < 5`): se revisa antes de cada vuelta; si es `false`, el bucle termina.
+3. **Incremento** (`i++`): se ejecuta al final de cada vuelta.
+
+<Callout type="nota">
+  <code>i++</code> es una forma corta de escribir <code>i = i + 1</code>. Suma 1 a la variable
+  en cada vuelta del bucle.
+</Callout>
+
+## El bucle while
+
+Se usa cuando **no sabes de antemano** cuántas veces se va a repetir, solo sabes la condición
+para seguir repitiendo:
+
+```js
+let intentos = 0;
+
+while (intentos < 3) {
+  console.log("Intento número " + intentos);
+  intentos = intentos + 1;
+}
+```
+
+`while` revisa la condición antes de cada vuelta. Si nunca se vuelve `false` (por ejemplo, si
+olvidas actualizar `intentos`), el bucle se repite para siempre: eso se llama un **bucle
+infinito**, y suele "colgar" el programa.
+
+## ¿for o while?
+
+- Usa **for** cuando conoces el número de repeticiones (recorrer una lista de 10 elementos,
+  contar del 1 al 100, etc.).
+- Usa **while** cuando la repetición depende de una condición que puede cambiar de forma
+  impredecible (seguir pidiendo datos hasta que el usuario escriba algo válido, por ejemplo).
+
+## Para recordar
+
+- Los bucles repiten un bloque de código mientras una condición sea verdadera.
+- `for` es ideal cuando sabes cuántas repeticiones necesitas.
+- `while` es ideal cuando la repetición depende de una condición variable.
+- Ten cuidado con los bucles infinitos: siempre asegúrate de que la condición pueda volverse
+  falsa en algún momento.

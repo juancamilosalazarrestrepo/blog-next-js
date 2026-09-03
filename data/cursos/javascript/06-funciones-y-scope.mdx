@@ -1,0 +1,101 @@
+---
+title: "Funciones y scope básico"
+subtitle: "Cómo organizar tu código en bloques reutilizables"
+order: 6
+duration: "14 min"
+keywords: ["funciones javascript", "scope javascript", "parametros javascript", "curso de javascript"]
+---
+
+## ¿Qué es una función?
+
+Una función es un bloque de código con nombre que puedes **reutilizar** cada vez que lo
+necesites, en vez de repetir el mismo código una y otra vez.
+
+<FunctionDiagram name="sumar" params={["a", "b"]} returns="a + b" />
+
+```js
+function sumar(a, b) {
+  return a + b;
+}
+
+console.log(sumar(2, 3));   // 5
+console.log(sumar(10, 20)); // 30
+```
+
+- `sumar` es el **nombre** de la función.
+- `a` y `b` son los **parámetros**: los datos que la función necesita para trabajar.
+- `return` indica qué **valor devuelve** la función a quien la llamó.
+- `sumar(2, 3)` es una **llamada** a la función, pasando `2` y `3` como argumentos.
+
+## Declarar vs. llamar
+
+Declarar una función solo la "define": no ejecuta nada todavía. Solo se ejecuta cuando la
+**llamas** (invocas) usando su nombre seguido de paréntesis:
+
+```js
+function saludar(nombre) {
+  console.log("Hola, " + nombre + "!");
+}
+
+// Hasta aquí, "saludar" no ha impreso nada.
+
+saludar("Camilo"); // Ahora sí: imprime "Hola, Camilo!"
+saludar("Ana");    // Imprime "Hola, Ana!"
+```
+
+<Callout type="tip">
+  Una misma función se puede llamar tantas veces como quieras, con datos distintos cada vez. Esa
+  es la principal ventaja de usar funciones: escribes la lógica una sola vez.
+</Callout>
+
+## Funciones que no devuelven nada
+
+No todas las funciones necesitan un `return`. Algunas simplemente hacen algo (como imprimir en
+consola) y no necesitan devolver un valor:
+
+```js
+function despedirse() {
+  console.log("¡Hasta luego!");
+}
+
+despedirse();
+```
+
+## Scope: dónde "vive" cada variable
+
+El **scope** (alcance) determina en qué parte del código puedes usar una variable. Una variable
+declarada **dentro** de una función solo existe **dentro** de esa función (scope local); una
+variable declarada **fuera** de cualquier función existe en todo el archivo (scope global).
+
+```js
+let mensajeGlobal = "Soy visible en todos lados";
+
+function ejemplo() {
+  let mensajeLocal = "Solo existo dentro de esta función";
+  console.log(mensajeGlobal); // funciona, es global
+  console.log(mensajeLocal);  // funciona, estamos dentro de la función
+}
+
+ejemplo();
+console.log(mensajeLocal); // Error: mensajeLocal no existe aquí afuera
+```
+
+<Callout type="nota">
+  Preferir variables locales (dentro de funciones) sobre variables globales es una buena
+  práctica: evita que una parte del código modifique por accidente datos que usa otra parte.
+</Callout>
+
+## Para recordar
+
+- Una función agrupa código reutilizable bajo un nombre.
+- Los parámetros son los datos de entrada; `return` es el valor de salida.
+- Declarar una función no la ejecuta: hay que llamarla.
+- El scope local (dentro de una función) no es visible desde afuera; el scope global sí.
+
+---
+
+¡Felicidades! Terminaste el primer bloque del curso de JavaScript. Ya sabes pensar en
+algoritmos, guardar datos en variables, operar y comparar valores, tomar decisiones con
+condicionales, repetir tareas con bucles y organizar tu código en funciones. En la próxima
+entrega vamos a construir sobre esta base: arrays, objetos y cómo interactuar con una página
+web de verdad.

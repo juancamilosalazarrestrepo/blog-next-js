@@ -1,0 +1,93 @@
+---
+title: "Condicionales"
+subtitle: "Cómo hacer que tu programa tome decisiones"
+order: 4
+duration: "12 min"
+keywords: ["condicionales javascript", "if else javascript", "switch javascript", "curso de javascript"]
+---
+
+## if / else: la decisión más básica
+
+Un condicional le permite a tu programa elegir entre dos caminos según si una condición es
+verdadera o falsa.
+
+<ConditionalDiagram
+  condition="edad >= 18"
+  ifTrue="Mostrar: Eres mayor de edad"
+  ifFalse="Mostrar: Eres menor de edad"
+/>
+
+```js
+let edad = 20;
+
+if (edad >= 18) {
+  console.log("Eres mayor de edad");
+} else {
+  console.log("Eres menor de edad");
+}
+```
+
+La computadora evalúa `edad >= 18`. Si el resultado es `true`, ejecuta el bloque dentro del
+`if`. Si es `false`, ejecuta el bloque dentro del `else`.
+
+## else if: más de dos caminos
+
+Cuando hay más de dos posibilidades, se encadenan varios `else if`:
+
+```js
+let nota = 7;
+
+if (nota >= 9) {
+  console.log("Excelente");
+} else if (nota >= 7) {
+  console.log("Aprobado");
+} else if (nota >= 5) {
+  console.log("Necesitas mejorar");
+} else {
+  console.log("Reprobado");
+}
+```
+
+JavaScript revisa las condiciones **en orden, de arriba hacia abajo**, y ejecuta el bloque de
+la primera que sea verdadera. Las demás ni siquiera se evalúan.
+
+<Callout type="tip">
+  El orden importa. Si pones <code>nota &gt;= 5</code> antes que <code>nota &gt;= 7</code>,
+  cualquier nota mayor o igual a 5 entraría ahí primero y nunca llegarías a revisar si merece
+  "Excelente" o "Aprobado".
+</Callout>
+
+## switch: cuando comparas un mismo valor contra varias opciones
+
+Cuando tienes muchas comparaciones exactas sobre la misma variable, `switch` es más claro que
+una cadena larga de `else if`:
+
+```js
+let dia = "martes";
+
+switch (dia) {
+  case "lunes":
+    console.log("Inicio de semana");
+    break;
+  case "martes":
+  case "miercoles":
+  case "jueves":
+    console.log("Mitad de semana");
+    break;
+  case "viernes":
+    console.log("¡Casi fin de semana!");
+    break;
+  default:
+    console.log("Fin de semana");
+}
+```
+
+El `break` es importante: le dice a JavaScript que deje de revisar los demás `case`. Si lo
+olvidas, sigue ejecutando los casos siguientes aunque no coincidan (esto se llama "fall-through").
+
+## Para recordar
+
+- `if` ejecuta un bloque cuando la condición es `true`.
+- `else` ejecuta un bloque alternativo cuando es `false`.
+- `else if` encadena más condiciones; se evalúan en orden y solo corre la primera verdadera.
+- `switch` es útil para comparar un mismo valor contra muchas opciones exactas; no olvides `break`.

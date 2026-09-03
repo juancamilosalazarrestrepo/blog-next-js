@@ -1,0 +1,66 @@
+---
+title: "Operadores"
+subtitle: "Cómo hacer cálculos, comparaciones y combinar condiciones"
+order: 3
+duration: "10 min"
+keywords: ["operadores javascript", "operadores logicos", "operadores de comparacion", "curso de javascript"]
+---
+
+## Operadores aritméticos
+
+Sirven para hacer cálculos matemáticos con números:
+
+```js
+let suma = 5 + 3;           // 8
+let resta = 5 - 3;          // 2
+let multiplicacion = 5 * 3; // 15
+let division = 6 / 3;       // 2
+let resto = 7 % 2;          // 1 (el resto de dividir 7 entre 2)
+```
+
+<Callout type="tip">
+  El operador <code>%</code> (módulo) devuelve el resto de una división. Es muy útil para saber
+  si un número es par: si <code>numero % 2</code> da <code>0</code>, es par.
+</Callout>
+
+## Operadores de comparación
+
+Comparan dos valores y devuelven `true` o `false`:
+
+```js
+console.log(5 > 3);   // true  (mayor que)
+console.log(5 < 3);   // false (menor que)
+console.log(5 >= 5);  // true  (mayor o igual)
+console.log(5 === 5); // true  (igual, comparando también el tipo)
+console.log(5 !== 3); // true  (diferente)
+```
+
+<Callout type="nota">
+  Usa siempre <code>===</code> y <code>!==</code> en vez de <code>==</code> y <code>!=</code>.
+  Los primeros comparan valor y tipo a la vez, evitando comparaciones raras como
+  <code>"5" == 5</code> (que da <code>true</code> aunque uno es texto y el otro número).
+</Callout>
+
+## Operadores lógicos
+
+Combinan varias condiciones (verdadero/falso) entre sí:
+
+```js
+let esMayorDeEdad = true;
+let tieneCedula = false;
+
+console.log(esMayorDeEdad && tieneCedula); // false (Y: las dos deben ser true)
+console.log(esMayorDeEdad || tieneCedula); // true  (O: al menos una debe ser true)
+console.log(!esMayorDeEdad);               // false (NO: invierte el valor)
+```
+
+- `&&` (Y): el resultado es `true` solo si **ambos** lados son `true`.
+- `||` (O): el resultado es `true` si **al menos uno** de los lados es `true`.
+- `!` (NO): invierte el valor: `true` pasa a `false` y viceversa.
+
+## Para recordar
+
+- Los operadores aritméticos (`+ - * / %`) hacen cálculos.
+- Los operadores de comparación (`> < >= <= === !==`) devuelven `true` o `false`.
+- Los operadores lógicos (`&& || !`) combinan condiciones.
+- Prefiere siempre `===` y `!==` sobre `==` y `!=`.
