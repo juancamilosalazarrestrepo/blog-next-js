@@ -3,6 +3,13 @@
 import Link, { LinkProps } from "next/link";
 import { text } from "stream/consumers";
 import Image from "next/image";
+import {
+  Callout,
+  VariableDiagram,
+  ConditionalDiagram,
+  LoopDiagram,
+  FunctionDiagram,
+} from "./CourseDiagrams";
 
 // Define un componente personalizado para manejar las imágenes
 const CustomImage = ({
@@ -33,9 +40,13 @@ const CustomImage = ({
 };
 
 const MDXComponents = {
-
   Image: CustomImage,
   Link,
+  Callout,
+  VariableDiagram,
+  ConditionalDiagram,
+  LoopDiagram,
+  FunctionDiagram,
 };
 
 export default MDXComponents;
