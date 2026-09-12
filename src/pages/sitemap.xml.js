@@ -68,6 +68,7 @@ export async function getServerSideProps({ res }) {
     { loc: '/terminos', priority: '0.3', changefreq: 'yearly' },
     { loc: '/politicas', priority: '0.3', changefreq: 'yearly' },
     { loc: '/consultoria-ia', priority: '0.8', changefreq: 'monthly' },
+    { loc: '/agentes-ia-hoteles', priority: '0.9', changefreq: 'monthly' },
   ];
 
   const proyectoPages = proyectoSlugs.map(slug => ({
