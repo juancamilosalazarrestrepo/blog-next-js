@@ -1,0 +1,156 @@
+---
+title: "Implementar specs con herramientas de IA"
+subtitle: "Claude Code, OpenCode, Antigravity y más: cómo ejecutar cada tarea de tu plan"
+order: 5
+duration: "14 min"
+keywords: ["claude code", "opencode", "antigravity", "implementar con ia", "ejecutar tareas con ia", "agentes de ia para programar"]
+---
+
+## Las herramientas del spec-driven developer
+
+En 2026 existen varias herramientas que pueden ejecutar tareas de código de forma autónoma.
+Cada una tiene fortalezas distintas, pero todas funcionan mejor cuando les das una spec
+clara y tareas bien definidas.
+
+<Callout type="nota">
+  No importa qué herramienta elijas: el principio es el mismo. Le das contexto (la spec),
+  una tarea específica y ella genera el código. La diferencia está en cuánta autonomía
+  tiene cada herramienta.
+</Callout>
+
+## Claude Code (terminal, agente autónomo)
+
+Claude Code es un agente de IA que corre en tu terminal. Puede leer tu codebase completo,
+editar archivos, ejecutar comandos (git, npm, etc.) y verificar resultados.
+
+**Cómo funciona con SDD:**
+
+```bash
+# Abre tu proyecto en la terminal
+cd mi-proyecto
+
+# Inicia Claude Code
+claude
+
+# Le das la spec y la tarea
+> Aquí está la spec del proyecto: [pega la spec]
+> Ejecuta la Tarea 3: Crea el componente del formulario.
+> Los archivos deben crearse en src/components/ContactForm.tsx
+> Verifica que el componente compile con npm run build
+```
+
+**Ventajas de Claude Code con SDD:**
+- Puede ejecutar comandos de verificación (build, lint, tests).
+- Lee archivos existentes para mantener coherencia.
+- Puede crear múltiples archivos en una sola tarea.
+- Marca tareas como completadas mientras avanza.
+
+<Callout type="tip">
+  Claude Code funciona mejor cuando le das la spec completa como contexto en cada
+  interacción. No asumas que "recuerda" la spec de una conversación anterior: pegarla
+  cada vez es más confiable.
+</Callout>
+
+## OpenCode (editor con IA integrada)
+
+OpenCode es un editor de código con un agente de IA integrado que puede navegar tu proyecto,
+editar archivos y ejecutar comandos.
+
+**Cómo funciona con SDD:**
+
+```markdown
+1. Abre tu proyecto en OpenCode
+2. Abre la spec (puede ser un archivo .md en tu proyecto)
+3. En el chat de IA, pega la spec y la tarea actual
+4. La IA genera los archivos y los edita directamente
+5. Tú revisas cada cambio antes de aceptarlo
+```
+
+**Ventajas de OpenCode con SDD:**
+- Interfaz visual: ves los cambios en tiempo real.
+- Puedes aceptar o rechazar cada cambio individual.
+- Integración directa con tu editor: no cambias de ventana.
+
+## Google Antigravity y otros agentes
+
+Google Antigravity (y herramientas similares como Cursor, Windsurf, GitHub Copilot Workspace)
+siguen el mismo principio: les das un objetivo y ellos ejecutan los pasos necesarios.
+
+**Lo que todas estas herramientas tienen en común:**
+
+- Necesitan **contexto** para producir buen código.
+- Funcionan mejor con **tareas pequeñas y específicas**.
+- Pueden **ejecutar comandos** para verificar que su código funciona.
+- Producen **mejores resultados** cuando les das una spec que cuando les dices "haz algo".
+
+## El patrón de implementación: spec + tarea + verificación
+
+Para cada tarea de tu plan, este es el flujo:
+
+```
+1. Copia la spec completa
+2. Pega la tarea específica
+3. La IA genera el código
+4. Ejecuta la verificación (build, lint, test manual)
+5. Si falla, describe el error y pide corrección
+6. Si pasa, pasa a la siguiente tarea
+```
+
+Ejemplo de prompt para ejecutar una tarea:
+
+```markdown
+## Spec del proyecto
+[pega la spec completa aquí]
+
+## Tarea actual: Tarea 4 - Persistencia con localStorage
+
+**Archivos:** crear/modify src/services/storage.ts
+**Verificación:** al recargar la página, las tareas
+anteriores deben seguir visibles.
+
+Implementa la función guardarTareas(tareas) y cargarTareas()
+usando localStorage. La función guardarTareas debe serializar
+el array a JSON y guardarlo con la clave "tareas". La función
+cargarTareas debe devolver el array parseado o un array vacío
+si no hay datos.
+
+Después de implementar, ejecuta `npm run build` para verificar
+que el código compila.
+```
+
+<Callout type="tip">
+  Incluir la instrucción <strong>"después de implementar, ejecuta npm run build"</strong>
+  le dice a la IA que verifique su propio trabajo. Esto reduce errores y te ahorra
+  tiempo de revisión.
+</Callout>
+
+## Cuándo usar cada herramienta
+
+| Herramienta | Mejor para | Nivel de autonomía |
+|---|---|---|
+| Claude Code | Proyectos grandes, múltiples archivos, verificación automática | Alta |
+| OpenCode | Proyectos pequeños-medianos, revisión visual de cambios | Media |
+| Cursor | Edición rápida, autocomplete inteligente, refactorización | Media-Alta |
+| GitHub Copilot | Sugerencias en línea, completado de código | Baja-Media |
+| Antigravity | Prototipado rápido, generación de boilerplate | Alta |
+
+## El error que todos cometen: no verificar
+
+Después de que la IA genere el código, **siempre verifica**:
+
+```bash
+npm run build    # ¿compila?
+npm run lint     # ¿hay errores de estilo?
+npm run dev      # ¿se ve bien en el navegador?
+git diff         # ¿qué cambió exactamente?
+```
+
+Si la IA modificó un archivo que no debía tocar, o si generó código que no compila,
+necesitas saberlo antes de seguir adelante.
+
+## Para recordar
+
+- Todas las herramientas de IA funcionan mejor con specs claras y tareas pequeñas.
+- Claude Code es ideal para ejecución autónoma con verificación automática.
+- OpenCode es ideal cuando quieres revisar cada cambio visualmente.
+- Siempre verifica el código generado antes de pasar a la siguiente tarea.

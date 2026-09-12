@@ -122,6 +122,14 @@
     "clon_chatgpt": {
       "title": "Clon de ChatGPT con Next.js",
       "description": "Clon de ChatGPT creado con Next.js y Tailwind CSS, que permite interactuar con un chatbot generador de respuestas a través de la API de GPT-3 de OpenAI."
+    },
+    "sistema_crm": {
+      "title": "Sistema CRM - Gestión de Clientes y Ventas",
+      "description": "Sistema CRM completo (Customer Relationship Management) para gestionar clientes, oportunidades de venta, seguimiento de contactos y analíticas. Desarrollado con Next.js, TypeScript y PostgreSQL."
+    },
+    "reconocimiento_lenguaje_senas": {
+      "title": "Reconocimiento de Lenguaje de Señas con Visión Artificial",
+      "description": "Sistema de visión artificial que reconoce y traduce lenguaje de señas en tiempo real. Usa MediaPipe para el seguimiento de manos y una red neuronal (TensorFlow/Keras) para clasificar cada gesto en letras y palabras."
     }
   },
   "banner": {

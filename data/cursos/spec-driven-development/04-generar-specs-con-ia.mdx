@@ -1,0 +1,156 @@
+---
+title: "Generar especificaciones con IA"
+subtitle: "Cómo usar ChatGPT, Claude o Copilot para crear specs completas a partir de una idea vaga"
+order: 4
+duration: "14 min"
+keywords: ["generar spec con ia", "especificaciones con chatgpt", "como pedirle a ia una spec", "prompt para especificacion", "claude code spec"]
+---
+
+## Por qué usar IA para generar specs
+
+Escribir una spec desde cero puede ser intimidante. Tienes que pensar en arquitectura,
+stack, alcance, restricciones... todo antes de escribir una línea de código. La IA puede
+ayudarte a estructurar esa información si le haces las preguntas correctas.
+
+<Callout type="nota">
+  La IA no reemplaza tu criterio. Tú decides qué construir; la IA te ayuda a documentar
+  esa decisión de forma completa y estructurada. Es un proceso colaborativo, no automático.
+</Callout>
+
+## El prompt base para generar una spec
+
+Aquí tienes un prompt que puedes copiar y adaptar para cualquier proyecto. Este prompt le
+pide a la IA que actúe como arquitecto de software:
+
+```markdown
+Actúa como un arquitecto de software senior. Voy a describirte
+una idea de proyecto y necesito que me generes una especificación
+técnica completa.
+
+Para cada aspecto del proyecto, hazme preguntas claras antes de
+asumir algo. No inventes decisiones que yo debería tomar.
+
+La spec debe incluir:
+1. Contexto y objetivos
+2. Stack tecnológico (con justificación de cada elección)
+3. Arquitectura (estructura del sistema, flujo de datos)
+4. Alcance (qué SÍ y qué NO incluye)
+5. Restricciones técnicas y de diseño
+6. Modelo de datos (si aplica)
+7. Dependencias externas (APIs, servicios)
+8. Criterios de aceptación por funcionalidad
+
+Mi idea es: [描述 tu idea aquí]
+```
+
+<Callout type="tip">
+  La línea más importante es <strong>"no inventes decisiones que yo debería tomar"</strong>.
+  Sin ella, la IA tiende a elegir tecnologías, patrones y arquitecturas por ti. Tú
+  necesitas ser quien toma esas decisiones; la IA solo te presenta las opciones.
+</Callout>
+
+## Iteración: la spec nunca sale perfecta en el primer intento
+
+Después de que la IA genere la spec inicial, haz preguntas de seguimiento:
+
+```markdown
+¿Qué stack usarías si priorizamos velocidad de desarrollo
+sobre escalabilidad?
+
+¿La arquitectura que propones funciona para un solo desarrollador
+o necesito más personas?
+
+¿Qué pasa si quiero agregar login más adelante? ¿La spec actual
+lo facilita o lo complica?
+
+Reescribe la sección de arquitectura asumiendo que esto será
+una app móvil, no web.
+```
+
+Cada respuesta te da más claridad. La spec evoluciona con cada iteración.
+
+## Generar el plan de tareas
+
+Una vez que la spec esté sólida, pídele a la IA que genere el plan de tareas:
+
+```markdown
+Basándote en esta spec: [pega la spec completa]
+
+Genera un plan de implementación dividido en tareas. Cada tarea debe:
+- Ser independiente (no depender de otra tarea sin completar)
+- Tener un criterio de verificación claro
+- Incluir qué archivos se crean o modifican
+- Estar ordenada por dependencia (lo más básico primero)
+
+El formato debe ser:
+### Task N: [nombre]
+**Archivos:** [archivos que se crean/modifican]
+**Verificación:** [cómo saber que funciona]
+- [ ] Paso 1
+- [ ] Paso 2
+```
+
+<Callout type="tip">
+  El formato con checkboxes (<code>- [ ]</code>) no es decorativo: es un seguimiento
+  real. Cuando uses herramientas como Claude Code con subagentes, cada subagente puede
+  marcar su tarea como completada mientras avanza.
+</Callout>
+
+## Ejemplo completo: de idea a spec generada
+
+**Input del usuario:**
+"Quiero hacer una página web para mi portafolio de diseñador."
+
+**La IA genera:**
+
+```yaml
+Contexto:
+  Portafolio personal de diseñador gráfico.
+  Audiencia: potenciales clientes y empleadores.
+
+Objetivo:
+  Mostrar proyectos destacados con imágenes grandes,
+  una sección "Sobre mí" y un formulario de contacto.
+
+Stack:
+  Frontend: Next.js (App Router) + React
+  Estilos: Tailwind CSS
+  Contenido: estático (MDX o JSON)
+  Formulario: API Route de Next.js → envío por email
+  Despliegue: Vercel
+  Imágenes: optimizadas con next/image
+
+Arquitectura:
+  /app/page.tsx        → página principal (hero + proyectos)
+  /app/proyecto/[slug] → detalle de cada proyecto
+  /app/contacto        → formulario de contacto
+  /components          → componentes reutilizables
+  /data/proyectos.json → catálogo de proyectos
+  /lib/email.ts        → lógica de envío de email
+
+Alcance:
+  SÍ: portafolio, proyectos, contacto, responsive
+  NO: blog, login, CMS, e-commerce
+
+Criterios de aceptación:
+  - Landing carga en menos de 2 segundos
+  - Se ve bien en móvil (375px) y desktop (1440px)
+  - Formulario envía email y muestra confirmación
+  - Cada proyecto tiene imagen, título, descripción y link
+```
+
+## Errores comunes al generar specs con IA
+
+| Error | Consecuencia | Cómo evitarlo |
+|---|---|---|
+| No dar contexto suficiente | La IA asume cosas incorrectas | Describe quién usa la app y para qué |
+| No definir alcance | La IA sobre-construye | Sé explícito sobre qué NO incluir |
+| No cuestionar las elecciones | Aceptas un stack que no necesitas | Pregunta "¿por qué esta tecnología?" |
+| No iterar | La spec queda superficial | Haz 3-5 rondas de preguntas de seguimiento |
+
+## Para recordar
+
+- Usa un prompt estructurado para que la IA genere specs completas.
+- Nunca aceptes la spec sin cuestionar: pregunta "¿por qué?" y "¿y si...?".
+- La iteración es clave: la spec mejora con cada ronda de preguntas.
+- Genera el plan de tareas directamente desde la spec terminada.

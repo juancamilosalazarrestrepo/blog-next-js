@@ -1,0 +1,114 @@
+---
+title: "Stack y arquitectura: la base de todo"
+subtitle: "Por qué saber qué tecnologías existen es más importante que saber su sintaxis"
+order: 2
+duration: "12 min"
+keywords: ["stack tecnologico", "arquitectura de software", "elegir tecnologias", "stack para proyectos con ia", "como elegir framework"]
+---
+
+## La tentación de escribir código primero
+
+Muchos desarrolladores (y muchas IAs) quieren empezar a escribir código inmediatamente. Pero
+antes de la primera línea necesitas responder dos preguntas fundamentales:
+
+1. **¿Con qué voy a construir esto?** (el stack)
+2. **¿Cómo se organiza todo?** (la arquitectura)
+
+<Callout type="nota">
+  No necesitas ser experto en la sintaxis de cada tecnología. Lo que necesitas es saber
+  <strong>para qué sirve cada una</strong> y <strong>por qué la elegiste</strong>. La IA se
+  encarga de la sintaxis; tú te encargas de la decisión.
+</Callout>
+
+## Qué es el stack tecnológico
+
+El stack es el conjunto de tecnologías que usas para construir un proyecto. Se divide
+generalmente en capas:
+
+- **Frontend** (lo que ve el usuario): React, Next.js, Vue, Svelte, HTML/CSS puro.
+- **Backend** (la lógica del servidor): Node.js, Python, Go, Express, FastAPI.
+- **Base de datos** (dónde se guardan los datos): PostgreSQL, MongoDB, Firebase, Supabase.
+- **Despliegue** (dónde vive tu app en internet): Vercel, Railway, AWS, Netlify.
+- **Herramientas** (tu entorno de desarrollo): Git, VS Code, terminal, package managers.
+
+## Por qué saber "para qué sirve" es más importante que la sintaxis
+
+Cuando le pides a una IA que te ayude a construir algo, ella necesita que le digas qué
+tecnología usar. Si no sabes que **Next.js es un framework de React para sitios web
+renderizados del lado del servidor**, la IA puede elegir mal o tú puedes pedir algo
+incoherente.
+
+No necesitas memorizar la sintaxis de `useEffect`. Necesitas saber que:
+
+- **React** sirve para construir interfaces de usuario con componentes.
+- **Next.js** añade routing, SSR y optimizaciones a React.
+- **Tailwind CSS** es utility-first CSS para estilizar rápido.
+- **Firebase** es una base de datos en tiempo real de Google.
+
+Con ese conocimiento puedes dirigir a la IA con precisión.
+
+<Callout type="tip">
+  Piensa en esto como dirigir una obra de construcción. No necesitas saber manejar la
+  grúa, pero sí necesitas saber que la grúa existe, qué puede levantar y dónde ponerla.
+  La IA es el operador de la grúa; tú eres el director de obra.
+</Callout>
+
+## Cómo definir tu stack en una spec
+
+Tu spec debería incluir una sección clara de stack. Ejemplo:
+
+```yaml
+Stack:
+  Frontend: Next.js (Pages Router) + React
+  Estilos: Tailwind CSS
+  Backend: API Routes de Next.js
+  Base de datos: Firebase Firestore
+  Despliegue: Vercel
+  Autenticación: Firebase Auth
+  Idioma: TypeScript
+```
+
+Cada línea responde a una pregunta: **¿para qué esta tecnología?** Si no puedes responder
+eso, probablemente no deberías incluirla.
+
+## Arquitectura: cómo se organiza el sistema
+
+La arquitectura es el mapa de tu proyecto. Define:
+
+- **Qué partes tiene** (componentes, páginas, servicios, APIs).
+- **Cómo se conectan** (qué datos fluyen de A a B).
+- **Dónde vive cada cosa** (estructura de carpetas).
+
+Ejemplo de sección de arquitectura en una spec:
+
+```yaml
+Arquitectura:
+  Tipo: SPA estática con API serverless
+  Estructura:
+    - /src/pages       → páginas (rutas)
+    - /src/components  → componentes reutilizables
+    - /src/services    → lógica de negocio y conexiones a API
+    - /src/hooks       → hooks personalizados de React
+    - /lib             → utilidades generales
+  Flujo de datos:
+    - El usuario interactúa con un componente
+    - El componente llama a un servicio
+    - El servicio consulta Firestore
+    - Los datos se muestran en la interfaz
+```
+
+## El error más común: elegir tecnología por moda
+
+No elijas tecnologías porque "todos las usan". Elige la que mejor resuelva tu problema:
+
+- **¿Necesitas SEO y rendimiento?** → Next.js, no React puro.
+- **¿Es una app en tiempo real?** → Firebase o Supabase, no un SQL tradicional.
+- **¿Es un prototipo rápido?** → HTML + JS puro puede ser suficiente.
+- **¿Necesitas estado global complejo?** → Zustand o Jotai, no Context API.
+
+## Para recordar
+
+- El stack define con qué construyes; la arquitectura define cómo se organiza.
+- Saber para qué sirve cada tecnología es más valioso que memorizar su sintaxis.
+- La IA escribe código; tú decides qué tecnología usar y por qué.
+- Nunca elijas tecnología por moda: elige la que resuelva tu problema real.

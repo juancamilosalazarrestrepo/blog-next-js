@@ -1,0 +1,209 @@
+---
+title: "Proyecto de ejemplo: App de notas con SDD"
+subtitle: "Construyendo una aplicación real usando el flujo completo de Spec-Driven Development"
+order: 6
+duration: "16 min"
+keywords: ["proyecto spec driven", "app de notas con ia", "ejemplo practico sdd", "construir app con ia paso a paso"]
+---
+
+## El proyecto: "QuickNotes"
+
+Vamos a construir una app web para tomar notas rápidas, usando el flujo SDD completo.
+El objetivo es que veas cómo cada fase del método se traduce en resultados reales.
+
+## Fase 1: La spec
+
+Aquí está la spec que generaríamos con IA (o escribíamos manualmente):
+
+```markdown
+# Spec: QuickNotes
+
+## Contexto
+App web para tomar notas rápidas. Un solo usuario,
+sin autenticación. Los datos se guardan en el navegador.
+
+## Objetivo
+Que el usuario pueda crear notas con título y contenido,
+buscar entre ellas, editarlas y eliminarlas. Todo debe
+guardarse automáticamente.
+
+## Stack
+- Frontend: React + Vite
+- Estilos: Tailwind CSS
+- Almacenamiento: localStorage
+- Despliegue: Vercel (archivo estático)
+- Idioma: TypeScript
+
+## Arquitectura
+/src
+  /components
+    NoteCard.tsx      → tarjeta de una nota
+    NoteEditor.tsx    → formulario de crear/editar
+    SearchBar.tsx     → barra de búsqueda
+    EmptyState.tsx    → estado cuando no hay notas
+  /hooks
+    useNotes.ts       → lógica de CRUD + localStorage
+  /types
+    note.ts           → interfaz Note
+  App.tsx             → layout principal + estado
+  main.tsx            → entry point
+
+Flujo de datos:
+App → useNotes → localStorage
+App → NoteCard / NoteEditor / SearchBar
+
+## Alcance
+SÍ: CRUD de notas, búsqueda en tiempo real,
+    guardado automático, diseño responsive
+NO: login, carpetas/etiquetas, búsqueda avanzada,
+    sincronización entre dispositivos
+
+## Modelo de datos
+interface Note {
+  id: string        // UUID
+  title: string
+  content: string
+  createdAt: number // timestamp
+  updatedAt: number // timestamp
+}
+
+## Criterios de aceptación
+1. Crear una nota muestra la nota en la lista inmediatamente
+2. Editar una nota actualiza la vista al instante
+3. Eliminar una nota pide confirmación antes de borrar
+4. Buscar filtra notas por título o contenido
+5. Al recargar la página, las notas siguen ahí
+6. Se ve bien en móvil (375px) y desktop (1440px)
+```
+
+<Callout type="tip">
+  Nota cómo la spec es <strong>specífica pero no prescriptiva</strong>. Dice "usar
+  localStorage" pero no dice "usar JSON.parse en lugar de structuredClone". La IA tiene
+  libertad para elegir la implementación correcta, pero dentro de los límites que tú
+  definiste.
+</Callout>
+
+## Fase 2: El plan de tareas
+
+```markdown
+### Task 1: Proyecto base
+- Inicializar proyecto con Vite + React + TypeScript
+- Configurar Tailwind CSS
+- Verificar que `npm run dev` funcione
+- **Verificación:** el servidor de desarrollo muestra una
+  página en blanco sin errores en consola
+
+### Task 2: Tipos y hook base
+- Crear /src/types/note.ts con interfaz Note
+- Crear /src/hooks/useNotes.ts con funciones vacías
+  (agregarNota, editarNota, eliminarNota, buscarNotas)
+- **Verificación:** TypeScript compila sin errores
+
+### Task 3: Persistencia con localStorage
+- Implementar guardado y carga en useNotes
+- Las funciones deben usar localStorage
+- **Verificación:** crear una nota, recargar página,
+  la nota sigue ahí
+
+### Task 4: Componente NoteCard
+- Tarjeta que muestra título, contenido truncado y fecha
+- Botones de editar y eliminar
+- **Verificación:** se muestra correctamente en la lista
+
+### Task 5: Componente NoteEditor
+- Formulario con inputs de título y contenido (textarea)
+- Botón "Guardar" y "Cancelar"
+- **Verificación:** al guardar, la nota aparece en la lista
+
+### Task 6: Componente SearchBar
+- Input de búsqueda con debounce de 300ms
+- Filtra notas por título o contenido
+- **Verificación:** escribir "compra" filtra solo notas
+  que contengan esa palabra
+
+### Task 7: Estado de vacío y layout
+- EmptyState: mensaje cuando no hay notas
+- App.tsx: layout con header, barra de búsqueda y grid
+- **Verificación:** la app se ve completa y responsive
+
+### Task 8: Pulido y despliegue
+- Ajustes de responsive design
+- Añadir metadata de SEO
+- Verificar build de producción
+- **Verificación:** `npm run build` sin errores, app
+  funciona en móvil y escritorio
+```
+
+## Fase 3: Implementación (ejemplo de tareas ejecutadas)
+
+### Task 1 ejecutada con Claude Code
+
+```markdown
+> Inicializa un proyecto con Vite + React + TypeScript
+> en la carpeta quicknotes. Instala Tailwind CSS y
+> configúralo. Verifica que npm run dev funcione.
+```
+
+La IA ejecuta:
+```bash
+npm create vite@latest quicknotes -- --template react-ts
+cd quicknotes
+npm install
+npm install -D tailwindcss @tailwindcss/vite
+# configura tailwind.config.js y los estilos
+npm run dev
+```
+
+### Task 4 ejecutada con OpenCode
+
+```markdown
+## Spec: [pega spec completa]
+
+## Tarea 4: Crea el componente NoteCard.tsx
+
+Debe recibir una Note como prop y mostrar:
+- Título en negrita
+- Contenido truncado a 100 caracteres
+- Fecha de creación formateada (dd/mm/yyyy)
+- Botones de editar (pencil icon) y eliminar (trash icon)
+
+Usa Tailwind para los estilos. El componente debe ser
+una tarjeta con sombra sutil y hover effect.
+```
+
+<Callout type="nota">
+  Fíjate cómo cada tarea es lo suficientemente específica para que la IA sepa exactamente
+  qué construir, pero lo suficientemente abierta para que pueda elegir la mejor
+  implementación技术细节.
+</Callout>
+
+## Verificación entre tareas
+
+Después de cada tarea, verificas:
+
+```bash
+# ¿Compila?
+npm run build
+
+# ¿Se ve bien?
+npm run dev → abre en navegador
+
+# ¿Qué archivos creó/modificó la IA?
+git status
+git diff
+```
+
+Si algo falla, le das feedback a la IA:
+
+```markdown
+El componente NoteCard no muestra la fecha formateada.
+En su lugar muestra un timestamp numérico. Necesito que
+formatees el createdAt a dd/mm/yyyy usando Intl.DateTimeFormat.
+```
+
+## Para recordar
+
+- Una spec clara convierte una idea vaga en un plan ejecutable.
+- Cada tarea del plan debe ser pequeña, independiente y verificable.
+- La implementación es iterativa: ejecuta, verifica, corrige, repite.
+- El resultado final es una app real construida con precisión y control.

@@ -1,0 +1,74 @@
+---
+title: "¿Qué es React? Componentes y el DOM virtual"
+subtitle: "El patrón mental para construir interfaces con React, antes de escribir código"
+order: 1
+duration: "12 min"
+keywords: ["que es react", "componentes react", "dom virtual", "curso de react", "react para principiantes"]
+---
+
+## ¿Qué es React?
+
+**React** es una librería de JavaScript para construir interfaces de usuario. Su idea central es
+simple: divides tu pantalla en piezas pequeñas llamadas **componentes**, y cada componente se
+encarga de dibujar una parte de la interfaz.
+
+A diferencia de JavaScript puro (donde tú mismo manipulas el DOM a mano con
+`document.getElementById`, creas y borras nodos), con React tú solo **describes qué quieres ver**,
+y React se encarga de **cómo** actualizarlo de forma eficiente.
+
+<Callout type="tip">
+  Con JavaScript clásico le dices al navegador *"qué elemento creo, cuál borro, cuál modifico"*
+  (el <b>cómo</b>). Con React le dices *"esto es lo que quiero ver"* y React hace la magia del
+  <b>cómo</b> por ti (el <b>qué</b>).
+</Callout>
+
+## Componentes: los bloques de construcción
+
+Una interfaz de React es un **árbol de componentes**. Un componente es una función que recibe
+datos y devuelve qué renderizar.
+
+<ComponenteDiagram root="App" children={["Header", "Contenido", "Footer"]} />
+
+Cada cuadro azul o morado del diagrama es un componente. Combinándolos como piezas de LEGO se
+construye la interfaz completa. Así como el curso de JavaScript te enseñó a dividir un problema
+en funciones, React te enseña a dividir una pantalla en componentes.
+
+<Callout type="nota">
+  Un componente se comporta igual que una función reutilizable: se define una vez y se usa
+  muchas veces en distintos lugares de la app.
+</Callout>
+
+## El DOM virtual
+
+Actualizar el DOM real (lo que el navegador dibuja) es **costoso**. React introduce el concepto de
+**DOM virtual**: una copia ligera de la interfaz en memoria.
+
+Cuando algo cambia, React:
+
+1. Actualiza el DOM virtual (rápido, en memoria).
+2. Compara la versión nueva con la anterior (esto se llama *reconciliación*).
+3. Calcula la **mínima** cantidad de cambios y solo aplica esos al DOM real.
+
+Gracias a esto, aunque tu app tenga miles de elementos, React solo toca los que de verdad
+cambiaron. Esa es una de las razones por las que React se siente tan fluido.
+
+## ¿React, Next.js o Vite?
+
+Puede que hayas escuchado también de **Next.js** y **Vite**. Son cosas distintas que se
+complementan:
+
+| Herramienta | Qué es | Para qué se usa |
+| --- | --- | --- |
+| **React** | Librería | Construir componentes e interfaces |
+| **Vite** | Empaquetador | Crear el proyecto y compilar rápido en desarrollo |
+| **Next.js** | Framework | React + routing, SSR, SEO y mucho más (como este blog) |
+
+Este curso se centra en **React puro**: los conceptos que aprenderás aquí sirven igual en Next.js,
+Vite o cualquier otra herramienta que use React.
+
+## Para recordar
+
+- React divide la interfaz en **componentes** (funciones reutilizables).
+- Con React describes **qué** quieres ver; React maneja el **cómo**.
+- El **DOM virtual** hace que React solo actualice lo que cambió, por eso es rápido.
+- React es la librería; Vite y Next.js son herramientas que la envuelven.

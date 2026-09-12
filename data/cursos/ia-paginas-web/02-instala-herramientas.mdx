@@ -1,0 +1,81 @@
+---
+title: "Instala las herramientas: Node.js y OpenCode"
+subtitle: "Prepara tu computadora con todo lo necesario, gratis y en pocos minutos"
+order: 2
+duration: "10 min"
+keywords: ["instalar opencode", "instalar node.js", "opencode windows", "herramientas crear web con ia"]
+---
+
+## Qué necesitas instalar
+
+Para seguir este curso solo hace falta tener dos herramientas gratuitas en tu computadora.
+Nada de licencias ni pagos.
+
+| Herramienta | Para qué sirve |
+| --- | --- |
+| **Node.js** | Cerebro que ejecuta proyectos modernos de web (Next.js/React). |
+| **OpenCode** | Agente de IA que recibe tus instrucciones y escribe el código. |
+
+<Callout type="tip">
+  Como alternativa puedes usar cualquier navegador moderno (Chrome, Edge o Firefox) para
+  previsualizar tus páginas. Ya lo tienes instalado.
+</Callout>
+
+## Paso 1 — Instalar Node.js
+
+1. Ve a la página oficial: `https://nodejs.org`.
+2. Descarga la versión **LTS** (estable, recomendada) para tu sistema.
+3. Ejecuta el instalador y deja todas las opciones por defecto. Pulsa "Siguiente" hasta terminar.
+4. Para comprobar que quedó bien, abre una terminal y escribe:
+
+```bash
+node -v
+```
+
+Si ves un número de versión (por ejemplo `v20.x.x` o superior), ¡Node.js está instalado!
+
+## Paso 2 — Instalar OpenCode
+
+OpenCode es un agente de IA de código abierto que se ejecuta en tu terminal y edita tus
+archivos. Lo instalamos con `npm` (que ya viene con Node.js):
+
+```bash
+npm install -g opencode-ai
+```
+
+Después verifica la instalación:
+
+```bash
+opencode --version
+```
+
+Cuando la ejecutes por primera vez, se conectará a un modelo de IA. La mayoría de modelos
+tienen una versión gratuita, suficiente para este curso.
+
+<Callout type="nota">
+  Si estás en Windows puede ayudarte tener **Git** instalado para usar GitHub más adelante.
+  Lo descargas en `https://git-scm.com`. Lo necesitarás en el capítulo de despliegue.
+</Callout>
+
+## Paso 3 — Crear la carpeta de tu proyecto
+
+Que el proyecto tenga su propia carpeta lo mantiene todo organizado. Crea una y ábrela:
+
+```bash
+mkdir mi-primera-web
+cd mi-primera-web
+```
+
+A partir de aquí, todos los comandos se ejecutan **dentro de esa carpeta**.
+
+<Callout type="tip">
+  Una "terminal" (en Windows: PowerShell o Símbolo del sistema) es una ventana donde escribes
+  comandos de texto. Es la manera de hablarle a tu computadora de forma directa.
+</Callout>
+
+## Para recordar
+
+- Node.js ejecuta los proyectos web modernos; OpenCode es el agente de IA que escribe el código.
+- Instala Node.js (LTS) → verifícalo con `node -v`.
+- Instala OpenCode con `npm install -g opencode-ai` → verifícalo con `opencode --version`.
+- Crea una carpeta dedicada para tu proyecto y trabaja siempre dentro de ella.

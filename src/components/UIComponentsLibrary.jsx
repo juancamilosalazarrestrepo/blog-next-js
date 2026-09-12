@@ -5,6 +5,7 @@ import Link from "next/link";
 // Imágenes placeholder de los assets existentes — reemplazalas por screenshots reales
 import img1 from "../../public/images/tarjetavideo.webp";
 import imgLava from "../../public/images/lava_lamp.webp";
+import imgParticle from "../../public/images/background.webp";
 /* import img2 from "../../public/images/niceGradient.webp";
 import img3 from "../../public/images/parallax.webp";
 import img4 from "../../public/images/calculadoradark.webp";
@@ -14,6 +15,16 @@ import img7 from "../../public/images/nice-gradient-mockup2.webp";
 import img8 from "../../public/images/jsframeworks.webp"; */
 
 const uiComponents = [
+    {
+        id: "particle-constellation",
+        title: "Particle Constellation",
+        description:
+            "Partículas flotantes conectadas con líneas degradadas. Reaccionan al cursor con repulsión suave, pulso individual y glow radial. Canvas 2D puro.",
+        category: "Fondos",
+        image: imgParticle,
+        href: "/particleConstellationPage",
+        available: true,
+    },
     {
         id: "lava-banner",
         title: "Lava Lamp Banner",
@@ -32,6 +43,56 @@ const uiComponents = [
         category: "Cards",
         image: img1,
         href: "/videoCardElementPage",
+        available: true,
+    },
+    {
+        id: "bubble-field",
+        title: "Bubble Field",
+        description:
+            "Burbujas semitransparentes con gradiente esférico que ascienden en trayectoria sinusoidal. El cursor las hace explotar con animación de pop.",
+        category: "Fondos",
+        image: imgParticle,
+        href: "/bubbleFieldPage",
+        available: true,
+    },
+    {
+        id: "aurora-borealis",
+        title: "Aurora Borealis",
+        description:
+            "Aurora boreal animada con 6 bandas sinusoidales en blend mode screen sobre cielo estrellado. Movimiento orgánico fluido.",
+        category: "Fondos",
+        image: imgParticle,
+        href: "/auroraPage",
+        available: true,
+    },
+    {
+        id: "ink-drop",
+        title: "Ink Drop",
+        description:
+            "Manchas de tinta que se expanden al mover el cursor sobre fondo papel crema. Blend mode multiply para mezcla realista de pigmentos.",
+        category: "Fondos",
+        image: imgParticle,
+        href: "/inkDropPage",
+        available: true,
+    },
+    {
+        id: "electric-plasma",
+        title: "Electric Plasma",
+        description:
+            "Rayos eléctricos generados por desplazamiento de punto medio recursivo con ramificaciones. El cursor atrae las descargas.",
+        category: "Fondos",
+        image: imgParticle,
+        href: "/electricPlasmaPage",
+        available: true,
+    },
+    {
+        id: "fireflies",
+        title: "Fireflies",
+        description:
+            "90 luciérnagas con movimiento orgánico, trail luminoso y pulso individual. El cursor las dispersa al acercarse a menos de 90px.",
+        category: "Fondos",
+        image: imgParticle,
+        href: "/firefliesPage",
         available: true,
     }/* ,
     {

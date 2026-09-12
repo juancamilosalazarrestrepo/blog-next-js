@@ -1,0 +1,130 @@
+---
+title: "Buenas prácticas y errores comunes"
+subtitle: "Lo que nadie te dice sobre Spec-Driven Development hasta que lo vivas"
+order: 7
+duration: "12 min"
+keywords: ["buenas practicas sdd", "errores comunes con ia", "spec driven tips", "como evitar errores al programar con ia"]
+---
+
+## Las 7 reglas de oro de SDD
+
+Después de usar Spec-Driven Development en proyectos reales, estas son las reglas que más
+importan:
+
+### 1. La spec no es un contrato, es un documento vivo
+
+Cuando descubras algo nuevo durante la implementación (y lo harás), actualiza la spec.
+Una spec desactualizada es peor que no tener spec, porque genera confusión entre lo que
+dijiste que ibas a hacer y lo que realmente estás haciendo.
+
+### 2. Las tareas que no puedes verificar, no las completes
+
+Si una tarea no tiene un criterio de verificación claro ("¿cómo sé que esto funciona?"),
+no empieces a ejecutarla. Primero define el criterio, después ejecuta.
+
+### 3. Una tarea = un cambio
+
+Si una tarea modifica 5 archivos, probablemente debería ser 5 tareas. Las tareas grandes
+son más difíciles de verificar y más fáciles de romper.
+
+### 4. La IA necesita contexto completo, no solo la tarea
+
+Siempre pega la spec completa cuando le des una tarea a la IA. Sin contexto, la IA
+genera código que no se conecta con lo que ya existe.
+
+### 5. Verifica antes de seguir
+
+Nunca ejecutes 3 tareas seguidas sin verificar. Si la Tarea 1 falla silenciosamente,
+las Tareas 2 y 3 construyen sobre algo roto.
+
+### 6. El stack que elijas define tu velocidad
+
+No todo necesita React + TypeScript + Tailwind. A veces un archivo HTML con CSS vanilla
+es la mejor solución. Elige la tecnología según el problema, no según la moda.
+
+### 7. La spec más valiosa es la que describes qué NO construyes
+
+El alcance negativo ("NO incluye login, NO incluye multi-idioma") previene el
+sobre-desarrollo, que es el error más costoso cuando trabajas con IA.
+
+<Callout type="tip">
+  Estas reglas no son teoría: cada una viene de un error real. La Regla 4 (contexto
+  completo) viene de una sesión donde la IA reescribió componentes que ya funcionaban
+  porque no sabía que existían.
+</Callout>
+
+## Errores comunes y cómo evitarlos
+
+### Error 1: Pedirle a la IA que haga "todo de una"
+
+**Lo que pasa:** le dices "hazme una app de tareas completa" y la IA genera algo que
+parece funcional pero que no tienes forma de mantener, escalar o depurar.
+
+**Solución:** divide en tareas. Una a la vez. Verifica cada una.
+
+### Error 2: No incluir la spec en cada prompt
+
+**Lo que pasa:** la IA olvida el contexto entre conversaciones y genera código que no
+se conecta con lo anterior.
+
+**Solución:** siempre pega la spec completa (o al menos la sección relevante) en cada
+interacción con la IA.
+
+### Error 3: Aceptar el código sin revisar
+
+**Lo que pasa:** la IA genera código que compila pero que tiene lógica incorrecta,
+dependencias innecesarias o patrones que no siguen la spec.
+
+**Solución:** lee cada archivo que la IA crea o modifica. No es opcional.
+
+### Error 4: No tener un proceso de build que verifique
+
+**Lo que pasa:** la IA genera código con errores de TypeScript que solo descubres cuando
+el usuario reporta que la app no carga.
+
+**Solución:** ejecuta `npm run build` después de cada tarea. Si falla, corrige antes de
+seguir.
+
+### Error 5: Elegir stack por conocimiento, no por necesidad
+
+**Lo que pasa:** usas React + Redux + TypeScript para una landing page que solo necesita
+HTML + CSS. La complejidad innecesaria te frena.
+
+**Solución:** pregúntate "¿qué es lo mínimo que necesita este proyecto?" y empieza ahí.
+
+## El checklist de antes de empezar
+
+Antes de ejecutar tu primera tarea, asegúrate de tener:
+
+- [ ] Una spec completa (contexto, stack, arquitectura, alcance, restricciones)
+- [ ] Un plan de tareas ordenado con criterios de verificación
+- [ ] Un proyecto inicializado (npm create, git init, etc.)
+- [ ] Un comando de verificación funcionando (npm run build o similar)
+- [ ] Git configurado con al menos un commit inicial
+
+<Callout type="nota">
+  Este checklist parece obvio, pero el 70% de los problemas que veo en proyectos con IA
+  vienen de saltarse al menos uno de estos pasos. El más común: no tener el proyecto
+  inicializado antes de que la IA empiece a crear archivos.
+</Callout>
+
+## Cómo mejorar con la práctica
+
+Spec-Driven Development es una habilidad que se perfecciona con uso. Cada proyecto que
+hagas con este método te enseñará algo nuevo:
+
+- **Después de 1 proyecto:** entiendes el flujo básico.
+- **Después de 3 proyectos:** empiezas a escribir specs más rápidas y precisas.
+- **Después de 5 proyectos:** la spec se escribe casi sola porque ya internalizaste
+  qué preguntas hacer.
+
+Lo importante es empezar. No necesitas una spec perfecta para tu primer proyecto. Necesitas
+una spec lo suficientemente buena para que la IA pueda ayudarte.
+
+## Para recordar
+
+- La spec es un documento vivo: actualízala cuando aprendas algo nuevo.
+- Una tarea sin verificación es una tarea que no sabes si funciona.
+- La spec más valiosa define qué NO construyes tanto como qué SÍ.
+- Verifica el build después de cada tarea, sin excepción.
+- Empieza imperfecto y mejora con cada proyecto.

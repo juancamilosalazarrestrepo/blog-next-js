@@ -1,0 +1,184 @@
+---
+title: "Proyecto: una lista de tareas con todo lo aprendido"
+subtitle: "Une los conocimientos de todo el curso en una app real de principios a fin"
+order: 6
+duration: "18 min"
+keywords: ["proyecto react", "lista de tareas react", "todo app react", "curso de react", "ejercicio practico react"]
+---
+
+## El reto: une todo el curso
+
+Hasta aquí aprendiste: componentes y props, JSX, estado con `useState` y efectos con `useEffect`.
+Ahora vamos a **unirlo todo** en una app real: una lista de tareas (una *todo app*). Es el
+proyecto clásico para dominar lo fundamental de React, porque toca destrezas en combinación:
+
+- Añadir tareas al escribir y pulsar un botón (**estado**).
+- Dibujar la lista con `.map` (**JSX** + listas).
+- Guardar y recuperar las tareas con `useEffect`.
+
+Nos apoyamos en el hook **`useState`** para la lista y los campos, y en **`useEffect`** para
+guardar automáticamente las tareas en el navegador.
+
+## Paso 1: el estado de la app
+
+Definimos el estado que necesita la app: la lista de tareas y el texto del campo de entrada.
+
+```jsx
+import { useState, useEffect } from "react";
+
+function App() {
+  const [tareas, setTareas] = useState([]);
+  const [texto, setTexto] = useState("");
+
+  return (
+    <div>
+      <h1>Mis tareas</h1>
+      {/* Aquí va el formulario y la lista */}
+    </div>
+  );
+}
+```
+
+<Callout type="tip">
+  Fíjate cómo dividimos el problema: <code>tareas</code> guarda la lista, <code>texto</code>
+  guarda lo que el usuario está escribiendo ahora mismo en el campo. Son dos estados porque son
+  dos datos independientes.
+</Callout>
+
+## Paso 2: añadir una tarea
+
+Definimos la función que recibe el texto actual y lo agrega a la lista. Recuerda: nunca
+mutamos el array directamente; creamos uno nuevo.
+
+```jsx
+function agregarTarea() {
+  if (texto.trim() === "") return;          // Ignoramos vacíos
+  setTareas([...tareas, { id: Date.now(), titulo: texto }]);
+  setTexto("");                             // Limpiamos el campo
+}
+```
+
+<Callout type="nota">
+  El operador <b>spread</b> <code>[...tareas, nueva]</code> crea un array nuevo que copia las
+  tareas existentes y añade la nueva al final. En React es la forma correcta de "actualizar" un
+  array guardado en estado: no modificamos el original, creamos uno nuevo.
+</Callout>
+
+## Paso 3: el render con el formulario y la lista
+
+Enlazamos el campo controlado (`onChange`), el botón (`onClick`) y dibujamos la lista con `.map`.
+
+```jsx
+return (
+  <div>
+    <h1>Mis tareas</h1>
+
+    <input
+      type="text"
+      value={texto}
+      onChange={(e) => setTexto(e.target.value)}
+      placeholder="Escribe una tarea"
+    />
+    <button onClick={agregarTarea}>Añadir</button>
+
+    <ul>
+      {tareas.map((t) => (
+        <li key={t.id}>{t.titulo}</li>
+      ))}
+    </ul>
+  </div>
+);
+```
+
+<Callout type="tip">
+  Cada tarea necesitó un <code>id</code> único. Usamos <code>Date.now()</code> (los milisegundos
+  actuales), que casi siempre es único, para el <code>key</code> del <code>.map</code>.
+</Callout>
+
+## Paso 4: persistir con useEffect
+
+Queremos que las tareas **no se pierdan al recargar** la página. La guardamos en
+`localStorage` del navegador. Cada vez que `tareas` cambia, el efecto la guarda:
+
+```jsx
+useEffect(() => {
+  localStorage.setItem("tareas", JSON.stringify(tareas));
+}, [tareas]);
+```
+
+Y al montar (solo una vez, array `[]`), recuperamos lo guardado:
+
+```jsx
+useEffect(() => {
+  const guardadas = localStorage.getItem("tareas");
+  if (guardadas) {
+    setTareas(JSON.parse(guardadas));
+  }
+}, []);
+```
+
+<Callout type="nota">
+  <code>JSON.stringify</code> convierte el array en texto para guardarlo en
+  <code>localStorage</code>, y <code>JSON.parse</code> hace lo inverso: convierte el texto de
+  vuelta en array. Es la forma estándar de persistir datos simples en el navegador.
+</Callout>
+
+## La app completa
+
+```jsx
+import { useState, useEffect } from "react";
+
+function App() {
+  const [tareas, setTareas] = useState([]);
+  const [texto, setTexto] = useState("");
+
+  // Cargar tareas guardadas al montar
+  useEffect(() => {
+    const guardadas = localStorage.getItem("tareas");
+    if (guardadas) setTareas(JSON.parse(guardadas));
+  }, []);
+
+  // Guardar cada vez que cambien las tareas
+  useEffect(() => {
+    localStorage.setItem("tareas", JSON.stringify(tareas));
+  }, [tareas]);
+
+  function agregarTarea() {
+    if (texto.trim() === "") return;
+    setTareas([...tareas, { id: Date.now(), titulo: texto }]);
+    setTexto("");
+  }
+
+  return (
+    <div>
+      <h1>Mis tareas</h1>
+      <input
+        type="text"
+        value={texto}
+        onChange={(e) => setTexto(e.target.value)}
+        placeholder="Escribe una tarea"
+      />
+      <button onClick={agregarTarea}>Añadir</button>
+      <ul>
+        {tareas.map((t) => (
+          <li key={t.id}>{t.titulo}</li>
+        ))}
+      </ul>
+    </div>
+  );
+}
+```
+
+## Para recordar
+
+- Un proyecto real combina **props, JSX, estado y efectos** al mismo tiempo.
+- Nunca mutes un array en estado: usa spread `[...array, nuevo]` para crear uno nuevo.
+- Usa `localStorage` + `useEffect` para que los datos sobrevivan a la recarga.
+- Todo componente devuelve **un solo** elemento raíz (usa fragmentos si hace falta).
+
+---
+
+🎉 ¡Felicidades! Terminaste el curso de React. Ya sabes dividir una interfaz en componentes,
+escribir JSX, pasar datos con props, manejar estado con `useState` y efectos con `useEffect`, y
+construir una app real. En la próxima entrega profundizaremos en hooks avanzados, formularios
+complejos y cómo conectar tu app con APIs y enrutado con frameworks como Next.js.

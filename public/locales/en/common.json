@@ -122,6 +122,14 @@
     "clon_chatgpt": {
       "title": "ChatGPT Clone with Next.js",
       "description": "ChatGPT clone built with Next.js and Tailwind CSS, enabling interaction with a response-generating chatbot through OpenAI's GPT-3 API."
+    },
+    "sistema_crm": {
+      "title": "CRM System - Customer & Sales Management",
+      "description": "Complete CRM system (Customer Relationship Management) to manage customers, sales opportunities, contact tracking and analytics. Built with Next.js, TypeScript and PostgreSQL."
+    },
+    "reconocimiento_lenguaje_senas": {
+      "title": "Sign Language Recognition with Computer Vision",
+      "description": "Computer vision system that recognizes and translates sign language in real time. Uses MediaPipe for hand tracking and a neural network (TensorFlow/Keras) to classify each gesture into letters and words."
     }
   },
   "banner": {

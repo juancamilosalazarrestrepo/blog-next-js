@@ -1,0 +1,104 @@
+---
+{
+  "title": "Visión por Computadora en Tiempo Real: Face Tracking, Finger Tracking, Reconocimiento de Objetos y Lenguaje de Señas",
+  "subtitle": "Construimos un sistema de visión por computadora con Python y MediaPipe capaz de rastrear rostros y manos, detectar objetos e interpretar letras en lenguaje de señas en tiempo real.",
+  "image": "/images/vision-computadora-mediapipe.webp",
+  "imageOG": "/images/vision-computadora-mediapipe.webp",
+  "thumb": "/images/vision-computadora-mediapipe.webp",
+  "date": "2026-08-04",
+  "keywords": ["vision por computadora", "computer vision", "face tracking", "finger tracking", "reconocimiento de objetos", "lenguaje de señas", "MediaPipe", "OpenCV", "YOLO", "inteligencia artificial python"]
+}
+---
+
+# Visión por Computadora en Tiempo Real: Face Tracking, Finger Tracking, Reconocimiento de Objetos y Lenguaje de Señas
+
+La visión por computadora dejó de ser un tema exclusivo de laboratorios de investigación. Hoy, con librerías como **MediaPipe**, **OpenCV** y modelos como **YOLO**, es posible construir un sistema que vea, entienda gestos y clasifique objetos en tiempo real, corriendo directamente sobre la cámara web de un computador normal.
+
+En este proyecto desarrollamos un sistema modular de visión por computadora que integra cuatro capacidades en un mismo pipeline:
+
+- **Face tracking**: detección y seguimiento de rostros y sus puntos de referencia (malla facial).
+- **Finger tracking**: rastreo de manos y dedos en tiempo real para reconocer gestos.
+- **Reconocimiento de letras en lenguaje de señas**: clasificación de la posición de la mano para traducir letras del alfabeto dactilológico.
+- **Reconocimiento de objetos**: detección de múltiples objetos en la escena con cajas delimitadoras y nivel de confianza.
+
+## ¿Por qué combinar estos cuatro módulos?
+
+Cada módulo resuelve un problema distinto, pero comparten la misma base técnica: extraer puntos clave (landmarks) o regiones de interés de un frame de video y pasarlos por un modelo de clasificación o detección. Al construirlos sobre el mismo pipeline de captura de video, es posible activarlos simultáneamente o de forma independiente según el caso de uso.
+
+## Stack tecnológico
+
+| Tecnología | Uso en el proyecto |
+|---|---|
+| Python | Lenguaje base de todo el sistema |
+| OpenCV | Captura de video, dibujo de anotaciones y preprocesamiento de frames |
+| MediaPipe (Face Mesh / Hands) | Detección de landmarks faciales y de manos en tiempo real |
+| TensorFlow / Keras | Entrenamiento del clasificador de letras en lenguaje de señas |
+| YOLOv8 (Ultralytics) | Detección y clasificación de objetos en la escena |
+| NumPy | Procesamiento vectorial de coordenadas y landmarks |
+
+## Face Tracking: siguiendo el rostro en tiempo real
+
+El módulo de face tracking usa **MediaPipe Face Mesh** para detectar 468 puntos de referencia sobre el rostro en cada frame. Estos puntos permiten:
+
+- Ubicar la posición exacta de ojos, cejas, nariz y boca.
+- Calcular la orientación de la cabeza (yaw, pitch, roll).
+- Servir como base para funciones adicionales como detección de parpadeo o de bostezo.
+
+El procesamiento corre a más de 25 FPS en hardware estándar, lo que permite una experiencia fluida sin necesidad de GPU dedicada.
+
+## Finger Tracking: manos y dedos como interfaz
+
+Con **MediaPipe Hands** se detectan 21 puntos por mano, lo que permite reconstruir la posición de cada dedo en el espacio. A partir de esos puntos calculamos:
+
+- Qué dedos están extendidos y cuáles doblados.
+- Distancias entre puntas de dedos, útiles para gestos tipo "pellizco".
+- Coordenadas normalizadas que alimentan el clasificador de lenguaje de señas.
+
+Este módulo es la base tanto para gestos de control (como mover el cursor con la mano) como para el reconocimiento de señas.
+
+## Reconocimiento de letras en lenguaje de señas
+
+Sobre los landmarks que entrega el finger tracking, entrenamos un modelo de clasificación que traduce la posición de la mano a una letra del alfabeto dactilológico. El flujo de trabajo fue:
+
+1. Captura de un dataset propio de imágenes por letra, con distintas manos, ángulos e iluminación.
+2. Extracción de landmarks con MediaPipe Hands para cada imagen del dataset.
+3. Entrenamiento de un modelo de clasificación (red densa) sobre las coordenadas normalizadas de los landmarks, en lugar de sobre la imagen cruda.
+4. Inferencia en tiempo real: por cada frame se extraen los landmarks y se predice la letra correspondiente.
+
+Trabajar sobre landmarks en vez de píxeles crudos redujo drásticamente el tamaño del modelo y lo hizo robusto a cambios de iluminación y fondo.
+
+## Reconocimiento de objetos
+
+Para la detección de objetos integramos **YOLOv8**, un modelo preentrenado capaz de identificar decenas de clases (personas, autos, semáforos, señales de tránsito, animales, entre otros) dibujando una caja delimitadora y una etiqueta con el nivel de confianza sobre cada objeto detectado en el frame.
+
+Este módulo corre en paralelo a los anteriores y permite escenarios como contar personas en un video, detectar vehículos o identificar objetos específicos dentro del campo de visión de la cámara.
+
+## Arquitectura del pipeline
+
+1. **Captura**: OpenCV lee el frame de la cámara web.
+2. **Preprocesamiento**: conversión de color (BGR a RGB) y redimensionado.
+3. **Inferencia por módulo**: cada módulo activo (rostro, manos, señas, objetos) procesa el frame de forma independiente.
+4. **Postprocesamiento**: normalización de coordenadas y suavizado temporal para evitar parpadeo en las detecciones.
+5. **Renderizado**: se dibujan landmarks, cajas delimitadoras y etiquetas sobre el frame original con OpenCV.
+6. **Salida**: el frame anotado se muestra en tiempo real o se transmite a otra aplicación.
+
+## Casos de uso
+
+- **Accesibilidad**: traducción de lenguaje de señas a texto para facilitar la comunicación.
+- **Interfaces sin contacto**: control de aplicaciones mediante gestos de mano.
+- **Seguridad y monitoreo**: conteo y clasificación de objetos y personas en una escena.
+- **Educación**: herramientas interactivas para aprender el alfabeto dactilológico.
+
+## Preguntas frecuentes
+
+**¿Se necesita una GPU para correr este sistema?**
+No es obligatorio. MediaPipe está optimizado para CPU y corre en tiempo real en equipos convencionales. YOLO se beneficia de una GPU, pero también funciona en CPU con una tasa de frames menor.
+
+**¿Cómo se entrenó el modelo de lenguaje de señas?**
+Se entrenó sobre coordenadas de landmarks de mano extraídas con MediaPipe, no sobre imágenes crudas, lo que simplifica el modelo y mejora su precisión ante cambios de fondo o iluminación.
+
+**¿Se pueden agregar más gestos o letras?**
+Sí. Al basarse en landmarks normalizados, agregar una nueva clase implica capturar ejemplos adicionales y reentrenar el clasificador, sin modificar el resto del pipeline.
+
+**¿Los cuatro módulos pueden correr al mismo tiempo?**
+Sí, están diseñados para activarse de forma independiente o simultánea sobre el mismo stream de video, según los recursos de hardware disponibles.

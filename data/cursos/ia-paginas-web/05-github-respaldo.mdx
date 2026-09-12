@@ -1,0 +1,75 @@
+---
+title: "GitHub como respaldo y puente de despliegue"
+subtitle: "Sube tu código a la nube con Git: servirá de respaldo y de puente para publicar tu web"
+order: 5
+duration: "12 min"
+keywords: ["git y github", "subir código a github", "crear repositorio github", "desplegar desde github"]
+---
+
+## Para qué necesitas GitHub
+
+GitHub es un servicio **gratuito** donde guardas tu código en la nube. Tiene dos usos clave
+en este curso:
+
+1. **Respaldo**: tu código está a salvo pese a lo que le pase a tu computadora.
+2. **Puente**: Vercel (el siguiente capítulo) lee tu código desde GitHub y lo publica.
+
+<Callout type="tip">
+  Antes de empezar, abre `https://github.com` y crea una cuenta gratuita si no tienes una. Es
+  el único paso que te pide un email: el servicio, y el despliegue, son gratis.
+</Callout>
+
+## Inicializar Git en tu proyecto
+
+Dentro de la carpeta de tu proyecto (con la terminal abierta), escribe:
+
+```bash
+git init
+git add .
+git commit -m "Primera versión de mi web"
+```
+
+<Callout type="nota">
+  <code>git init</code> crea el "historial" del proyecto, <code>git add .</code> marca todos
+  los archivos para guardarlos, y <code>git commit -m "..."</code> toma una foto con un
+  mensaje. Tener fotos de tu avance te permite volver atrás si algo sale mal.
+</Callout>
+
+## Crear el repositorio en GitHub
+
+1. En GitHub, haz clic en **New repository** (New o el botón de crear repositorio).
+2. Ponle un nombre (por ejemplo `mi-primera-web`).
+3. Déjalo en **público** o **privado** (ambos sirven para desplegar; privado lo oculta al público, aunque la web ya desplegada sí será visible).
+4. No marques ninguna de las opciones "crear README" ni ".gitignore": GitHub te dará los comandos listos.
+5. Conecta tu proyecto local a ese repositorio con los comandos que te muestra GitHub. Serán algo como:
+
+```bash
+git remote add origin https://github.com/tu-usuario/mi-primera-web.git
+git branch -M main
+git push -u origin main
+```
+
+Si te pide un usuario y contraseña, autentícate con tu cuenta de GitHub.
+
+## ¡Tu código ya está en la nube!
+
+Al terminar, al recargar la página de tu repositorio verás todos los archivos de tu web.
+Eso significa que tienes un **respaldo seguro** y que ya estás listo para desplegar.
+
+<Callout type="tip">
+  Aprovecha Git también para guardar tus avances: cada vez que hagas un cambio importante,
+  repite <code>git add .</code> y <code>git commit -m "Descripción del cambio"</code>, y
+  luego <code>git push</code> para subirlo. Es un hábito profesional.
+</Callout>
+
+## Qué sigue
+
+Con tu código en GitHub, el último gran paso es publicarlo para que cualquier persona en el
+mundo lo vea. Eso es exactamente lo que hacemos en el capítulo siguiente con Vercel.
+
+## Para recordar
+
+- GitHub guarda tu código gratis y te da un puente para publicar tu web.
+- Inicializa con `git init`, guarda con `git add .` y `git commit`, y sube con `git push`.
+- Conecta la carpeta local a un repositorio en GitHub usando los comandos que este te da.
+- Tener un buen hábito de "commits" es señal de un desarrollo ordenado.

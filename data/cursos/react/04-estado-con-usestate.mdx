@@ -1,0 +1,118 @@
+---
+title: "Estado con useState"
+subtitle: "Cómo hacer que tu interfaz reaccione a las acciones del usuario"
+order: 4
+duration: "14 min"
+keywords: ["useState react", "estado en react", "hooks react", "curso de react", "interactividad react"]
+---
+
+## ¿Qué es el estado?
+
+Los **props** son datos que llegan de afuera y no cambian. Pero una interfaz real necesita **datos
+que cambian** con el tiempo: el contador de "me gusta", lo que el usuario escribió en un campo,
+si un menú está abierto o cerrado. A esos datos cambiantes se les llama **estado** (en inglés,
+*state*).
+
+Para manejar estado en un componente, React nos da un **hook** llamado `useState`.
+
+<Callout type="tip">
+  Un <b>hook</b> es una función especial de React (su nombre empieza con <code>use</code>) que te
+  deja "engancharte" a funcionalidades de React, como el estado, dentro de un componente de
+  función.
+</Callout>
+
+## useState: la sintaxis
+
+`useState` recibe el valor inicial y devuelve un **array con dos elementos**:
+
+1. El valor actual del estado.
+2. Una función para actualizarlo (convención: se llama `set` + nombre).
+
+```jsx
+import { useState } from "react";
+
+function Contador() {
+  const [contador, setContador] = useState(0);
+
+  return (
+    <div>
+      <p>Llevas {contador} clics</p>
+      <button onClick={() => setContador(contador + 1)}>Sumar 1</button>
+    </div>
+  );
+}
+```
+
+- `contador` vale `0` al principio (el valor inicial que le dimos a `useState`).
+- Cada vez que haces clic, `setContador(contador + 1)` actualiza el estado.
+- React **redibuja** el componente con el nuevo valor y la pantalla se actualiza.
+
+<StateFlowDiagram label="contador" escribe="setContador" paraQueSirve="El estado cambia y React redibuja la pantalla" />
+
+## Lo que pasa cuando cambias el estado
+
+Este es el ciclo que hace que todo funcione:
+
+1. El usuario dispara un evento (un clic, una tecla...).
+2. Llamas a la función `set` con el nuevo valor.
+3. React guarda el nuevo estado y **vuelve a ejecutar el componente**.
+4. El JSX ahora muestra el valor nuevo.
+
+Fíjate en algo importante: el estado **no** se modifica "a mano" asignando `contador = 5`. Solo
+cambia **a través de la función** que te dio `useState`. Esa es la forma correcta de decirle a
+React "actualízame".
+
+<Callout type="nota">
+  Nunca hagas <code>contador = 5</code> directamente. React necesita que uses
+  <code>setContador(5)</code> para enterarse del cambio y redibujar. Si asignas directo, la
+  pantalla no se actualiza.
+</Callout>
+
+## Estado con texto (el caso más común)
+
+El caso más frecuente de estado es leer lo que el usuario escribe en un campo de texto. Para eso
+se usa el evento `onChange`:
+
+```jsx
+function Formulario() {
+  const [nombre, setNombre] = useState("");
+
+  return (
+    <div>
+      <input
+        type="text"
+        value={nombre}
+        onChange={(e) => setNombre(e.target.value)}
+        placeholder="Escribe tu nombre"
+      />
+      <p>Hola, {nombre || "escribe algo arriba"} 👋</p>
+    </div>
+  );
+}
+```
+
+Aquí el campo `input` es **controlado**: su `value` viene del estado y su cambio va de vuelta al
+estado con `setNombre`. Es un patrón que verás en casi todas las apps de React.
+
+## ¿Cuándo usar estado y cuándo no?
+
+Una buena regla: **no dupliques estado**. Solo guarda en estado lo que de verdad cambia y afecta
+lo que se muestra. Si un valor se puede calcular a partir de otros datos del estado, calcúlalo en
+vez de guardarlo aparte.
+
+```jsx
+// ❌ Estado duplicado e innecesario
+const [total, setTotal] = useState(0);
+// ...más código que también cambia "cantidad"...
+
+// ✅ Calcula lo derivado sobre la marcha
+const total = cantidad * precioUnitario;
+```
+
+## Para recordar
+
+- El **estado** son los datos que cambian con el tiempo y hacen reaccionar a la interfaz.
+- `useState(valorInicial)` devuelve el valor actual y una función `set` para actualizarlo.
+- Cambia el estado **solo** a través de la función `set`; nunca asignes directo.
+- Usa `onChange` + estado para campos de texto controlados.
+- No dupliques estado: calcula los valores derivados.

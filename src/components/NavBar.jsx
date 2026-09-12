@@ -44,6 +44,12 @@ export default function NavBar() {
                 {t("nav.blog")}
               </Link>
               <Link
+                href="/cursos"
+                className={`inline-block rounded-lg py-1 px-2 text-sm text-slate-700 hover:bg-slate-100 ${activeURL.startsWith("/cursos") ? "active" : ""}`}
+              >
+                {t("nav.cursos")}
+              </Link>
+              <Link
                 href="/proyectos"
                 className={`inline-block rounded-lg py-1 px-2 text-sm text-slate-700 hover:bg-slate-100 ${activeURL === "/proyectos" ? " active" : ""}`}
               >
@@ -117,6 +123,9 @@ export default function NavBar() {
         </Link>
         <Link href="/blog" className={`menuItem inline-block rounded-lg py-1 px-2 text-sm text-slate-700 hover:bg-slate-100 ${activeURL === "/blog" ? "active" : ""}`}>
           {t("nav.blog")}
+        </Link>
+        <Link href="/cursos" className={`menuItem inline-block rounded-lg py-1 px-2 text-sm text-slate-700 hover:bg-slate-100 ${activeURL.startsWith("/cursos") ? "active" : ""}`}>
+          {t("nav.cursos")}
         </Link>
         <Link href="/proyectos" className={`menuItem inline-block rounded-lg py-1 px-2 text-sm text-slate-700 hover:bg-slate-100 ${activeURL === "/proyectos" ? " active" : ""}`}>
           {t("nav.projects")}

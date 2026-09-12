@@ -1,7 +1,13 @@
 import Link from "next/link";
 import { useRouter } from "next/router";
 
-const CourseLayout = ({ chapters, currentSlug, children }) => {
+const CourseLayout = ({
+  chapters,
+  currentSlug,
+  children,
+  courseUrl = "/cursos/javascript",
+  courseLabel = "JavaScript",
+}) => {
   const router = useRouter();
   const sorted = [...chapters].sort((a, b) => a.order - b.order);
   const currentIndex = sorted.findIndex((c) => c.slug === currentSlug);
@@ -16,8 +22,8 @@ const CourseLayout = ({ chapters, currentSlug, children }) => {
           Cursos
         </Link>
         {" / "}
-        <Link href="/cursos/javascript" style={{ color: "#64748b" }}>
-          JavaScript
+        <Link href={courseUrl} style={{ color: "#64748b" }}>
+          {courseLabel}
         </Link>
         {" / "}
         <span style={{ color: "#1a1a2e", fontWeight: 600 }}>{current?.title}</span>
@@ -53,7 +59,7 @@ const CourseLayout = ({ chapters, currentSlug, children }) => {
               return (
                 <li key={chapter.slug}>
                   <Link
-                    href={`/cursos/javascript/${chapter.slug}`}
+                    href={`${courseUrl}/${chapter.slug}`}
                     style={{
                       display: "block",
                       padding: "8px 10px",
@@ -77,7 +83,7 @@ const CourseLayout = ({ chapters, currentSlug, children }) => {
           <select
             value={currentSlug}
             onChange={(e) => {
-              router.push(`/cursos/javascript/${e.target.value}`, undefined, { locale: router.locale });
+              router.push(`${courseUrl}/${e.target.value}`, undefined, { locale: router.locale });
             }}
             aria-label="Seleccionar capítulo"
             style={{ width: "100%", padding: "10px 12px", borderRadius: "8px", border: "1px solid #e5e7eb", fontSize: "0.9rem" }}
@@ -117,7 +123,7 @@ const CourseLayout = ({ chapters, currentSlug, children }) => {
             }}
           >
             {prev ? (
-              <Link href={`/cursos/javascript/${prev.slug}`} style={{ color: "#0072ff", fontWeight: 600, fontSize: "0.9rem" }}>
+              <Link href={`${courseUrl}/${prev.slug}`} style={{ color: "#0072ff", fontWeight: 600, fontSize: "0.9rem" }}>
                 ← {prev.title}
               </Link>
             ) : (
@@ -125,7 +131,7 @@ const CourseLayout = ({ chapters, currentSlug, children }) => {
             )}
             {next ? (
               <Link
-                href={`/cursos/javascript/${next.slug}`}
+                href={`${courseUrl}/${next.slug}`}
                 style={{ color: "#0072ff", fontWeight: 600, fontSize: "0.9rem", textAlign: "right" }}
               >
                 {next.title} →

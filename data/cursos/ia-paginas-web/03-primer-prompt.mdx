@@ -1,0 +1,88 @@
+---
+title: "Tu primera web con IA: el primer prompt"
+subtitle: "El primer proyecto es el que más cuesta: aquí te muestro exactamente qué pedirle a la IA"
+order: 3
+duration: "14 min"
+keywords: ["opencode crear página web", "prompt para crear web", "first prompt ia web", "primer proyecto nextjs con ia"]
+---
+
+## Dentro de OpenCode
+
+Ya tienes la carpeta de tu proyecto abierta y la terminal lista. Ahora inicia OpenCode desde
+esa carpeta:
+
+```bash
+opencode
+```
+
+Se abre una sesión interactiva. Es aquí donde le escribes a la IA lo que quieres, en tu
+idioma, y ella crea y edita los archivos.
+
+<Callout type="tip">
+  En lugar de partir de cero, pídele a OpenCode que use un **iniciador oficial**. La primera
+  vez escribe el prompt que te doy más abajo y deja que la IA prepare todo el proyecto por ti.
+</Callout>
+
+## El prompt que arranca todo
+
+Este es el mensaje inicial que usaremos (lo llamamos *prompt*). Se lo escribes a OpenCode
+así:
+
+> "Quiero crear un sitio web de tipo **blog personal**. Usa Next.js. Necesito una portada con
+> mi nombre, una sección de proyectos, una página de blog y una de contacto. Dame una
+> estructura limpia y moderna. Si hay que instalar dependencias, hazlo tú."
+
+Cópialo, pégalo y pulsa Enter. Observa lo que ocurre: la IA **lee, planifica y escribe**
+archivos, y muchas veces instala lo que falta por sí misma.
+
+<Callout type="nota">
+  Un buen prompt es **concreto**: dice qué tipo de web (<em>blog personal</em>), qué página
+  (portada, proyectos, blog, contacto) y qué tono (<em>limpio y moderno</em>). A más claridad,
+  mejor resultado.
+</Callout>
+
+## Qué deberías ver después del prompt
+
+Si todo salió bien, tu carpeta tendrá algo parecido a esto:
+
+- Una carpeta de **componentes** (la "piel" de la página).
+- Una carpeta de **páginas** o **rutas** (portada, blog, contacto...).
+- Archivos de **estilos** y de configuración del proyecto.
+- Un archivo `package.json` con las dependencias (generado por Next.js).
+
+No hace falta que entiendas cada archivo. Lo importante: tu proyecto ya tiene forma.
+
+## Tu primer "bucle de construcción"
+
+La magia empieza cuando tú y la IA se turnan:
+
+1. **Tú pides** una mejora o un cambio.
+2. **La IA lo implementa**.
+3. **Tú miras** el resultado.
+4. Repites.
+
+Tu primera petición de ajuste podría ser tan simple como:
+
+> "Haz que la portada tenga fondo azul oscuro y cambia el título a 'Mi primer portafolio'."
+
+Ese es el ciclo completo de trabajar con IA: **pedir → revisar → ajustar → repetir**.
+
+## Previsualiza tu web en tu computadora
+
+Mientras construyes, necesitas ver lo que tienes. Pide a OpenCode que inicie el servidor de
+desarrollo (o hazlo tú):
+
+```bash
+npm run dev
+```
+
+Abre el navegador en la dirección que te muestre (normalmente `http://localhost:3000`).
+Cada vez que guardes un cambio, la página se actualiza sola. En el próximo capítulo verás
+cómo mejorar el diseño y qué pedirle a la IA.
+
+## Para recordar
+
+- Se inicia OpenCode con `opencode` dentro de la carpeta del proyecto.
+- El prompt ideal es concreto: tipo de web + páginas + tono.
+- La IA escribe los archivos; tú decides qué cambiar a continuación.
+- Previsualiza en el navegador con `npm run dev` mientras trabajas.

@@ -1,0 +1,28 @@
+.pageHeader{padding:48px 60px 32px;background:#000008;border-bottom:1px solid #0a0a20}
+.backLink{display:inline-block;color:#00f5ff;font-size:14px;font-weight:500;text-decoration:none;margin-bottom:20px;transition:color .2s}
+.backLink:hover{color:#7b68ee}
+.pageTitle{font-size:40px;font-weight:800;color:#fff;margin:0 0 12px;letter-spacing:-.5px}
+.pageSubtitle{font-size:16px;color:#374151;margin:0;max-width:600px;line-height:1.6}
+.demoSection{background:#000008;padding:32px 60px 48px}
+.demoLabel{font-size:11px;font-weight:700;letter-spacing:2px;text-transform:uppercase;color:#151528;margin-bottom:16px}
+.bannerWrapper{position:relative;width:100%;height:520px;overflow:hidden;border-radius:20px;background:#000008;border:1px solid #0a0a20;box-shadow:0 0 60px rgba(0,245,255,.04)}
+.bannerContent{position:absolute;inset:0;z-index:3;display:flex;flex-direction:column;justify-content:center;align-items:flex-start;padding:60px 80px;gap:24px;pointer-events:none}
+.badge{display:inline-block;padding:6px 18px;border:1px solid rgba(0,245,255,.3);color:#00f5ff;font-size:11px;font-weight:700;letter-spacing:2px;text-transform:uppercase;border-radius:999px;background:rgba(0,245,255,.04)}
+.title{font-size:52px;font-weight:900;color:#fff;margin:0;line-height:1.1;letter-spacing:-1px;text-shadow:0 0 30px rgba(0,245,255,.15)}
+.titleLight{font-weight:300;color:#7b68ee}
+.tagline{font-size:16px;color:#374151;margin:0;max-width:480px;line-height:1.6;font-weight:300}
+.buttons{display:flex;gap:16px;pointer-events:auto}
+.btnPrimary{background:#00f5ff;color:#000008;border:none;padding:13px 30px;border-radius:12px;font-size:15px;font-weight:700;cursor:pointer;transition:background .2s,transform .15s;box-shadow:0 8px 30px rgba(0,245,255,.3)}
+.btnPrimary:hover{background:#7b68ee;color:#fff;transform:translateY(-1px)}
+.btnSecondary{background:transparent;color:#fff;border:1px solid rgba(255,255,255,.15);padding:13px 30px;border-radius:12px;font-size:15px;font-weight:700;cursor:pointer;transition:border-color .2s,transform .15s}
+.btnSecondary:hover{border-color:#00f5ff;transform:translateY(-1px)}
+.detailsSection{background:#000008;padding:48px 60px 80px;border-top:1px solid #0a0a20}
+.grid{display:grid;grid-template-columns:1fr 1fr;gap:24px;max-width:1100px}
+.card,.codeCard{background:#05050f;border:1px solid #0a0a20;border-radius:14px;padding:28px}
+.cardTitle{font-size:15px;font-weight:700;color:#e2e8f0;margin:0 0 16px}
+.list{list-style:none;padding:0;margin:0;display:flex;flex-direction:column;gap:10px}
+.list li{font-size:13px;color:#374151;padding-left:16px;position:relative;line-height:1.5}
+.list li::before{content:"▸";position:absolute;left:0;color:#00f5ff;font-size:11px}
+.list code{background:#0a0a20;color:#7b68ee;padding:1px 6px;border-radius:4px;font-size:11px;font-family:monospace}
+.code{background:#020208;border:1px solid #0a0a20;border-radius:10px;padding:20px;font-family:"Fira Code","Courier New",monospace;font-size:12px;color:#374151;line-height:1.7;overflow-x:auto;white-space:pre;margin:0}
+@media(max-width:768px){.pageHeader,.demoSection,.detailsSection{padding-left:24px;padding-right:24px}.bannerWrapper{height:400px}.bannerContent{padding:32px 28px}.title{font-size:34px}.grid{grid-template-columns:1fr}}

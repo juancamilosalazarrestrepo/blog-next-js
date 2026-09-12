@@ -1,0 +1,130 @@
+---
+title: "Efectos con useEffect"
+subtitle: "Cómo sincronizar tu componente con cosas que pasan fuera de él"
+order: 5
+duration: "14 min"
+keywords: ["useEffect react", "efectos react", "hooks react", "curso de react", "ciclo de vida react"]
+---
+
+## ¿Qué es un efecto?
+
+Un componente no solo dibuja JSX; a veces necesita **hacer algo que ocurre "afuera"** de su propio
+renderizado. Por ejemplo:
+
+- Cargar datos desde un servidor cuando el componente aparece.
+- Suscribirse a algo o guardar un valor en el almacenamiento del navegador.
+- Actualizar el título de la pestaña, o un temporizador.
+
+Ese tipo de tareas no se pueden hacer "dentro" del render porque romperían el flujo normal. Para
+eso React nos da otro hook: **`useEffect`**.
+
+<Callout type="tip">
+  <code>useEffect</code> responde a la pregunta: <i>"¿qué debe pasar cuando mi componente se
+  monta, se actualiza o se desmonta?"</i>. Todo eso es lo que en teoría se llama el
+  <b>ciclo de vida</b> del componente.
+</Callout>
+
+## La sintaxis de useEffect
+
+`useEffect` recibe **dos argumentos**:
+
+1. La función que quieres ejecutar (el *efecto*).
+2. Un **array de dependencias** que le dice a React *cuándo* volver a ejecutarlo.
+
+```jsx
+import { useEffect } from "react";
+
+function Pagina() {
+  useEffect(() => {
+    console.log("La página cargó");
+  }, []);
+
+  return <h1>Hola</h1>;
+}
+```
+
+## El array de dependencias: la clave
+
+El segundo argumento controla la frecuencia con la que se ejecuta el efecto:
+
+| Dependencias | Comportamiento |
+| --- | --- |
+| `[]` (vacío) | Se ejecuta **una sola vez** al montar el componente |
+| `[valor]` | Se ejecuta al montar, y cada vez que `valor` cambie |
+| (sin array) | Se ejecuta al montar y **en cada** render |
+
+```jsx
+// Solo al montar (ideal para cargar datos iniciales)
+useEffect(() => {
+  console.log("Solo una vez");
+}, []);
+
+// Cada vez que "usuario" cambie
+useEffect(() => {
+  console.log("Usuario cambió:", usuario);
+}, [usuario]);
+```
+
+<Callout type="nota">
+  Regla de oro: incluye en el array <b>todas</b> las variables externas que el efecto usa dentro.
+  Si usas <code>usuario</code> dentro del efecto, ponlo en las dependencias. Así el efecto se
+  mantiene en sincronía con los datos reales.
+</Callout>
+
+## Un efecto de la vida real: cargar datos
+
+La tarea más común con `useEffect` es traer datos de una API cuando el componente se monta:
+
+```jsx
+function ListaUsuarios() {
+  const [usuarios, setUsuarios] = useState([]);
+
+  useEffect(() => {
+    fetch("https://api.ejemplo.com/usuarios")
+      .then((res) => res.json())
+      .then((datos) => setUsuarios(datos));
+  }, []); // 🚀 Solo al montar
+
+  return (
+    <ul>
+      {usuarios.map((u) => (
+        <li key={u.id}>{u.nombre}</li>
+      ))}
+    </ul>
+  );
+}
+```
+
+Aquí se combinan dos hooks: `useEffect` (para disparar la petición una vez) y `useState` (para
+guardar el resultado). Mientras la petición viaja, el estado está vacío; cuando llega la
+respuesta, `setUsuarios` actualiza el estado y React redibuja la lista.
+
+## Hacer listas en JSX con .map
+
+Ese ejemplo usa **`.map`**, la forma estándar de dibujar listas en React. Recuerda del curso de
+JavaScript cómo funciona: `.map` recorre un array y devuelve un array nuevo, y en JSX cada
+elemento del resultado se renderiza.
+
+```jsx
+const frutas = ["Manzana", "Banana", "Uva"];
+
+// Devuelve un <li> por cada fruta
+<ul>
+  {frutas.map((fruta, indice) => (
+    <li key={indice}>{fruta}</li>
+  ))}
+</ul>
+```
+
+<Callout type="tip">
+  A cada elemento de una lista hay que darle un <code>key</code> único (a menudo el <code>id</code>
+  de los datos). Ayuda a React a saber qué elementos cambian, se añaden o se eliminan.
+</Callout>
+
+## Para recordar
+
+- `useEffect` ejecuta tareas que ocurren "afuera" del render: cargar datos, temporizadores, etc.
+- Recibe una función y un **array de dependencias** que controla cuándo se ejecuta.
+- `[]` = solo al montar; `[algo]` = también cuando `algo` cambie.
+- Usa `useState` + `useEffect` para cargar datos de una API.
+- Dibuja listas con **`.map`** y dale un `key` único a cada elemento.

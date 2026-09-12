@@ -16,6 +16,22 @@ import mundialSimulator from "../../public/images/mundial-simulator-portada.webp
 // `titulo` y `description` se mantienen como fallback (español).
 const proyectos = [
   {
+    key: "sistema_crm",
+    titulo: "Sistema CRM - Gestión de Clientes y Ventas",
+    imagen: "https://images.pexels.com/photos/1181467/pexels-photo-1181467.jpeg?auto=compress&cs=tinysrgb&w=600",
+    description:
+      "Sistema CRM completo (Customer Relationship Management) para gestionar clientes, oportunidades de venta, seguimiento de contactos y analíticas. Desarrollado con Next.js, TypeScript y base de datos PostgreSQL.",
+    url: "/proyectos/sistema_crm",
+  },
+  {
+    key: "reconocimiento_lenguaje_senas",
+    titulo: "Reconocimiento de Lenguaje de Señas con Visión Artificial",
+    imagen: "https://images.pexels.com/photos/415829/pexels-photo-415829.jpeg?auto=compress&cs=tinysrgb&w=600",
+    description:
+      "Sistema de visión artificial que reconoce y traduce lenguaje de señas en tiempo real. Usa MediaPipe para el seguimiento de manos y una red neuronal (TensorFlow/Keras) para clasificar cada gesto en letras y palabras.",
+    url: "/proyectos/reconocimiento_lenguaje_senas",
+  },
+  {
     key: "mundial_simulator",
     titulo: "Mundial Simulator — Simulador del Mundial 2026 + TCG",
     imagen: mundialSimulator,

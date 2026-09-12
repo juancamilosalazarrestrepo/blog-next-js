@@ -1,0 +1,71 @@
+---
+title: "Despliega gratis en Vercel y consigue dominio propio"
+subtitle: "Publica tu web en internet con Vercel, gratis, y conéctale tu propio dominio"
+order: 6
+duration: "12 min"
+keywords: ["desplegar web en vercel gratis", "vercel deploy", "dominio propio gratis web", "publicar página web gratis"]
+---
+
+## Vercel: tu web en internet en minutos
+
+Vercel es la plataforma que **despliega** sitios construidos con Next.js y otras tecnologías.
+Su plan gratuito es perfecto para tu primera web: publica tu proyecto y te da un dominio
+propio de Vercel al instante.
+
+<Callout type="tip">
+  "Desplegar" significa llevar tu código de tu computadora y GitHub a servidores de internet,
+  para que cualquier persona con un enlace pueda ver tu sitio. Vercel lo hace casi automático.
+</Callout>
+
+## Cómo desplegar por primera vez
+
+1. Abre **Vercel** en `https://vercel.com` e inicia sesión con tu cuenta de GitHub (te pedirá
+   autorizar a Vercel para leer tus repositorios).
+2. Pulsa **Add New → Project** (Añadir proyecto).
+3. Vercel mostrará tus repositorios de GitHub. Selecciona `mi-primera-web`.
+4. Vercel detecta automáticamente el tipo de proyecto (Next.js). No cambies nada.
+5. Pulsa **Deploy** (Desplegar) y espera un minuto o dos.
+
+Cuando termine, verás un enlace que se ve así:
+
+```
+https://mi-primera-web.vercel.app
+```
+
+Ese es tu sitio **ya publicado**, visible en todo el mundo. Compártelo con quien quieras.
+
+<Callout type="nota">
+  Si haces cambios, vuelve a hacer <code>git push</code>. Vercel observa tu repositorio y,
+  cada vez que subes un commit, **redespliega automáticamente**. No tienes que repetir el
+  proceso de arriba.
+</Callout>
+
+## Conecta tu propio dominio
+
+Mientras tengas el dominio de Vercel es suficiente. Pero si quieres un dominio propio
+(tu-nombre.com, por ejemplo), estos son los pasos:
+
+1. Compra un dominio en un proveedor de dominios (puede ser en Vercel mismo u otro servicio).
+2. En el panel de tu proyecto en Vercel, ve a **Settings → Domains** (Configuración → Dominios).
+3. Escribe tu dominio y pulsa **Add** (Añadir).
+4. Sigue las instrucciones de configuración de **DNS** que te da Vercel (suele ser añadir un
+   registro de tipo `CNAME` que apunta a tu proyecto).
+5. Espera unos minutos para que el cambio se propague por internet.
+
+<Callout type="tip">
+  Configurar un dominio puede tardar unos minutos en "activarse" (propagación DNS). Si al
+  principio no carga, espera un poco y recarga.
+</Callout>
+
+## Después de desplegar
+
+¡Tu web está viva! Ahora disfruta del resultado y sigue mejorándola. Aunque tengas el
+dominio de Vercel o uno propio, el enlace funciona para todos.
+
+## Para recordar
+
+- Vercel despliega tu web gratis y conectándose a tu cuenta de GitHub.
+- Añade tu repositorio, pulsa Deploy y obtén un dominio de Vercel automático.
+- Cada `git push` redespliega tu web automáticamente.
+- Puedes conectar un dominio propio desde Settings → Domains.
+- Tu sitio queda accesible para todo el mundo de forma gratuita.

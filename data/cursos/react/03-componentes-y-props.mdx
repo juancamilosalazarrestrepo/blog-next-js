@@ -1,0 +1,113 @@
+---
+title: "Componentes y props"
+subtitle: "Cómo crear componentes reutilizables y pasarles datos de padre a hijo"
+order: 3
+duration: "14 min"
+keywords: ["componentes react", "props react", "reutilizar componentes", "curso de react", "props y componentes"]
+---
+
+## React: componentes y props
+
+Los **props** (abreviatura de *properties*, propiedades) son **los datos que un componente recibe
+de su padre**. Son la forma principal de pasar información por el árbol de componentes. Se parecen
+a los parámetros de una función: un componente con props distintas dibuja contenido distinto.
+
+<Callout type="tip">
+  Piensa en un componente como en una función del capítulo de funciones de JavaScript: los props
+  son sus <b>parámetros</b> y el JSX que devuelve es su <b>resultado</b>. Eso te lo va a aclarar
+  todo.
+</Callout>
+
+## Crear y usar un componente con props
+
+```jsx
+// Definimos el componente. Recibe "props" como parámetro.
+function Avatar({ nombre, url }) {
+  return (
+    <div>
+      <img src={url} alt={nombre} />
+      <p>{nombre}</p>
+    </div>
+  );
+}
+
+// Lo usamos varias veces con datos distintos.
+function App() {
+  return (
+    <div>
+      <Avatar nombre="Camilo" url="/foto-camilo.jpg" />
+      <Avatar nombre="Ana" url="/foto-ana.jpg" />
+    </div>
+  );
+}
+```
+
+Aquí, `App` (el padre) le pasa a `Avatar` (el hijo) las props `nombre` y `url`. Cada `Avatar`
+se dibuja con sus propios datos. ¡Un solo componente, muchos usos!
+
+<ComponenteDiagram root="App" children={["Avatar (Camilo)", "Avatar (Ana)"]} />
+
+## Los datos solo bajan
+
+Es clave entender la dirección de los datos en React: la información **siempre fluye de padre a
+hijo** (de arriba hacia abajo). Un hijo **no puede** modificar los props que recibe; solo los
+lee y los muestra.
+
+```jsx
+function Hijo({ mensaje }) {
+  // ✅ Puedes leer "mensaje"
+  // ❌ Puedes intentar asignarle: mensaje = "otra cosa" (error con React)
+  return <p>{mensaje}</p>;
+}
+```
+
+<Callout type="nota">
+  Esta regla de "datos solo bajan" (en inglés, <i>data flows down</i>) mantiene la app predecible:
+  sabes exactamente de dónde viene cada dato mirando el árbol de componentes.
+</Callout>
+
+## Propiedades con valores por defecto
+
+Puedes dar valores por defecto a los props para que un componente funcione incluso si el padre no
+le pasa algo:
+
+```jsx
+function Saludo({ nombre = "invitado" }) {
+  return <h1>¡Hola, {nombre}!</h1>;
+}
+
+<Saludo />             {/* "¡Hola, invitado!" */}
+<Saludo nombre="Ana" /> {/* "¡Hola, Ana!" */}
+```
+
+Si el prop `nombre` no se pasa, se usa el valor por defecto `"invitado"`.
+
+## children: el contenido que rodea
+
+Existe un prop especial llamado **children** que recibe todo lo que coloques *entre* las etiquetas
+de apertura y cierre del componente. Es perfecto para crear contenedores reutilizables:
+
+```jsx
+function Caja({ titulo, children }) {
+  return (
+    <section>
+      <h2>{titulo}</h2>
+      {children}
+    </section>
+  );
+}
+
+<Caja titulo="Últimas noticias">
+  <p>Noticia uno</p>
+  <p>Noticia dos</p>
+</Caja>
+```
+
+El contenido entre `<Caja>` y `</Caja>` (los dos `<p>`) llega al componente dentro de `children`.
+
+## Para recordar
+
+- Los **props** son los datos que un componente recibe de su padre.
+- Un componente con props distintas = una función con parámetros distintos.
+- Los datos **solo bajan**: de padre a hijo; el hijo no modifica sus props.
+- Usa valores por defecto y el prop especial `children` para flexibilidad.

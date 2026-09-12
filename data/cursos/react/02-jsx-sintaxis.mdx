@@ -1,0 +1,108 @@
+---
+title: "JSX: la sintaxis de React"
+subtitle: "Cómo escribir HTML dentro de JavaScript y las reglas que debes conocer"
+order: 2
+duration: "12 min"
+keywords: ["jsx", "jsx en react", "sintaxis react", "curso de react", "renderizar con react"]
+---
+
+## ¿Qué es JSX?
+
+**JSX** es una extensión de JavaScript que te permite escribir **HTML dentro de tu código
+JavaScript** de forma parecida a cómo escribes un componente de una página web. Es la sintaxis
+que usas para decirle a React *"así se debe ver esto"*.
+
+```jsx
+const saludo = <h1>¡Hola, mundo!</h1>;
+```
+
+Eso de arriba parece HTML, pero es JSX: una forma de crear un elemento de React de manera
+declarativa. React luego lo convierte en lo que el navegador entiende.
+
+<Callout type="tip">
+  Hasta ahora, en el curso de JavaScript separábamos HTML y JavaScript. Con JSX esa barrera
+  desaparece: estructura y lógica viven juntas en el mismo componente, que es justo lo que
+  hace a React tan productivo.
+</Callout>
+
+## Dos reglas de oro del JSX
+
+Para que el navegador no se confunda, hay dos reglas que debes cumplir siempre:
+
+1. **Un solo elemento raíz**: un componente debe devolver *un solo* elemento que envuelva a los
+   demás. Si tienes varios, envuélvelos con un fragmento `<>...</>`.
+
+```jsx
+// ❌ Dos elementos raíz: error
+return (
+  <h1>Título</h1>
+  <p>Texto</p>
+);
+
+// ✅ Un solo elemento raíz con fragmento
+return (
+  <>
+    <h1>Título</h1>
+    <p>Texto</p>
+  </>
+);
+```
+
+2. **Las etiquetas siempre se cierran**: en HTML puedes escribir `<img>` y dejarlo abierto; en
+   JSX todo elemento que no tenga contenido debe cerrarse solo: `<img />`.
+
+## Expresiones dentro de JSX con llaves
+
+La parte más poderosa de JSX es que puedes insertar **cualquier expresión de JavaScript** usando
+llaves `{ }`. Todo lo que haya dentro de las llaves se evalúa y su resultado se renderiza.
+
+```jsx
+const nombre = "Camilo";
+const edad = 27;
+const esCamilo = true;
+
+return (
+  <div>
+    <p>Hola, {nombre}</p>
+    <p>Tienes {edad + 1} años el año que viene</p>
+    <p>{esCamilo ? "Es Camilo" : "No es Camilo"}</p>
+    <p>{2 * 3}</p>
+  </div>
+);
+```
+
+<Callout type="nota">
+  Dentro de las llaves puedes usar <b>cualquier expresión</b> que produzca un valor: variables,
+  operaciones, condicionales ternarios, llamadas a funciones, arrays... Pero <b>no</b> puedes
+  escribir sentencias como <code>if</code> o <code>for</code> dentro de las llaves.
+</Callout>
+
+## Diferencias con HTML que debes conocer
+
+Aunque JSX se vea como HTML, hay varias diferencias importantes:
+
+| HTML | JSX | Razón |
+| --- | --- | --- |
+| `class` | `className` | `class` es palabra reservada en JS |
+| `for` | `htmlFor` | `for` es palabra reservada en JS |
+| `onclick` | `onClick` | JSX usa camelCase para eventos |
+| `style="color:red"` | `style={{ color: "red" }}` | El estilo es un objeto JS |
+
+```jsx
+return (
+  <button
+    className="boton"
+    onClick={manejarClick}
+    style={{ color: "#0072ff", fontWeight: 700 }}
+  >
+    Haz clic
+  </button>
+);
+```
+
+## Para recordar
+
+- JSX te deja escribir HTML dentro de JavaScript de forma declarativa.
+- Un componente devuelve **un solo** elemento raíz (usa fragmentos `<>` `</>`).
+- Usa **llaves** `{ }` para insertar expresiones de JavaScript en el JSX.
+- Algunas etiquetas cambian en JSX: `className`, `htmlFor`, `onClick`, estilos como objeto.

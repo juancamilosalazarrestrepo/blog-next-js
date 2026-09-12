@@ -67,6 +67,120 @@ const Certificados = ({ certificados }) => {
             </div>
             <span style={{ flexShrink: 0, color: "#0072ff", fontWeight: 700 }}>Ver curso →</span>
           </Link>
+          <Link
+            href="/cursos/ia-paginas-web"
+            style={{
+              display: "flex",
+              alignItems: "center",
+              gap: "20px",
+              padding: "24px",
+              borderRadius: "14px",
+              border: "1px solid #e5e7eb",
+              textDecoration: "none",
+              maxWidth: "560px",
+            }}
+          >
+            <span
+              style={{
+                flexShrink: 0,
+                width: "56px",
+                height: "56px",
+                borderRadius: "12px",
+                background: "linear-gradient(135deg, #0072ff, #7c3aed)",
+                display: "flex",
+                alignItems: "center",
+                justifyContent: "center",
+                fontSize: "1.6rem",
+              }}
+            >
+              🤖
+            </span>
+            <div style={{ flex: 1 }}>
+              <p style={{ fontWeight: 700, color: "#1a1a2e", fontSize: "1.05rem", marginBottom: "4px" }}>
+                Curso de IA: Crea tu primera página web desde cero
+              </p>
+              <p style={{ color: "#64748b", fontSize: "0.9rem", margin: 0 }}>
+                7 capítulos gratis · ~78 min · Con OpenCode y despliega gratis en Vercel
+              </p>
+            </div>
+            <span style={{ flexShrink: 0, color: "#0072ff", fontWeight: 700 }}>Ver curso →</span>
+          </Link>
+          <Link
+            href="/cursos/react"
+            style={{
+              display: "flex",
+              alignItems: "center",
+              gap: "20px",
+              padding: "24px",
+              borderRadius: "14px",
+              border: "1px solid #e5e7eb",
+              textDecoration: "none",
+              maxWidth: "560px",
+            }}
+          >
+            <span
+              style={{
+                flexShrink: 0,
+                width: "56px",
+                height: "56px",
+                borderRadius: "12px",
+                background: "linear-gradient(135deg, #61dafb, #0072ff)",
+                display: "flex",
+                alignItems: "center",
+                justifyContent: "center",
+                fontSize: "1.6rem",
+              }}
+            >
+              ⚛️
+            </span>
+            <div style={{ flex: 1 }}>
+              <p style={{ fontWeight: 700, color: "#1a1a2e", fontSize: "1.05rem", marginBottom: "4px" }}>
+                Curso de React: Construye tus primeras interfaces
+              </p>
+              <p style={{ color: "#64748b", fontSize: "0.9rem", margin: 0 }}>
+                6 capítulos gratis · ~84 min · Componentes, JSX, props, estado y efectos
+              </p>
+            </div>
+            <span style={{ flexShrink: 0, color: "#0072ff", fontWeight: 700 }}>Ver curso →</span>
+          </Link>
+          <Link
+            href="/cursos/spec-driven-development"
+            style={{
+              display: "flex",
+              alignItems: "center",
+              gap: "20px",
+              padding: "24px",
+              borderRadius: "14px",
+              border: "1px solid #e5e7eb",
+              textDecoration: "none",
+              maxWidth: "560px",
+            }}
+          >
+            <span
+              style={{
+                flexShrink: 0,
+                width: "56px",
+                height: "56px",
+                borderRadius: "12px",
+                background: "linear-gradient(135deg, #0072ff, #7c3aed)",
+                display: "flex",
+                alignItems: "center",
+                justifyContent: "center",
+                fontSize: "1.6rem",
+              }}
+            >
+              📋
+            </span>
+            <div style={{ flex: 1 }}>
+              <p style={{ fontWeight: 700, color: "#1a1a2e", fontSize: "1.05rem", marginBottom: "4px" }}>
+                Spec-Driven Development: Desarrolla software con especificaciones e IA
+              </p>
+              <p style={{ color: "#64748b", fontSize: "0.9rem", margin: 0 }}>
+                7 capítulos gratis · ~90 min · Especificaciones, planificación e implementación con IA
+              </p>
+            </div>
+            <span style={{ flexShrink: 0, color: "#0072ff", fontWeight: 700 }}>Ver curso →</span>
+          </Link>
         </section>
 
         <div className="grid grid-cols-3 gap-4 content-center max-sm:grid-cols-1 max-sm:w-full  max-sm:px-8 mt-20">

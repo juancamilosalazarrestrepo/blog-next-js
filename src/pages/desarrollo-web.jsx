@@ -15,15 +15,76 @@ export async function getStaticProps({ locale }) {
   };
 }
 
+const desarrolloWebSchema = {
+    "@context": "https://schema.org",
+    "@graph": [
+        {
+            "@type": "Service",
+            "serviceType": "Desarrollo de páginas web profesionales",
+            "provider": {
+                "@type": "Organization",
+                "name": "Salazar Code",
+                "url": "https://salazarcode.com",
+            },
+            "areaServed": { "@type": "Country", "name": "Colombia" },
+            "description": "Diseño y desarrollo de plataformas web rápidas, responsivas y optimizadas para SEO con Next.js y React.",
+            "offers": {
+                "@type": "Offer",
+                "priceCurrency": "COP",
+                "availability": "https://schema.org/InStock",
+                "url": "https://salazarcode.com/precios",
+            },
+        },
+        {
+            "@type": "FAQPage",
+            "mainEntity": [
+                {
+                    "@type": "Question",
+                    "name": "¿Cuánto cuesta una página web profesional?",
+                    "acceptedAnswer": {
+                        "@type": "Answer",
+                        "text": "El precio depende del alcance del proyecto (número de páginas, e-commerce, integraciones). Ofrecemos paquetes a medida; solicita una cotización gratuita y te enviamos una propuesta personalizada.",
+                    },
+                },
+                {
+                    "@type": "Question",
+                    "name": "¿En cuánto tiempo entregan una página web?",
+                    "acceptedAnswer": {
+                        "@type": "Answer",
+                        "text": "Un sitio corporativo suele entregarse entre 2 y 4 semanas, y una tienda online entre 4 y 8 semanas, según los requisitos y la disponibilidad de contenidos.",
+                    },
+                },
+                {
+                    "@type": "Question",
+                    "name": "¿Las páginas están optimizadas para SEO y velocidad?",
+                    "acceptedAnswer": {
+                        "@type": "Answer",
+                        "text": "Sí. Desarrollamos con Next.js y React aplicando buenas prácticas de SEO técnico, Core Web Vitals y rendimiento para que tu sitio cargue rápido y posicione en Google.",
+                    },
+                },
+                {
+                    "@type": "Question",
+                    "name": "¿Ofrecen mantenimiento después de la entrega?",
+                    "acceptedAnswer": {
+                        "@type": "Answer",
+                        "text": "Sí, ofrecemos planes de mantenimiento y soporte continuo para actualizaciones, mejoras y seguridad de tu sitio web.",
+                    },
+                },
+            ],
+        },
+    ],
+};
+
 export default function DesarrolloWeb() {
     const phoneNumber = "573042093951";
 
     return (
         <Layout>
-            <SEO 
+            <SEO
                 title="Desarrollo de Páginas Web Profesionales y Modernas"
                 description="Diseño y desarrollo de plataformas web rápidas, responsivas y optimizadas para SEO. Expertos en E-commerce, Next.js y React."
                 keywords={['desarrollo de paginas web', 'diseño web profesional', 'programador web freelance', 'sitios web en nextjs', 'paginas de alta velocidad', 'desarrollo ecommerce']}
+                schema={desarrolloWebSchema}
                 image="https://lh3.googleusercontent.com/aida-public/AB6AXuBq-uZ4Mu0RrGEn3tp_uEKvV10vw5bDb1zNc5UM6qMF9YpU1SFpkLIgdgHzxVxG5j3lf7rqIuCpRZcjtbSsTr5Jghv8Kw9gBl_6Au4oKcFrxx9Qh57HvgbTMM4aLg6WmCiywj8xEDIWbClb5onUm7BzoKCt8pCLC4zlescOFvB04otiP0tIqHL4r0Tk0t_rCf7F_wwZX7TdGOYCLk3k8pm6NHV7tnq3pF3LRrSEde3_Sukvquwm12SDwICqveWQgMIYvB8cQDx8R-w"
             />
             <Head>

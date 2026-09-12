@@ -1,0 +1,138 @@
+---
+title: "El flujo de trabajo SDD paso a paso"
+order: 3
+duration: "12 min"
+subtitle: "De la idea vaga a las tareas verificables que la IA puede ejecutar"
+keywords: ["flujo de trabajo sdd", "paso a paso spec driven", "como dividir tareas con ia", "planificacion de desarrollo con ia"]
+---
+
+## Visión general del flujo
+
+El flujo SDD tiene 4 fases claras. Cada una produce un artefacto (un documento) que la
+siguiente fase consume:
+
+1. **Idea** → descripción en lenguaje natural de qué quieres construir.
+2. **Spec** → documento formal con stack, arquitectura, alcance y restricciones.
+3. **Plan** → lista ordenada de tareas individuales con criterios de verificación.
+4. **Implementación** → cada tarea se ejecuta con una herramienta de IA.
+
+```
+IDEA  →  SPEC  →  PLAN  →  IMPLEMENTACIÓN
+(1 día)  (1-2h)   (30min)   (horas/días)
+```
+
+<Callout type="nota">
+  El tiempo que inviertes en las primeras fases se multiplica en las siguientes. Una spec
+  de 1 hora te ahorra 10 horas de refactorización. Un plan de 30 minutos te ahorra
+  discusiones confusas con la IA sobre "qué se supone que debía hacer".
+</Callout>
+
+## Fase 1: De la idea a la spec
+
+### Ejemplo real
+
+Supón que quieres construir una app para gestionar tareas personales.
+
+**Idea vaga:** "Quiero una app de tareas donde pueda agregar, completar y borrar tareas."
+
+Eso no es suficiente para la IA. Necesitas convertirlo en una spec:
+
+```markdown
+## Contexto
+App web para gestión de tareas personales. Un solo usuario,
+sin login por ahora.
+
+## Objetivo
+Que el usuario pueda crear tareas, marcarlas como completadas
+y eliminarlas. Los datos se guardan en el navegador (localStorage).
+
+## Stack
+- Frontend: HTML + CSS + JavaScript puro (sin frameworks)
+- Almacenamiento: localStorage
+- Despliegue: archivo estático, sin servidor
+
+## Alcance
+SÍ: CRUD de tareas, filtrar por estado, persistencia local
+NO: login, base de datos en servidor, tareas compartidas
+
+## Restricciones
+- Debe funcionar en móvil y escritorio
+- Sin dependencias externas (npm, CDN)
+- Código en un solo archivo HTML
+```
+
+<Callout type="tip">
+  La sección de <strong>alcance</strong> es la más importante. Sin ella, la IA tiende a
+  sobre-construir: agrega autenticación, base de datos, y cosas que no pediste. Definir
+  qué NO construyes es tan importante como definir qué SÍ.
+</Callout>
+
+## Fase 2: De la spec al plan
+
+Una vez que tienes la spec, la divides en tareas. Cada tarea debe ser:
+
+- **Independiente**: no depende de otra tarea no completada.
+- **Verificable**: tienes un criterio claro de "esto funciona".
+- **Pequeña**: idealmente una tarea = un archivo o componente.
+
+Ejemplo de plan derivado de la spec anterior:
+
+```
+Tarea 1: Estructura HTML base + estilos CSS
+  → Archivo index.html con layout responsive
+
+Tarea 2: Componente de formulario de tareas
+  → Input + botón para agregar tarea
+
+Tarea 3: Funcionalidad CRUD con JavaScript
+  → Agregar, completar, eliminar tareas
+
+Tarea 4: Persistencia con localStorage
+  → Guardar y cargar tareas al recargar
+
+Tarea 5: Filtrado por estado
+  → Botones: Todas / Pendientes / Completadas
+
+Tarea 6: Pulido visual y responsivo
+  → Ajustes de diseño para móvil
+```
+
+## Fase 3: De las tareas al código
+
+Aquí es donde la IA brilla. Le das la spec completa + una tarea específica y ella genera
+el código. Ejemplo de prompt para la Tarea 2:
+
+```markdown
+Aquí está la spec del proyecto: [spec completa]
+
+TAREA 2: Crea el componente del formulario de tareas en index.html.
+Debe tener un input de texto y un botón "Agregar".
+El formulario debe llamar a una función agregarTarea(texto)
+cuando se envíe.
+No incluyas la función agregarTarea, solo el HTML y el
+event listener.
+```
+
+<Callout type="tip">
+  Nota cómo el prompt incluye la spec completa como contexto. La IA necesita entender el
+  proyecto entero para que su código sea coherente con lo que ya existe. Sin ese
+  contexto, cada tarea saldría desconectada de las demás.
+</Callout>
+
+## Verificación: el paso que todos saltan
+
+Cada tarea debería terminar con una verificación. No es suficiente con "se ve bien". Pregúntate:
+
+- ¿El formulario aparece en la página?
+- ¿Al escribir y presionar Enter se llama `agregarTarea`?
+- ¿Funciona en móvil?
+- ¿No rompió nada de la Tarea 1?
+
+Si la verificación falla, no sigas adelante. Corrige antes de continuar.
+
+## Para recordar
+
+- El flujo es: Idea → Spec → Plan → Implementación.
+- Una spec bien escrita ahorra horas de refactorización.
+- Cada tarea debe ser independiente, verificable y pequeña.
+- Siempre verifica cada tarea antes de pasar a la siguiente.

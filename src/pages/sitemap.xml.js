@@ -33,16 +33,32 @@ function formatDate(date) {
   return new Date(date).toISOString().split('T')[0];
 }
 
+// Lee slugs de páginas .jsx dentro de un directorio de src/pages (excluyendo index y rutas dinámicas)
+function getPageSlugs(subdir) {
+  const dir = path.join(ROOT, 'src', 'pages', subdir);
+  if (!fs.existsSync(dir)) return [];
+  return fs.readdirSync(dir)
+    .filter(f => f.endsWith('.jsx'))
+    .map(f => f.replace('.jsx', ''))
+    .filter(slug => slug !== 'index' && !slug.startsWith('['));
+}
+
 export async function getServerSideProps({ res }) {
   const esSlugs = getSlugs('es');
   const enSlugs = getSlugs('en');
   const esDates = getPostDates('es');
   const enDates = getPostDates('en');
 
+  const proyectoSlugs = getPageSlugs('proyectos');
+  const blogJsxSlugs = getPageSlugs('blog');
+
   const staticPages = [
     { loc: '/', priority: '1.0', changefreq: 'weekly' },
     { loc: '/agentes-ai', priority: '0.9', changefreq: 'monthly' },
     { loc: '/desarrollo-web', priority: '0.9', changefreq: 'monthly' },
+    { loc: '/precios', priority: '0.9', changefreq: 'monthly' },
+    { loc: '/ecommerce', priority: '0.8', changefreq: 'monthly' },
+    { loc: '/cursos', priority: '0.7', changefreq: 'monthly' },
     { loc: '/blog', priority: '0.8', changefreq: 'daily' },
     { loc: '/portafolio', priority: '0.8', changefreq: 'monthly' },
     { loc: '/proyectos', priority: '0.8', changefreq: 'monthly' },
@@ -54,7 +70,16 @@ export async function getServerSideProps({ res }) {
     { loc: '/consultoria-ia', priority: '0.8', changefreq: 'monthly' },
   ];
 
-  const staticXml = staticPages.map(p =>
+  const proyectoPages = proyectoSlugs.map(slug => ({
+    loc: `/proyectos/${slug}`, priority: '0.7', changefreq: 'monthly',
+  }));
+  const blogJsxPages = blogJsxSlugs.map(slug => ({
+    loc: `/blog/${slug}`, priority: '0.7', changefreq: 'monthly',
+  }));
+
+  const allStaticPages = [...staticPages, ...proyectoPages, ...blogJsxPages];
+
+  const staticXml = allStaticPages.map(p =>
     `  <url>\n    <loc>${SITE_URL}${p.loc}</loc>\n    <lastmod>2026-05-26</lastmod>\n    <changefreq>${p.changefreq}</changefreq>\n    <priority>${p.priority}</priority>\n  </url>`
   ).join('\n');
 

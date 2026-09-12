@@ -8,6 +8,9 @@ import {
   ConditionalDiagram,
   LoopDiagram,
   FunctionDiagram,
+  EscribiendoPromptsDiagram,
+  ComponenteDiagram,
+  StateFlowDiagram,
 } from "./CourseDiagrams";
 
 // Define un componente personalizado para manejar las imágenes
@@ -46,6 +49,9 @@ const MDXComponents = {
   ConditionalDiagram,
   LoopDiagram,
   FunctionDiagram,
+  EscribiendoPromptsDiagram,
+  ComponenteDiagram,
+  StateFlowDiagram,
 };
 
 export default MDXComponents;
