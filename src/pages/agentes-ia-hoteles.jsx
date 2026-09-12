@@ -1,4 +1,5 @@
 import { useState } from "react";
+import Link from "next/link";
 import { serverSideTranslations } from "next-i18next/serverSideTranslations";
 import SEO from "../components/SEO";
 import Layout from "../components/Layout";
@@ -16,6 +17,14 @@ const PHONE = "573042093951";
 const WHATSAPP_URL = `https://wa.me/${PHONE}?text=${encodeURIComponent(
     "Hola, tengo un hotel y quiero saber más sobre los agentes de IA para reservas."
 )}`;
+
+const SITE_URL = "https://salazarcode.com";
+const PAGE_URL = `${SITE_URL}/agentes-ia-hoteles`;
+const OG_IMAGE = "/assets/ai/og-agentes-ia-hoteles.jpg";
+// Sin sufijo de marca: con él el título pasaba de 60 caracteres y Google cortaba la keyword.
+const SEO_TITLE = "Agentes de IA para Hoteles: Reservas 24/7 por WhatsApp";
+const SEO_DESCRIPTION =
+    "Chatbot con IA para hoteles que atiende huéspedes 24/7, consulta tu PMS y cierra reservas por WhatsApp. Más reservas directas, menos comisiones. Demo gratis.";
 
 // Cifras de referencia del sector hotelero, no resultados propios.
 const PAIN_POINTS = [
@@ -144,6 +153,7 @@ const PLANS = [
         tagline: "Para dejar de repetir lo mismo",
         setup: "USD 900",
         monthly: "USD 149",
+        priceMonthly: 149,
         featured: false,
         features: [
             "Respuestas 24/7 a preguntas frecuentes",
@@ -158,6 +168,7 @@ const PLANS = [
         tagline: "El agente que sí cierra reservas",
         setup: "USD 1.900",
         monthly: "USD 299",
+        priceMonthly: 299,
         featured: true,
         features: [
             "Todo lo de Recepción IA",
@@ -173,6 +184,8 @@ const PLANS = [
         tagline: "Para grupos y multi-propiedad",
         setup: "a medida",
         monthly: "desde USD 590",
+        priceMonthly: 590,
+        priceFrom: true,
         featured: false,
         features: [
             "Todo lo de Reservas IA",
@@ -186,6 +199,14 @@ const PLANS = [
 ];
 
 const FAQS = [
+    {
+        q: "¿Qué es un agente de IA para hoteles?",
+        a: "Es un asistente autónomo que atiende a tus huéspedes por WhatsApp, web o Instagram. A diferencia de un chatbot tradicional, no se limita a responder con un guion: consulta la disponibilidad en tu PMS, propone habitaciones con tarifa, crea la reserva y envía la confirmación sin que intervenga nadie de tu equipo.",
+    },
+    {
+        q: "¿Cuánto cuesta un chatbot con IA para un hotel?",
+        a: "Depende de lo que tenga que hacer. Un agente que responde preguntas frecuentes arranca en USD 149 al mes más USD 900 de implementación; uno que consulta disponibilidad y cierra reservas conectado a tu PMS cuesta USD 299 al mes más USD 1.900. No cobramos comisión por reserva.",
+    },
     {
         q: "¿Qué pasa si el agente se equivoca con una tarifa o una reserva?",
         a: "El agente no inventa precios: los lee de tu PMS. Además definimos límites duros — descuentos máximos, tipos de habitación que puede vender, casos que debe escalar sí o sí. Si algo se sale de ese marco, pasa la conversación a tu equipo en vez de improvisar.",
@@ -284,7 +305,34 @@ export default function AgentesIAHoteles() {
         "@context": "https://schema.org",
         "@graph": [
             {
+                "@type": "WebPage",
+                "@id": `${PAGE_URL}#webpage`,
+                url: PAGE_URL,
+                name: SEO_TITLE,
+                description: SEO_DESCRIPTION,
+                inLanguage: "es-ES",
+                primaryImageOfPage: {
+                    "@type": "ImageObject",
+                    url: `${SITE_URL}${OG_IMAGE}`,
+                    width: 1200,
+                    height: 630,
+                },
+                breadcrumb: { "@id": `${PAGE_URL}#breadcrumb` },
+                about: { "@id": `${PAGE_URL}#service` },
+            },
+            {
+                "@type": "BreadcrumbList",
+                "@id": `${PAGE_URL}#breadcrumb`,
+                itemListElement: [
+                    { "@type": "ListItem", position: 1, name: "Inicio", item: `${SITE_URL}/` },
+                    { "@type": "ListItem", position: 2, name: "Agentes de IA", item: `${SITE_URL}/agentes-ai` },
+                    { "@type": "ListItem", position: 3, name: "Agentes de IA para hoteles", item: PAGE_URL },
+                ],
+            },
+            {
                 "@type": "Service",
+                "@id": `${PAGE_URL}#service`,
+                url: PAGE_URL,
                 name: "Agentes de IA para hoteles",
                 serviceType: "Automatización de atención al huésped y reservas con IA",
                 description:
@@ -295,6 +343,24 @@ export default function AgentesIAHoteles() {
                     url: "https://salazarcode.com",
                 },
                 areaServed: "Latinoamérica y España",
+                hasOfferCatalog: {
+                    "@type": "OfferCatalog",
+                    name: "Planes de agentes de IA para hoteles",
+                    itemListElement: PLANS.map((plan) => ({
+                        "@type": "Offer",
+                        name: plan.name,
+                        description: plan.tagline,
+                        url: `${PAGE_URL}#precios`,
+                        priceSpecification: {
+                            "@type": "UnitPriceSpecification",
+                            priceCurrency: "USD",
+                            unitCode: "MON",
+                            ...(plan.priceFrom
+                                ? { minPrice: plan.priceMonthly }
+                                : { price: plan.priceMonthly }),
+                        },
+                    })),
+                },
                 audience: {
                     "@type": "BusinessAudience",
                     name: "Hoteles, hostales y alojamientos turísticos",
@@ -319,8 +385,12 @@ export default function AgentesIAHoteles() {
     return (
         <Layout>
             <SEO
-                title="Agentes de IA para Hoteles | Reservas Automáticas 24/7"
-                description="Agentes autónomos de IA que atienden a tus huéspedes 24/7, consultan disponibilidad en tu PMS y cierran reservas por WhatsApp. Menos comisiones de OTAs, más reservas directas."
+                title={SEO_TITLE}
+                appendSiteName={false}
+                description={SEO_DESCRIPTION}
+                languages={["es"]}
+                image={OG_IMAGE}
+                imageAlt="Agente de IA para hoteles confirmando una reserva por WhatsApp"
                 keywords={[
                     "agentes de ia para hoteles",
                     "chatbot para hoteles",
@@ -331,7 +401,6 @@ export default function AgentesIAHoteles() {
                     "ia para reservas de hotel",
                     "recepcionista virtual",
                 ]}
-                image="/assets/ai/ai_hero.webp"
                 schema={schema}
             />
             <div className="bg-[#f6f8fa] font-sans text-slate-900 transition-colors duration-300 dark:bg-[#0a1017] dark:text-slate-100">
@@ -376,24 +445,26 @@ export default function AgentesIAHoteles() {
 
                     <div className="relative z-10 mx-auto grid w-full max-w-7xl grid-cols-1 items-center gap-14 lg:grid-cols-[1.05fr_1fr]">
                         <div className="flex flex-col gap-8">
-                            <span className="inline-flex w-fit items-center gap-2 rounded-full border border-teal-400/30 bg-teal-400/10 px-4 py-1.5 text-xs font-bold uppercase tracking-widest text-teal-300">
-                                <span className="h-1.5 w-1.5 rounded-full bg-teal-400" />
-                                Agentes de IA para hotelería
-                            </span>
-
-                            <h1 className="text-4xl font-black leading-[1.08] text-white sm:text-5xl lg:text-6xl">
-                                Tu recepción duerme.
-                                <br />
-                                <span className="bg-gradient-to-r from-teal-300 to-sky-400 bg-clip-text text-transparent">
-                                    Tu agente de IA no.
+                            {/* La etiqueta va dentro del H1 para que la keyword abra el encabezado principal. */}
+                            <h1 className="flex flex-col gap-8">
+                                <span className="inline-flex w-fit items-center gap-2 rounded-full border border-teal-400/30 bg-teal-400/10 px-4 py-1.5 text-xs font-bold uppercase tracking-widest text-teal-300">
+                                    <span aria-hidden="true" className="h-1.5 w-1.5 rounded-full bg-teal-400" />
+                                    Agentes de IA para hoteles
+                                </span>
+                                <span className="block text-4xl font-black leading-[1.08] text-white sm:text-5xl lg:text-6xl">
+                                    Tu recepción duerme.
+                                    <br />
+                                    <span className="bg-gradient-to-r from-teal-300 to-sky-400 bg-clip-text text-transparent">
+                                        Tu agente de IA no.
+                                    </span>
                                 </span>
                             </h1>
 
                             <p className="max-w-xl text-lg leading-relaxed text-slate-300">
-                                Un agente autónomo que responde a tus huéspedes en segundos,
-                                consulta la disponibilidad real en tu PMS y cierra la reserva
-                                solo — a las tres de la mañana, en inglés y sin pagarle
-                                comisión a nadie.
+                                Un agente autónomo que atiende a los huéspedes de tu hotel por
+                                WhatsApp en segundos, consulta la disponibilidad real en tu PMS
+                                y cierra la reserva solo — a las tres de la mañana, en inglés y
+                                sin pagarle comisión a nadie.
                             </p>
 
                             <div className="flex flex-col gap-4 sm:flex-row">
@@ -482,7 +553,7 @@ export default function AgentesIAHoteles() {
                     <div className="mx-auto max-w-6xl">
                         <div className="mb-14 text-center">
                             <h2 className="text-3xl font-black sm:text-4xl">
-                                Esto no es otro chatbot
+                                Esto no es otro chatbot para hoteles
                             </h2>
                             <div className="mx-auto mt-4 h-1.5 w-20 rounded-full bg-gradient-to-r from-teal-400 to-sky-500" />
                             <p className="mx-auto mt-5 max-w-2xl text-lg text-slate-600 dark:text-slate-400">
@@ -544,7 +615,7 @@ export default function AgentesIAHoteles() {
                     <div className="mx-auto max-w-7xl">
                         <div className="mb-14 text-center">
                             <h2 className="text-3xl font-black sm:text-4xl">
-                                Qué hace por ti, todos los días
+                                Qué hace un agente de IA en tu hotel
                             </h2>
                             <div className="mx-auto mt-4 h-1.5 w-20 rounded-full bg-gradient-to-r from-teal-400 to-sky-500" />
                         </div>
@@ -572,7 +643,7 @@ export default function AgentesIAHoteles() {
                 <section className="bg-white px-6 py-20 lg:px-20 dark:bg-slate-900/40">
                     <div className="mx-auto max-w-5xl text-center">
                         <h2 className="text-2xl font-black sm:text-3xl">
-                            Vive donde ya te escriben tus huéspedes
+                            Atiende por WhatsApp, web e Instagram
                         </h2>
                         <p className="mx-auto mt-4 max-w-2xl text-slate-600 dark:text-slate-400">
                             El agente es uno solo y mantiene el contexto sin importar por dónde
@@ -614,6 +685,24 @@ export default function AgentesIAHoteles() {
                                 </div>
                             ))}
                         </div>
+
+                        <p className="mt-14 text-center text-slate-600 dark:text-slate-400">
+                            ¿Aún no sabes qué automatizar primero? Empieza con una{" "}
+                            <Link
+                                href="/consultoria-ia"
+                                className="font-semibold text-teal-600 underline-offset-4 hover:underline dark:text-teal-400"
+                            >
+                                consultoría y diagnóstico de IA
+                            </Link>
+                            . ¿Tu negocio no es un hotel? Mira nuestros{" "}
+                            <Link
+                                href="/agentes-ai"
+                                className="font-semibold text-teal-600 underline-offset-4 hover:underline dark:text-teal-400"
+                            >
+                                agentes de IA para empresas
+                            </Link>
+                            .
+                        </p>
                     </div>
                 </section>
 
@@ -625,7 +714,7 @@ export default function AgentesIAHoteles() {
                     <div className="mx-auto max-w-7xl">
                         <div className="mb-14 text-center">
                             <h2 className="text-3xl font-black sm:text-4xl">
-                                Planes claros, sin letra pequeña
+                                Precios de los agentes de IA para hoteles
                             </h2>
                             <div className="mx-auto mt-4 h-1.5 w-20 rounded-full bg-gradient-to-r from-teal-400 to-sky-500" />
                             <p className="mx-auto mt-5 max-w-2xl text-slate-600 dark:text-slate-400">
@@ -753,7 +842,7 @@ export default function AgentesIAHoteles() {
                     <div className="mx-auto max-w-3xl">
                         <div className="mb-12 text-center">
                             <h2 className="text-3xl font-black sm:text-4xl">
-                                Lo que todo hotelero pregunta
+                                Preguntas frecuentes sobre IA para hoteles
                             </h2>
                             <div className="mx-auto mt-4 h-1.5 w-20 rounded-full bg-gradient-to-r from-teal-400 to-sky-500" />
                         </div>
@@ -768,8 +857,10 @@ export default function AgentesIAHoteles() {
                                     >
                                         <button
                                             type="button"
+                                            id={`faq-q-${i}`}
                                             onClick={() => setOpenFaq(isOpen ? null : i)}
                                             aria-expanded={isOpen}
+                                            aria-controls={`faq-${i}`}
                                             className="flex w-full items-center justify-between gap-4 px-6 py-5 text-left transition hover:bg-slate-50 focus:outline-none focus-visible:ring-2 focus-visible:ring-teal-500 dark:hover:bg-slate-800/40"
                                         >
                                             <span className="text-base font-bold">{faq.q}</span>
@@ -782,11 +873,16 @@ export default function AgentesIAHoteles() {
                                                 +
                                             </span>
                                         </button>
-                                        {isOpen && (
-                                            <p className="border-t border-slate-100 px-6 py-5 leading-relaxed text-slate-600 dark:border-slate-800 dark:text-slate-400">
-                                                {faq.a}
-                                            </p>
-                                        )}
+                                        {/* Siempre en el HTML para que Google indexe la respuesta; solo se oculta. */}
+                                        <p
+                                            id={`faq-${i}`}
+                                            role="region"
+                                            aria-labelledby={`faq-q-${i}`}
+                                            hidden={!isOpen}
+                                            className="border-t border-slate-100 px-6 py-5 leading-relaxed text-slate-600 dark:border-slate-800 dark:text-slate-400"
+                                        >
+                                            {faq.a}
+                                        </p>
                                     </div>
                                 );
                             })}

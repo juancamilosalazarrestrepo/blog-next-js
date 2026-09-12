@@ -14,19 +14,31 @@ const SEO = ({
   noindex = false,
   canonical = undefined,
   schema = undefined,
+  // Idiomas en que existe de verdad el contenido. Una página solo en español
+  // debe pasar ['es']: así /en/... canonicaliza a la versión en español y no
+  // se anuncia un hreflang "en" que serviría contenido duplicado.
+  languages = ['es', 'en'],
+  imageWidth = 1200,
+  imageHeight = 630,
+  // Con títulos largos, el sufijo de marca empuja la keyword fuera del corte de Google.
+  appendSiteName = true,
 }) => {
   const router = useRouter();
-  const { locale, locales, asPath } = router;
+  const { locale, asPath } = router;
   const siteUrl = process.env.NEXT_PUBLIC_SITE_URL || 'https://salazarcode.com';
   const siteName = 'Juan Camilo Salazar';
   const twitterHandle = '@juancsalazarc';
 
-  const currentUrl = canonical || `${siteUrl}${locale !== 'es' ? `/${locale}` : ''}${asPath}`;
+  const urlFor = (lang) => `${siteUrl}${lang !== 'es' ? `/${lang}` : ''}${asPath}`;
+  // Si el visitante está en un idioma que la página no tiene, la versión válida es la primera.
+  const pageLocale = languages.includes(locale) ? locale : languages[0];
+  const currentUrl = canonical || urlFor(pageLocale);
   const imageUrl = image.startsWith('http') ? image : `${siteUrl}${image}`;
-  const fullTitle = title.includes(siteName) ? title : `${title} | ${siteName}`;
+  const fullTitle = !appendSiteName || title.includes(siteName) ? title : `${title} | ${siteName}`;
 
-  const ogLocale = locale === 'en' ? 'en_US' : 'es_ES';
-  const ogLocaleAlternate = locale === 'en' ? 'es_ES' : 'en_US';
+  const toOgLocale = (lang) => (lang === 'en' ? 'en_US' : 'es_ES');
+  const ogLocale = toOgLocale(pageLocale);
+  const ogLocaleAlternates = languages.filter((lang) => lang !== pageLocale).map(toOgLocale);
 
   const defaultSchema = type === 'article' ? {
     "@context": "https://schema.org",
@@ -53,7 +65,7 @@ const SEO = ({
       "@type": "WebPage",
       "@id": currentUrl
     },
-    "inLanguage": locale === 'en' ? 'en-US' : 'es-ES'
+    "inLanguage": pageLocale === 'en' ? 'en-US' : 'es-ES'
   } : {
     "@context": "https://schema.org",
     "@type": "WebPage",
@@ -61,13 +73,12 @@ const SEO = ({
     "description": description,
     "url": currentUrl,
     "image": imageUrl,
-    "inLanguage": locale === 'en' ? 'en-US' : 'es-ES'
+    "inLanguage": pageLocale === 'en' ? 'en-US' : 'es-ES'
   };
 
   const schemaData = schema || defaultSchema;
 
-  const esUrl = `${siteUrl}${asPath}`;
-  const enUrl = `${siteUrl}/en${asPath}`;
+  const defaultLang = languages.includes('es') ? 'es' : languages[0];
 
   return (
     <Head>
@@ -80,10 +91,11 @@ const SEO = ({
       <meta name="robots" content={noindex ? 'noindex, nofollow' : 'index, follow'} />
       <link rel="canonical" href={currentUrl} />
 
-      {/* hreflang for bilingual SEO */}
-      <link rel="alternate" hrefLang="es" href={esUrl} />
-      <link rel="alternate" hrefLang="en" href={enUrl} />
-      <link rel="alternate" hrefLang="x-default" href={esUrl} />
+      {/* hreflang solo para los idiomas en que existe el contenido */}
+      {languages.map((lang) => (
+        <link key={`hreflang-${lang}`} rel="alternate" hrefLang={lang} href={urlFor(lang)} />
+      ))}
+      <link rel="alternate" hrefLang="x-default" href={urlFor(defaultLang)} />
 
       {/* Open Graph */}
       <meta property="og:type" content={type} />
@@ -92,11 +104,13 @@ const SEO = ({
       <meta property="og:description" content={description} />
       <meta property="og:image" content={imageUrl} />
       <meta property="og:image:alt" content={imageAlt} />
-      <meta property="og:image:width" content="1200" />
-      <meta property="og:image:height" content="630" />
+      <meta property="og:image:width" content={String(imageWidth)} />
+      <meta property="og:image:height" content={String(imageHeight)} />
       <meta property="og:site_name" content={siteName} />
       <meta property="og:locale" content={ogLocale} />
-      <meta property="og:locale:alternate" content={ogLocaleAlternate} />
+      {ogLocaleAlternates.map((alt) => (
+        <meta key={`og-alt-${alt}`} property="og:locale:alternate" content={alt} />
+      ))}
 
       {type === 'article' && date && (
         <>

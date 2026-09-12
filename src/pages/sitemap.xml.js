@@ -68,7 +68,7 @@ export async function getServerSideProps({ res }) {
     { loc: '/terminos', priority: '0.3', changefreq: 'yearly' },
     { loc: '/politicas', priority: '0.3', changefreq: 'yearly' },
     { loc: '/consultoria-ia', priority: '0.8', changefreq: 'monthly' },
-    { loc: '/agentes-ia-hoteles', priority: '0.9', changefreq: 'monthly' },
+    { loc: '/agentes-ia-hoteles', priority: '0.9', changefreq: 'monthly', lastmod: '2026-09-12' },
   ];
 
   const proyectoPages = proyectoSlugs.map(slug => ({
@@ -81,7 +81,7 @@ export async function getServerSideProps({ res }) {
   const allStaticPages = [...staticPages, ...proyectoPages, ...blogJsxPages];
 
   const staticXml = allStaticPages.map(p =>
-    `  <url>\n    <loc>${SITE_URL}${p.loc}</loc>\n    <lastmod>2026-05-26</lastmod>\n    <changefreq>${p.changefreq}</changefreq>\n    <priority>${p.priority}</priority>\n  </url>`
+    `  <url>\n    <loc>${SITE_URL}${p.loc}</loc>\n    <lastmod>${p.lastmod || '2026-05-26'}</lastmod>\n    <changefreq>${p.changefreq}</changefreq>\n    <priority>${p.priority}</priority>\n  </url>`
   ).join('\n');
 
   const esBlogXml = esSlugs.map(slug => {
