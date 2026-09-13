@@ -60,6 +60,7 @@ export default function CapituloPage({ mdxSource, frontMatter, chapters, activeL
         type="article"
         keywords={frontMatter.keywords?.length ? frontMatter.keywords : ["curso de javascript", frontMatter.title]}
         noindex={activeLocale !== "es"}
+        languages={["es"]}
       />
       <CourseLayout chapters={chapters} currentSlug={frontMatter.slug}>
         <MDXRemote {...mdxSource} components={MDXComponents} />

@@ -12,6 +12,7 @@ import {
   ComponenteDiagram,
   StateFlowDiagram,
 } from "./CourseDiagrams";
+import { ArrayDiagram, ForLoopAnimation } from "./CourseAnimations";
 
 // Define un componente personalizado para manejar las imágenes
 const CustomImage = ({
@@ -52,6 +53,8 @@ const MDXComponents = {
   EscribiendoPromptsDiagram,
   ComponenteDiagram,
   StateFlowDiagram,
+  ArrayDiagram,
+  ForLoopAnimation,
 };
 
 export default MDXComponents;

@@ -6,6 +6,7 @@ import Head from "next/head";
 import LavaBackground from "../components/LavaBackground";
 import mockupMedico from "../../public/images/mockupMedico.webp";
 import { serverSideTranslations } from 'next-i18next/serverSideTranslations';
+import { SITE_URL } from "../../lib/site";
 
 export async function getStaticProps({ locale }) {
   return {
@@ -24,7 +25,7 @@ const desarrolloWebSchema = {
             "provider": {
                 "@type": "Organization",
                 "name": "Salazar Code",
-                "url": "https://salazarcode.com",
+                "url": SITE_URL,
             },
             "areaServed": { "@type": "Country", "name": "Colombia" },
             "description": "Diseño y desarrollo de plataformas web rápidas, responsivas y optimizadas para SEO con Next.js y React.",
@@ -32,7 +33,7 @@ const desarrolloWebSchema = {
                 "@type": "Offer",
                 "priceCurrency": "COP",
                 "availability": "https://schema.org/InStock",
-                "url": "https://salazarcode.com/precios",
+                "url": `${SITE_URL}/precios`,
             },
         },
         {

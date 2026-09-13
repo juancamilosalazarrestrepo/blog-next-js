@@ -2,6 +2,7 @@
   "nav": {
     "portfolio": "Portafolio",
     "blog": "Blog",
+    "cursos": "Cursos",
     "projects": "Proyectos",
     "certificates": "Certificados",
     "services": "Servicios",
@@ -53,6 +54,17 @@
     "description": "Atención al cliente 24/7, calificación de leads en piloto automático y procesos operativos optimizados. Implementamos Inteligencia Artificial a la medida de los retos de tu empresa.",
     "cta": "Explorar Soluciones",
     "status": "Agente Operativo 24/7"
+  },
+  "hotelSection": {
+    "badge": "Nuevo · Hoteles",
+    "title": "Tu hotel reservando",
+    "titleHighlight": "24/7 con IA",
+    "description": "Un agente de IA que atiende a tus huéspedes por WhatsApp y web, consulta disponibilidad en tu PMS y cierra la reserva dentro del chat. Menos comisiones de OTAs, cero consultas sin responder.",
+    "point1": "Reservas directas sin comisiones",
+    "point2": "Responde en segundos, en cualquier idioma",
+    "point3": "Upselling y escalado a recepción",
+    "cta": "Ver agentes para hoteles",
+    "secondary": "En producción en 2 semanas"
   },
   "webDevSection": {
     "badge": "Diseño y Desarrollo Web",

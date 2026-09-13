@@ -36,6 +36,35 @@ El `for` tiene tres partes separadas por `;`:
   en cada vuelta del bucle.
 </Callout>
 
+## Recorrer un array con for
+
+Un **array** es una lista de valores guardados en una sola variable. Cada valor ocupa una
+posición numerada que se llama **índice**, y los índices empiezan en `0`:
+
+<ArrayDiagram name="frutas" items={["🍎", "🍌", "🍇", "🍓"]} />
+
+El `for` es la herramienta natural para recorrer un array: usas `i` como índice y avanzas hasta
+llegar al final de la lista.
+
+```js
+const frutas = ["🍎", "🍌", "🍇", "🍓"];
+
+for (let i = 0; i < frutas.length; i++) {
+  console.log(frutas[i]);
+}
+// Imprime: 🍎, 🍌, 🍇, 🍓
+```
+
+Mira la animación paso a paso: fíjate en cómo cambia `i`, qué casilla del array se ilumina en
+cada vuelta y qué se va imprimiendo en la consola.
+
+<ForLoopAnimation name="frutas" items={["🍎", "🍌", "🍇", "🍓"]} />
+
+<Callout type="nota">
+  La condición es <code>i &lt; frutas.length</code> y no <code>i &lt;= frutas.length</code>.
+  Como los índices empiezan en 0, el último índice válido es <code>frutas.length - 1</code>.
+</Callout>
+
 ## El bucle while
 
 Se usa cuando **no sabes de antemano** cuántas veces se va a repetir, solo sabes la condición
@@ -66,5 +95,6 @@ infinito**, y suele "colgar" el programa.
 - Los bucles repiten un bloque de código mientras una condición sea verdadera.
 - `for` es ideal cuando sabes cuántas repeticiones necesitas.
 - `while` es ideal cuando la repetición depende de una condición variable.
+- Para recorrer un array, combina `for` con el índice `i` y `array.length`.
 - Ten cuidado con los bucles infinitos: siempre asegúrate de que la condición pueda volverse
   falsa en algún momento.

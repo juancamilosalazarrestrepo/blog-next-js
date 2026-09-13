@@ -234,6 +234,7 @@ export default function CursoReactPage({ chapters, activeLocale }) {
         description="Aprende React desde cero gratis: componentes, JSX, props, estado con useState y efectos con useEffect, con teoría, diagramas y un proyecto real."
         keywords={["curso de react", "aprender react", "react para principiantes", "componentes react", "useState react", "curso gratis react"]}
         noindex={activeLocale !== "es"}
+        languages={["es"]}
       />
       <CursoReact chapters={chapters} />
     </Layout>

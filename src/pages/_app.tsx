@@ -8,8 +8,7 @@ import { pageview } from '../../lib/analytics'
 import { Analytics } from '@vercel/analytics/react'
 import { appWithTranslation } from 'next-i18next'
 import nextI18NextConfig from '../../next-i18next.config'
-
-const SITE_URL = process.env.NEXT_PUBLIC_SITE_URL || 'https://salazarcode.com'
+import { SITE_URL } from '../../lib/site'
 
 const organizationSchema = {
   '@context': 'https://schema.org',

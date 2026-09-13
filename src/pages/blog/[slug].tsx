@@ -5,6 +5,7 @@ import SEO from "@/components/SEO";
 import { MDXRemote, MDXRemoteSerializeResult } from "next-mdx-remote";
 import ViewsCounter from "@/components/ViewCounter";
 import { getFiles, getFileBySlug } from "../../../lib/mdx";
+import { getTranslatedSlug } from "../../../lib/postTranslations";
 import { serverSideTranslations } from "next-i18next/serverSideTranslations";
 
 type Props = {
@@ -26,11 +27,13 @@ type Props = {
     };
   };
   mdxSource: MDXRemoteSerializeResult;
+  // Ruta del post en cada idioma en que existe (el slug cambia entre idiomas).
+  alternatePaths: Record<string, string>;
 };
 
 import MDXComponents from "@/components/MDXComponents";
 
-const DynamicPost: NextPage<Props> = ({ frontMatter, mdxSource }) => {
+const DynamicPost: NextPage<Props> = ({ frontMatter, mdxSource, alternatePaths }) => {
   return (
     <div>
       <SEO
@@ -42,6 +45,8 @@ const DynamicPost: NextPage<Props> = ({ frontMatter, mdxSource }) => {
         author="Juan Camilo Salazar"
         date={frontMatter.date}
         keywords={frontMatter.keywords?.length ? frontMatter.keywords : ['web development', 'blog', 'programming', frontMatter.title]}
+        languages={Object.keys(alternatePaths)}
+        paths={alternatePaths}
       />
       <div>
         <div style={{ overflow: "hidden", borderRadius: "0 0 16px 16px" }}>
@@ -70,7 +75,7 @@ const DynamicPost: NextPage<Props> = ({ frontMatter, mdxSource }) => {
 };
 
 // Slugs that have their own dedicated page file and shouldn't use the dynamic route
-const DEDICATED_PAGES_ES = ['agentes-ia-programacion-2026', 'consejos-skills-claude-code'];
+const DEDICATED_PAGES_ES = ['agentes-ia-programacion-2026', 'consejos-skills-claude-code', 'gpt-6-astra-vs-fable-5-1-programar'];
 const DEDICATED_PAGES_EN = ['ai-agents-programming-2026'];
 
 export const getStaticPaths: GetStaticPaths = async ({ locales }) => {
@@ -93,19 +98,27 @@ export const getStaticPaths: GetStaticPaths = async ({ locales }) => {
 };
 
 export const getStaticProps: GetStaticProps = async ({ params, locale }) => {
-  const post = await getFileBySlug("posts", String(params?.slug), locale || 'es');
+  const slug = String(params?.slug);
+  const currentLocale = locale || 'es';
+  const post = await getFileBySlug("posts", slug, currentLocale);
+
+  const alternatePaths: Record<string, string> = { [currentLocale]: `/blog/${slug}` };
+  const translation = getTranslatedSlug(slug, currentLocale);
+  if (translation) alternatePaths[translation.locale] = `/blog/${translation.slug}`;
+
   return {
     props: {
       ...post,
-      ...(await serverSideTranslations(locale || 'es', ['common'])),
+      alternatePaths,
+      ...(await serverSideTranslations(currentLocale, ['common'])),
     },
   };
 };
 
-export default function Template({ frontMatter, mdxSource }: Props) {
+export default function Template({ frontMatter, mdxSource, alternatePaths }: Props) {
   return (
     <Layout>
-      <DynamicPost frontMatter={frontMatter} mdxSource={mdxSource} />
+      <DynamicPost frontMatter={frontMatter} mdxSource={mdxSource} alternatePaths={alternatePaths} />
     </Layout>
   );
 }

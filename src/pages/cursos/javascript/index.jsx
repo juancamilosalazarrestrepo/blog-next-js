@@ -175,6 +175,7 @@ export default function CursoJavaScriptPage({ chapters, activeLocale }) {
         description="Aprende lógica de programación con JavaScript desde cero: variables, operadores, condicionales, bucles y funciones, con teoría simple y diagramas."
         keywords={["curso de javascript", "logica de programacion", "aprender a programar", "javascript para principiantes", "curso gratis de programacion"]}
         noindex={activeLocale !== "es"}
+        languages={["es"]}
       />
       <CursoJavaScript chapters={chapters} />
     </Layout>

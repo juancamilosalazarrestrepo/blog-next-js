@@ -46,6 +46,8 @@ El módulo de face tracking usa **MediaPipe Face Mesh** para detectar 468 puntos
 
 El procesamiento corre a más de 25 FPS en hardware estándar, lo que permite una experiencia fluida sin necesidad de GPU dedicada.
 
+![Malla facial de MediaPipe detectando un rostro en tiempo real a 35 FPS](/images/vision-computadora/demo-rostros.webp)
+
 ## Finger Tracking: manos y dedos como interfaz
 
 Con **MediaPipe Hands** se detectan 21 puntos por mano, lo que permite reconstruir la posición de cada dedo en el espacio. A partir de esos puntos calculamos:
@@ -67,11 +69,15 @@ Sobre los landmarks que entrega el finger tracking, entrenamos un modelo de clas
 
 Trabajar sobre landmarks en vez de píxeles crudos redujo drásticamente el tamaño del modelo y lo hizo robusto a cambios de iluminación y fondo.
 
+![Landmarks de la mano derecha con las letras detectadas en lenguaje de señas](/images/vision-computadora/demo-manos.webp)
+
 ## Reconocimiento de objetos
 
 Para la detección de objetos integramos **YOLOv8**, un modelo preentrenado capaz de identificar decenas de clases (personas, autos, semáforos, señales de tránsito, animales, entre otros) dibujando una caja delimitadora y una etiqueta con el nivel de confianza sobre cada objeto detectado en el frame.
 
 Este módulo corre en paralelo a los anteriores y permite escenarios como contar personas en un video, detectar vehículos o identificar objetos específicos dentro del campo de visión de la cámara.
+
+![Detección de objetos en tiempo real: una persona y un control de videojuegos](/images/vision-computadora/demo-objetos.webp)
 
 ## Arquitectura del pipeline
 

@@ -1,8 +1,8 @@
 import fs from 'fs';
 import path from 'path';
 import matter from 'gray-matter';
+import { SITE_URL } from '../../lib/site';
 
-const SITE_URL = 'https://salazarcode.com';
 const ROOT = process.cwd();
 
 function getSlugs(locale) {

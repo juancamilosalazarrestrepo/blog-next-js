@@ -1,0 +1,37 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 450" width="800" height="450" role="img" aria-label="Portada del curso de JavaScript">
+  <defs>
+    <linearGradient id="jsBg" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#0a0a1a"/>
+      <stop offset="55%" stop-color="#161a35"/>
+      <stop offset="100%" stop-color="#221a08"/>
+    </linearGradient>
+    <radialGradient id="jsGlow" cx="0.78" cy="0.22" r="0.6">
+      <stop offset="0%" stop-color="#f7df1e" stop-opacity="0.35"/>
+      <stop offset="100%" stop-color="#f7df1e" stop-opacity="0"/>
+    </radialGradient>
+    <linearGradient id="jsBadge" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#f7df1e"/>
+      <stop offset="100%" stop-color="#e2b714"/>
+    </linearGradient>
+    <pattern id="jsGrid" width="40" height="40" patternUnits="userSpaceOnUse">
+      <path d="M40 0H0V40" fill="none" stroke="#ffffff" stroke-opacity="0.05" stroke-width="1"/>
+    </pattern>
+  </defs>
+  <rect width="800" height="450" fill="url(#jsBg)"/>
+  <rect width="800" height="450" fill="url(#jsGrid)"/>
+  <rect width="800" height="450" fill="url(#jsGlow)"/>
+  <circle cx="110" cy="370" r="150" fill="#0072ff" fill-opacity="0.14"/>
+  <g font-family="Menlo, Consolas, monospace" font-size="19" fill="#ffffff" fill-opacity="0.34">
+    <text x="60" y="118">const aprender = () =&gt; {</text>
+    <text x="86" y="152">let nivel = 0;</text>
+    <text x="86" y="186">while (nivel &lt; 6) nivel++;</text>
+    <text x="86" y="220">return "dev";</text>
+    <text x="60" y="254">};</text>
+  </g>
+  <g transform="translate(548 118)">
+    <rect width="180" height="180" rx="34" fill="url(#jsBadge)"/>
+    <text x="90" y="126" text-anchor="middle" font-family="Inter, Segoe UI, Helvetica, sans-serif" font-size="86" font-weight="800" fill="#151515">JS</text>
+  </g>
+  <text x="60" y="372" font-family="Inter, Segoe UI, Helvetica, sans-serif" font-size="34" font-weight="800" fill="#ffffff">JavaScript</text>
+  <text x="60" y="404" font-family="Inter, Segoe UI, Helvetica, sans-serif" font-size="18" font-weight="500" fill="#f7df1e">Lógica de programación desde cero</text>
+</svg>

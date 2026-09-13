@@ -5,7 +5,7 @@ export default function AIAgentsSection() {
     const { t } = useTranslation('common');
 
     return (
-        <section className="w-full py-24 md:py-32 mb-12 text-white shadow-2xl relative group overflow-hidden bg-cover bg-center bg-fixed" style={{ backgroundImage: "url('/assets/ai/ai_deployment.webp')" }}>
+        <section className="w-full py-24 md:py-32 text-white shadow-2xl relative group overflow-hidden bg-cover bg-center bg-fixed" style={{ backgroundImage: "url('/assets/ai/ai_deployment.webp')" }}>
             <div className="absolute inset-0 bg-gradient-to-r from-[#072461]/95 via-[#1152d4]/90 to-[#1152d4]/70 z-0"></div>
 
             <div className="max-w-7xl mx-auto px-6 sm:px-12 relative z-10">

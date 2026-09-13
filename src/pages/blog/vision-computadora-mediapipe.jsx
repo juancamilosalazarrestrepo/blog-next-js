@@ -43,6 +43,30 @@ const modules = [
   },
 ];
 
+const demos = [
+  {
+    src: "/images/vision-computadora/demo-rostros.webp",
+    title: "Face tracking",
+    color: "#0072ff",
+    alt: "Malla facial de MediaPipe detectando un rostro en tiempo real a 35 FPS con 100% de confianza",
+    caption: "La malla facial se ajusta al rostro frame a frame: 35 FPS y 100% de confianza.",
+  },
+  {
+    src: "/images/vision-computadora/demo-objetos.webp",
+    title: "Reconocimiento de objetos",
+    color: "#f59e0b",
+    alt: "Detección de objetos en tiempo real: una persona y un control de videojuegos con sus cajas delimitadoras",
+    caption: "Detección de una persona y un control con cajas delimitadoras: 70 FPS.",
+  },
+  {
+    src: "/images/vision-computadora/demo-manos.webp",
+    title: "Finger tracking y señas",
+    color: "#10b981",
+    alt: "Landmarks de la mano derecha con las letras detectadas F y 5 en lenguaje de señas",
+    caption: "Los 21 landmarks de la mano alimentan el clasificador, que interpreta la seña en pantalla.",
+  },
+];
+
 const stack = [
   { tech: "Python", uso: "Lenguaje base de todo el sistema" },
   { tech: "OpenCV", uso: "Captura de video, dibujo de anotaciones y preprocesamiento de frames" },
@@ -264,6 +288,56 @@ export default function VisionComputadoraMediapipe() {
                 <div style={{ fontSize: "2rem", fontWeight: 800, color: "#0072ff" }}>{s.num}</div>
                 <div style={{ color: "#94a3b8", fontSize: "0.82rem", marginTop: "4px" }}>{s.label}</div>
               </div>
+            ))}
+          </div>
+        </div>
+      </div>
+
+      {/* ── DEMO EN TIEMPO REAL ── */}
+      <div style={{ background: "#0a0a1a", padding: "72px 24px" }}>
+        <div style={{ maxWidth: "1080px", margin: "0 auto" }}>
+          <h2 style={{ fontSize: "1.8rem", fontWeight: 800, color: "#fff", textAlign: "center", marginBottom: "8px" }}>
+            El Sistema en Acción
+          </h2>
+          <p style={{ color: "#94a3b8", textAlign: "center", marginBottom: "48px", fontSize: "1rem" }}>
+            Capturas reales del proyecto corriendo sobre una cámara web estándar
+          </p>
+          <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fit, minmax(300px, 1fr))", gap: "24px" }}>
+            {demos.map((d) => (
+              <figure
+                key={d.src}
+                style={{
+                  margin: 0,
+                  background: "#11111f",
+                  border: "1px solid rgba(255,255,255,0.08)",
+                  borderRadius: "20px",
+                  overflow: "hidden",
+                }}
+              >
+                <Image
+                  src={d.src}
+                  alt={d.alt}
+                  width={690}
+                  height={553}
+                  sizes="(max-width: 700px) 100vw, 350px"
+                  style={{ width: "100%", height: "auto", display: "block" }}
+                />
+                <figcaption style={{ padding: "18px 20px 22px" }}>
+                  <div
+                    style={{
+                      fontSize: "0.75rem",
+                      fontWeight: 700,
+                      color: d.color,
+                      letterSpacing: "0.08em",
+                      textTransform: "uppercase",
+                      marginBottom: "6px",
+                    }}
+                  >
+                    {d.title}
+                  </div>
+                  <p style={{ margin: 0, color: "#cbd5e1", fontSize: "0.92rem", lineHeight: 1.6 }}>{d.caption}</p>
+                </figcaption>
+              </figure>
             ))}
           </div>
         </div>

@@ -7,7 +7,7 @@ import SEO from "../../components/SEO";
 import { serverSideTranslations } from 'next-i18next/serverSideTranslations';
 import { useRouter } from "next/router";
 
-const SENAS_IMAGE = "https://images.pexels.com/photos/415829/pexels-photo-415829.jpeg?auto=compress&cs=tinysrgb&w=1200";
+const SENAS_IMAGE = "/images/vision-computadora/demo-manos.webp";
 
 const content = {
   es: {
@@ -21,6 +21,13 @@ const content = {
     btnTech: "Stack tecnológico",
     cardTitle: "IA en Tiempo Real",
     cardText: "Computer Vision & Deep Learning",
+    demoTitle: "El Sistema en Acción",
+    demoSubtitle: "Capturas reales del proyecto corriendo sobre una cámara web estándar",
+    demos: [
+      { src: "/images/vision-computadora/demo-manos.webp", title: "Manos y señas", caption: "21 landmarks por mano y la seña interpretada en pantalla: 26 FPS.", alt: "Landmarks de la mano derecha con las letras detectadas en lenguaje de señas" },
+      { src: "/images/vision-computadora/demo-rostros.webp", title: "Rostros", caption: "Malla facial ajustada al rostro frame a frame: 35 FPS.", alt: "Malla facial de MediaPipe detectando un rostro en tiempo real" },
+      { src: "/images/vision-computadora/demo-objetos.webp", title: "Objetos", caption: "Detección de una persona y un control con cajas delimitadoras: 70 FPS.", alt: "Detección de objetos en tiempo real: una persona y un control de videojuegos" },
+    ],
     featuresTitle: "Características Principales",
     featuresSubtitle: "Funcionalidades clave del sistema de reconocimiento",
     features: [
@@ -66,6 +73,13 @@ const content = {
     btnTech: "Tech stack",
     cardTitle: "Real-Time AI",
     cardText: "Computer Vision & Deep Learning",
+    demoTitle: "The System in Action",
+    demoSubtitle: "Real screenshots of the project running on a standard webcam",
+    demos: [
+      { src: "/images/vision-computadora/demo-manos.webp", title: "Hands and signs", caption: "21 landmarks per hand and the recognized sign on screen: 26 FPS.", alt: "Right hand landmarks with detected sign language letters" },
+      { src: "/images/vision-computadora/demo-rostros.webp", title: "Faces", caption: "Face mesh fitted to the face frame by frame: 35 FPS.", alt: "MediaPipe face mesh detecting a face in real time" },
+      { src: "/images/vision-computadora/demo-objetos.webp", title: "Objects", caption: "A person and a game controller detected with bounding boxes: 70 FPS.", alt: "Real-time object detection: a person and a game controller" },
+    ],
     featuresTitle: "Key Features",
     featuresSubtitle: "Key features of the recognition system",
     features: [
@@ -157,8 +171,8 @@ const ReconocimientoLenguajeSenas = () => {
               <Image
                 src={SENAS_IMAGE}
                 alt="Reconocimiento de lenguaje de señas con visión artificial"
-                width={700}
-                height={500}
+                width={690}
+                height={553}
                 className={styles.projectImage}
                 priority
               />
@@ -170,6 +184,37 @@ const ReconocimientoLenguajeSenas = () => {
                 </div>
               </div>
             </div>
+          </div>
+        </div>
+      </section>
+
+      {/* Demo Section */}
+      <section id="demo" className={styles.section}>
+        <div className={styles.container}>
+          <div className={styles.sectionHeader}>
+            <h2 className={styles.sectionTitle}>{c.demoTitle}</h2>
+            <p className={styles.sectionSubtitle}>{c.demoSubtitle}</p>
+          </div>
+          <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fit, minmax(280px, 1fr))", gap: "24px" }}>
+            {c.demos.map((demo) => (
+              <figure
+                key={demo.src}
+                style={{ margin: 0, background: "#11111f", borderRadius: "16px", overflow: "hidden", border: "1px solid rgba(255,255,255,0.08)" }}
+              >
+                <Image
+                  src={demo.src}
+                  alt={demo.alt}
+                  width={690}
+                  height={553}
+                  sizes="(max-width: 700px) 100vw, 380px"
+                  style={{ width: "100%", height: "auto", display: "block" }}
+                />
+                <figcaption style={{ padding: "16px 18px 20px" }}>
+                  <strong style={{ display: "block", color: "#fff", marginBottom: "4px" }}>{demo.title}</strong>
+                  <span style={{ color: "#cbd5e1", fontSize: "0.92rem", lineHeight: 1.6 }}>{demo.caption}</span>
+                </figcaption>
+              </figure>
+            ))}
           </div>
         </div>
       </section>

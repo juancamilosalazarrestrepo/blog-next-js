@@ -4,6 +4,7 @@ import { serverSideTranslations } from "next-i18next/serverSideTranslations";
 import SEO from "../components/SEO";
 import Layout from "../components/Layout";
 import HotelAgentDemo from "../components/HotelAgentDemo";
+import { SITE_URL } from "../../lib/site";
 
 export async function getStaticProps({ locale }) {
     return {
@@ -18,7 +19,6 @@ const WHATSAPP_URL = `https://wa.me/${PHONE}?text=${encodeURIComponent(
     "Hola, tengo un hotel y quiero saber más sobre los agentes de IA para reservas."
 )}`;
 
-const SITE_URL = "https://salazarcode.com";
 const PAGE_URL = `${SITE_URL}/agentes-ia-hoteles`;
 const OG_IMAGE = "/assets/ai/og-agentes-ia-hoteles.jpg";
 // Sin sufijo de marca: con él el título pasaba de 60 caracteres y Google cortaba la keyword.
@@ -340,7 +340,7 @@ export default function AgentesIAHoteles() {
                 provider: {
                     "@type": "Organization",
                     name: "Salazar Code",
-                    url: "https://salazarcode.com",
+                    url: SITE_URL,
                 },
                 areaServed: "Latinoamérica y España",
                 hasOfferCatalog: {

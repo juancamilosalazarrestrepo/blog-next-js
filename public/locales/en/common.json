@@ -2,6 +2,7 @@
   "nav": {
     "portfolio": "Portfolio",
     "blog": "Blog",
+    "cursos": "Courses",
     "projects": "Projects",
     "certificates": "Certificates",
     "services": "Services",
@@ -53,6 +54,17 @@
     "description": "24/7 customer service, autopilot lead qualification and optimized operational processes. We implement Artificial Intelligence tailored to your company's challenges.",
     "cta": "Explore Solutions",
     "status": "Operational Agent 24/7"
+  },
+  "hotelSection": {
+    "badge": "New · Hotels",
+    "title": "Your hotel taking bookings",
+    "titleHighlight": "24/7 with AI",
+    "description": "An AI agent that serves your guests on WhatsApp and web, checks availability in your PMS and closes the booking inside the chat. Fewer OTA commissions, zero unanswered inquiries.",
+    "point1": "Direct bookings, no commissions",
+    "point2": "Replies in seconds, in any language",
+    "point3": "Upselling and handoff to reception",
+    "cta": "See agents for hotels",
+    "secondary": "Live in 2 weeks"
   },
   "webDevSection": {
     "badge": "Web Design & Development",

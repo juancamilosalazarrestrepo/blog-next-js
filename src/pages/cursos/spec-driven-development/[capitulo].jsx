@@ -57,6 +57,7 @@ export default function CapituloPage({ mdxSource, frontMatter, chapters, activeL
         type="article"
         keywords={frontMatter.keywords?.length ? frontMatter.keywords : ["spec driven development", frontMatter.title]}
         noindex={activeLocale !== "es"}
+        languages={["es"]}
       />
       <CourseLayout chapters={chapters} currentSlug={frontMatter.slug} courseUrl="/cursos/spec-driven-development" courseLabel="Spec-Driven Dev">
         <MDXRemote {...mdxSource} components={MDXComponents} />

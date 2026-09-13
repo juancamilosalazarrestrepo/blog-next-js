@@ -1,5 +1,6 @@
 import Head from 'next/head';
 import { useRouter } from 'next/router';
+import { SITE_URL } from '../../lib/site';
 
 const SEO = ({
   title = 'Desarrollador Full Stack | Especialista en Next.js, React y .NET',
@@ -18,6 +19,8 @@ const SEO = ({
   // debe pasar ['es']: así /en/... canonicaliza a la versión en español y no
   // se anuncia un hreflang "en" que serviría contenido duplicado.
   languages = ['es', 'en'],
+  // Ruta por idioma cuando no coincide entre idiomas, ej. { es: '/blog/codigo-limpio', en: '/blog/clean-code' }.
+  paths = {},
   imageWidth = 1200,
   imageHeight = 630,
   // Con títulos largos, el sufijo de marca empuja la keyword fuera del corte de Google.
@@ -25,11 +28,17 @@ const SEO = ({
 }) => {
   const router = useRouter();
   const { locale, asPath } = router;
-  const siteUrl = process.env.NEXT_PUBLIC_SITE_URL || 'https://salazarcode.com';
+  const siteUrl = SITE_URL;
   const siteName = 'Juan Camilo Salazar';
   const twitterHandle = '@juancsalazarc';
 
-  const urlFor = (lang) => `${siteUrl}${lang !== 'es' ? `/${lang}` : ''}${asPath}`;
+  const urlFor = (lang) => {
+    // Sin query ni hash: ?utm_... no debe acabar en el canonical ni en el hreflang.
+    const pagePath = paths?.[lang] ?? asPath.split(/[?#]/)[0];
+    const prefix = lang !== 'es' ? `/${lang}` : '';
+    // En la home, "/en/" redirige a "/en": el hreflang debe apuntar a la URL final.
+    return `${siteUrl}${prefix}${prefix && pagePath === '/' ? '' : pagePath}`;
+  };
   // Si el visitante está en un idioma que la página no tiene, la versión válida es la primera.
   const pageLocale = languages.includes(locale) ? locale : languages[0];
   const currentUrl = canonical || urlFor(pageLocale);

@@ -239,6 +239,7 @@ export default function CursoSDDPage({ chapters, activeLocale }) {
         description="Aprende Spec-Driven Development gratis: cómo generar especificaciones con IA e implementarlas con Claude Code, OpenCode y más. 7 capítulos con proyecto real."
         keywords={["spec driven development", "desarrollo con ia", "especificaciones con ia", "claude code curso", "opencode curso", "metodologia desarrollo software"]}
         noindex={activeLocale !== "es"}
+        languages={["es"]}
       />
       <CursoSDD chapters={chapters} />
     </Layout>

@@ -2,6 +2,7 @@ import { getAllFilesFrontMatter } from "lib/mdx";
 import Link from "next/link";
 import Banners from "../components/Banners";
 import AIAgentsSection from "../components/AIAgentsSection";
+import HotelAgentsSection from "../components/HotelAgentsSection";
 import WebDevSection from "../components/WebDevSection";
 import CreativeWebDesign from "../components/CreativeWebDesign";
 import banner1 from "../../public/images/background.webp";
@@ -133,6 +134,7 @@ const Home = ({ posts, lastProjects }) => {
         </div>
 
         <AIAgentsSection />
+        <HotelAgentsSection />
         <WebDevSection />
         <CreativeWebDesign />
 

@@ -26,7 +26,7 @@ const proyectos = [
   {
     key: "reconocimiento_lenguaje_senas",
     titulo: "Reconocimiento de Lenguaje de Señas con Visión Artificial",
-    imagen: "https://images.pexels.com/photos/415829/pexels-photo-415829.jpeg?auto=compress&cs=tinysrgb&w=600",
+    imagen: "/images/vision-computadora-mediapipe.webp",
     description:
       "Sistema de visión artificial que reconoce y traduce lenguaje de señas en tiempo real. Usa MediaPipe para el seguimiento de manos y una red neuronal (TensorFlow/Keras) para clasificar cada gesto en letras y palabras.",
     url: "/proyectos/reconocimiento_lenguaje_senas",

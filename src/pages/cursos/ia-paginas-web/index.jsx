@@ -180,6 +180,7 @@ export default function CursoIAPage({ chapters, activeLocale }) {
         description="Aprende a usar la inteligencia artificial con OpenCode para crear una página web gratis desde cero y desplegarla en Vercel con tu propio dominio."
         keywords={["curso de ia", "crear web con ia", "opencode", "curso gratis desarrollo web", "desplegar en vercel", "inteligencia artificial web"]}
         noindex={activeLocale !== "es"}
+        languages={["es"]}
       />
       <CursoIA chapters={chapters} />
     </Layout>

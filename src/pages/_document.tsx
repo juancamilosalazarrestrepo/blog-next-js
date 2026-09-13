@@ -3,7 +3,8 @@ import { GoogleAnalytics } from "@next/third-parties/google";
 
 export default function Document() {
   return (
-    <Html lang="es">
+    // Sin lang fijo: Next usa el locale activo, así /en/... declara lang="en".
+    <Html>
       <Head>
         <link rel="preconnect" href="https://fonts.googleapis.com" />
         <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="anonymous" />

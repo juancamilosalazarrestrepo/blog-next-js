@@ -1,4 +1,124 @@
-import { ReactNode } from "react";
+import { ReactNode, useId } from "react";
+
+/* -------------------------------------------------------------------------- */
+/*  Utilidades compartidas                                                     */
+/* -------------------------------------------------------------------------- */
+
+const FONT_SANS =
+  "system-ui, -apple-system, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif";
+const FONT_MONO =
+  "ui-monospace, SFMono-Regular, Menlo, Consolas, 'Liberation Mono', monospace";
+
+const COLORS = {
+  slate: "#94a3b8",
+  blue: "#0072ff",
+  green: "#10b981",
+  red: "#ef4444",
+  purple: "#7c3aed",
+  amber: "#f59e0b",
+} as const;
+
+type ColorName = keyof typeof COLORS;
+
+/**
+ * Texto dentro de una caja de tamano fijo.
+ *
+ * Usa <foreignObject> en lugar de <text> porque <text> no hace salto de linea:
+ * si la cadena es mas larga que la figura se desborda y se monta encima de las
+ * flechas y las etiquetas de alrededor.
+ */
+function FitText({
+  x,
+  y,
+  w,
+  h,
+  children,
+  color = "#1f2937",
+  size = 11,
+  mono = false,
+  bold = false,
+}: {
+  x: number;
+  y: number;
+  w: number;
+  h: number;
+  children: ReactNode;
+  color?: string;
+  size?: number;
+  mono?: boolean;
+  bold?: boolean;
+}) {
+  return (
+    <foreignObject x={x} y={y} width={w} height={h}>
+      <div
+        style={{
+          width: "100%",
+          height: "100%",
+          display: "flex",
+          alignItems: "center",
+          justifyContent: "center",
+          textAlign: "center",
+          color,
+          fontSize: `${size}px`,
+          fontWeight: bold ? 700 : 400,
+          fontFamily: mono ? FONT_MONO : FONT_SANS,
+          lineHeight: 1.25,
+          overflowWrap: "anywhere",
+        }}
+      >
+        <span>{children}</span>
+      </div>
+    </foreignObject>
+  );
+}
+
+/** Puntas de flecha con ids unicos por instancia (evita ids duplicados en la pagina). */
+function Arrowheads({ uid }: { uid: string }) {
+  return (
+    <defs>
+      {(Object.keys(COLORS) as ColorName[]).map((name) => (
+        <marker
+          key={name}
+          id={`${uid}-${name}`}
+          markerWidth="8"
+          markerHeight="8"
+          refX="6"
+          refY="4"
+          orient="auto"
+        >
+          <path d="M0,0 L8,4 L0,8 Z" fill={COLORS[name]} />
+        </marker>
+      ))}
+    </defs>
+  );
+}
+
+function Figure({
+  viewBox,
+  maxWidth,
+  children,
+}: {
+  viewBox: string;
+  maxWidth: number;
+  children: ReactNode;
+}) {
+  return (
+    <div style={{ display: "flex", justifyContent: "center", margin: "24px 0" }}>
+      <svg
+        viewBox={viewBox}
+        width="100%"
+        style={{ maxWidth, height: "auto" }}
+        xmlns="http://www.w3.org/2000/svg"
+      >
+        {children}
+      </svg>
+    </div>
+  );
+}
+
+/* -------------------------------------------------------------------------- */
+/*  Callout                                                                    */
+/* -------------------------------------------------------------------------- */
 
 export function Callout({
   type = "tip",
@@ -26,6 +146,10 @@ export function Callout({
   );
 }
 
+/* -------------------------------------------------------------------------- */
+/*  Variables                                                                  */
+/* -------------------------------------------------------------------------- */
+
 export function VariableDiagram({
   name = "edad",
   value = "25",
@@ -35,36 +159,46 @@ export function VariableDiagram({
   value?: string;
   type?: string;
 }) {
+  const uid = useId().replace(/[^a-zA-Z0-9]/g, "");
   return (
-    <div style={{ display: "flex", justifyContent: "center", margin: "24px 0" }}>
-      <svg viewBox="0 0 420 140" width="100%" style={{ maxWidth: 420 }} xmlns="http://www.w3.org/2000/svg">
-        <text x="210" y="20" textAnchor="middle" fontSize="13" fill="#64748b" fontFamily="monospace">
-          {`let ${name} = ${value};`}
-        </text>
-        <rect x="30" y="40" width="180" height="80" rx="12" fill="#eff6ff" stroke="#0072ff" strokeWidth="2" />
-        <text x="120" y="72" textAnchor="middle" fontSize="14" fontWeight="700" fill="#0072ff" fontFamily="sans-serif">
-          {name}
-        </text>
-        <text x="120" y="95" textAnchor="middle" fontSize="11" fill="#64748b" fontFamily="sans-serif">
-          (la caja / variable)
-        </text>
-        <line x1="210" y1="80" x2="260" y2="80" stroke="#94a3b8" strokeWidth="2" markerEnd="url(#varArrow)" />
-        <rect x="270" y="50" width="120" height="60" rx="10" fill="#ecfdf5" stroke="#10b981" strokeWidth="2" />
-        <text x="330" y="77" textAnchor="middle" fontSize="16" fontWeight="700" fill="#10b981" fontFamily="sans-serif">
-          {value}
-        </text>
-        <text x="330" y="95" textAnchor="middle" fontSize="11" fill="#64748b" fontFamily="sans-serif">
-          {type}
-        </text>
-        <defs>
-          <marker id="varArrow" markerWidth="8" markerHeight="8" refX="6" refY="4" orient="auto">
-            <path d="M0,0 L8,4 L0,8 Z" fill="#94a3b8" />
-          </marker>
-        </defs>
-      </svg>
-    </div>
+    <Figure viewBox="0 0 460 150" maxWidth={460}>
+      <Arrowheads uid={uid} />
+      <FitText x={10} y={4} w={440} h={26} size={12} mono color="#64748b">
+        {`let ${name} = ${value};`}
+      </FitText>
+
+      <rect x="30" y="38" width="180" height="84" rx="12" fill="#eff6ff" stroke={COLORS.blue} strokeWidth="2" />
+      <FitText x={38} y={46} w={164} h={40} size={14} bold mono color={COLORS.blue}>
+        {name}
+      </FitText>
+      <FitText x={38} y={86} w={164} h={30} size={10} color="#64748b">
+        (la caja / variable)
+      </FitText>
+
+      <line
+        x1="212"
+        y1="80"
+        x2="256"
+        y2="80"
+        stroke={COLORS.slate}
+        strokeWidth="2"
+        markerEnd={`url(#${uid}-slate)`}
+      />
+
+      <rect x="266" y="38" width="170" height="84" rx="10" fill="#ecfdf5" stroke={COLORS.green} strokeWidth="2" />
+      <FitText x={272} y={44} w={158} h={48} size={14} bold mono color="#059669">
+        {value}
+      </FitText>
+      <FitText x={272} y={92} w={158} h={24} size={10} color="#64748b">
+        {type}
+      </FitText>
+    </Figure>
   );
 }
+
+/* -------------------------------------------------------------------------- */
+/*  Condicionales                                                              */
+/* -------------------------------------------------------------------------- */
 
 export function ConditionalDiagram({
   condition = "edad >= 18",
@@ -75,59 +209,71 @@ export function ConditionalDiagram({
   ifTrue?: string;
   ifFalse?: string;
 }) {
+  const uid = useId().replace(/[^a-zA-Z0-9]/g, "");
   return (
-    <div style={{ display: "flex", justifyContent: "center", margin: "24px 0" }}>
-      <svg viewBox="0 0 480 240" width="100%" style={{ maxWidth: 480 }} xmlns="http://www.w3.org/2000/svg">
-        <rect x="170" y="10" width="140" height="46" rx="10" fill="#eff6ff" stroke="#0072ff" strokeWidth="2" />
-        <text x="240" y="38" textAnchor="middle" fontSize="13" fontWeight="700" fill="#0072ff" fontFamily="sans-serif">
-          Inicio
-        </text>
-        <line x1="240" y1="56" x2="240" y2="80" stroke="#94a3b8" strokeWidth="2" markerEnd="url(#condArrow)" />
-        <polygon points="240,80 320,125 240,170 160,125" fill="#fef3c7" stroke="#f59e0b" strokeWidth="2" />
-        <text x="240" y="122" textAnchor="middle" fontSize="11" fontWeight="700" fill="#92400e" fontFamily="monospace">
-          {condition}
-        </text>
-        <text x="240" y="137" textAnchor="middle" fontSize="10" fill="#92400e" fontFamily="sans-serif">
-          ¿verdadero?
-        </text>
+    <Figure viewBox="0 0 560 266" maxWidth={560}>
+      <Arrowheads uid={uid} />
 
-        <line x1="160" y1="125" x2="70" y2="125" stroke="#10b981" strokeWidth="2" markerEnd="url(#condArrowGreen)" />
-        <text x="112" y="115" textAnchor="middle" fontSize="11" fontWeight="700" fill="#10b981" fontFamily="sans-serif">
-          true
-        </text>
-        <rect x="10" y="145" width="120" height="60" rx="10" fill="#ecfdf5" stroke="#10b981" strokeWidth="2" />
-        <foreignObject x="14" y="149" width="112" height="52">
-          <div style={{ fontSize: 10, textAlign: "center", color: "#065f46", fontFamily: "sans-serif", lineHeight: 1.3 }}>
-            {ifTrue}
-          </div>
-        </foreignObject>
+      <rect x="225" y="6" width="110" height="40" rx="10" fill="#eff6ff" stroke={COLORS.blue} strokeWidth="2" />
+      <FitText x={231} y={10} w={98} h={32} size={13} bold color={COLORS.blue}>
+        Inicio
+      </FitText>
+      <line
+        x1="280"
+        y1="46"
+        x2="280"
+        y2="66"
+        stroke={COLORS.slate}
+        strokeWidth="2"
+        markerEnd={`url(#${uid}-slate)`}
+      />
 
-        <line x1="320" y1="125" x2="410" y2="125" stroke="#ef4444" strokeWidth="2" markerEnd="url(#condArrowRed)" />
-        <text x="365" y="115" textAnchor="middle" fontSize="11" fontWeight="700" fill="#ef4444" fontFamily="sans-serif">
-          false
-        </text>
-        <rect x="350" y="145" width="120" height="60" rx="10" fill="#fef2f2" stroke="#ef4444" strokeWidth="2" />
-        <foreignObject x="354" y="149" width="112" height="52">
-          <div style={{ fontSize: 10, textAlign: "center", color: "#991b1b", fontFamily: "sans-serif", lineHeight: 1.3 }}>
-            {ifFalse}
-          </div>
-        </foreignObject>
+      <polygon points="280,68 400,140 280,212 160,140" fill="#fef3c7" stroke={COLORS.amber} strokeWidth="2" />
+      <FitText x={220} y={104} w={120} h={72} size={10.5} color="#92400e">
+        <span>
+          <span style={{ fontFamily: FONT_MONO, fontWeight: 700, display: "block" }}>{condition}</span>
+          <span style={{ display: "block", fontSize: "9px", color: "#b45309", marginTop: 2 }}>
+            ¿verdadero?
+          </span>
+        </span>
+      </FitText>
 
-        <defs>
-          <marker id="condArrow" markerWidth="8" markerHeight="8" refX="6" refY="4" orient="auto">
-            <path d="M0,0 L8,4 L0,8 Z" fill="#94a3b8" />
-          </marker>
-          <marker id="condArrowGreen" markerWidth="8" markerHeight="8" refX="6" refY="4" orient="auto">
-            <path d="M0,0 L8,4 L0,8 Z" fill="#10b981" />
-          </marker>
-          <marker id="condArrowRed" markerWidth="8" markerHeight="8" refX="6" refY="4" orient="auto">
-            <path d="M0,0 L8,4 L0,8 Z" fill="#ef4444" />
-          </marker>
-        </defs>
-      </svg>
-    </div>
+      <path
+        d="M160,140 H78 V172"
+        fill="none"
+        stroke={COLORS.green}
+        strokeWidth="2"
+        markerEnd={`url(#${uid}-green)`}
+      />
+      <FitText x={78} y={112} w={80} h={22} size={11} bold color={COLORS.green}>
+        true
+      </FitText>
+      <rect x="14" y="176" width="128" height="74" rx="10" fill="#ecfdf5" stroke={COLORS.green} strokeWidth="2" />
+      <FitText x={20} y={182} w={116} h={62} size={10.5} color="#065f46">
+        {ifTrue}
+      </FitText>
+
+      <path
+        d="M400,140 H482 V172"
+        fill="none"
+        stroke={COLORS.red}
+        strokeWidth="2"
+        markerEnd={`url(#${uid}-red)`}
+      />
+      <FitText x={402} y={112} w={80} h={22} size={11} bold color={COLORS.red}>
+        false
+      </FitText>
+      <rect x="418" y="176" width="128" height="74" rx="10" fill="#fef2f2" stroke={COLORS.red} strokeWidth="2" />
+      <FitText x={424} y={182} w={116} h={62} size={10.5} color="#991b1b">
+        {ifFalse}
+      </FitText>
+    </Figure>
   );
 }
+
+/* -------------------------------------------------------------------------- */
+/*  Bucles                                                                     */
+/* -------------------------------------------------------------------------- */
 
 export function LoopDiagram({
   condition = "i < 5",
@@ -136,50 +282,67 @@ export function LoopDiagram({
   condition?: string;
   body?: string;
 }) {
+  const uid = useId().replace(/[^a-zA-Z0-9]/g, "");
   return (
-    <div style={{ display: "flex", justifyContent: "center", margin: "24px 0" }}>
-      <svg viewBox="0 0 420 220" width="100%" style={{ maxWidth: 420 }} xmlns="http://www.w3.org/2000/svg">
-        <polygon points="210,10 280,55 210,100 140,55" fill="#fef3c7" stroke="#f59e0b" strokeWidth="2" />
-        <text x="210" y="58" textAnchor="middle" fontSize="11" fontWeight="700" fill="#92400e" fontFamily="monospace">
-          {condition}
-        </text>
+    <Figure viewBox="0 0 480 236" maxWidth={460}>
+      <Arrowheads uid={uid} />
 
-        <line x1="210" y1="100" x2="210" y2="140" stroke="#10b981" strokeWidth="2" markerEnd="url(#loopArrowGreen)" />
-        <text x="230" y="122" fontSize="10" fontWeight="700" fill="#10b981" fontFamily="sans-serif">
-          true
-        </text>
-        <rect x="130" y="140" width="160" height="50" rx="10" fill="#ecfdf5" stroke="#10b981" strokeWidth="2" />
-        <foreignObject x="134" y="144" width="152" height="42">
-          <div style={{ fontSize: 10, textAlign: "center", color: "#065f46", fontFamily: "monospace", lineHeight: 1.3 }}>
-            {body}
-          </div>
-        </foreignObject>
+      <polygon points="215,10 320,62 215,114 110,62" fill="#fef3c7" stroke={COLORS.amber} strokeWidth="2" />
+      <FitText x={163} y={36} w={104} h={52} size={10.5} bold mono color="#92400e">
+        {condition}
+      </FitText>
 
-        <path d="M130,165 C40,165 40,55 140,55" fill="none" stroke="#0072ff" strokeWidth="2" markerEnd="url(#loopArrowBlue)" />
+      <line
+        x1="215"
+        y1="114"
+        x2="215"
+        y2="150"
+        stroke={COLORS.green}
+        strokeWidth="2"
+        markerEnd={`url(#${uid}-green)`}
+      />
+      <FitText x={224} y={120} w={56} h={20} size={10} bold color={COLORS.green}>
+        true
+      </FitText>
 
-        <line x1="280" y1="55" x2="360" y2="55" stroke="#ef4444" strokeWidth="2" markerEnd="url(#loopArrowRed)" />
-        <text x="320" y="45" textAnchor="middle" fontSize="10" fontWeight="700" fill="#ef4444" fontFamily="sans-serif">
-          false
-        </text>
-        <text x="320" y="72" textAnchor="middle" fontSize="10" fill="#64748b" fontFamily="sans-serif">
-          fin del bucle
-        </text>
+      <rect x="120" y="154" width="190" height="58" rx="10" fill="#ecfdf5" stroke={COLORS.green} strokeWidth="2" />
+      <FitText x={126} y={158} w={178} h={50} size={10.5} mono color="#065f46">
+        {body}
+      </FitText>
 
-        <defs>
-          <marker id="loopArrowGreen" markerWidth="8" markerHeight="8" refX="6" refY="4" orient="auto">
-            <path d="M0,0 L8,4 L0,8 Z" fill="#10b981" />
-          </marker>
-          <marker id="loopArrowBlue" markerWidth="8" markerHeight="8" refX="6" refY="4" orient="auto">
-            <path d="M0,0 L8,4 L0,8 Z" fill="#0072ff" />
-          </marker>
-          <marker id="loopArrowRed" markerWidth="8" markerHeight="8" refX="6" refY="4" orient="auto">
-            <path d="M0,0 L8,4 L0,8 Z" fill="#ef4444" />
-          </marker>
-        </defs>
-      </svg>
-    </div>
+      <path
+        d="M120,183 C50,183 44,62 108,62"
+        fill="none"
+        stroke={COLORS.blue}
+        strokeWidth="2"
+        markerEnd={`url(#${uid}-blue)`}
+      />
+      <FitText x={52} y={112} w={52} h={20} size={9} bold color={COLORS.blue}>
+        repite
+      </FitText>
+
+      <line
+        x1="320"
+        y1="62"
+        x2="392"
+        y2="62"
+        stroke={COLORS.red}
+        strokeWidth="2"
+        markerEnd={`url(#${uid}-red)`}
+      />
+      <FitText x={326} y={36} w={66} h={20} size={10} bold color={COLORS.red}>
+        false
+      </FitText>
+      <FitText x={326} y={70} w={140} h={20} size={9.5} color="#64748b">
+        fin del bucle
+      </FitText>
+    </Figure>
   );
 }
+
+/* -------------------------------------------------------------------------- */
+/*  Funciones                                                                  */
+/* -------------------------------------------------------------------------- */
 
 export function FunctionDiagram({
   name = "sumar",
@@ -190,45 +353,88 @@ export function FunctionDiagram({
   params?: string[];
   returns?: string;
 }) {
+  const uid = useId().replace(/[^a-zA-Z0-9]/g, "");
+  const top = 24;
+  const gap = 46;
+  const blockH = Math.max(params.length, 1) * gap;
+  const cy = Math.round(top + blockH / 2);
+  const vbH = Math.max(150, top + blockH + 16);
+
   return (
-    <div style={{ display: "flex", justifyContent: "center", margin: "24px 0" }}>
-      <svg viewBox="0 0 480 180" width="100%" style={{ maxWidth: 480 }} xmlns="http://www.w3.org/2000/svg">
-        {params.map((p, i) => (
-          <g key={p}>
-            <text x="20" y={50 + i * 26} fontSize="12" fill="#0072ff" fontFamily="monospace">
+    <Figure viewBox={`0 0 560 ${vbH}`} maxWidth={560}>
+      <Arrowheads uid={uid} />
+
+      {params.map((p, i) => {
+        const boxY = top + i * gap + 5;
+        return (
+          <g key={`${p}-${i}`}>
+            <rect x="10" y={boxY} width="96" height="36" rx="8" fill="#eff6ff" stroke={COLORS.blue} strokeWidth="2" />
+            <FitText x={14} y={boxY + 3} w={88} h={30} size={11} bold mono color={COLORS.blue}>
               {p}
-            </text>
-            <line x1="45" y1={46 + i * 26} x2="150" y2="70" stroke="#0072ff" strokeWidth="2" markerEnd="url(#fnArrowIn)" />
+            </FitText>
+            <line
+              x1="108"
+              y1={boxY + 18}
+              x2="178"
+              y2={cy}
+              stroke={COLORS.blue}
+              strokeWidth="2"
+              markerEnd={`url(#${uid}-blue)`}
+            />
           </g>
-        ))}
-        <rect x="160" y="40" width="160" height="80" rx="12" fill="#f5f3ff" stroke="#7c3aed" strokeWidth="2" />
-        <text x="240" y="75" textAnchor="middle" fontSize="14" fontWeight="700" fill="#7c3aed" fontFamily="monospace">
-          {`function ${name}()`}
-        </text>
-        <text x="240" y="95" textAnchor="middle" fontSize="10" fill="#64748b" fontFamily="sans-serif">
-          recibe parámetros, devuelve un valor
-        </text>
+        );
+      })}
 
-        <line x1="320" y1="80" x2="410" y2="80" stroke="#10b981" strokeWidth="2" markerEnd="url(#fnArrowOut)" />
-        <text x="415" y="76" fontSize="11" fill="#10b981" fontFamily="sans-serif">
-          return
-        </text>
-        <text x="415" y="92" fontSize="12" fontWeight="700" fill="#10b981" fontFamily="monospace">
-          {returns}
-        </text>
+      <rect
+        x="186"
+        y={cy - 43}
+        width="190"
+        height="86"
+        rx="12"
+        fill="#f5f3ff"
+        stroke={COLORS.purple}
+        strokeWidth="2"
+      />
+      <FitText x={192} y={cy - 35} w={178} h={36} size={13.5} bold mono color={COLORS.purple}>
+        {`function ${name}()`}
+      </FitText>
+      <FitText x={192} y={cy + 1} w={178} h={34} size={9.5} color="#64748b">
+        recibe parámetros, devuelve un valor
+      </FitText>
 
-        <defs>
-          <marker id="fnArrowIn" markerWidth="8" markerHeight="8" refX="6" refY="4" orient="auto">
-            <path d="M0,0 L8,4 L0,8 Z" fill="#0072ff" />
-          </marker>
-          <marker id="fnArrowOut" markerWidth="8" markerHeight="8" refX="6" refY="4" orient="auto">
-            <path d="M0,0 L8,4 L0,8 Z" fill="#10b981" />
-          </marker>
-        </defs>
-      </svg>
-    </div>
+      <line
+        x1="378"
+        y1={cy}
+        x2="430"
+        y2={cy}
+        stroke={COLORS.green}
+        strokeWidth="2"
+        markerEnd={`url(#${uid}-green)`}
+      />
+
+      <rect
+        x="438"
+        y={cy - 31}
+        width="112"
+        height="62"
+        rx="10"
+        fill="#ecfdf5"
+        stroke={COLORS.green}
+        strokeWidth="2"
+      />
+      <FitText x={442} y={cy - 27} w={104} h={22} size={10} color="#059669">
+        return
+      </FitText>
+      <FitText x={442} y={cy - 5} w={104} h={32} size={12} bold mono color="#059669">
+        {returns}
+      </FitText>
+    </Figure>
   );
 }
+
+/* -------------------------------------------------------------------------- */
+/*  Prompts / agente de IA                                                     */
+/* -------------------------------------------------------------------------- */
 
 export function EscribiendoPromptsDiagram({
   idea = "Le dices a la IA lo que quieres",
@@ -237,50 +443,64 @@ export function EscribiendoPromptsDiagram({
   idea?: string;
   resultado?: string;
 }) {
+  const uid = useId().replace(/[^a-zA-Z0-9]/g, "");
   return (
-    <div style={{ display: "flex", justifyContent: "center", margin: "24px 0" }}>
-      <svg viewBox="0 0 480 160" width="100%" style={{ maxWidth: 480 }} xmlns="http://www.w3.org/2000/svg">
-        <rect x="15" y="35" width="140" height="90" rx="12" fill="#eff6ff" stroke="#0072ff" strokeWidth="2" />
-        <text x="85" y="72" textAnchor="middle" fontSize="24">💬</text>
-        <foreignObject x="19" y="85" width="132" height="36">
-          <div style={{ fontSize: 10, textAlign: "center", color: "#1e40af", fontFamily: "sans-serif", lineHeight: 1.3 }}>
-            {idea}
-          </div>
-        </foreignObject>
+    <Figure viewBox="0 0 480 156" maxWidth={480}>
+      <Arrowheads uid={uid} />
 
-        <line x1="155" y1="80" x2="185" y2="80" stroke="#7c3aed" strokeWidth="3" markerEnd="url(#promptArrow)" />
+      <rect x="10" y="30" width="142" height="110" rx="12" fill="#eff6ff" stroke={COLORS.blue} strokeWidth="2" />
+      <text x="81" y="70" textAnchor="middle" fontSize="24">
+        💬
+      </text>
+      <FitText x={14} y={78} w={134} h={58} size={10} color="#1e40af">
+        {idea}
+      </FitText>
 
-        <rect x="195" y="25" width="90" height="110" rx="12" fill="#f5f3ff" stroke="#7c3aed" strokeWidth="2" />
-        <text x="240" y="55" textAnchor="middle" fontSize="11" fontWeight="700" fill="#6d28d9" fontFamily="sans-serif">
-          OPENCODE
-        </text>
-        <text x="240" y="75" textAnchor="middle" fontSize="9" fill="#6d28d9" fontFamily="sans-serif">
-          (agente de IA)
-        </text>
-        <text x="240" y="98" textAnchor="middle" fontSize="22">🤖</text>
+      <line
+        x1="154"
+        y1="85"
+        x2="182"
+        y2="85"
+        stroke={COLORS.purple}
+        strokeWidth="3"
+        markerEnd={`url(#${uid}-purple)`}
+      />
 
-        <line x1="285" y1="80" x2="322" y2="80" stroke="#10b981" strokeWidth="3" markerEnd="url(#promptArrowGreen)" />
+      <rect x="190" y="24" width="96" height="122" rx="12" fill="#f5f3ff" stroke={COLORS.purple} strokeWidth="2" />
+      <FitText x={194} y={34} w={88} h={22} size={10.5} bold color="#6d28d9">
+        OPENCODE
+      </FitText>
+      <FitText x={194} y={56} w={88} h={18} size={9} color="#6d28d9">
+        (agente de IA)
+      </FitText>
+      <text x="238" y="112" textAnchor="middle" fontSize="24">
+        🤖
+      </text>
 
-        <rect x="330" y="35" width="135" height="90" rx="12" fill="#ecfdf5" stroke="#10b981" strokeWidth="2" />
-        <text x="397" y="70" textAnchor="middle" fontSize="22">🚀</text>
-        <foreignObject x="334" y="85" width="127" height="36">
-          <div style={{ fontSize: 10, textAlign: "center", color: "#065f46", fontFamily: "sans-serif", lineHeight: 1.3 }}>
-            {resultado}
-          </div>
-        </foreignObject>
+      <line
+        x1="288"
+        y1="85"
+        x2="320"
+        y2="85"
+        stroke={COLORS.green}
+        strokeWidth="3"
+        markerEnd={`url(#${uid}-green)`}
+      />
 
-        <defs>
-          <marker id="promptArrow" markerWidth="8" markerHeight="8" refX="6" refY="4" orient="auto">
-            <path d="M0,0 L8,4 L0,8 Z" fill="#7c3aed" />
-          </marker>
-          <marker id="promptArrowGreen" markerWidth="8" markerHeight="8" refX="6" refY="4" orient="auto">
-            <path d="M0,0 L8,4 L0,8 Z" fill="#10b981" />
-          </marker>
-        </defs>
-      </svg>
-    </div>
+      <rect x="328" y="30" width="142" height="110" rx="12" fill="#ecfdf5" stroke={COLORS.green} strokeWidth="2" />
+      <text x="399" y="70" textAnchor="middle" fontSize="24">
+        🚀
+      </text>
+      <FitText x={332} y={78} w={134} h={58} size={10} color="#065f46">
+        {resultado}
+      </FitText>
+    </Figure>
   );
 }
+
+/* -------------------------------------------------------------------------- */
+/*  Componentes de React                                                       */
+/* -------------------------------------------------------------------------- */
 
 export function ComponenteDiagram({
   root = "App",
@@ -289,39 +509,63 @@ export function ComponenteDiagram({
   root?: string;
   children?: string[];
 }) {
+  const uid = useId().replace(/[^a-zA-Z0-9]/g, "");
+  const cardW = 128;
+  const gap = 16;
+  const n = Math.max(children.length, 1);
+  const rowW = n * cardW + (n - 1) * gap;
+  const vbW = Math.max(480, rowW + 40);
+  const startX = (vbW - rowW) / 2;
+  const cx = vbW / 2;
+
   return (
-    <div style={{ display: "flex", justifyContent: "center", margin: "24px 0" }}>
-      <svg viewBox="0 0 480 220" width="100%" style={{ maxWidth: 480 }} xmlns="http://www.w3.org/2000/svg">
-        <rect x="165" y="10" width="150" height="48" rx="12" fill="#eff6ff" stroke="#0072ff" strokeWidth="2" />
-        <text x="240" y="38" textAnchor="middle" fontSize="14" fontWeight="700" fill="#0072ff" fontFamily="sans-serif">
-          {`<${root}>`}
-        </text>
+    <Figure viewBox={`0 0 ${vbW} 180`} maxWidth={Math.min(vbW, 640)}>
+      <Arrowheads uid={uid} />
 
-        {children.map((child, i) => {
-          const x = 20 + i * 155;
-          return (
-            <g key={child}>
-              <line x1="240" y1="45" x2={x + 55} y2="95" stroke="#94a3b8" strokeWidth="2" markerEnd="url(#compArrow)" />
-              <rect x={x} y="100" width="110" height="52" rx="10" fill="#f5f3ff" stroke="#7c3aed" strokeWidth="2" />
-              <text x={x + 55} y="125" textAnchor="middle" fontSize="11" fontWeight="700" fill="#6d28d9" fontFamily="monospace">
-                {child}
-              </text>
-              <text x={x + 55} y="141" textAnchor="middle" fontSize="9" fill="#8b5cf6" fontFamily="sans-serif">
-                (componente)
-              </text>
-            </g>
-          );
-        })}
+      <rect x={cx - 80} y="8" width="160" height="48" rx="12" fill="#eff6ff" stroke={COLORS.blue} strokeWidth="2" />
+      <FitText x={cx - 74} y={14} w={148} h={36} size={13.5} bold mono color={COLORS.blue}>
+        {`<${root}>`}
+      </FitText>
 
-        <defs>
-          <marker id="compArrow" markerWidth="8" markerHeight="8" refX="6" refY="4" orient="auto">
-            <path d="M0,0 L8,4 L0,8 Z" fill="#94a3b8" />
-          </marker>
-        </defs>
-      </svg>
-    </div>
+      {children.map((child, i) => {
+        const x = startX + i * (cardW + gap);
+        return (
+          <g key={`${child}-${i}`}>
+            <line
+              x1={cx}
+              y1="58"
+              x2={x + cardW / 2}
+              y2="100"
+              stroke={COLORS.slate}
+              strokeWidth="2"
+              markerEnd={`url(#${uid}-slate)`}
+            />
+            <rect
+              x={x}
+              y="104"
+              width={cardW}
+              height="60"
+              rx="10"
+              fill="#f5f3ff"
+              stroke={COLORS.purple}
+              strokeWidth="2"
+            />
+            <FitText x={x + 6} y={110} w={cardW - 12} h={30} size={11} bold mono color="#6d28d9">
+              {child}
+            </FitText>
+            <FitText x={x + 6} y={140} w={cardW - 12} h={20} size={9} color="#8b5cf6">
+              (componente)
+            </FitText>
+          </g>
+        );
+      })}
+    </Figure>
   );
 }
+
+/* -------------------------------------------------------------------------- */
+/*  Estado en React                                                            */
+/* -------------------------------------------------------------------------- */
 
 export function StateFlowDiagram({
   label = "contador",
@@ -332,54 +576,61 @@ export function StateFlowDiagram({
   escribe?: string;
   paraQueSirve?: string;
 }) {
+  const uid = useId().replace(/[^a-zA-Z0-9]/g, "");
   return (
-    <div style={{ display: "flex", justifyContent: "center", margin: "24px 0" }}>
-      <svg viewBox="0 0 480 200" width="100%" style={{ maxWidth: 480 }} xmlns="http://www.w3.org/2000/svg">
-        <rect x="15" y="65" width="150" height="70" rx="12" fill="#eff6ff" stroke="#0072ff" strokeWidth="2" />
-        <text x="90" y="94" textAnchor="middle" fontSize="13" fontWeight="700" fill="#0072ff" fontFamily="monospace">
-          {`const [${label}]`}
-        </text>
-        <text x="90" y="114" textAnchor="middle" fontSize="12" fontWeight="700" fill="#0072ff" fontFamily="monospace">
-          {`= useState(0)`}
-        </text>
-        <text x="90" y="132" textAnchor="middle" fontSize="10" fill="#64748b" fontFamily="sans-serif">
-          el estado
-        </text>
+    <Figure viewBox="0 0 520 200" maxWidth={520}>
+      <Arrowheads uid={uid} />
 
-        <line x1="165" y1="100" x2="215" y2="100" stroke="#f59e0b" strokeWidth="3" markerEnd="url(#stateArrowYellow)" />
-        <text x="190" y="88" textAnchor="middle" fontSize="10" fontWeight="700" fill="#f59e0b" fontFamily="sans-serif">
-          cambiar
-        </text>
+      <rect x="10" y="54" width="164" height="86" rx="12" fill="#eff6ff" stroke={COLORS.blue} strokeWidth="2" />
+      <FitText x={16} y={62} w={152} h={46} size={12} bold mono color={COLORS.blue}>
+        {`const [${label}] = useState(0)`}
+      </FitText>
+      <FitText x={16} y={110} w={152} h={22} size={10} color="#64748b">
+        el estado
+      </FitText>
 
-        <rect x="225" y="60" width="140" height="80" rx="12" fill="#fef3c7" stroke="#f59e0b" strokeWidth="2" />
-        <text x="295" y="94" textAnchor="middle" fontSize="13" fontWeight="700" fill="#92400e" fontFamily="monospace">
-          {escribe}
-        </text>
-        <text x="295" y="114" textAnchor="middle" fontSize="11" fill="#92400e" fontFamily="sans-serif">
-          (función que cambia)
-        </text>
+      <line
+        x1="176"
+        y1="97"
+        x2="220"
+        y2="97"
+        stroke={COLORS.amber}
+        strokeWidth="3"
+        markerEnd={`url(#${uid}-amber)`}
+      />
+      <FitText x={176} y={72} w={48} h={20} size={9.5} bold color="#d97706">
+        cambiar
+      </FitText>
 
-        <line x1="365" y1="100" x2="415" y2="100" stroke="#10b981" strokeWidth="3" markerEnd="url(#stateArrowGreen)" />
-        <text x="390" y="88" textAnchor="middle" fontSize="10" fontWeight="700" fill="#10b981" fontFamily="sans-serif">
-          redibuja
-        </text>
+      <rect x="230" y="54" width="150" height="86" rx="12" fill="#fef3c7" stroke={COLORS.amber} strokeWidth="2" />
+      <FitText x={236} y={62} w={138} h={40} size={12.5} bold mono color="#92400e">
+        {escribe}
+      </FitText>
+      <FitText x={236} y={104} w={138} h={30} size={9.5} color="#92400e">
+        (función que cambia)
+      </FitText>
 
-        <rect x="425" y="65" width="48" height="70" rx="12" fill="#ecfdf5" stroke="#10b981" strokeWidth="2" />
-        <text x="449" y="100" textAnchor="middle" fontSize="13">🖥️</text>
+      <line
+        x1="382"
+        y1="97"
+        x2="424"
+        y2="97"
+        stroke={COLORS.green}
+        strokeWidth="3"
+        markerEnd={`url(#${uid}-green)`}
+      />
+      <FitText x={380} y={72} w={48} h={20} size={9.5} bold color={COLORS.green}>
+        redibuja
+      </FitText>
 
-        <text x="240" y="185" textAnchor="middle" fontSize="11" fill="#64748b" fontFamily="sans-serif">
-          {paraQueSirve}
-        </text>
+      <rect x="432" y="62" width="76" height="70" rx="12" fill="#ecfdf5" stroke={COLORS.green} strokeWidth="2" />
+      <text x="470" y="106" textAnchor="middle" fontSize="26">
+        🖥️
+      </text>
 
-        <defs>
-          <marker id="stateArrowYellow" markerWidth="8" markerHeight="8" refX="6" refY="4" orient="auto">
-            <path d="M0,0 L8,4 L0,8 Z" fill="#f59e0b" />
-          </marker>
-          <marker id="stateArrowGreen" markerWidth="8" markerHeight="8" refX="6" refY="4" orient="auto">
-            <path d="M0,0 L8,4 L0,8 Z" fill="#10b981" />
-          </marker>
-        </defs>
-      </svg>
-    </div>
+      <FitText x={60} y={152} w={400} h={36} size={11} color="#64748b">
+        {paraQueSirve}
+      </FitText>
+    </Figure>
   );
 }
