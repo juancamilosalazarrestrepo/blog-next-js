@@ -1,0 +1,155 @@
+---
+{
+  "title": "Jev de TypeSafe AI: la IA que no escribe texto, solo toma decisiones",
+  "subtitle": "Jev es el primer modelo \"System One\" de TypeSafe AI: no genera texto, devuelve decisiones tipadas con probabilidad calibrada en 70-500 ms.",
+  "image": "/images/jev-typesafe-ai-modelo-decisiones.png",
+  "imageOG": "/images/jev-typesafe-ai-modelo-decisiones.png",
+  "thumb": "/images/jev-typesafe-ai-modelo-decisiones.png",
+  "date": "2026-09-22",
+  "keywords": ["Jev TypeSafe AI", "System One model", "modelo de IA para decisiones", "RLCD reinforcement learning", "agentes de IA", "guardrails IA", "IA sin alucinaciones", "clasificación de tickets con IA", "if con inteligencia artificial", "automatizaciones con IA"]
+}
+---
+
+# Jev de TypeSafe AI: la IA que no escribe texto, solo toma decisiones
+
+TypeSafe AI lanzó el 16 de septiembre de 2026 un modelo que rompe la lógica de los LLM que conocemos: **no genera texto**. Se llama **Jev** y responde a tus preguntas con una decisión y su probabilidad, como un `if` o un `switch`, pero entendiendo lenguaje natural.
+
+Es el primer representante de lo que TypeSafe llama **"System One models"**: una categoría nueva de modelos de frontera, pensada no para redactar ni razonar en voz alta, sino para tomar la clase de decisiones rápidas que hoy resuelves a punta de `if (mensaje.includes("reembolso"))`.
+
+## El problema: tu código no quiere un párrafo
+
+Cuando usas un LLM tradicional para tomar una decisión dentro de tu app, pasa esto:
+
+- **Prompt → texto largo → parsear → validar → reintentar** si la respuesta vino mal.
+- Segundos de latencia, y pagas por cada token de salida aunque solo necesitabas un sí o un no.
+- Un campo inventado o un JSON roto puede tirar todo el flujo abajo.
+
+La mayoría de lo que le pedimos a un LLM dentro de un flujo de producto es en realidad un **sí/no** o una **categoría**. No necesitas un ensayo: necesitas una decisión y qué tan segura es.
+
+## Un modelo "System One": por qué el nombre viene de Kahneman
+
+El nombre de la categoría sale de *Pensar rápido, pensar despacio*, de Daniel Kahneman: el **Sistema 1** es el pensamiento rápido e intuitivo, y el **Sistema 2** el razonamiento lento y deliberado.
+
+| | Sistema 2 (LLMs) | Sistema 1 (Jev) |
+|---|---|---|
+| Ejemplos | GPT, Claude, Gemini | Jev |
+| Qué hace | Razona, escribe y explica | Devuelve decisiones tipadas con probabilidades calibradas |
+
+El propio "Jev" toma su nombre de **William Stanley Jevons**, el economista de la paradoja que dice que cuando algo se vuelve más eficiente, su demanda aumenta en vez de caer. TypeSafe apuesta a que, si tomar decisiones con IA se vuelve casi gratis, vamos a usar IA en muchísimos más lugares de los que usamos hoy.
+
+**Datos del lanzamiento:**
+- Lanzado el **16 de septiembre de 2026** por TypeSafe AI.
+- Ronda de **$40M** liderada por DCVC.
+- CEO: **Diogo Almeida**, coautor principal del paper de InstructGPT en OpenAI.
+
+## Cómo responde: choice, score y noul
+
+Le mandas un **estado** (texto en lenguaje natural) y una o varias preguntas tipadas, todo en una sola petición HTTP. Jev responde con tres tipos de primitiva:
+
+- **Choice**: elige una opción de una lista que tú defines (hasta 255 opciones) y devuelve el pick, la probabilidad por opción y una confianza global.
+- **Score**: puntúa en una escala que tú defines (entre 2 y 10 niveles), y puede caer entre dos niveles, por ejemplo 1.04 sobre 2.
+- **Noul**: la respuesta a una pregunta de sí/no, expresada como una probabilidad entre 0 y 1.
+
+Ejemplo simplificado con un estado real:
+
+```
+// state
+"Después de una semana pesada quiero una cerveza fría para relajarme con amigos"
+
+// respuesta de Jev
+quiere_cerveza (noul)   → 0.98
+motivo (choice)
+    relajarse    → 1.0
+    socializar   → 0.0
+    sabor        → 0.0
+```
+
+Las preguntas se resuelven en paralelo, y toda esa demo consumió menos de 500 tokens.
+
+Traducido a un patrón de código real:
+
+```js
+// antes: reglas frágiles
+if (msg.includes("reembolso")) { /* ... */ }
+
+// con Jev (pseudocódigo)
+const r = await jev.noul("¿El cliente pide reembolso?", msg)
+if (r.p > 0.9) procesarReembolso()
+else escalarAHumano()
+```
+
+## RLCD: entrenado para no mentir sobre su certeza
+
+La pieza técnica detrás de Jev es un método de entrenamiento nuevo: **RLCD (Reinforcement Learning for Calibrated Decisions)**. La idea es que si Jev dice 80% de probabilidad, debería acertar cerca del 80% de las veces, ni más confiado ni menos.
+
+| Método | Qué optimiza |
+|---|---|
+| RLHF | Lo que prefiere un humano |
+| RLVR | Resultados verificables |
+| **RLCD** | Que la probabilidad **sea honesta** |
+
+Como el modelo sabe cuándo duda, tu código puede decidir con esa señal: **ejecutar solo** cuando la confianza es alta, o **escalar a un humano** cuando no lo es.
+
+## Los números: velocidad y costo (según TypeSafe)
+
+Estas cifras son las que reporta TypeSafe; todavía no han sido verificadas de forma independiente.
+
+- **70–500 ms** de latencia end-to-end, frente a 3–329 segundos que reportan en modelos de frontera tradicionales.
+- **$0.042** por millón de tokens de entrada. Los tokens de salida son **gratis**.
+- **193.6x** más rápido que un LLM en sus flujos de prueba.
+- **444.6x** más barato por flujo de trabajo, según sus benchmarks.
+- En sus evaluaciones de 4 flujos (seguridad, observabilidad, facturación y soporte): **67.8%** de precisión, casi igual que GPT Terra (67.9%), pero a $0.0004 vs $0.0304 y 0.4 s vs 10.1 s.
+
+## Para qué sirve: casos de uso reales
+
+- **Soporte**: enrutar tickets, detectar frustración y pedidos de reembolso.
+- **Seguridad**: triage de incidentes y chequeos de riesgo.
+- **Agentes**: escoger qué herramienta usar y calificar trazas.
+- **Guardrails**: verificar y moderar la salida de otros LLMs.
+- **Datos**: clasificar y extraer información a gran escala.
+- **Tiempo real**: en una demo jugando Doom, tomó cerca de 10 decisiones por segundo a unos $7 la hora.
+
+El patrón que se repite en casi todos los casos:
+
+```js
+// pseudocódigo del patrón
+if (d.confidence > 0.9) autoResolver(d.choice)
+else escalarAHumano(ticket)
+```
+
+## Lo que no te dicen: "sin alucinaciones" no es "sin errores"
+
+Antes de meter esto en producción, vale la pena tener claro lo que el hype no cuenta:
+
+- **"Sin alucinaciones" ≠ sin errores.** No inventa campos que no le pediste, pero sí puede elegir la opción equivocada dentro de las que le diste.
+- **Solo elige lo que tú le das.** Si la respuesta correcta no está entre las opciones definidas, igual va a escoger una.
+- **No explica, no ve, no sabe del mundo.** Solo procesa texto, sin razonamiento visible, y depende completamente del estado que le pases.
+- **Los benchmarks son del proveedor.** Las cifras de velocidad y costo todavía no se han reproducido de forma independiente. Y en tareas complejas de razonamiento general, modelos como GPT Sol (74.1%) o Claude Opus 5 (73.1%) le ganan, porque Jev no está diseñado para eso.
+
+## Hacia dónde va esto
+
+1. **Arquitectura híbrida**: el LLM razona, Jev decide y el código ejecuta. Cada pieza en lo suyo.
+2. **Agentes mucho más baratos**: miles de micro-decisiones por centavos en lugar de dólares.
+3. **IA en tiempo real**: juegos, monitoreo y sistemas autónomos que necesitan responder en milisegundos.
+4. **La paradoja de Jevons**: si decidir se vuelve barato, vamos a usar IA en todas partes.
+
+## Conclusión
+
+Jev no reemplaza a los LLM, los complementa. Si construyes agentes o automatizaciones, la pregunta ya no es solo qué modelo usar, sino **qué tipo de modelo necesita cada decisión** de tu flujo: ¿necesitas que algo razone y escriba, o necesitas que algo decida rápido y barato?
+
+## Preguntas frecuentes
+
+**¿Jev genera texto como ChatGPT o Claude?**
+No. Jev solo devuelve decisiones tipadas (choice, score o noul) con su probabilidad. No escribe frases ni párrafos.
+
+**¿Qué significa que un modelo sea "System One"?**
+Es una categoría inspirada en la distinción de Kahneman entre pensamiento rápido e intuitivo (Sistema 1) y razonamiento lento y deliberado (Sistema 2). Los LLM tradicionales se comportan como Sistema 2; Jev busca comportarse como Sistema 1.
+
+**¿"Sin alucinaciones" significa que nunca se equivoca?**
+No. Significa que no inventa campos fuera del esquema que le definiste, pero sí puede elegir la opción incorrecta entre las que le diste.
+
+**¿Las cifras de velocidad y costo son confiables?**
+Son las que reporta TypeSafe AI. Todavía no hay benchmarks independientes que las confirmen, así que conviene tomarlas como punto de partida, no como verdad absoluta.
+
+**¿Reemplaza a los LLM tradicionales?**
+No, los complementa. La arquitectura que proponen combina un LLM que razona con Jev tomando las decisiones puntuales, y el código ejecutando el resultado.

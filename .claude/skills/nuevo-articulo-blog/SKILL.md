@@ -23,7 +23,10 @@ El slug define la URL y el nombre de todos los archivos del artículo. Debe ser:
 - Incluir las keywords principales del tema
 - Ejemplo: `agentes-ia-programacion-2026`, `nextjs-server-components-guia`
 
-Crear `data/posts/[SLUG].mdx` con este frontmatter JSON exacto:
+Crear el `.mdx` con este frontmatter JSON exacto. **Importante:** el archivo va en
+`data/posts/[SLUG].mdx` **y también en `data/posts/es/[SLUG].mdx`**. `getPostsDir()` en
+`lib/mdx.js` usa la carpeta del locale cuando existe, así que un artículo que solo esté en
+la raíz no aparece en el listado del blog en español.
 
 ```
 ---
@@ -244,6 +247,7 @@ Poner la fecha del día de publicación en el frontmatter es suficiente.
 | Archivo | Rol |
 |---------|-----|
 | `data/posts/[SLUG].mdx` | Contenido + frontmatter (SEO, metadatos) |
+| `data/posts/es/[SLUG].mdx` | Copia para el locale `es` — sin esta, el post no sale en `/blog` |
 | `src/pages/blog/[SLUG].jsx` | Página visual premium (toma precedencia sobre `[slug].tsx`) |
 | `src/pages/blog/[slug].tsx` | Ruta dinámica para artículos MDX sin página JSX propia |
 | `src/pages/blog/index.jsx` | Listado del blog, cards 260px height, objectFit cover |
