@@ -15,7 +15,7 @@ export default function Layout({ children }) {
       </Head>
       <header className="py-10 shadow-xl ">
         <div className="relative z-50">
-          <div className="fixed z-50 shadow-md bg-white w-full py-6 top-0 left-0 right-0">
+          <div className="fixed z-50 shadow-md bg-surface w-full py-6 top-0 left-0 right-0">
             <NavBar />
           </div>
         </div>

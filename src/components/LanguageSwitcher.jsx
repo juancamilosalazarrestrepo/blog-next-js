@@ -38,12 +38,12 @@ export default function LanguageSwitcher() {
           gap: "6px",
           padding: "6px 10px",
           borderRadius: "8px",
-          border: "1px solid #e2e8f0",
-          background: "white",
+          border: "1px solid var(--border)",
+          background: "var(--surface)",
           cursor: "pointer",
           fontSize: "0.78rem",
           fontWeight: 600,
-          color: "#374151",
+          color: "var(--text)",
           transition: "all 0.2s",
           boxShadow: "0 1px 3px rgba(0,0,0,0.06)",
           whiteSpace: "nowrap",
@@ -70,9 +70,9 @@ export default function LanguageSwitcher() {
             position: "absolute",
             top: "calc(100% + 6px)",
             right: 0,
-            background: "white",
+            background: "var(--surface)",
             borderRadius: "10px",
-            border: "1px solid #e2e8f0",
+            border: "1px solid var(--border)",
             boxShadow: "0 8px 24px rgba(0,0,0,0.12)",
             overflow: "hidden",
             minWidth: "130px",
@@ -91,17 +91,17 @@ export default function LanguageSwitcher() {
               padding: "10px 14px",
               fontSize: "0.83rem",
               fontWeight: isEs ? 700 : 500,
-              color: isEs ? "#1152d4" : "#374151",
-              background: isEs ? "#eff6ff" : "transparent",
+              color: isEs ? "var(--brand)" : "var(--text)",
+              background: isEs ? "color-mix(in srgb, var(--brand) 8%, var(--surface))" : "transparent",
               textDecoration: "none",
               transition: "background 0.15s",
             }}
-            onMouseEnter={e => { if (!isEs) e.currentTarget.style.background = "#f9fafb" }}
+            onMouseEnter={e => { if (!isEs) e.currentTarget.style.background = "var(--surface-2)" }}
             onMouseLeave={e => { if (!isEs) e.currentTarget.style.background = "transparent" }}
           >
             <FLAG_ES />
             <span>Español</span>
-            {isEs && <span style={{ marginLeft: "auto", color: "#1152d4" }}>✓</span>}
+            {isEs && <span style={{ marginLeft: "auto", color: "var(--brand)" }}>✓</span>}
           </Link>
           <Link
             href={{ pathname, query }}
@@ -115,17 +115,17 @@ export default function LanguageSwitcher() {
               padding: "10px 14px",
               fontSize: "0.83rem",
               fontWeight: isEn ? 700 : 500,
-              color: isEn ? "#1152d4" : "#374151",
-              background: isEn ? "#eff6ff" : "transparent",
+              color: isEn ? "var(--brand)" : "var(--text)",
+              background: isEn ? "color-mix(in srgb, var(--brand) 8%, var(--surface))" : "transparent",
               textDecoration: "none",
               transition: "background 0.15s",
             }}
-            onMouseEnter={e => { if (!isEn) e.currentTarget.style.background = "#f9fafb" }}
+            onMouseEnter={e => { if (!isEn) e.currentTarget.style.background = "var(--surface-2)" }}
             onMouseLeave={e => { if (!isEn) e.currentTarget.style.background = "transparent" }}
           >
             <FLAG_EN />
             <span>English</span>
-            {isEn && <span style={{ marginLeft: "auto", color: "#1152d4" }}>✓</span>}
+            {isEn && <span style={{ marginLeft: "auto", color: "var(--brand)" }}>✓</span>}
           </Link>
         </div>
       )}

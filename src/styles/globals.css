@@ -312,7 +312,7 @@ a {
 
 .burgerMenuSection {
   flex-direction: column;
-  background-color: #fff;
+  background-color: var(--surface);
   position: absolute;
   top: 90px;
   padding-bottom: 20px;
@@ -331,9 +331,21 @@ a {
   display: flex;
   justify-content: center;
   align-items: center;
-  border-bottom: 1px solid #c9c9c9;
+  border-bottom: 1px solid var(--border);
   border-radius: 0px;
   height: 50px;
+}
+
+.logoDark {
+  display: none;
+}
+
+[data-theme="dark"] .logoLight {
+  display: none;
+}
+
+[data-theme="dark"] .logoDark {
+  display: block;
 }
 
 @media only screen and (max-width: 600px) {

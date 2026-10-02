@@ -27,7 +27,7 @@
 
 .burgerMenuSection {
     flex-direction: column;
-    background-color: #fff;
+    background-color: var(--surface);
     position: absolute;
     top: 90px;
     padding-bottom: 20px;
