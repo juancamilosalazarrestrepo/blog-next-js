@@ -26,6 +26,7 @@ const ratio = (a, b) => {
 // se exige 4.5 solo en oscuro y en claro se acepta 4.2 para no cambiar la identidad actual.
 const TEXT_PAIRS = [
   ["ink", "bg"], ["ink", "surface"], ["text", "surface"], ["text", "surface-2"],
+  ["text-soft", "surface"], ["text-soft", "surface-2"],
   ["text-muted", "surface"], ["text-muted", "surface-2"],
 ];
 const BRAND_PAIRS = [["brand", "bg"], ["brand", "surface"]];

@@ -20,7 +20,7 @@ export default function Footer() {
             <h2 className="mb-6 text-sm font-semibold text-ink uppercase">
               {t("footer.content")}
             </h2>
-            <ul className="text-muted">
+            <ul className="text-soft">
               <li className="mb-4">
                 <a href="https://www.salazarcode.com/blog" className="hover:underline">
                   {t("footer.articles")}
@@ -37,7 +37,7 @@ export default function Footer() {
             <h2 className="mb-6 text-sm font-semibold text-ink uppercase">
               {t("footer.socialMedia")}
             </h2>
-            <ul className="text-muted">
+            <ul className="text-soft">
               <li className="mb-4">
                 <a href="https://github.com/juancamilosalazarrestrepo" className="hover:underline">
                   GitHub
@@ -54,7 +54,7 @@ export default function Footer() {
             <h2 className="mb-6 text-sm font-semibold text-ink uppercase">
               {t("footer.legal")}
             </h2>
-            <ul className="text-muted">
+            <ul className="text-soft">
               <li className="mb-4">
                 <a href="https://www.salazarcode.com/politicas" className="hover:underline">
                   {t("footer.privacyPolicy")}

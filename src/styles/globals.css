@@ -13,6 +13,7 @@
   --border: #e2e8f0;
   --ink: #1a1a2e;
   --text: #212427;
+  --text-soft: #4b5563;
   --text-muted: #64748b;
   --text-subtle: #94a3b8;
   --brand: #0072ff;
@@ -32,6 +33,7 @@
   --border: #2f3d5e;
   --ink: #e8edf7;
   --text: #cbd5e1;
+  --text-soft: #b4bfd3;
   --text-muted: #94a3b8;
   --text-subtle: #7d8ba4;
   --brand: #4d9aff;
@@ -52,6 +54,7 @@
   --color-line: var(--border);
   --color-ink: var(--ink);
   --color-body: var(--text);
+  --color-soft: var(--text-soft);
   --color-muted: var(--text-muted);
   --color-subtle: var(--text-subtle);
   --color-brand: var(--brand);
