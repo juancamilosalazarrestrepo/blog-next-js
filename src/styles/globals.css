@@ -1,6 +1,66 @@
 @import "tailwindcss";
 @plugin "@tailwindcss/typography";
 
+/* `dark:` responde al botón de tema, no a la preferencia del sistema. */
+@custom-variant dark (&:where([data-theme="dark"], [data-theme="dark"] *));
+
+/* ===== Tokens de tema ===== */
+:root {
+  --bg: #fdfdfd;
+  --surface: #ffffff;
+  --surface-2: #f8fafc;
+  --surface-3: #f1f5f9;
+  --border: #e2e8f0;
+  --ink: #1a1a2e;
+  --text: #212427;
+  --text-muted: #64748b;
+  --text-subtle: #94a3b8;
+  --brand: #0072ff;
+  --brand-solid: #0575e6;
+  --brand-hover: #021b79;
+  --accent: #00c6ff;
+  --violet: #7c3aed;
+  --shadow: 0 8px 32px rgba(0, 0, 0, 0.08);
+  color-scheme: light;
+}
+
+:root[data-theme="dark"] {
+  --bg: #0b1020;
+  --surface: #121a2f;
+  --surface-2: #18223b;
+  --surface-3: #1f2a47;
+  --border: #2f3d5e;
+  --ink: #e8edf7;
+  --text: #cbd5e1;
+  --text-muted: #94a3b8;
+  --text-subtle: #7d8ba4;
+  --brand: #4d9aff;
+  --brand-solid: #0066e6;
+  --brand-hover: #0052b8;
+  --accent: #00c6ff;
+  --violet: #a78bfa;
+  --shadow: 0 8px 32px rgba(0, 0, 0, 0.45);
+  color-scheme: dark;
+}
+
+/* Utilidades semánticas: bg-surface, text-ink, border-line… */
+@theme inline {
+  --color-page: var(--bg);
+  --color-surface: var(--surface);
+  --color-surface-2: var(--surface-2);
+  --color-surface-3: var(--surface-3);
+  --color-line: var(--border);
+  --color-ink: var(--ink);
+  --color-body: var(--text);
+  --color-muted: var(--text-muted);
+  --color-subtle: var(--text-subtle);
+  --color-brand: var(--brand);
+  --color-brand-solid: var(--brand-solid);
+  --color-brand-hover: var(--brand-hover);
+  --color-accent: var(--accent);
+  --color-violet: var(--violet);
+}
+
 @font-face {
   font-family: "drugs";
   src: url("/public/fonts/TT-Drugs.otf") format("opentype");
@@ -127,8 +187,9 @@
 }
 
 body {
-  background-color: #fdfdfd;
-  color: #212427;
+  background-color: var(--bg);
+  color: var(--text);
+  transition: background-color 0.2s ease, color 0.2s ease;
 }
 
 .textFont {
