@@ -2,14 +2,14 @@ import Link from 'next/link';
 import { useTranslation } from 'next-i18next';
 import HotelAgentDemo from './HotelAgentDemo';
 
-// Sección blanca a propósito: separa el bloque azul de agentes del bloque oscuro
-// de desarrollo web, por eso no tiene variante dark.
+// Superficie propia (--surface) y no el fondo de página: separa el bloque azul de agentes
+// del bloque de desarrollo web (--surface-2), tanto en claro como en oscuro.
 export default function HotelAgentsSection() {
     const { t } = useTranslation('common');
     const points = ['point1', 'point2', 'point3'];
 
     return (
-        <section className="w-full py-24 md:py-28 bg-white text-slate-900 relative overflow-hidden">
+        <section className="w-full py-24 md:py-28 bg-surface text-ink relative overflow-hidden">
             <div
                 aria-hidden="true"
                 className="pointer-events-none absolute inset-0"
@@ -22,23 +22,23 @@ export default function HotelAgentsSection() {
             <div className="max-w-7xl mx-auto px-6 sm:px-12 relative z-10">
                 <div className="flex flex-col lg:flex-row items-center gap-12 lg:gap-20">
                     <div className="w-full lg:w-1/2 space-y-6">
-                        <span className="inline-flex items-center gap-2 px-4 py-1.5 bg-teal-50 border border-teal-200 text-teal-700 text-xs font-bold uppercase tracking-widest rounded-full">
+                        <span className="inline-flex items-center gap-2 px-4 py-1.5 bg-teal-50 border border-teal-200 text-teal-700 dark:bg-teal-400/10 dark:border-teal-400/30 dark:text-teal-300 text-xs font-bold uppercase tracking-widest rounded-full">
                             <span className="h-1.5 w-1.5 rounded-full bg-teal-500" />
                             {t('hotelSection.badge')}
                         </span>
                         <h2 className="text-4xl lg:text-5xl font-black leading-[1.1]">
                             {t('hotelSection.title')}{' '}
-                            <span className="bg-gradient-to-r from-teal-500 to-[#1152d4] bg-clip-text text-transparent">
+                            <span className="bg-gradient-to-r from-teal-500 to-[#1152d4] dark:to-sky-400 bg-clip-text text-transparent">
                                 {t('hotelSection.titleHighlight')}
                             </span>
                         </h2>
-                        <p className="text-lg text-slate-600 leading-relaxed max-w-2xl">
+                        <p className="text-lg text-soft leading-relaxed max-w-2xl">
                             {t('hotelSection.description')}
                         </p>
                         <ul className="space-y-3">
                             {points.map((key) => (
-                                <li key={key} className="flex items-center gap-3 font-semibold text-slate-700">
-                                    <span className="flex h-6 w-6 shrink-0 items-center justify-center rounded-full bg-teal-100 text-teal-600 text-sm">✓</span>
+                                <li key={key} className="flex items-center gap-3 font-semibold text-soft">
+                                    <span className="flex h-6 w-6 shrink-0 items-center justify-center rounded-full bg-teal-100 text-teal-600 dark:bg-teal-400/15 dark:text-teal-300 text-sm">✓</span>
                                     {t(`hotelSection.${key}`)}
                                 </li>
                             ))}
@@ -48,7 +48,7 @@ export default function HotelAgentsSection() {
                                 {t('hotelSection.cta')}
                                 <svg className="w-5 h-5 ml-1" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M14 5l7 7m0 0l-7 7m7-7H3"></path></svg>
                             </Link>
-                            <span className="text-sm font-medium text-slate-500">{t('hotelSection.secondary')}</span>
+                            <span className="text-sm font-medium text-muted">{t('hotelSection.secondary')}</span>
                         </div>
                     </div>
 

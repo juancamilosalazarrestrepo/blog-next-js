@@ -22,6 +22,7 @@
   --accent: #00c6ff;
   --violet: #7c3aed;
   --shadow: 0 8px 32px rgba(0, 0, 0, 0.08);
+  --shadow-sm: 0 4px 16px rgba(0, 0, 0, 0.06);
   color-scheme: light;
 }
 
@@ -42,6 +43,7 @@
   --accent: #00c6ff;
   --violet: #a78bfa;
   --shadow: 0 8px 32px rgba(0, 0, 0, 0.45);
+  --shadow-sm: 0 4px 16px rgba(0, 0, 0, 0.35);
   color-scheme: dark;
 }
 
@@ -343,12 +345,21 @@ a {
   display: none;
 }
 
+[data-theme="dark"] .logoSliderContainer img {
+  border-radius: 14px;
+}
+
 [data-theme="dark"] .logoLight {
   display: none;
 }
 
 [data-theme="dark"] .logoDark {
   display: block;
+}
+
+/* Icono de contacto del navbar móvil: PNG oscuro, se invierte sobre fondo oscuro */
+[data-theme="dark"] .contactIcon {
+  filter: invert(1) hue-rotate(180deg);
 }
 
 @media only screen and (max-width: 600px) {

@@ -5,7 +5,7 @@ export default function WebDevSection() {
     const { t } = useTranslation('common');
 
     return (
-        <section className="w-full py-24 bg-slate-50 dark:bg-slate-900 text-slate-900 dark:text-white relative group overflow-hidden border-y border-slate-200 dark:border-slate-800">
+        <section className="w-full py-24 bg-surface-2 text-ink relative group overflow-hidden border-y border-line">
             <div className="max-w-7xl mx-auto px-6 sm:px-12 relative z-10">
                 <div className="flex flex-col lg:flex-row-reverse items-center gap-12 lg:gap-24">
                     <div className="w-full lg:w-1/2 space-y-6">
@@ -13,7 +13,7 @@ export default function WebDevSection() {
                         <h2 className="text-4xl lg:text-5xl font-black leading-[1.1]">
                             {t('webDevSection.title')} <span className="text-[#1152d4] dark:text-blue-400">{t('webDevSection.titleHighlight')}</span> {t('webDevSection.titleEnd')}
                         </h2>
-                        <p className="text-lg text-slate-600 dark:text-slate-400 leading-relaxed max-w-2xl">
+                        <p className="text-lg text-soft leading-relaxed max-w-2xl">
                             {t('webDevSection.description')}
                         </p>
                         <div className="pt-4 flex items-center gap-4">

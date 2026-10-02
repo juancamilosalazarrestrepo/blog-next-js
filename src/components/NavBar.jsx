@@ -95,7 +95,7 @@ export default function NavBar() {
                 onClick={toggleBurgerMenu}
               >
                 <Link href="/contact">
-                  <Image src={contactIcon} alt="contact" />
+                  <Image src={contactIcon} alt="contact" className="contactIcon" />
                 </Link>
               </button>
             </div>
