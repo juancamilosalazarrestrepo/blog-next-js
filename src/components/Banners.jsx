@@ -55,7 +55,7 @@ export default function Banners({ images }) {
           </a>
         </div>
         <div className="containerButtonsMobile">
-          <a className="group inline-flex items-center justify-center rounded-full py-2 px-4 text-sm font-semibold focus:outline-none bg-[#fff] buttonHoverText text-blue hover:text-slate-100 hover:bg-[#fff] active:bg-[#021B79] active:text-blue-100" href="/contact">
+          <a className="group inline-flex items-center justify-center rounded-full py-2 px-4 text-sm font-semibold focus:outline-none bg-[#fff] buttonHoverText text-[#212427] hover:text-slate-100 hover:bg-[#fff] active:bg-[#021B79] active:text-blue-100" href="/contact">
             <span>{t("banner.contact")}</span>
           </a>
           <a style={{ color: "white", border: "1px solid white", borderRadius: "9999px", padding: "7px 20px", textAlign: "center" }} className="buttonHoverText group inline-flex items-center justify-center text-sm font-semibold focus:outline-none hover:bg-white hover:text-[#021B79] active:bg-white active:text-[#021B79]" href="/portafolio">

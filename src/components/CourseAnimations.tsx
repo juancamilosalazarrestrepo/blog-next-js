@@ -8,24 +8,24 @@ const FONT_MONO =
   "ui-monospace, SFMono-Regular, Menlo, Consolas, 'Liberation Mono', monospace";
 
 const C = {
-  blue: "#0072ff",
-  blueSoft: "#eff6ff",
+  blue: "var(--brand)",
+  blueSoft: "light-dark(#eff6ff, rgba(77,154,255,0.14))",
   green: "#10b981",
-  greenSoft: "#ecfdf5",
-  greenInk: "#065f46",
+  greenSoft: "light-dark(#ecfdf5, rgba(16,185,129,0.14))",
+  greenInk: "light-dark(#065f46, #6ee7b7)",
   amber: "#f59e0b",
-  amberSoft: "#fef3c7",
-  amberInk: "#92400e",
-  slate: "#64748b",
-  line: "#e2e8f0",
-  ink: "#1f2937",
+  amberSoft: "light-dark(#fef3c7, rgba(245,158,11,0.16))",
+  amberInk: "light-dark(#92400e, #fcd34d)",
+  slate: "var(--text-muted)",
+  line: "var(--border)",
+  ink: "var(--ink)",
 };
 
 const shell: React.CSSProperties = {
   margin: "24px 0",
   border: `1px solid ${C.line}`,
   borderRadius: 14,
-  background: "#ffffff",
+  background: "var(--surface)",
   overflow: "hidden",
 };
 
@@ -36,7 +36,7 @@ const headerStyle: React.CSSProperties = {
   gap: 12,
   flexWrap: "wrap",
   padding: "10px 14px",
-  background: "#f8fafc",
+  background: "var(--surface-2)",
   borderBottom: `1px solid ${C.line}`,
   fontSize: "0.8rem",
   color: C.slate,
@@ -68,7 +68,7 @@ function ArrayCells({
                   fontSize: "1.25rem",
                   lineHeight: 1.2,
                   border: `2px solid ${isActive ? C.amber : isVisited ? C.green : C.line}`,
-                  background: isActive ? C.amberSoft : isVisited ? C.greenSoft : "#ffffff",
+                  background: isActive ? C.amberSoft : isVisited ? C.greenSoft : "var(--surface)",
                   transform: isActive ? "translateY(-4px)" : "none",
                   boxShadow: isActive ? "0 6px 14px rgba(245, 158, 11, 0.25)" : "none",
                   transition: "all 220ms ease",
@@ -137,7 +137,7 @@ export function ArrayDiagram({
             style={{
               background: C.blueSoft,
               border: `1px solid ${C.blue}`,
-              color: "#1e40af",
+              color: "light-dark(#1e40af, #93c5fd)",
               borderRadius: 999,
               padding: "4px 10px",
               fontFamily: FONT_MONO,
@@ -159,9 +159,9 @@ export function ArrayDiagram({
           </span>
           <span
             style={{
-              background: "#fef2f2",
+              background: "light-dark(#fef2f2, rgba(239,68,68,0.14))",
               border: "1px solid #ef4444",
-              color: "#991b1b",
+              color: "light-dark(#991b1b, #fca5a5)",
               borderRadius: 999,
               padding: "4px 10px",
               fontFamily: FONT_MONO,
@@ -387,7 +387,7 @@ export function ForLoopAnimation({
 
   const btn: React.CSSProperties = {
     border: `1px solid ${C.line}`,
-    background: "#ffffff",
+    background: "var(--surface)",
     borderRadius: 8,
     padding: "5px 11px",
     fontSize: "0.78rem",
@@ -433,7 +433,7 @@ export function ForLoopAnimation({
             margin: 0,
             padding: "12px 14px",
             borderRadius: 10,
-            background: "#f8fafc",
+            background: "var(--surface-2)",
             border: `1px solid ${C.line}`,
             fontFamily: FONT_MONO,
             fontSize: "0.83rem",
@@ -498,7 +498,7 @@ export function ForLoopAnimation({
           <div
             style={{
               padding: "6px 12px",
-              background: "#f1f5f9",
+              background: "var(--surface-3)",
               fontSize: "0.72rem",
               color: C.slate,
               borderBottom: `1px solid ${C.line}`,
@@ -517,7 +517,7 @@ export function ForLoopAnimation({
             }}
           >
             {frame.out.length === 0 ? (
-              <span style={{ color: "#94a3b8" }}>(todavía no se imprimió nada)</span>
+              <span style={{ color: "var(--text-subtle)" }}>(todavía no se imprimió nada)</span>
             ) : (
               frame.out.map((line, i) => <div key={i}>{line}</div>)
             )}

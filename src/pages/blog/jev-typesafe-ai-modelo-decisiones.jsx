@@ -128,13 +128,13 @@ const sources = [
 const sectionTitle = {
   fontSize: "1.8rem",
   fontWeight: 800,
-  color: "#1a1a2e",
+  color: "var(--ink)",
   textAlign: "center",
   marginBottom: "8px",
 };
 
 const sectionLead = {
-  color: "#6b7280",
+  color: "var(--text-muted)",
   textAlign: "center",
   marginBottom: "40px",
   fontSize: "1rem",
@@ -142,16 +142,16 @@ const sectionLead = {
 };
 
 const card = {
-  background: "#fff",
+  background: "var(--surface)",
   borderRadius: "20px",
-  border: "1px solid #e5e7eb",
+  border: "1px solid var(--border)",
   boxShadow: "0 4px 20px rgba(0,0,0,0.04)",
 };
 
 function FAQItem({ faq }) {
   const [open, setOpen] = useState(false);
   return (
-    <div style={{ borderBottom: "1px solid #e5e7eb" }}>
+    <div style={{ borderBottom: "1px solid var(--border)" }}>
       <button
         onClick={() => setOpen(!open)}
         aria-expanded={open}
@@ -168,15 +168,15 @@ function FAQItem({ faq }) {
           gap: "16px",
         }}
       >
-        <span style={{ fontWeight: 600, color: "#1a1a2e", fontSize: "1rem", lineHeight: 1.5 }}>{faq.q}</span>
+        <span style={{ fontWeight: 600, color: "var(--ink)", fontSize: "1rem", lineHeight: 1.5 }}>{faq.q}</span>
         <span
           style={{
             flexShrink: 0,
             width: "28px",
             height: "28px",
             borderRadius: "50%",
-            background: open ? "linear-gradient(135deg, #0072ff, #7c3aed)" : "#f1f5f9",
-            color: open ? "#fff" : "#64748b",
+            background: open ? "linear-gradient(135deg, #0072ff, #7c3aed)" : "var(--surface-3)",
+            color: open ? "#fff" : "var(--text-muted)",
             display: "flex",
             alignItems: "center",
             justifyContent: "center",
@@ -189,7 +189,7 @@ function FAQItem({ faq }) {
         </span>
       </button>
       {open && (
-        <p style={{ color: "#4b5563", lineHeight: 1.75, paddingBottom: "20px", margin: 0, fontSize: "0.97rem" }}>
+        <p style={{ color: "var(--text-soft)", lineHeight: 1.75, paddingBottom: "20px", margin: 0, fontSize: "0.97rem" }}>
           {faq.a}
         </p>
       )}
@@ -203,14 +203,14 @@ function CodeBlock({ code, label, color }) {
       <div
         style={{
           padding: "12px 18px",
-          borderBottom: "1px solid #e5e7eb",
+          borderBottom: "1px solid var(--border)",
           display: "flex",
           alignItems: "center",
           gap: "10px",
         }}
       >
         <span style={{ width: "10px", height: "10px", borderRadius: "50%", background: color }} />
-        <span style={{ fontWeight: 700, color: "#1a1a2e", fontSize: "0.92rem" }}>{label}</span>
+        <span style={{ fontWeight: 700, color: "var(--ink)", fontSize: "0.92rem" }}>{label}</span>
       </div>
       <pre
         style={{
@@ -241,7 +241,7 @@ function Gallery({ items }) {
             aria-label={`Ampliar imagen ${i + 1}: ${img.alt}`}
             style={{
               padding: 0,
-              border: "1px solid #e5e7eb",
+              border: "1px solid var(--border)",
               borderRadius: "16px",
               overflow: "hidden",
               background: "#0a0a2e",
@@ -415,11 +415,11 @@ export default function JevTypeSafeAi() {
                 </div>
                 <div>
                   <div style={{ color: "#fff", fontWeight: 600, fontSize: "0.88rem" }}>Juan Camilo Salazar</div>
-                  <div style={{ color: "#94a3b8", fontSize: "0.78rem" }}>{DATE}</div>
+                  <div style={{ color: "var(--text-subtle)", fontSize: "0.78rem" }}>{DATE}</div>
                 </div>
               </div>
-              <span style={{ color: "#64748b", fontSize: "0.85rem" }}>·</span>
-              <span style={{ color: "#94a3b8", fontSize: "0.85rem" }}>⏱ {READ_TIME}</span>
+              <span style={{ color: "var(--text-muted)", fontSize: "0.85rem" }}>·</span>
+              <span style={{ color: "var(--text-subtle)", fontSize: "0.85rem" }}>⏱ {READ_TIME}</span>
             </div>
           </div>
         </div>
@@ -428,7 +428,7 @@ export default function JevTypeSafeAi() {
       {/* ── BANNER RESUMEN ── */}
       <div style={{ background: "linear-gradient(135deg, #0d1b4b, #1a1a2e)", padding: "40px 24px" }}>
         <div style={{ maxWidth: "860px", margin: "0 auto", textAlign: "center" }}>
-          <p style={{ color: "#94a3b8", fontSize: "1rem", lineHeight: 1.75, maxWidth: "680px", margin: "0 auto" }}>
+          <p style={{ color: "var(--text-subtle)", fontSize: "1rem", lineHeight: 1.75, maxWidth: "680px", margin: "0 auto" }}>
             TypeSafe AI lanzó el 16 de septiembre de 2026 un modelo que <strong style={{ color: "#e2e8f0" }}>no escribe una sola frase</strong>.
             Se llama Jev, y devuelve decisiones con su probabilidad, como un <code style={{ color: GREEN }}>if</code> o un{" "}
             <code style={{ color: GREEN }}>switch</code>, pero entendiendo lenguaje natural.
@@ -437,7 +437,7 @@ export default function JevTypeSafeAi() {
             {stats.map((s) => (
               <div key={s.label} style={{ textAlign: "center" }}>
                 <div style={{ fontSize: "1.8rem", fontWeight: 800, color: GREEN }}>{s.num}</div>
-                <div style={{ color: "#94a3b8", fontSize: "0.82rem", marginTop: "4px" }}>{s.label}</div>
+                <div style={{ color: "var(--text-subtle)", fontSize: "0.82rem", marginTop: "4px" }}>{s.label}</div>
               </div>
             ))}
           </div>
@@ -445,7 +445,7 @@ export default function JevTypeSafeAi() {
       </div>
 
       {/* ── EL PROBLEMA ── */}
-      <div style={{ background: "#fff", padding: "72px 24px" }}>
+      <div style={{ background: "var(--surface)", padding: "72px 24px" }}>
         <div style={{ maxWidth: "860px", margin: "0 auto" }}>
           <h2 style={sectionTitle}>El problema: tu código no quiere un párrafo</h2>
           <p style={sectionLead}>Cuando usas un LLM tradicional para tomar una decisión dentro de tu app, pasa esto:</p>
@@ -457,17 +457,17 @@ export default function JevTypeSafeAi() {
             ].map((t) => (
               <div key={t} style={{ ...card, padding: "18px 22px", display: "flex", gap: "14px", alignItems: "flex-start" }}>
                 <span style={{ color: RED, fontWeight: 800, flexShrink: 0 }}>✕</span>
-                <span style={{ color: "#4b5563", lineHeight: 1.6, fontSize: "0.95rem" }}>{t}</span>
+                <span style={{ color: "var(--text-soft)", lineHeight: 1.6, fontSize: "0.95rem" }}>{t}</span>
               </div>
             ))}
           </div>
           <div
             style={{
-              background: "linear-gradient(135deg, #f0fdf4, #f5f3ff)",
-              border: "1px solid #d9f99d",
+              background: "linear-gradient(135deg, light-dark(#f0fdf4, rgba(16,185,129,0.12)), light-dark(#f5f3ff, rgba(124,58,237,0.12)))",
+              border: "1px solid light-dark(#d9f99d, rgba(163,230,53,0.35))",
               borderRadius: "16px",
               padding: "20px 24px",
-              color: "#1e293b",
+              color: "var(--ink)",
               lineHeight: 1.7,
               fontSize: "0.95rem",
             }}
@@ -480,7 +480,7 @@ export default function JevTypeSafeAi() {
       </div>
 
       {/* ── SYSTEM ONE ── */}
-      <div style={{ background: "#f8fafc", padding: "72px 24px" }}>
+      <div style={{ background: "var(--surface-2)", padding: "72px 24px" }}>
         <div style={{ maxWidth: "860px", margin: "0 auto" }}>
           <h2 style={sectionTitle}>Un modelo "System One": por qué el nombre viene de Kahneman</h2>
           <p style={sectionLead}>
@@ -491,7 +491,7 @@ export default function JevTypeSafeAi() {
             <table style={{ width: "100%", borderCollapse: "collapse", minWidth: "480px" }}>
               <thead>
                 <tr style={{ background: "linear-gradient(135deg, #1a1a2e, #0d1b4b)" }}>
-                  <th style={{ padding: "16px 20px", textAlign: "left", color: "#94a3b8", fontSize: "0.8rem", fontWeight: 600 }} />
+                  <th style={{ padding: "16px 20px", textAlign: "left", color: "var(--text-subtle)", fontSize: "0.8rem", fontWeight: 600 }} />
                   <th style={{ padding: "16px 20px", textAlign: "left", color: BLUE, fontSize: "0.95rem", fontWeight: 800 }}>
                     Sistema 2 (LLMs)
                   </th>
@@ -502,16 +502,16 @@ export default function JevTypeSafeAi() {
               </thead>
               <tbody>
                 {compare.map((row, i) => (
-                  <tr key={row.k} style={{ background: i % 2 ? "#f8fafc" : "#fff" }}>
-                    <td style={{ padding: "14px 20px", color: "#6b7280", fontSize: "0.88rem", fontWeight: 600 }}>{row.k}</td>
-                    <td style={{ padding: "14px 20px", color: "#1a1a2e", fontSize: "0.92rem" }}>{row.system2}</td>
-                    <td style={{ padding: "14px 20px", color: "#1a1a2e", fontSize: "0.92rem", fontWeight: 700 }}>{row.system1}</td>
+                  <tr key={row.k} style={{ background: i % 2 ? "var(--surface-2)" : "var(--surface)" }}>
+                    <td style={{ padding: "14px 20px", color: "var(--text-muted)", fontSize: "0.88rem", fontWeight: 600 }}>{row.k}</td>
+                    <td style={{ padding: "14px 20px", color: "var(--ink)", fontSize: "0.92rem" }}>{row.system2}</td>
+                    <td style={{ padding: "14px 20px", color: "var(--ink)", fontSize: "0.92rem", fontWeight: 700 }}>{row.system1}</td>
                   </tr>
                 ))}
               </tbody>
             </table>
           </div>
-          <p style={{ color: "#4b5563", lineHeight: 1.7, textAlign: "center", maxWidth: "680px", margin: "0 auto" }}>
+          <p style={{ color: "var(--text-soft)", lineHeight: 1.7, textAlign: "center", maxWidth: "680px", margin: "0 auto" }}>
             El propio "Jev" toma su nombre de <strong>William Stanley Jevons</strong>: cuando algo se vuelve más
             eficiente, su demanda aumenta en vez de caer. TypeSafe apuesta a que, si decidir con IA se vuelve casi
             gratis, la usaremos en muchos más lugares de los que hoy imaginamos.
@@ -523,8 +523,8 @@ export default function JevTypeSafeAi() {
               { k: "CEO", v: "Diogo Almeida, ex OpenAI" },
             ].map((x) => (
               <div key={x.k} style={{ ...card, padding: "18px", textAlign: "center" }}>
-                <div style={{ color: "#6b7280", fontSize: "0.8rem", marginBottom: "6px" }}>{x.k}</div>
-                <div style={{ color: "#1a1a2e", fontWeight: 700, fontSize: "0.95rem" }}>{x.v}</div>
+                <div style={{ color: "var(--text-muted)", fontSize: "0.8rem", marginBottom: "6px" }}>{x.k}</div>
+                <div style={{ color: "var(--ink)", fontWeight: 700, fontSize: "0.95rem" }}>{x.v}</div>
               </div>
             ))}
           </div>
@@ -532,7 +532,7 @@ export default function JevTypeSafeAi() {
       </div>
 
       {/* ── CÓMO RESPONDE ── */}
-      <div style={{ background: "#fff", padding: "72px 24px" }}>
+      <div style={{ background: "var(--surface)", padding: "72px 24px" }}>
         <div style={{ maxWidth: "860px", margin: "0 auto" }}>
           <h2 style={sectionTitle}>Cómo responde: choice, score y noul</h2>
           <p style={sectionLead}>
@@ -542,12 +542,12 @@ export default function JevTypeSafeAi() {
             {primitives.map((p) => (
               <div key={p.name} style={{ ...card, padding: "24px" }}>
                 <h3 style={{ margin: "0 0 8px", fontSize: "1.2rem", fontWeight: 800, color: GREEN }}>{p.name}</h3>
-                <p style={{ margin: 0, color: "#4b5563", lineHeight: 1.65, fontSize: "0.92rem" }}>{p.desc}</p>
+                <p style={{ margin: 0, color: "var(--text-soft)", lineHeight: 1.65, fontSize: "0.92rem" }}>{p.desc}</p>
               </div>
             ))}
           </div>
 
-          <h3 style={{ fontSize: "1.1rem", fontWeight: 700, color: "#1a1a2e", textAlign: "center", marginBottom: "20px" }}>
+          <h3 style={{ fontSize: "1.1rem", fontWeight: 700, color: "var(--ink)", textAlign: "center", marginBottom: "20px" }}>
             De reglas frágiles a decisiones con probabilidad
           </h3>
           <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fit, minmax(300px, 1fr))", gap: "20px" }}>
@@ -558,7 +558,7 @@ export default function JevTypeSafeAi() {
       </div>
 
       {/* ── RLCD ── */}
-      <div style={{ background: "#f8fafc", padding: "72px 24px" }}>
+      <div style={{ background: "var(--surface-2)", padding: "72px 24px" }}>
         <div style={{ maxWidth: "860px", margin: "0 auto" }}>
           <h2 style={sectionTitle}>RLCD: entrenado para no mentir sobre su certeza</h2>
           <p style={sectionLead}>
@@ -577,8 +577,8 @@ export default function JevTypeSafeAi() {
                   border: r.win ? `2px solid ${GREEN}` : card.border,
                 }}
               >
-                <span style={{ fontWeight: 800, color: r.win ? GREEN : "#94a3b8", width: "70px", flexShrink: 0 }}>{r.method}</span>
-                <span style={{ color: "#374151", fontSize: "0.95rem" }}>
+                <span style={{ fontWeight: 800, color: r.win ? GREEN : "var(--text-subtle)", width: "70px", flexShrink: 0 }}>{r.method}</span>
+                <span style={{ color: "var(--text-soft)", fontSize: "0.95rem" }}>
                   Optimiza <strong>{r.optimizes}</strong>
                 </span>
               </div>
@@ -586,11 +586,11 @@ export default function JevTypeSafeAi() {
           </div>
           <div
             style={{
-              background: "linear-gradient(135deg, #f0fdf4, #f5f3ff)",
-              border: "1px solid #d9f99d",
+              background: "linear-gradient(135deg, light-dark(#f0fdf4, rgba(16,185,129,0.12)), light-dark(#f5f3ff, rgba(124,58,237,0.12)))",
+              border: "1px solid light-dark(#d9f99d, rgba(163,230,53,0.35))",
               borderRadius: "16px",
               padding: "20px 24px",
-              color: "#1e293b",
+              color: "var(--ink)",
               lineHeight: 1.7,
               fontSize: "0.95rem",
             }}
@@ -602,15 +602,15 @@ export default function JevTypeSafeAi() {
       </div>
 
       {/* ── NÚMEROS ── */}
-      <div style={{ background: "#fff", padding: "72px 24px" }}>
+      <div style={{ background: "var(--surface)", padding: "72px 24px" }}>
         <div style={{ maxWidth: "860px", margin: "0 auto" }}>
           <h2 style={sectionTitle}>Los números: velocidad y costo</h2>
           <p style={sectionLead}>Cifras reportadas por TypeSafe AI, aún sin verificación independiente.</p>
           <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fit, minmax(220px, 1fr))", gap: "18px" }}>
             {numberCards.map((n) => (
               <div key={n.label} style={{ ...card, padding: "24px", borderTop: `4px solid ${GREEN}` }}>
-                <div style={{ fontSize: "1.6rem", fontWeight: 800, color: "#1a1a2e" }}>{n.num}</div>
-                <div style={{ color: "#6b7280", fontSize: "0.85rem", marginTop: "6px", lineHeight: 1.5 }}>{n.label}</div>
+                <div style={{ fontSize: "1.6rem", fontWeight: 800, color: "var(--ink)" }}>{n.num}</div>
+                <div style={{ color: "var(--text-muted)", fontSize: "0.85rem", marginTop: "6px", lineHeight: 1.5 }}>{n.label}</div>
               </div>
             ))}
           </div>
@@ -618,7 +618,7 @@ export default function JevTypeSafeAi() {
       </div>
 
       {/* ── USOS REALES ── */}
-      <div style={{ background: "#f8fafc", padding: "72px 24px" }}>
+      <div style={{ background: "var(--surface-2)", padding: "72px 24px" }}>
         <div style={{ maxWidth: "860px", margin: "0 auto" }}>
           <h2 style={sectionTitle}>Para qué sirve: casos de uso reales</h2>
           <p style={sectionLead}>El patrón se repite: confianza alta ejecuta sola, confianza baja escala a un humano.</p>
@@ -626,8 +626,8 @@ export default function JevTypeSafeAi() {
             {useCases.map((u) => (
               <div key={u.title} style={{ ...card, padding: "24px" }}>
                 <div style={{ fontSize: "1.6rem", marginBottom: "10px" }}>{u.icon}</div>
-                <h3 style={{ margin: "0 0 6px", fontSize: "1rem", fontWeight: 700, color: "#1a1a2e" }}>{u.title}</h3>
-                <p style={{ margin: 0, color: "#4b5563", lineHeight: 1.6, fontSize: "0.9rem" }}>{u.desc}</p>
+                <h3 style={{ margin: "0 0 6px", fontSize: "1rem", fontWeight: 700, color: "var(--ink)" }}>{u.title}</h3>
+                <p style={{ margin: 0, color: "var(--text-soft)", lineHeight: 1.6, fontSize: "0.9rem" }}>{u.desc}</p>
               </div>
             ))}
           </div>
@@ -642,7 +642,7 @@ else escalarAHumano(ticket)`}
       </div>
 
       {/* ── LO QUE NO TE DICEN ── */}
-      <div style={{ background: "#fff", padding: "72px 24px" }}>
+      <div style={{ background: "var(--surface)", padding: "72px 24px" }}>
         <div style={{ maxWidth: "860px", margin: "0 auto" }}>
           <h2 style={sectionTitle}>Lo que no te dicen</h2>
           <p style={sectionLead}>Antes de meter esto en producción, vale la pena tener esto claro.</p>
@@ -650,7 +650,7 @@ else escalarAHumano(ticket)`}
             {caveats.map((c) => (
               <div key={c.title} style={{ ...card, padding: "20px 24px", borderLeft: `4px solid ${RED}` }}>
                 <h3 style={{ margin: "0 0 6px", fontSize: "1rem", fontWeight: 700, color: RED }}>{c.title}</h3>
-                <p style={{ margin: 0, color: "#4b5563", lineHeight: 1.65, fontSize: "0.93rem" }}>{c.body}</p>
+                <p style={{ margin: 0, color: "var(--text-soft)", lineHeight: 1.65, fontSize: "0.93rem" }}>{c.body}</p>
               </div>
             ))}
           </div>
@@ -658,7 +658,7 @@ else escalarAHumano(ticket)`}
       </div>
 
       {/* ── ROADMAP ── */}
-      <div style={{ background: "#f8fafc", padding: "72px 24px" }}>
+      <div style={{ background: "var(--surface-2)", padding: "72px 24px" }}>
         <div style={{ maxWidth: "860px", margin: "0 auto" }}>
           <h2 style={sectionTitle}>Hacia dónde va esto</h2>
           <p style={sectionLead}>Proyecciones a futuro, según TypeSafe AI.</p>
@@ -693,8 +693,8 @@ else escalarAHumano(ticket)`}
                   {i + 1}
                 </div>
                 <div style={{ ...card, padding: "18px 22px", flex: 1 }}>
-                  <h4 style={{ margin: "0 0 6px", fontSize: "1rem", fontWeight: 700, color: "#1a1a2e" }}>{m.title}</h4>
-                  <p style={{ margin: 0, color: "#4b5563", lineHeight: 1.65, fontSize: "0.93rem" }}>{m.body}</p>
+                  <h4 style={{ margin: "0 0 6px", fontSize: "1rem", fontWeight: 700, color: "var(--ink)" }}>{m.title}</h4>
+                  <p style={{ margin: 0, color: "var(--text-soft)", lineHeight: 1.65, fontSize: "0.93rem" }}>{m.body}</p>
                 </div>
               </div>
             ))}
@@ -703,7 +703,7 @@ else escalarAHumano(ticket)`}
       </div>
 
       {/* ── GALERÍA ── */}
-      <div style={{ background: "#fff", padding: "72px 24px" }}>
+      <div style={{ background: "var(--surface)", padding: "72px 24px" }}>
         <div style={{ maxWidth: "860px", margin: "0 auto" }}>
           <h2 style={sectionTitle}>El artículo en imágenes</h2>
           <p style={sectionLead}>Toca cualquier imagen para verla en grande.</p>
@@ -712,13 +712,13 @@ else escalarAHumano(ticket)`}
       </div>
 
       {/* ── VEREDICTO ── */}
-      <div style={{ background: "#fff", padding: "72px 24px" }}>
+      <div style={{ background: "var(--surface)", padding: "72px 24px" }}>
         <div style={{ maxWidth: "720px", margin: "0 auto" }}>
           <div style={{ background: "linear-gradient(135deg, #1a1a2e, #0d1b4b)", borderRadius: "24px", padding: "40px 32px", textAlign: "center" }}>
             <h2 style={{ color: "#fff", fontSize: "1.5rem", fontWeight: 800, margin: "0 0 16px" }}>
               No reemplaza a los LLM. Los complementa.
             </h2>
-            <p style={{ color: "#94a3b8", lineHeight: 1.75, maxWidth: "560px", margin: "0 auto" }}>
+            <p style={{ color: "var(--text-subtle)", lineHeight: 1.75, maxWidth: "560px", margin: "0 auto" }}>
               Si construyes agentes o automatizaciones, la pregunta ya no es solo qué modelo usar, sino{" "}
               <strong style={{ color: "#e2e8f0" }}>qué tipo de modelo necesita cada decisión</strong> de tu flujo.
             </p>
@@ -727,18 +727,18 @@ else escalarAHumano(ticket)`}
       </div>
 
       {/* ── FAQ ── */}
-      <div style={{ background: "#f8fafc", padding: "72px 24px" }}>
+      <div style={{ background: "var(--surface-2)", padding: "72px 24px" }}>
         <div style={{ maxWidth: "720px", margin: "0 auto" }}>
           <h2 style={{ ...sectionTitle, marginBottom: "40px" }}>Preguntas Frecuentes</h2>
           {faqs.map((faq, i) => (
             <FAQItem key={i} faq={faq} />
           ))}
 
-          <h3 style={{ fontSize: "1.1rem", fontWeight: 700, color: "#1a1a2e", margin: "56px 0 14px" }}>Fuentes</h3>
-          <ul style={{ margin: 0, paddingLeft: "20px", color: "#4b5563", lineHeight: 1.9, fontSize: "0.9rem" }}>
+          <h3 style={{ fontSize: "1.1rem", fontWeight: 700, color: "var(--ink)", margin: "56px 0 14px" }}>Fuentes</h3>
+          <ul style={{ margin: 0, paddingLeft: "20px", color: "var(--text-soft)", lineHeight: 1.9, fontSize: "0.9rem" }}>
             {sources.map((s) => (
               <li key={s.href}>
-                <a href={s.href} target="_blank" rel="noopener noreferrer" style={{ color: "#0072ff" }}>
+                <a href={s.href} target="_blank" rel="noopener noreferrer" style={{ color: "var(--brand)" }}>
                   {s.label}
                 </a>
               </li>
@@ -748,7 +748,7 @@ else escalarAHumano(ticket)`}
       </div>
 
       {/* ── CTA ── */}
-      <div style={{ background: "#fff", padding: "72px 24px" }}>
+      <div style={{ background: "var(--surface)", padding: "72px 24px" }}>
         <div style={{ maxWidth: "720px", margin: "0 auto" }}>
           <div
             style={{
@@ -762,7 +762,7 @@ else escalarAHumano(ticket)`}
             <h2 style={{ color: "#fff", fontSize: "1.5rem", fontWeight: 800, marginBottom: "12px" }}>
               ¿Vas a construir tu próximo agente de IA?
             </h2>
-            <p style={{ color: "#94a3b8", lineHeight: 1.7, maxWidth: "500px", margin: "0 auto 32px" }}>
+            <p style={{ color: "var(--text-subtle)", lineHeight: 1.7, maxWidth: "500px", margin: "0 auto 32px" }}>
               Guarda este artículo para cuando decidas qué modelo necesita cada decisión de tu flujo, y sigue
               explorando IA aplicada al desarrollo.
             </p>

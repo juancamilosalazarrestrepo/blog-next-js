@@ -116,7 +116,7 @@ const roadmap = [
     tool: "Cursor",
     action: "Descarga y experimenta Composer",
     detail: "Prueba con un proyecto real. Composer para edición multi-archivo cambia tu flujo.",
-    color: "#0072ff",
+    color: "var(--brand)",
   },
   {
     period: "Mes 2",
@@ -124,7 +124,7 @@ const roadmap = [
     tool: "Claude Code",
     action: "Agrégalo al terminal",
     detail: "Para tareas que requieren razonamiento profundo o automatización de múltiples archivos.",
-    color: "#7c3aed",
+    color: "var(--violet)",
   },
   {
     period: "Mes 3+",
@@ -164,7 +164,7 @@ function FAQItem({ faq }) {
   return (
     <div
       style={{
-        borderBottom: "1px solid #e5e7eb",
+        borderBottom: "1px solid var(--border)",
         padding: "0",
       }}
     >
@@ -183,7 +183,7 @@ function FAQItem({ faq }) {
           gap: "16px",
         }}
       >
-        <span style={{ fontSize: "1rem", fontWeight: 600, color: "#1a1a2e", lineHeight: 1.4 }}>
+        <span style={{ fontSize: "1rem", fontWeight: 600, color: "var(--ink)", lineHeight: 1.4 }}>
           {faq.q}
         </span>
         <span
@@ -192,8 +192,8 @@ function FAQItem({ faq }) {
             width: "28px",
             height: "28px",
             borderRadius: "50%",
-            background: open ? "#0072ff" : "#f3f4f6",
-            color: open ? "#fff" : "#6b7280",
+            background: open ? "#0072ff" : "var(--surface-3)",
+            color: open ? "#fff" : "var(--text-muted)",
             display: "flex",
             alignItems: "center",
             justifyContent: "center",
@@ -206,7 +206,7 @@ function FAQItem({ faq }) {
         </span>
       </button>
       {open && (
-        <p style={{ color: "#4b5563", lineHeight: 1.7, paddingBottom: "20px", margin: 0, fontSize: "0.95rem" }}>
+        <p style={{ color: "var(--text-soft)", lineHeight: 1.7, paddingBottom: "20px", margin: 0, fontSize: "0.95rem" }}>
           {faq.a}
         </p>
       )}
@@ -264,7 +264,7 @@ export default function AgentesIA2026() {
             </span>{" "}
             en el Desarrollo en 2026
           </h1>
-          <p style={{ fontSize: "1.15rem", color: "#94a3b8", lineHeight: 1.7, marginBottom: "32px" }}>
+          <p style={{ fontSize: "1.15rem", color: "var(--text-subtle)", lineHeight: 1.7, marginBottom: "32px" }}>
             Descubre por qué Claude Code, Cursor y GitHub Copilot son infraestructura esencial hoy — y cuál elegir según tu flujo de trabajo.
           </p>
           <div style={{ display: "flex", alignItems: "center", gap: "20px", flexWrap: "wrap" }}>
@@ -272,7 +272,7 @@ export default function AgentesIA2026() {
               <div style={{ width: "36px", height: "36px", borderRadius: "50%", background: "linear-gradient(135deg, #0072ff, #7c3aed)", display: "flex", alignItems: "center", justifyContent: "center", fontSize: "0.85rem", fontWeight: 700, color: "#fff" }}>JC</div>
               <div>
                 <p style={{ margin: 0, fontSize: "0.85rem", color: "#fff", fontWeight: 600 }}>Juan Camilo Salazar</p>
-                <p style={{ margin: 0, fontSize: "0.78rem", color: "#64748b" }}>2 Jun, 2026 · 8 min lectura</p>
+                <p style={{ margin: 0, fontSize: "0.78rem", color: "var(--text-muted)" }}>2 Jun, 2026 · 8 min lectura</p>
               </div>
             </div>
           </div>
@@ -281,7 +281,7 @@ export default function AgentesIA2026() {
       </div>
 
       {/* STAT BANNER */}
-      <div style={{ background: "#f8fafc", borderBottom: "1px solid #e2e8f0", padding: "0 24px" }}>
+      <div style={{ background: "var(--surface-2)", borderBottom: "1px solid var(--border)", padding: "0 24px" }}>
         <div style={{ maxWidth: "800px", margin: "0 auto", display: "grid", gridTemplateColumns: "repeat(auto-fit, minmax(160px, 1fr))", gap: "0" }}>
           {[
             { num: "84%", label: "devs usan IA hoy" },
@@ -289,9 +289,9 @@ export default function AgentesIA2026() {
             { num: "5x", label: "más velocidad en tareas" },
             { num: "2026", label: "ya es infraestructura" },
           ].map((s) => (
-            <div key={s.num} style={{ padding: "28px 20px", textAlign: "center", borderRight: "1px solid #e2e8f0" }}>
-              <p style={{ margin: 0, fontSize: "1.8rem", fontWeight: 800, color: "#0072ff" }}>{s.num}</p>
-              <p style={{ margin: 0, fontSize: "0.8rem", color: "#64748b", marginTop: "4px" }}>{s.label}</p>
+            <div key={s.num} style={{ padding: "28px 20px", textAlign: "center", borderRight: "1px solid var(--border)" }}>
+              <p style={{ margin: 0, fontSize: "1.8rem", fontWeight: 800, color: "var(--brand)" }}>{s.num}</p>
+              <p style={{ margin: 0, fontSize: "0.8rem", color: "var(--text-muted)", marginTop: "4px" }}>{s.label}</p>
             </div>
           ))}
         </div>
@@ -301,29 +301,29 @@ export default function AgentesIA2026() {
 
         {/* INTRO */}
         <section style={{ marginBottom: "64px" }}>
-          <p style={{ fontSize: "1.15rem", color: "#374151", lineHeight: 1.8, borderLeft: "4px solid #0072ff", paddingLeft: "20px", marginBottom: "20px" }}>
+          <p style={{ fontSize: "1.15rem", color: "var(--text-soft)", lineHeight: 1.8, borderLeft: "4px solid #0072ff", paddingLeft: "20px", marginBottom: "20px" }}>
             En 2024 los agentes de IA eran una curiosidad. En 2026 son infraestructura. Si escribes código profesionalmente hoy y no usas un agente de IA, no estás compitiendo en igualdad de condiciones.
           </p>
-          <p style={{ fontSize: "1rem", color: "#4b5563", lineHeight: 1.8 }}>
+          <p style={{ fontSize: "1rem", color: "var(--text-soft)", lineHeight: 1.8 }}>
             Esta no es exageración: el <strong>84% de los desarrolladores profesionales</strong> ya usan alguna forma de asistencia por IA, y el 51% lo hace de forma diaria (Stack Overflow, 2025). El cambio no es opcional, es estructural.
           </p>
         </section>
 
         {/* QUÉ ES UN AGENTE */}
         <section style={{ marginBottom: "64px" }}>
-          <h2 style={{ fontSize: "1.6rem", fontWeight: 800, color: "#1a1a2e", marginBottom: "24px" }}>¿Qué es un Agente de IA para Programar?</h2>
-          <p style={{ color: "#4b5563", lineHeight: 1.7, marginBottom: "24px" }}>Un agente de IA no es solo un autocompletado mejorado. La diferencia es fundamental:</p>
+          <h2 style={{ fontSize: "1.6rem", fontWeight: 800, color: "var(--ink)", marginBottom: "24px" }}>¿Qué es un Agente de IA para Programar?</h2>
+          <p style={{ color: "var(--text-soft)", lineHeight: 1.7, marginBottom: "24px" }}>Un agente de IA no es solo un autocompletado mejorado. La diferencia es fundamental:</p>
           <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fit, minmax(200px, 1fr))", gap: "16px" }}>
             {[
               { year: "2022", label: "Autocompletado", desc: "Sugiere la siguiente línea. Tú controlas cada tecla.", icon: "⌨️", dim: true },
               { year: "2023-24", label: "Asistente", desc: "Responde preguntas, genera bloques de código.", icon: "💬", dim: true },
               { year: "2025-26", label: "Agente", desc: "Planifica, edita 6 archivos, corre tests, corrige lo que rompió y entrega un PR.", icon: "🤖", dim: false },
             ].map((item) => (
-              <div key={item.year} style={{ background: item.dim ? "#f8fafc" : "linear-gradient(135deg, #0072ff, #0d47a1)", borderRadius: "16px", padding: "24px", border: item.dim ? "1px solid #e2e8f0" : "none", position: "relative", overflow: "hidden" }}>
+              <div key={item.year} style={{ background: item.dim ? "var(--surface-2)" : "linear-gradient(135deg, #0072ff, #0d47a1)", borderRadius: "16px", padding: "24px", border: item.dim ? "1px solid var(--border)" : "none", position: "relative", overflow: "hidden" }}>
                 <div style={{ fontSize: "2rem", marginBottom: "12px" }}>{item.icon}</div>
-                <span style={{ fontSize: "0.75rem", fontWeight: 600, color: item.dim ? "#94a3b8" : "rgba(255,255,255,0.7)", letterSpacing: "0.1em" }}>{item.year}</span>
-                <h3 style={{ fontSize: "1.05rem", fontWeight: 700, color: item.dim ? "#1a1a2e" : "#fff", margin: "4px 0 8px" }}>{item.label}</h3>
-                <p style={{ fontSize: "0.88rem", color: item.dim ? "#6b7280" : "rgba(255,255,255,0.85)", lineHeight: 1.6, margin: 0 }}>{item.desc}</p>
+                <span style={{ fontSize: "0.75rem", fontWeight: 600, color: item.dim ? "var(--text-subtle)" : "rgba(255,255,255,0.7)", letterSpacing: "0.1em" }}>{item.year}</span>
+                <h3 style={{ fontSize: "1.05rem", fontWeight: 700, color: item.dim ? "var(--ink)" : "#fff", margin: "4px 0 8px" }}>{item.label}</h3>
+                <p style={{ fontSize: "0.88rem", color: item.dim ? "var(--text-muted)" : "rgba(255,255,255,0.85)", lineHeight: 1.6, margin: 0 }}>{item.desc}</p>
               </div>
             ))}
           </div>
@@ -331,18 +331,18 @@ export default function AgentesIA2026() {
 
         {/* HERRAMIENTAS */}
         <section style={{ marginBottom: "64px" }}>
-          <h2 style={{ fontSize: "1.6rem", fontWeight: 800, color: "#1a1a2e", marginBottom: "8px" }}>
+          <h2 style={{ fontSize: "1.6rem", fontWeight: 800, color: "var(--ink)", marginBottom: "8px" }}>
             Los Mejores Agentes de IA en 2026
           </h2>
-          <p style={{ color: "#6b7280", marginBottom: "32px", lineHeight: 1.6 }}>Cinco herramientas, cinco perfiles. Elige según tu flujo de trabajo.</p>
+          <p style={{ color: "var(--text-muted)", marginBottom: "32px", lineHeight: 1.6 }}>Cinco herramientas, cinco perfiles. Elige según tu flujo de trabajo.</p>
 
           <div style={{ display: "flex", flexDirection: "column", gap: "20px" }}>
             {tools.map((tool, i) => (
               <div
                 key={tool.name}
                 style={{
-                  background: "#fff",
-                  border: "1px solid #e5e7eb",
+                  background: "var(--surface)",
+                  border: "1px solid var(--border)",
                   borderRadius: "20px",
                   padding: "28px",
                   boxShadow: "0 4px 20px rgba(0,0,0,0.04)",
@@ -354,7 +354,7 @@ export default function AgentesIA2026() {
               >
                 {/* Logo + number */}
                 <div style={{ display: "flex", flexDirection: "column", alignItems: "center", gap: "8px" }}>
-                  <div style={{ width: "56px", height: "56px", borderRadius: "14px", background: "#f8fafc", border: "1px solid #e5e7eb", display: "flex", alignItems: "center", justifyContent: "center", overflow: "hidden", padding: "8px" }}>
+                  <div style={{ width: "56px", height: "56px", borderRadius: "14px", background: "var(--surface-2)", border: "1px solid var(--border)", display: "flex", alignItems: "center", justifyContent: "center", overflow: "hidden", padding: "8px" }}>
                     <img
                       src={tool.logo}
                       alt={tool.name}
@@ -362,30 +362,30 @@ export default function AgentesIA2026() {
                       onError={(e) => { e.target.style.display = "none"; e.target.parentNode.innerHTML = `<span style="font-size:1.8rem">${tool.emoji}</span>`; }}
                     />
                   </div>
-                  <span style={{ fontSize: "0.75rem", fontWeight: 700, color: "#94a3b8" }}>#{i + 1}</span>
+                  <span style={{ fontSize: "0.75rem", fontWeight: 700, color: "var(--text-subtle)" }}>#{i + 1}</span>
                 </div>
 
                 {/* Content */}
                 <div>
                   <div style={{ display: "flex", alignItems: "center", flexWrap: "wrap", gap: "10px", marginBottom: "6px" }}>
-                    <h3 style={{ fontSize: "1.15rem", fontWeight: 800, color: "#1a1a2e", margin: 0 }}>{tool.name}</h3>
+                    <h3 style={{ fontSize: "1.15rem", fontWeight: 800, color: "var(--ink)", margin: 0 }}>{tool.name}</h3>
                     <span style={{ background: tool.badge, color: "#fff", fontSize: "0.72rem", fontWeight: 700, padding: "3px 10px", borderRadius: "20px" }}>{tool.badgeText}</span>
                   </div>
-                  <p style={{ fontSize: "0.83rem", color: "#9ca3af", margin: "0 0 12px", fontWeight: 500 }}>{tool.company}</p>
+                  <p style={{ fontSize: "0.83rem", color: "var(--text-subtle)", margin: "0 0 12px", fontWeight: 500 }}>{tool.company}</p>
 
                   <div style={{ display: "flex", gap: "12px", flexWrap: "wrap", marginBottom: "16px" }}>
-                    <span style={{ background: "#f0fdf4", color: "#166534", fontSize: "0.8rem", fontWeight: 600, padding: "4px 12px", borderRadius: "8px" }}>{tool.price}</span>
-                    <span style={{ background: "#eff6ff", color: "#1e40af", fontSize: "0.8rem", fontWeight: 600, padding: "4px 12px", borderRadius: "8px" }}>{tool.score}</span>
+                    <span style={{ background: "light-dark(#f0fdf4, rgba(16,185,129,0.12))", color: "light-dark(#166534, #86efac)", fontSize: "0.8rem", fontWeight: 600, padding: "4px 12px", borderRadius: "8px" }}>{tool.price}</span>
+                    <span style={{ background: "light-dark(#eff6ff, rgba(77,154,255,0.14))", color: "light-dark(#1e40af, #93c5fd)", fontSize: "0.8rem", fontWeight: 600, padding: "4px 12px", borderRadius: "8px" }}>{tool.score}</span>
                   </div>
 
-                  <p style={{ fontSize: "0.88rem", color: "#374151", lineHeight: 1.6, marginBottom: "16px" }}>
+                  <p style={{ fontSize: "0.88rem", color: "var(--text-soft)", lineHeight: 1.6, marginBottom: "16px" }}>
                     <strong>Ideal para:</strong> {tool.ideal}
                   </p>
 
                   <ul style={{ margin: 0, padding: 0, listStyle: "none", display: "grid", gridTemplateColumns: "repeat(auto-fit, minmax(200px, 1fr))", gap: "6px" }}>
                     {tool.highlights.map((h) => (
-                      <li key={h} style={{ display: "flex", alignItems: "flex-start", gap: "8px", fontSize: "0.83rem", color: "#4b5563" }}>
-                        <span style={{ color: "#0072ff", flexShrink: 0, marginTop: "2px" }}>✓</span>
+                      <li key={h} style={{ display: "flex", alignItems: "flex-start", gap: "8px", fontSize: "0.83rem", color: "var(--text-soft)" }}>
+                        <span style={{ color: "var(--brand)", flexShrink: 0, marginTop: "2px" }}>✓</span>
                         {h}
                       </li>
                     ))}
@@ -398,20 +398,20 @@ export default function AgentesIA2026() {
 
         {/* TABLA */}
         <section style={{ marginBottom: "64px" }}>
-          <h2 style={{ fontSize: "1.6rem", fontWeight: 800, color: "#1a1a2e", marginBottom: "8px" }}>¿Cuál Elegir?</h2>
-          <p style={{ color: "#6b7280", marginBottom: "24px" }}>Guía rápida según tu necesidad principal.</p>
-          <div style={{ borderRadius: "16px", overflow: "hidden", border: "1px solid #e5e7eb", boxShadow: "0 4px 16px rgba(0,0,0,0.04)" }}>
+          <h2 style={{ fontSize: "1.6rem", fontWeight: 800, color: "var(--ink)", marginBottom: "8px" }}>¿Cuál Elegir?</h2>
+          <p style={{ color: "var(--text-muted)", marginBottom: "24px" }}>Guía rápida según tu necesidad principal.</p>
+          <div style={{ borderRadius: "16px", overflow: "hidden", border: "1px solid var(--border)", boxShadow: "0 4px 16px rgba(0,0,0,0.04)" }}>
             <table style={{ width: "100%", borderCollapse: "collapse" }}>
               <thead>
                 <tr style={{ background: "linear-gradient(135deg, #1a1a2e, #0d1b4b)" }}>
-                  <th style={{ padding: "16px 20px", textAlign: "left", fontSize: "0.82rem", fontWeight: 700, color: "#94a3b8", letterSpacing: "0.08em", textTransform: "uppercase" }}>Necesidad</th>
-                  <th style={{ padding: "16px 20px", textAlign: "left", fontSize: "0.82rem", fontWeight: 700, color: "#94a3b8", letterSpacing: "0.08em", textTransform: "uppercase" }}>Herramienta</th>
+                  <th style={{ padding: "16px 20px", textAlign: "left", fontSize: "0.82rem", fontWeight: 700, color: "var(--text-subtle)", letterSpacing: "0.08em", textTransform: "uppercase" }}>Necesidad</th>
+                  <th style={{ padding: "16px 20px", textAlign: "left", fontSize: "0.82rem", fontWeight: 700, color: "var(--text-subtle)", letterSpacing: "0.08em", textTransform: "uppercase" }}>Herramienta</th>
                 </tr>
               </thead>
               <tbody>
                 {tableData.map((row, i) => (
-                  <tr key={i} style={{ background: i % 2 === 0 ? "#fff" : "#f8fafc", borderBottom: "1px solid #f1f5f9" }}>
-                    <td style={{ padding: "14px 20px", fontSize: "0.9rem", color: "#374151" }}>{row.need}</td>
+                  <tr key={i} style={{ background: i % 2 === 0 ? "var(--surface)" : "var(--surface-2)", borderBottom: "1px solid light-dark(#f1f5f9, #2f3d5e)" }}>
+                    <td style={{ padding: "14px 20px", fontSize: "0.9rem", color: "var(--text-soft)" }}>{row.need}</td>
                     <td style={{ padding: "14px 20px" }}>
                       <span style={{ background: "linear-gradient(135deg, #0072ff, #0d47a1)", color: "#fff", fontSize: "0.82rem", fontWeight: 700, padding: "4px 14px", borderRadius: "20px", whiteSpace: "nowrap" }}>
                         {row.tool}
@@ -422,15 +422,15 @@ export default function AgentesIA2026() {
               </tbody>
             </table>
           </div>
-          <p style={{ marginTop: "20px", padding: "16px 20px", background: "#eff6ff", borderRadius: "12px", fontSize: "0.9rem", color: "#1e40af", lineHeight: 1.6, border: "1px solid #bfdbfe" }}>
+          <p style={{ marginTop: "20px", padding: "16px 20px", background: "light-dark(#eff6ff, rgba(77,154,255,0.14))", borderRadius: "12px", fontSize: "0.9rem", color: "light-dark(#1e40af, #93c5fd)", lineHeight: 1.6, border: "1px solid light-dark(#bfdbfe, rgba(77,154,255,0.3))" }}>
             <strong>💡 Recomendación 2026:</strong> La mayoría de devs profesionales usan más de uno. Cursor o Windsurf como IDE diario. Claude Code para problemas difíciles. Copilot como red de seguridad de $10/mes.
           </p>
         </section>
 
         {/* ROADMAP */}
         <section style={{ marginBottom: "64px" }}>
-          <h2 style={{ fontSize: "1.6rem", fontWeight: 800, color: "#1a1a2e", marginBottom: "8px" }}>Cómo Empezar Hoy</h2>
-          <p style={{ color: "#6b7280", marginBottom: "32px" }}>Ruta recomendada para adoptar agentes de IA progresivamente.</p>
+          <h2 style={{ fontSize: "1.6rem", fontWeight: 800, color: "var(--ink)", marginBottom: "8px" }}>Cómo Empezar Hoy</h2>
+          <p style={{ color: "var(--text-muted)", marginBottom: "32px" }}>Ruta recomendada para adoptar agentes de IA progresivamente.</p>
           <div style={{ position: "relative" }}>
             {/* vertical line */}
             <div style={{ position: "absolute", left: "27px", top: "40px", bottom: "40px", width: "2px", background: "linear-gradient(to bottom, #0072ff, #7c3aed, #0ea5e9)", borderRadius: "2px" }} />
@@ -440,13 +440,13 @@ export default function AgentesIA2026() {
                   <div style={{ flexShrink: 0, width: "56px", height: "56px", borderRadius: "50%", background: step.color, display: "flex", alignItems: "center", justifyContent: "center", fontSize: "1.4rem", boxShadow: `0 0 0 4px white, 0 0 0 6px ${step.color}33`, zIndex: 1 }}>
                     {step.icon}
                   </div>
-                  <div style={{ background: "#fff", border: "1px solid #e5e7eb", borderRadius: "16px", padding: "20px 24px", flex: 1, boxShadow: "0 2px 8px rgba(0,0,0,0.04)" }}>
+                  <div style={{ background: "var(--surface)", border: "1px solid var(--border)", borderRadius: "16px", padding: "20px 24px", flex: 1, boxShadow: "0 2px 8px rgba(0,0,0,0.04)" }}>
                     <div style={{ display: "flex", alignItems: "center", gap: "12px", flexWrap: "wrap", marginBottom: "8px" }}>
                       <span style={{ fontSize: "0.75rem", fontWeight: 700, color: step.color, background: `${step.color}15`, padding: "3px 10px", borderRadius: "20px", letterSpacing: "0.05em" }}>{step.period}</span>
-                      <h3 style={{ margin: 0, fontSize: "1rem", fontWeight: 700, color: "#1a1a2e" }}>{step.action}</h3>
+                      <h3 style={{ margin: 0, fontSize: "1rem", fontWeight: 700, color: "var(--ink)" }}>{step.action}</h3>
                     </div>
                     <p style={{ margin: "0 0 4px", fontSize: "0.83rem", fontWeight: 600, color: step.color }}>{step.tool}</p>
-                    <p style={{ margin: 0, fontSize: "0.88rem", color: "#6b7280", lineHeight: 1.6 }}>{step.detail}</p>
+                    <p style={{ margin: 0, fontSize: "0.88rem", color: "var(--text-muted)", lineHeight: 1.6 }}>{step.detail}</p>
                   </div>
                 </div>
               ))}
@@ -456,9 +456,9 @@ export default function AgentesIA2026() {
 
         {/* FAQ */}
         <section style={{ marginBottom: "48px" }}>
-          <h2 style={{ fontSize: "1.6rem", fontWeight: 800, color: "#1a1a2e", marginBottom: "8px" }}>Preguntas Frecuentes</h2>
-          <p style={{ color: "#6b7280", marginBottom: "32px" }}>Las dudas más comunes sobre agentes de IA en 2026.</p>
-          <div style={{ background: "#fff", border: "1px solid #e5e7eb", borderRadius: "20px", padding: "8px 28px", boxShadow: "0 4px 20px rgba(0,0,0,0.04)" }}>
+          <h2 style={{ fontSize: "1.6rem", fontWeight: 800, color: "var(--ink)", marginBottom: "8px" }}>Preguntas Frecuentes</h2>
+          <p style={{ color: "var(--text-muted)", marginBottom: "32px" }}>Las dudas más comunes sobre agentes de IA en 2026.</p>
+          <div style={{ background: "var(--surface)", border: "1px solid var(--border)", borderRadius: "20px", padding: "8px 28px", boxShadow: "0 4px 20px rgba(0,0,0,0.04)" }}>
             {faqs.map((faq, i) => (
               <FAQItem key={i} faq={faq} />
             ))}
@@ -471,7 +471,7 @@ export default function AgentesIA2026() {
           <h2 style={{ fontSize: "1.6rem", fontWeight: 800, color: "#fff", marginBottom: "16px", lineHeight: 1.3 }}>
             ¿Listo para multiplicar tu productividad?
           </h2>
-          <p style={{ color: "#94a3b8", lineHeight: 1.7, marginBottom: "28px", maxWidth: "480px", margin: "0 auto 28px" }}>
+          <p style={{ color: "var(--text-subtle)", lineHeight: 1.7, marginBottom: "28px", maxWidth: "480px", margin: "0 auto 28px" }}>
             El desarrollador de 2026 que gana no es el que usa más herramientas, sino el que sabe cuándo usar cuál.
           </p>
           <a

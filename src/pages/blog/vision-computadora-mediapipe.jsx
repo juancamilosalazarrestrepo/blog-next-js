@@ -16,14 +16,14 @@ const modules = [
   {
     num: "01",
     title: "Face Tracking",
-    color: "#0072ff",
+    color: "var(--brand)",
     icon: "🧑‍💻",
     body: "MediaPipe Face Mesh detecta 468 puntos de referencia sobre el rostro en cada frame, permitiendo ubicar ojos, cejas, nariz y boca, y calcular la orientación de la cabeza en tiempo real.",
   },
   {
     num: "02",
     title: "Finger Tracking",
-    color: "#7c3aed",
+    color: "var(--violet)",
     icon: "🖐️",
     body: "MediaPipe Hands detecta 21 puntos por mano, reconstruyendo la posición de cada dedo en el espacio: qué dedos están extendidos, distancias entre puntas y coordenadas normalizadas.",
   },
@@ -47,7 +47,7 @@ const demos = [
   {
     src: "/images/vision-computadora/demo-rostros.webp",
     title: "Face tracking",
-    color: "#0072ff",
+    color: "var(--brand)",
     alt: "Malla facial de MediaPipe detectando un rostro en tiempo real a 35 FPS con 100% de confianza",
     caption: "La malla facial se ajusta al rostro frame a frame: 35 FPS y 100% de confianza.",
   },
@@ -77,8 +77,8 @@ const stack = [
 ];
 
 const pipeline = [
-  { step: "Captura", detail: "OpenCV lee el frame de la cámara web en tiempo real.", color: "#0072ff" },
-  { step: "Preprocesamiento", detail: "Conversión de color (BGR a RGB) y redimensionado del frame.", color: "#7c3aed" },
+  { step: "Captura", detail: "OpenCV lee el frame de la cámara web en tiempo real.", color: "var(--brand)" },
+  { step: "Preprocesamiento", detail: "Conversión de color (BGR a RGB) y redimensionado del frame.", color: "var(--violet)" },
   { step: "Inferencia por módulo", detail: "Rostro, manos, señas y objetos se procesan de forma independiente sobre el mismo frame.", color: "#0ea5e9" },
   { step: "Postprocesamiento", detail: "Normalización de coordenadas y suavizado temporal para evitar parpadeo en las detecciones.", color: "#10b981" },
   { step: "Renderizado", detail: "Se dibujan landmarks, cajas delimitadoras y etiquetas con OpenCV.", color: "#f59e0b" },
@@ -114,7 +114,7 @@ const faqs = [
 function FAQItem({ faq }) {
   const [open, setOpen] = useState(false);
   return (
-    <div style={{ borderBottom: "1px solid #e5e7eb", transition: "all 0.2s" }}>
+    <div style={{ borderBottom: "1px solid var(--border)", transition: "all 0.2s" }}>
       <button
         onClick={() => setOpen(!open)}
         style={{
@@ -130,7 +130,7 @@ function FAQItem({ faq }) {
           gap: "16px",
         }}
       >
-        <span style={{ fontWeight: 600, color: "#1a1a2e", fontSize: "1rem", lineHeight: 1.5 }}>
+        <span style={{ fontWeight: 600, color: "var(--ink)", fontSize: "1rem", lineHeight: 1.5 }}>
           {faq.q}
         </span>
         <span
@@ -139,8 +139,8 @@ function FAQItem({ faq }) {
             width: "28px",
             height: "28px",
             borderRadius: "50%",
-            background: open ? "linear-gradient(135deg, #0072ff, #7c3aed)" : "#f1f5f9",
-            color: open ? "#fff" : "#64748b",
+            background: open ? "linear-gradient(135deg, #0072ff, #7c3aed)" : "var(--surface-3)",
+            color: open ? "#fff" : "var(--text-muted)",
             display: "flex",
             alignItems: "center",
             justifyContent: "center",
@@ -153,7 +153,7 @@ function FAQItem({ faq }) {
         </span>
       </button>
       {open && (
-        <p style={{ color: "#4b5563", lineHeight: 1.75, paddingBottom: "20px", margin: 0, fontSize: "0.97rem" }}>
+        <p style={{ color: "var(--text-soft)", lineHeight: 1.75, paddingBottom: "20px", margin: 0, fontSize: "0.97rem" }}>
           {faq.a}
         </p>
       )}
@@ -261,11 +261,11 @@ export default function VisionComputadoraMediapipe() {
                 </div>
                 <div>
                   <div style={{ color: "#fff", fontWeight: 600, fontSize: "0.88rem" }}>Juan Camilo Salazar</div>
-                  <div style={{ color: "#94a3b8", fontSize: "0.78rem" }}>{DATE}</div>
+                  <div style={{ color: "var(--text-subtle)", fontSize: "0.78rem" }}>{DATE}</div>
                 </div>
               </div>
-              <span style={{ color: "#64748b", fontSize: "0.85rem" }}>·</span>
-              <span style={{ color: "#94a3b8", fontSize: "0.85rem" }}>⏱ {READ_TIME}</span>
+              <span style={{ color: "var(--text-muted)", fontSize: "0.85rem" }}>·</span>
+              <span style={{ color: "var(--text-subtle)", fontSize: "0.85rem" }}>⏱ {READ_TIME}</span>
             </div>
           </div>
         </div>
@@ -274,7 +274,7 @@ export default function VisionComputadoraMediapipe() {
       {/* ── BANNER RESUMEN ── */}
       <div style={{ background: "linear-gradient(135deg, #0d1b4b, #1a1a2e)", padding: "40px 24px" }}>
         <div style={{ maxWidth: "860px", margin: "0 auto", textAlign: "center" }}>
-          <p style={{ color: "#94a3b8", fontSize: "1rem", lineHeight: 1.75, maxWidth: "680px", margin: "0 auto" }}>
+          <p style={{ color: "var(--text-subtle)", fontSize: "1rem", lineHeight: 1.75, maxWidth: "680px", margin: "0 auto" }}>
             Un mismo pipeline de video, cuatro capacidades corriendo en tiempo real: rostro, manos, lenguaje de señas y objetos —
             todo sobre una cámara web estándar, sin GPU obligatoria.
           </p>
@@ -285,8 +285,8 @@ export default function VisionComputadoraMediapipe() {
               { num: "489", label: "Landmarks rostro + mano" },
             ].map((s) => (
               <div key={s.label} style={{ textAlign: "center" }}>
-                <div style={{ fontSize: "2rem", fontWeight: 800, color: "#0072ff" }}>{s.num}</div>
-                <div style={{ color: "#94a3b8", fontSize: "0.82rem", marginTop: "4px" }}>{s.label}</div>
+                <div style={{ fontSize: "2rem", fontWeight: 800, color: "var(--brand)" }}>{s.num}</div>
+                <div style={{ color: "var(--text-subtle)", fontSize: "0.82rem", marginTop: "4px" }}>{s.label}</div>
               </div>
             ))}
           </div>
@@ -299,7 +299,7 @@ export default function VisionComputadoraMediapipe() {
           <h2 style={{ fontSize: "1.8rem", fontWeight: 800, color: "#fff", textAlign: "center", marginBottom: "8px" }}>
             El Sistema en Acción
           </h2>
-          <p style={{ color: "#94a3b8", textAlign: "center", marginBottom: "48px", fontSize: "1rem" }}>
+          <p style={{ color: "var(--text-subtle)", textAlign: "center", marginBottom: "48px", fontSize: "1rem" }}>
             Capturas reales del proyecto corriendo sobre una cámara web estándar
           </p>
           <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fit, minmax(300px, 1fr))", gap: "24px" }}>
@@ -344,12 +344,12 @@ export default function VisionComputadoraMediapipe() {
       </div>
 
       {/* ── MÓDULOS ── */}
-      <div style={{ background: "#f8fafc", padding: "72px 24px" }}>
+      <div style={{ background: "var(--surface-2)", padding: "72px 24px" }}>
         <div style={{ maxWidth: "860px", margin: "0 auto" }}>
-          <h2 style={{ fontSize: "1.8rem", fontWeight: 800, color: "#1a1a2e", textAlign: "center", marginBottom: "8px" }}>
+          <h2 style={{ fontSize: "1.8rem", fontWeight: 800, color: "var(--ink)", textAlign: "center", marginBottom: "8px" }}>
             Los Cuatro Módulos del Sistema
           </h2>
-          <p style={{ color: "#6b7280", textAlign: "center", marginBottom: "56px", fontSize: "1rem" }}>
+          <p style={{ color: "var(--text-muted)", textAlign: "center", marginBottom: "56px", fontSize: "1rem" }}>
             Cada uno resuelve un problema distinto sobre la misma base técnica de landmarks y detección
           </p>
 
@@ -358,10 +358,10 @@ export default function VisionComputadoraMediapipe() {
               <div
                 key={m.num}
                 style={{
-                  background: "#fff",
+                  background: "var(--surface)",
                   borderRadius: "20px",
                   padding: "32px",
-                  border: "1px solid #e5e7eb",
+                  border: "1px solid var(--border)",
                   boxShadow: "0 4px 20px rgba(0,0,0,0.04)",
                   position: "relative",
                   overflow: "hidden",
@@ -408,11 +408,11 @@ export default function VisionComputadoraMediapipe() {
                       >
                         #{m.num}
                       </span>
-                      <h3 style={{ margin: 0, fontSize: "1.1rem", fontWeight: 700, color: "#1a1a2e", lineHeight: 1.3 }}>
+                      <h3 style={{ margin: 0, fontSize: "1.1rem", fontWeight: 700, color: "var(--ink)", lineHeight: 1.3 }}>
                         {m.title}
                       </h3>
                     </div>
-                    <p style={{ color: "#4b5563", lineHeight: 1.7, fontSize: "0.95rem", margin: 0 }}>{m.body}</p>
+                    <p style={{ color: "var(--text-soft)", lineHeight: 1.7, fontSize: "0.95rem", margin: 0 }}>{m.body}</p>
                   </div>
                 </div>
               </div>
@@ -422,27 +422,27 @@ export default function VisionComputadoraMediapipe() {
       </div>
 
       {/* ── STACK TECNOLÓGICO ── */}
-      <div style={{ background: "#fff", padding: "72px 24px" }}>
+      <div style={{ background: "var(--surface)", padding: "72px 24px" }}>
         <div style={{ maxWidth: "860px", margin: "0 auto" }}>
-          <h2 style={{ fontSize: "1.8rem", fontWeight: 800, color: "#1a1a2e", textAlign: "center", marginBottom: "40px" }}>
+          <h2 style={{ fontSize: "1.8rem", fontWeight: 800, color: "var(--ink)", textAlign: "center", marginBottom: "40px" }}>
             Stack Tecnológico
           </h2>
-          <div style={{ overflowX: "auto", borderRadius: "16px", border: "1px solid #e5e7eb" }}>
+          <div style={{ overflowX: "auto", borderRadius: "16px", border: "1px solid var(--border)" }}>
             <table style={{ width: "100%", borderCollapse: "collapse", minWidth: "560px" }}>
               <thead>
                 <tr style={{ background: "linear-gradient(135deg, #1a1a2e, #0d1b4b)" }}>
-                  <th style={{ textAlign: "left", padding: "16px 20px", color: "#94a3b8", fontSize: "0.85rem", fontWeight: 700, letterSpacing: "0.04em" }}>
+                  <th style={{ textAlign: "left", padding: "16px 20px", color: "var(--text-subtle)", fontSize: "0.85rem", fontWeight: 700, letterSpacing: "0.04em" }}>
                     TECNOLOGÍA
                   </th>
-                  <th style={{ textAlign: "left", padding: "16px 20px", color: "#94a3b8", fontSize: "0.85rem", fontWeight: 700, letterSpacing: "0.04em" }}>
+                  <th style={{ textAlign: "left", padding: "16px 20px", color: "var(--text-subtle)", fontSize: "0.85rem", fontWeight: 700, letterSpacing: "0.04em" }}>
                     USO EN EL PROYECTO
                   </th>
                 </tr>
               </thead>
               <tbody>
                 {stack.map((row, i) => (
-                  <tr key={row.tech} style={{ background: i % 2 === 0 ? "#fff" : "#f8fafc" }}>
-                    <td style={{ padding: "16px 20px", fontWeight: 700, color: "#1a1a2e", fontSize: "0.92rem" }}>
+                  <tr key={row.tech} style={{ background: i % 2 === 0 ? "var(--surface)" : "var(--surface-2)" }}>
+                    <td style={{ padding: "16px 20px", fontWeight: 700, color: "var(--ink)", fontSize: "0.92rem" }}>
                       <span
                         style={{
                           background: "linear-gradient(135deg, #0072ff, #0d47a1)",
@@ -457,7 +457,7 @@ export default function VisionComputadoraMediapipe() {
                         {row.tech}
                       </span>
                     </td>
-                    <td style={{ padding: "16px 20px", color: "#4b5563", fontSize: "0.92rem", lineHeight: 1.5 }}>
+                    <td style={{ padding: "16px 20px", color: "var(--text-soft)", fontSize: "0.92rem", lineHeight: 1.5 }}>
                       {row.uso}
                     </td>
                   </tr>
@@ -469,12 +469,12 @@ export default function VisionComputadoraMediapipe() {
       </div>
 
       {/* ── PIPELINE / ARQUITECTURA ── */}
-      <div style={{ background: "#f8fafc", padding: "72px 24px" }}>
+      <div style={{ background: "var(--surface-2)", padding: "72px 24px" }}>
         <div style={{ maxWidth: "720px", margin: "0 auto" }}>
-          <h2 style={{ fontSize: "1.8rem", fontWeight: 800, color: "#1a1a2e", textAlign: "center", marginBottom: "8px" }}>
+          <h2 style={{ fontSize: "1.8rem", fontWeight: 800, color: "var(--ink)", textAlign: "center", marginBottom: "8px" }}>
             Arquitectura del Pipeline
           </h2>
-          <p style={{ color: "#6b7280", textAlign: "center", marginBottom: "56px", fontSize: "1rem" }}>
+          <p style={{ color: "var(--text-muted)", textAlign: "center", marginBottom: "56px", fontSize: "1rem" }}>
             Del frame de la cámara a la anotación en pantalla, en seis pasos
           </p>
 
@@ -509,17 +509,17 @@ export default function VisionComputadoraMediapipe() {
                       height: "28px",
                       borderRadius: "50%",
                       background: p.color,
-                      border: "4px solid #f8fafc",
+                      border: "4px solid var(--surface-2)",
                       boxShadow: `0 0 0 2px ${p.color}`,
                     }}
                   />
                 </div>
                 <div
                   style={{
-                    background: "#fff",
+                    background: "var(--surface)",
                     borderRadius: "16px",
                     padding: "20px 24px",
-                    border: "1px solid #e5e7eb",
+                    border: "1px solid var(--border)",
                     boxShadow: "0 4px 20px rgba(0,0,0,0.04)",
                   }}
                 >
@@ -527,9 +527,9 @@ export default function VisionComputadoraMediapipe() {
                     <span style={{ fontSize: "0.75rem", fontWeight: 700, color: p.color, letterSpacing: "0.08em" }}>
                       PASO {i + 1}
                     </span>
-                    <h3 style={{ margin: 0, fontSize: "1.05rem", fontWeight: 700, color: "#1a1a2e" }}>{p.step}</h3>
+                    <h3 style={{ margin: 0, fontSize: "1.05rem", fontWeight: 700, color: "var(--ink)" }}>{p.step}</h3>
                   </div>
-                  <p style={{ margin: 0, color: "#4b5563", fontSize: "0.92rem", lineHeight: 1.6 }}>{p.detail}</p>
+                  <p style={{ margin: 0, color: "var(--text-soft)", fontSize: "0.92rem", lineHeight: 1.6 }}>{p.detail}</p>
                 </div>
               </div>
             ))}
@@ -538,9 +538,9 @@ export default function VisionComputadoraMediapipe() {
       </div>
 
       {/* ── CASOS DE USO ── */}
-      <div style={{ background: "#fff", padding: "72px 24px" }}>
+      <div style={{ background: "var(--surface)", padding: "72px 24px" }}>
         <div style={{ maxWidth: "860px", margin: "0 auto" }}>
-          <h2 style={{ fontSize: "1.8rem", fontWeight: 800, color: "#1a1a2e", textAlign: "center", marginBottom: "40px" }}>
+          <h2 style={{ fontSize: "1.8rem", fontWeight: 800, color: "var(--ink)", textAlign: "center", marginBottom: "40px" }}>
             Casos de Uso
           </h2>
           <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fit, minmax(240px, 1fr))", gap: "20px" }}>
@@ -548,16 +548,16 @@ export default function VisionComputadoraMediapipe() {
               <div
                 key={u.title}
                 style={{
-                  background: "linear-gradient(135deg, #f0f7ff, #f5f3ff)",
-                  border: "1px solid #dbeafe",
+                  background: "linear-gradient(135deg, light-dark(#f0f7ff, rgba(0,114,255,0.12)), light-dark(#f5f3ff, rgba(124,58,237,0.12)))",
+                  border: "1px solid light-dark(#dbeafe, rgba(77,154,255,0.3))",
                   borderRadius: "18px",
                   padding: "28px 24px",
                   textAlign: "center",
                 }}
               >
                 <div style={{ fontSize: "2rem", marginBottom: "12px" }}>{u.icon}</div>
-                <h3 style={{ margin: "0 0 8px", fontSize: "1rem", fontWeight: 700, color: "#1a1a2e" }}>{u.title}</h3>
-                <p style={{ margin: 0, color: "#4b5563", fontSize: "0.9rem", lineHeight: 1.6 }}>{u.body}</p>
+                <h3 style={{ margin: "0 0 8px", fontSize: "1rem", fontWeight: 700, color: "var(--ink)" }}>{u.title}</h3>
+                <p style={{ margin: 0, color: "var(--text-soft)", fontSize: "0.9rem", lineHeight: 1.6 }}>{u.body}</p>
               </div>
             ))}
           </div>
@@ -565,9 +565,9 @@ export default function VisionComputadoraMediapipe() {
       </div>
 
       {/* ── FAQ ── */}
-      <div style={{ background: "#f8fafc", padding: "72px 24px" }}>
+      <div style={{ background: "var(--surface-2)", padding: "72px 24px" }}>
         <div style={{ maxWidth: "720px", margin: "0 auto" }}>
-          <h2 style={{ fontSize: "1.8rem", fontWeight: 800, color: "#1a1a2e", textAlign: "center", marginBottom: "40px" }}>
+          <h2 style={{ fontSize: "1.8rem", fontWeight: 800, color: "var(--ink)", textAlign: "center", marginBottom: "40px" }}>
             Preguntas Frecuentes
           </h2>
           {faqs.map((faq, i) => (
@@ -577,7 +577,7 @@ export default function VisionComputadoraMediapipe() {
       </div>
 
       {/* ── CTA ── */}
-      <div style={{ background: "#fff", padding: "72px 24px" }}>
+      <div style={{ background: "var(--surface)", padding: "72px 24px" }}>
         <div style={{ maxWidth: "720px", margin: "0 auto" }}>
           <div
             style={{
@@ -591,7 +591,7 @@ export default function VisionComputadoraMediapipe() {
             <h2 style={{ color: "#fff", fontSize: "1.5rem", fontWeight: 800, marginBottom: "12px" }}>
               ¿Quieres un sistema de visión por computadora a la medida de tu proyecto?
             </h2>
-            <p style={{ color: "#94a3b8", lineHeight: 1.7, marginBottom: "32px", maxWidth: "500px", margin: "0 auto 32px" }}>
+            <p style={{ color: "var(--text-subtle)", lineHeight: 1.7, marginBottom: "32px", maxWidth: "500px", margin: "0 auto 32px" }}>
               Desde reconocimiento de gestos hasta detección de objetos en producción, construyo soluciones de
               <strong style={{ color: "#93c5fd" }}> visión por computadora en tiempo real</strong> adaptadas a tu caso de uso.
             </p>

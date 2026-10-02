@@ -154,13 +154,13 @@ const sources = [
 const sectionTitle = {
   fontSize: "1.8rem",
   fontWeight: 800,
-  color: "#1a1a2e",
+  color: "var(--ink)",
   textAlign: "center",
   marginBottom: "8px",
 };
 
 const sectionLead = {
-  color: "#6b7280",
+  color: "var(--text-muted)",
   textAlign: "center",
   marginBottom: "40px",
   fontSize: "1rem",
@@ -168,16 +168,16 @@ const sectionLead = {
 };
 
 const card = {
-  background: "#fff",
+  background: "var(--surface)",
   borderRadius: "20px",
-  border: "1px solid #e5e7eb",
+  border: "1px solid var(--border)",
   boxShadow: "0 4px 20px rgba(0,0,0,0.04)",
 };
 
 function FAQItem({ faq }) {
   const [open, setOpen] = useState(false);
   return (
-    <div style={{ borderBottom: "1px solid #e5e7eb" }}>
+    <div style={{ borderBottom: "1px solid var(--border)" }}>
       <button
         onClick={() => setOpen(!open)}
         aria-expanded={open}
@@ -194,15 +194,15 @@ function FAQItem({ faq }) {
           gap: "16px",
         }}
       >
-        <span style={{ fontWeight: 600, color: "#1a1a2e", fontSize: "1rem", lineHeight: 1.5 }}>{faq.q}</span>
+        <span style={{ fontWeight: 600, color: "var(--ink)", fontSize: "1rem", lineHeight: 1.5 }}>{faq.q}</span>
         <span
           style={{
             flexShrink: 0,
             width: "28px",
             height: "28px",
             borderRadius: "50%",
-            background: open ? "linear-gradient(135deg, #0072ff, #7c3aed)" : "#f1f5f9",
-            color: open ? "#fff" : "#64748b",
+            background: open ? "linear-gradient(135deg, #0072ff, #7c3aed)" : "var(--surface-3)",
+            color: open ? "#fff" : "var(--text-muted)",
             display: "flex",
             alignItems: "center",
             justifyContent: "center",
@@ -215,7 +215,7 @@ function FAQItem({ faq }) {
         </span>
       </button>
       {open && (
-        <p style={{ color: "#4b5563", lineHeight: 1.75, paddingBottom: "20px", margin: 0, fontSize: "0.97rem" }}>
+        <p style={{ color: "var(--text-soft)", lineHeight: 1.75, paddingBottom: "20px", margin: 0, fontSize: "0.97rem" }}>
           {faq.a}
         </p>
       )}
@@ -229,14 +229,14 @@ function CodeBlock({ code, label, color }) {
       <div
         style={{
           padding: "12px 18px",
-          borderBottom: "1px solid #e5e7eb",
+          borderBottom: "1px solid var(--border)",
           display: "flex",
           alignItems: "center",
           gap: "10px",
         }}
       >
         <span style={{ width: "10px", height: "10px", borderRadius: "50%", background: color }} />
-        <span style={{ fontWeight: 700, color: "#1a1a2e", fontSize: "0.92rem" }}>{label}</span>
+        <span style={{ fontWeight: 700, color: "var(--ink)", fontSize: "0.92rem" }}>{label}</span>
       </div>
       <pre
         style={{
@@ -258,7 +258,7 @@ function CodeBlock({ code, label, color }) {
 function BenchmarkBar({ value, max, color, unit, winner }) {
   return (
     <div style={{ display: "flex", alignItems: "center", gap: "10px" }}>
-      <div style={{ flex: 1, height: "10px", background: "#f1f5f9", borderRadius: "10px", overflow: "hidden" }}>
+      <div style={{ flex: 1, height: "10px", background: "var(--surface-3)", borderRadius: "10px", overflow: "hidden" }}>
         <div style={{ width: `${(value / max) * 100}%`, height: "100%", background: color, borderRadius: "10px" }} />
       </div>
       <span
@@ -266,7 +266,7 @@ function BenchmarkBar({ value, max, color, unit, winner }) {
           width: "56px",
           textAlign: "right",
           fontWeight: winner ? 800 : 600,
-          color: winner ? "#1a1a2e" : "#6b7280",
+          color: winner ? "var(--ink)" : "var(--text-muted)",
           fontSize: "0.9rem",
         }}
       >
@@ -381,11 +381,11 @@ export default function GptAstraVsFable() {
                 </div>
                 <div>
                   <div style={{ color: "#fff", fontWeight: 600, fontSize: "0.88rem" }}>Juan Camilo Salazar</div>
-                  <div style={{ color: "#94a3b8", fontSize: "0.78rem" }}>{DATE}</div>
+                  <div style={{ color: "var(--text-subtle)", fontSize: "0.78rem" }}>{DATE}</div>
                 </div>
               </div>
-              <span style={{ color: "#64748b", fontSize: "0.85rem" }}>·</span>
-              <span style={{ color: "#94a3b8", fontSize: "0.85rem" }}>⏱ {READ_TIME}</span>
+              <span style={{ color: "var(--text-muted)", fontSize: "0.85rem" }}>·</span>
+              <span style={{ color: "var(--text-subtle)", fontSize: "0.85rem" }}>⏱ {READ_TIME}</span>
             </div>
           </div>
         </div>
@@ -394,7 +394,7 @@ export default function GptAstraVsFable() {
       {/* ── BANNER RESUMEN ── */}
       <div style={{ background: "linear-gradient(135deg, #0d1b4b, #1a1a2e)", padding: "40px 24px" }}>
         <div style={{ maxWidth: "860px", margin: "0 auto", textAlign: "center" }}>
-          <p style={{ color: "#94a3b8", fontSize: "1rem", lineHeight: 1.75, maxWidth: "680px", margin: "0 auto" }}>
+          <p style={{ color: "var(--text-subtle)", fontSize: "1rem", lineHeight: 1.75, maxWidth: "680px", margin: "0 auto" }}>
             En menos de una semana salieron los dos modelos más potentes del momento. Cobran lo mismo por token, manejan
             un millón de tokens de contexto y los dos dicen ser el mejor para programar.{" "}
             <strong style={{ color: "#e2e8f0" }}>
@@ -409,8 +409,8 @@ export default function GptAstraVsFable() {
               { num: "~⅓", label: "Tokens de salida de Astra vs Fable" },
             ].map((s) => (
               <div key={s.label} style={{ textAlign: "center" }}>
-                <div style={{ fontSize: "1.8rem", fontWeight: 800, color: "#0072ff" }}>{s.num}</div>
-                <div style={{ color: "#94a3b8", fontSize: "0.82rem", marginTop: "4px" }}>{s.label}</div>
+                <div style={{ fontSize: "1.8rem", fontWeight: 800, color: "var(--brand)" }}>{s.num}</div>
+                <div style={{ color: "var(--text-subtle)", fontSize: "0.82rem", marginTop: "4px" }}>{s.label}</div>
               </div>
             ))}
           </div>
@@ -418,7 +418,7 @@ export default function GptAstraVsFable() {
       </div>
 
       {/* ── FICHA TÉCNICA ── */}
-      <div style={{ background: "#f8fafc", padding: "72px 24px" }}>
+      <div style={{ background: "var(--surface-2)", padding: "72px 24px" }}>
         <div style={{ maxWidth: "860px", margin: "0 auto" }}>
           <h2 style={sectionTitle}>Ficha técnica</h2>
           <p style={sectionLead}>Lo básico de cada modelo, con datos de la documentación oficial</p>
@@ -426,7 +426,7 @@ export default function GptAstraVsFable() {
             <table style={{ width: "100%", borderCollapse: "collapse", minWidth: "560px" }}>
               <thead>
                 <tr style={{ background: "linear-gradient(135deg, #1a1a2e, #0d1b4b)" }}>
-                  <th style={{ padding: "16px 20px", textAlign: "left", color: "#94a3b8", fontSize: "0.8rem", fontWeight: 600 }} />
+                  <th style={{ padding: "16px 20px", textAlign: "left", color: "var(--text-subtle)", fontSize: "0.8rem", fontWeight: 600 }} />
                   <th style={{ padding: "16px 20px", textAlign: "left", color: ASTRA, fontSize: "0.95rem", fontWeight: 800 }}>
                     GPT-6 Astra
                   </th>
@@ -437,14 +437,14 @@ export default function GptAstraVsFable() {
               </thead>
               <tbody>
                 {specs.map((row, i) => (
-                  <tr key={row.label} style={{ background: i % 2 ? "#f8fafc" : "#fff" }}>
-                    <td style={{ padding: "14px 20px", color: "#6b7280", fontSize: "0.88rem", fontWeight: 600 }}>{row.label}</td>
+                  <tr key={row.label} style={{ background: i % 2 ? "var(--surface-2)" : "var(--surface)" }}>
+                    <td style={{ padding: "14px 20px", color: "var(--text-muted)", fontSize: "0.88rem", fontWeight: 600 }}>{row.label}</td>
                     {["astra", "fable"].map((m) => (
                       <td
                         key={m}
                         style={{
                           padding: "14px 20px",
-                          color: "#1a1a2e",
+                          color: "var(--ink)",
                           fontSize: "0.92rem",
                           fontFamily: row.mono ? "Consolas, monospace" : "inherit",
                           fontWeight: row.win === m ? 800 : 500,
@@ -476,7 +476,7 @@ export default function GptAstraVsFable() {
       </div>
 
       {/* ── BENCHMARKS ── */}
-      <div style={{ background: "#fff", padding: "72px 24px" }}>
+      <div style={{ background: "var(--surface)", padding: "72px 24px" }}>
         <div style={{ maxWidth: "860px", margin: "0 auto" }}>
           <h2 style={sectionTitle}>Benchmarks: qué dicen los números</h2>
           <p style={sectionLead}>
@@ -488,7 +488,7 @@ export default function GptAstraVsFable() {
               { name: "GPT-6 Astra", color: ASTRA },
               { name: "Claude Fable 5.1", color: FABLE },
             ].map((l) => (
-              <span key={l.name} style={{ display: "flex", alignItems: "center", gap: "8px", color: "#4b5563", fontSize: "0.9rem" }}>
+              <span key={l.name} style={{ display: "flex", alignItems: "center", gap: "8px", color: "var(--text-soft)", fontSize: "0.9rem" }}>
                 <span style={{ width: "14px", height: "14px", borderRadius: "4px", background: l.color }} />
                 {l.name}
               </span>
@@ -508,15 +508,15 @@ export default function GptAstraVsFable() {
                     flexWrap: "wrap",
                   }}
                 >
-                  <h3 style={{ margin: 0, fontSize: "1rem", fontWeight: 700, color: "#1a1a2e" }}>{b.name}</h3>
+                  <h3 style={{ margin: 0, fontSize: "1rem", fontWeight: 700, color: "var(--ink)" }}>{b.name}</h3>
                   <span
                     style={{
                       fontSize: "0.72rem",
                       fontWeight: 700,
                       padding: "3px 12px",
                       borderRadius: "20px",
-                      background: b.source === "Independiente" ? "#dcfce7" : "#f1f5f9",
-                      color: b.source === "Independiente" ? "#166534" : "#64748b",
+                      background: b.source === "Independiente" ? "light-dark(#dcfce7, rgba(16,185,129,0.18))" : "var(--surface-3)",
+                      color: b.source === "Independiente" ? "light-dark(#166534, #86efac)" : "var(--text-muted)",
                     }}
                   >
                     {b.source === "Independiente" ? "✓ Independiente" : `Publicado por ${b.source}`}
@@ -533,11 +533,11 @@ export default function GptAstraVsFable() {
           <div
             style={{
               marginTop: "28px",
-              background: "linear-gradient(135deg, #f0f7ff, #f5f3ff)",
-              border: "1px solid #dbeafe",
+              background: "linear-gradient(135deg, light-dark(#f0f7ff, rgba(0,114,255,0.12)), light-dark(#f5f3ff, rgba(124,58,237,0.12)))",
+              border: "1px solid light-dark(#dbeafe, rgba(77,154,255,0.3))",
               borderRadius: "16px",
               padding: "20px 24px",
-              color: "#1e293b",
+              color: "var(--ink)",
               lineHeight: 1.7,
               fontSize: "0.95rem",
             }}
@@ -550,7 +550,7 @@ export default function GptAstraVsFable() {
       </div>
 
       {/* ── COSTO REAL ── */}
-      <div style={{ background: "#f8fafc", padding: "72px 24px" }}>
+      <div style={{ background: "var(--surface-2)", padding: "72px 24px" }}>
         <div style={{ maxWidth: "860px", margin: "0 auto" }}>
           <h2 style={sectionTitle}>El costo real no es el precio por token</h2>
           <p style={sectionLead}>Si los dos cobran $10 / $50, ¿por qué uno sale más barato?</p>
@@ -572,45 +572,45 @@ export default function GptAstraVsFable() {
             ].map((c) => (
               <div key={c.title} style={{ ...card, padding: "26px", borderTop: `4px solid ${c.color}` }}>
                 <div style={{ fontSize: "1.8rem", marginBottom: "10px" }}>{c.icon}</div>
-                <h3 style={{ margin: "0 0 8px", fontSize: "1.1rem", fontWeight: 700, color: "#1a1a2e" }}>{c.title}</h3>
-                <p style={{ margin: 0, color: "#4b5563", lineHeight: 1.7, fontSize: "0.95rem" }}>{c.body}</p>
+                <h3 style={{ margin: "0 0 8px", fontSize: "1.1rem", fontWeight: 700, color: "var(--ink)" }}>{c.title}</h3>
+                <p style={{ margin: 0, color: "var(--text-soft)", lineHeight: 1.7, fontSize: "0.95rem" }}>{c.body}</p>
               </div>
             ))}
           </div>
 
           <div style={{ ...card, overflowX: "auto" }}>
-            <div style={{ padding: "18px 22px", borderBottom: "1px solid #e5e7eb" }}>
-              <h3 style={{ margin: 0, fontSize: "1rem", fontWeight: 700, color: "#1a1a2e" }}>
+            <div style={{ padding: "18px 22px", borderBottom: "1px solid var(--border)" }}>
+              <h3 style={{ margin: 0, fontSize: "1rem", fontWeight: 700, color: "var(--ink)" }}>
                 Ejemplo: una sesión de agente
               </h3>
-              <p style={{ margin: "4px 0 0", color: "#6b7280", fontSize: "0.85rem" }}>
+              <p style={{ margin: "4px 0 0", color: "var(--text-muted)", fontSize: "0.85rem" }}>
                 200K tokens de entrada nueva, 1,8M leídos de caché y la salida típica de cada modelo
               </p>
             </div>
             <table style={{ width: "100%", borderCollapse: "collapse", minWidth: "480px" }}>
               <thead>
                 <tr style={{ background: "linear-gradient(135deg, #1a1a2e, #0d1b4b)" }}>
-                  <th style={{ padding: "12px 20px", textAlign: "left", color: "#94a3b8", fontSize: "0.8rem" }}>Concepto</th>
+                  <th style={{ padding: "12px 20px", textAlign: "left", color: "var(--text-subtle)", fontSize: "0.8rem" }}>Concepto</th>
                   <th style={{ padding: "12px 20px", textAlign: "right", color: ASTRA, fontSize: "0.85rem" }}>GPT-6 Astra</th>
                   <th style={{ padding: "12px 20px", textAlign: "right", color: FABLE, fontSize: "0.85rem" }}>Fable 5.1</th>
                 </tr>
               </thead>
               <tbody>
                 {costRows.map((r, i) => (
-                  <tr key={r.label} style={{ background: i % 2 ? "#f8fafc" : "#fff" }}>
-                    <td style={{ padding: "12px 20px", color: "#4b5563", fontSize: "0.9rem" }}>{r.label}</td>
-                    <td style={{ padding: "12px 20px", textAlign: "right", color: "#1a1a2e", fontSize: "0.9rem" }}>{r.astra}</td>
-                    <td style={{ padding: "12px 20px", textAlign: "right", color: "#1a1a2e", fontSize: "0.9rem" }}>{r.fable}</td>
+                  <tr key={r.label} style={{ background: i % 2 ? "var(--surface-2)" : "var(--surface)" }}>
+                    <td style={{ padding: "12px 20px", color: "var(--text-soft)", fontSize: "0.9rem" }}>{r.label}</td>
+                    <td style={{ padding: "12px 20px", textAlign: "right", color: "var(--ink)", fontSize: "0.9rem" }}>{r.astra}</td>
+                    <td style={{ padding: "12px 20px", textAlign: "right", color: "var(--ink)", fontSize: "0.9rem" }}>{r.fable}</td>
                   </tr>
                 ))}
-                <tr style={{ borderTop: "2px solid #e5e7eb" }}>
-                  <td style={{ padding: "14px 20px", color: "#1a1a2e", fontWeight: 800 }}>Total</td>
+                <tr style={{ borderTop: "2px solid var(--border)" }}>
+                  <td style={{ padding: "14px 20px", color: "var(--ink)", fontWeight: 800 }}>Total</td>
                   <td style={{ padding: "14px 20px", textAlign: "right", color: ASTRA, fontWeight: 800, fontSize: "1.05rem" }}>$5,15</td>
                   <td style={{ padding: "14px 20px", textAlign: "right", color: FABLE, fontWeight: 800, fontSize: "1.05rem" }}>$6,35</td>
                 </tr>
               </tbody>
             </table>
-            <p style={{ margin: 0, padding: "14px 22px", color: "#6b7280", fontSize: "0.82rem", lineHeight: 1.6, borderTop: "1px solid #e5e7eb" }}>
+            <p style={{ margin: 0, padding: "14px 22px", color: "var(--text-muted)", fontSize: "0.82rem", lineHeight: 1.6, borderTop: "1px solid var(--border)" }}>
               Estimación simplificada: no incluye escritura de caché. Muestra que la caché barata de Fable no alcanza a
               compensar que escribe casi tres veces más.
             </p>
@@ -619,7 +619,7 @@ export default function GptAstraVsFable() {
       </div>
 
       {/* ── CUÁNDO ELEGIR ── */}
-      <div style={{ background: "#fff", padding: "72px 24px" }}>
+      <div style={{ background: "var(--surface)", padding: "72px 24px" }}>
         <div style={{ maxWidth: "860px", margin: "0 auto" }}>
           <h2 style={sectionTitle}>¿Cuál elegir según tu caso?</h2>
           <p style={sectionLead}>No hay un ganador absoluto: depende de cómo programas</p>
@@ -644,13 +644,13 @@ export default function GptAstraVsFable() {
                     {c.icon}
                   </div>
                   <div>
-                    <h3 style={{ margin: 0, fontSize: "1.2rem", fontWeight: 800, color: "#1a1a2e" }}>{c.model}</h3>
+                    <h3 style={{ margin: 0, fontSize: "1.2rem", fontWeight: 800, color: "var(--ink)" }}>{c.model}</h3>
                     <div style={{ color: c.color, fontSize: "0.85rem", fontWeight: 700 }}>{c.tagline}</div>
                   </div>
                 </div>
                 <ul style={{ listStyle: "none", padding: 0, margin: 0 }}>
                   {c.items.map((item) => (
-                    <li key={item} style={{ display: "flex", gap: "10px", padding: "8px 0", color: "#4b5563", lineHeight: 1.55, fontSize: "0.95rem" }}>
+                    <li key={item} style={{ display: "flex", gap: "10px", padding: "8px 0", color: "var(--text-soft)", lineHeight: 1.55, fontSize: "0.95rem" }}>
                       <span style={{ color: c.color, fontWeight: 800 }}>✓</span>
                       {item}
                     </li>
@@ -663,7 +663,7 @@ export default function GptAstraVsFable() {
       </div>
 
       {/* ── CÓDIGO ── */}
-      <div style={{ background: "#f8fafc", padding: "72px 24px" }}>
+      <div style={{ background: "var(--surface-2)", padding: "72px 24px" }}>
         <div style={{ maxWidth: "860px", margin: "0 auto" }}>
           <h2 style={sectionTitle}>Pruébalos desde tu código</h2>
           <p style={sectionLead}>La misma petición con el SDK oficial de cada empresa en Node.js</p>
@@ -672,7 +672,7 @@ export default function GptAstraVsFable() {
             <CodeBlock code={codeFable} label="Claude Fable 5.1 · @anthropic-ai/sdk" color={FABLE} />
           </div>
 
-          <h3 style={{ fontSize: "1.3rem", fontWeight: 800, color: "#1a1a2e", margin: "56px 0 20px", textAlign: "center" }}>
+          <h3 style={{ fontSize: "1.3rem", fontWeight: 800, color: "var(--ink)", margin: "56px 0 20px", textAlign: "center" }}>
             Si migras a Fable 5.1, revisa esto
           </h3>
           <div style={{ position: "relative", paddingLeft: "8px" }}>
@@ -706,8 +706,8 @@ export default function GptAstraVsFable() {
                   {i + 1}
                 </div>
                 <div style={{ ...card, padding: "18px 22px", flex: 1 }}>
-                  <h4 style={{ margin: "0 0 6px", fontSize: "1rem", fontWeight: 700, color: "#1a1a2e" }}>{m.title}</h4>
-                  <p style={{ margin: 0, color: "#4b5563", lineHeight: 1.65, fontSize: "0.93rem" }}>{m.body}</p>
+                  <h4 style={{ margin: "0 0 6px", fontSize: "1rem", fontWeight: 700, color: "var(--ink)" }}>{m.title}</h4>
+                  <p style={{ margin: 0, color: "var(--text-soft)", lineHeight: 1.65, fontSize: "0.93rem" }}>{m.body}</p>
                 </div>
               </div>
             ))}
@@ -716,16 +716,16 @@ export default function GptAstraVsFable() {
       </div>
 
       {/* ── ALTERNATIVAS + VEREDICTO ── */}
-      <div style={{ background: "#fff", padding: "72px 24px" }}>
+      <div style={{ background: "var(--surface)", padding: "72px 24px" }}>
         <div style={{ maxWidth: "860px", margin: "0 auto" }}>
           <h2 style={sectionTitle}>¿Y si ninguno de los dos?</h2>
           <p style={sectionLead}>Para el día a día, muchas veces sobra con algo más barato</p>
           <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fit, minmax(240px, 1fr))", gap: "18px", marginBottom: "56px" }}>
             {alternatives.map((a) => (
               <div key={a.name} style={{ ...card, padding: "22px" }}>
-                <h3 style={{ margin: "0 0 4px", fontSize: "1.02rem", fontWeight: 700, color: "#1a1a2e" }}>{a.name}</h3>
-                <div style={{ color: "#0072ff", fontWeight: 700, fontSize: "0.88rem", marginBottom: "10px" }}>{a.price}</div>
-                <p style={{ margin: 0, color: "#4b5563", lineHeight: 1.6, fontSize: "0.92rem" }}>{a.note}</p>
+                <h3 style={{ margin: "0 0 4px", fontSize: "1.02rem", fontWeight: 700, color: "var(--ink)" }}>{a.name}</h3>
+                <div style={{ color: "var(--brand)", fontWeight: 700, fontSize: "0.88rem", marginBottom: "10px" }}>{a.price}</div>
+                <p style={{ margin: 0, color: "var(--text-soft)", lineHeight: 1.6, fontSize: "0.92rem" }}>{a.note}</p>
               </div>
             ))}
           </div>
@@ -750,7 +750,7 @@ export default function GptAstraVsFable() {
                     textAlign: "center",
                   }}
                 >
-                  <div style={{ color: "#94a3b8", fontSize: "0.82rem", marginBottom: "6px" }}>{x.k}</div>
+                  <div style={{ color: "var(--text-subtle)", fontSize: "0.82rem", marginBottom: "6px" }}>{x.k}</div>
                   <div style={{ color: x.c, fontWeight: 800, fontSize: "1.1rem" }}>{x.v}</div>
                 </div>
               ))}
@@ -764,18 +764,18 @@ export default function GptAstraVsFable() {
       </div>
 
       {/* ── FAQ ── */}
-      <div style={{ background: "#f8fafc", padding: "72px 24px" }}>
+      <div style={{ background: "var(--surface-2)", padding: "72px 24px" }}>
         <div style={{ maxWidth: "720px", margin: "0 auto" }}>
           <h2 style={{ ...sectionTitle, marginBottom: "40px" }}>Preguntas Frecuentes</h2>
           {faqs.map((faq, i) => (
             <FAQItem key={i} faq={faq} />
           ))}
 
-          <h3 style={{ fontSize: "1.1rem", fontWeight: 700, color: "#1a1a2e", margin: "56px 0 14px" }}>Fuentes</h3>
-          <ul style={{ margin: 0, paddingLeft: "20px", color: "#4b5563", lineHeight: 1.9, fontSize: "0.9rem" }}>
+          <h3 style={{ fontSize: "1.1rem", fontWeight: 700, color: "var(--ink)", margin: "56px 0 14px" }}>Fuentes</h3>
+          <ul style={{ margin: 0, paddingLeft: "20px", color: "var(--text-soft)", lineHeight: 1.9, fontSize: "0.9rem" }}>
             {sources.map((s) => (
               <li key={s.href}>
-                <a href={s.href} target="_blank" rel="noopener noreferrer" style={{ color: "#0072ff" }}>
+                <a href={s.href} target="_blank" rel="noopener noreferrer" style={{ color: "var(--brand)" }}>
                   {s.label}
                 </a>
               </li>
@@ -785,7 +785,7 @@ export default function GptAstraVsFable() {
       </div>
 
       {/* ── CTA ── */}
-      <div style={{ background: "#fff", padding: "72px 24px" }}>
+      <div style={{ background: "var(--surface)", padding: "72px 24px" }}>
         <div style={{ maxWidth: "720px", margin: "0 auto" }}>
           <div
             style={{
@@ -799,7 +799,7 @@ export default function GptAstraVsFable() {
             <h2 style={{ color: "#fff", fontSize: "1.5rem", fontWeight: 800, marginBottom: "12px" }}>
               ¿Quieres sacarle más provecho a tu agente de código?
             </h2>
-            <p style={{ color: "#94a3b8", lineHeight: 1.7, maxWidth: "500px", margin: "0 auto 32px" }}>
+            <p style={{ color: "var(--text-subtle)", lineHeight: 1.7, maxWidth: "500px", margin: "0 auto 32px" }}>
               Elegir el modelo es solo el primer paso. Aprende a darle contexto con{" "}
               <strong style={{ color: "#93c5fd" }}>skills para Claude Code</strong> y a trabajar con agentes de IA en
               tus proyectos.

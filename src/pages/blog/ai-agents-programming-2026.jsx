@@ -116,7 +116,7 @@ const roadmap = [
     tool: "Cursor",
     action: "Download and try Composer",
     detail: "Test it on a real project. Composer for multi-file editing will change your workflow.",
-    color: "#0072ff",
+    color: "var(--brand)",
   },
   {
     period: "Month 2",
@@ -124,7 +124,7 @@ const roadmap = [
     tool: "Claude Code",
     action: "Add it to your terminal",
     detail: "For tasks that require deep reasoning or multi-file automation.",
-    color: "#7c3aed",
+    color: "var(--violet)",
   },
   {
     period: "Month 3+",
@@ -162,7 +162,7 @@ const faqs = [
 function FAQItem({ faq }) {
   const [open, setOpen] = useState(false);
   return (
-    <div style={{ borderBottom: "1px solid #e5e7eb" }}>
+    <div style={{ borderBottom: "1px solid var(--border)" }}>
       <button
         onClick={() => setOpen(!open)}
         style={{
@@ -178,7 +178,7 @@ function FAQItem({ faq }) {
           gap: "16px",
         }}
       >
-        <span style={{ fontSize: "1rem", fontWeight: 600, color: "#1a1a2e", lineHeight: 1.4 }}>
+        <span style={{ fontSize: "1rem", fontWeight: 600, color: "var(--ink)", lineHeight: 1.4 }}>
           {faq.q}
         </span>
         <span
@@ -187,8 +187,8 @@ function FAQItem({ faq }) {
             width: "28px",
             height: "28px",
             borderRadius: "50%",
-            background: open ? "#0072ff" : "#f3f4f6",
-            color: open ? "#fff" : "#6b7280",
+            background: open ? "#0072ff" : "var(--surface-3)",
+            color: open ? "#fff" : "var(--text-muted)",
             display: "flex",
             alignItems: "center",
             justifyContent: "center",
@@ -201,7 +201,7 @@ function FAQItem({ faq }) {
         </span>
       </button>
       {open && (
-        <p style={{ color: "#4b5563", lineHeight: 1.7, paddingBottom: "20px", margin: 0, fontSize: "0.95rem" }}>
+        <p style={{ color: "var(--text-soft)", lineHeight: 1.7, paddingBottom: "20px", margin: 0, fontSize: "0.95rem" }}>
           {faq.a}
         </p>
       )}
@@ -291,7 +291,7 @@ export default function AIAgents2026() {
               </span>{" "}
               in Development in 2026
             </h1>
-            <p style={{ fontSize: "1.15rem", color: "#94a3b8", lineHeight: 1.7, marginBottom: "32px" }}>
+            <p style={{ fontSize: "1.15rem", color: "var(--text-subtle)", lineHeight: 1.7, marginBottom: "32px" }}>
               Discover why Claude Code, Cursor and GitHub Copilot are essential infrastructure today — and which to choose based on your workflow.
             </p>
             <div style={{ display: "flex", alignItems: "center", gap: "20px", flexWrap: "wrap" }}>
@@ -314,7 +314,7 @@ export default function AIAgents2026() {
                 </div>
                 <div>
                   <p style={{ margin: 0, fontSize: "0.85rem", color: "#fff", fontWeight: 600 }}>Juan Camilo Salazar</p>
-                  <p style={{ margin: 0, fontSize: "0.78rem", color: "#64748b" }}>Jun 2, 2026 · 8 min read</p>
+                  <p style={{ margin: 0, fontSize: "0.78rem", color: "var(--text-muted)" }}>Jun 2, 2026 · 8 min read</p>
                 </div>
               </div>
             </div>
@@ -323,7 +323,7 @@ export default function AIAgents2026() {
       </div>
 
       {/* ── STAT BANNER ── */}
-      <div style={{ background: "#f8fafc", borderBottom: "1px solid #e2e8f0", padding: "0 24px" }}>
+      <div style={{ background: "var(--surface-2)", borderBottom: "1px solid var(--border)", padding: "0 24px" }}>
         <div
           style={{
             maxWidth: "800px",
@@ -343,11 +343,11 @@ export default function AIAgents2026() {
               style={{
                 padding: "28px 20px",
                 textAlign: "center",
-                borderRight: "1px solid #e2e8f0",
+                borderRight: "1px solid var(--border)",
               }}
             >
-              <p style={{ margin: 0, fontSize: "1.8rem", fontWeight: 800, color: "#0072ff" }}>{s.num}</p>
-              <p style={{ margin: 0, fontSize: "0.8rem", color: "#64748b", marginTop: "4px" }}>{s.label}</p>
+              <p style={{ margin: 0, fontSize: "1.8rem", fontWeight: 800, color: "var(--brand)" }}>{s.num}</p>
+              <p style={{ margin: 0, fontSize: "0.8rem", color: "var(--text-muted)", marginTop: "4px" }}>{s.label}</p>
             </div>
           ))}
         </div>
@@ -360,7 +360,7 @@ export default function AIAgents2026() {
           <p
             style={{
               fontSize: "1.15rem",
-              color: "#374151",
+              color: "var(--text-soft)",
               lineHeight: 1.8,
               borderLeft: "4px solid #0072ff",
               paddingLeft: "20px",
@@ -370,7 +370,7 @@ export default function AIAgents2026() {
             In 2024, AI agents were a curiosity. In 2026, they are infrastructure. If you write code
             professionally today and don't use an AI agent, you are not competing on a level playing field.
           </p>
-          <p style={{ fontSize: "1rem", color: "#4b5563", lineHeight: 1.8 }}>
+          <p style={{ fontSize: "1rem", color: "var(--text-soft)", lineHeight: 1.8 }}>
             This is not an exaggeration:{" "}
             <strong>84% of professional developers</strong> already use some form of AI assistance,
             and 51% do so daily (Stack Overflow, 2025). The shift is not optional — it is structural.
@@ -379,10 +379,10 @@ export default function AIAgents2026() {
 
         {/* ── WHAT IS AN AI AGENT ── */}
         <section style={{ marginBottom: "64px" }}>
-          <h2 style={{ fontSize: "1.6rem", fontWeight: 800, color: "#1a1a2e", marginBottom: "24px" }}>
+          <h2 style={{ fontSize: "1.6rem", fontWeight: 800, color: "var(--ink)", marginBottom: "24px" }}>
             What Is an AI Agent for Programming?
           </h2>
-          <p style={{ color: "#4b5563", lineHeight: 1.7, marginBottom: "24px" }}>
+          <p style={{ color: "var(--text-soft)", lineHeight: 1.7, marginBottom: "24px" }}>
             An AI agent is not just improved autocomplete. The difference is fundamental:
           </p>
           <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fit, minmax(200px, 1fr))", gap: "16px" }}>
@@ -412,10 +412,10 @@ export default function AIAgents2026() {
               <div
                 key={item.year}
                 style={{
-                  background: item.dim ? "#f8fafc" : "linear-gradient(135deg, #0072ff, #0d47a1)",
+                  background: item.dim ? "var(--surface-2)" : "linear-gradient(135deg, #0072ff, #0d47a1)",
                   borderRadius: "16px",
                   padding: "24px",
-                  border: item.dim ? "1px solid #e2e8f0" : "none",
+                  border: item.dim ? "1px solid var(--border)" : "none",
                 }}
               >
                 <div style={{ fontSize: "2rem", marginBottom: "12px" }}>{item.icon}</div>
@@ -423,7 +423,7 @@ export default function AIAgents2026() {
                   style={{
                     fontSize: "0.75rem",
                     fontWeight: 600,
-                    color: item.dim ? "#94a3b8" : "rgba(255,255,255,0.7)",
+                    color: item.dim ? "var(--text-subtle)" : "rgba(255,255,255,0.7)",
                     letterSpacing: "0.1em",
                   }}
                 >
@@ -433,7 +433,7 @@ export default function AIAgents2026() {
                   style={{
                     fontSize: "1.05rem",
                     fontWeight: 700,
-                    color: item.dim ? "#1a1a2e" : "#fff",
+                    color: item.dim ? "var(--ink)" : "#fff",
                     margin: "4px 0 8px",
                   }}
                 >
@@ -442,7 +442,7 @@ export default function AIAgents2026() {
                 <p
                   style={{
                     fontSize: "0.88rem",
-                    color: item.dim ? "#6b7280" : "rgba(255,255,255,0.85)",
+                    color: item.dim ? "var(--text-muted)" : "rgba(255,255,255,0.85)",
                     lineHeight: 1.6,
                     margin: 0,
                   }}
@@ -456,10 +456,10 @@ export default function AIAgents2026() {
 
         {/* ── TOOLS ── */}
         <section style={{ marginBottom: "64px" }}>
-          <h2 style={{ fontSize: "1.6rem", fontWeight: 800, color: "#1a1a2e", marginBottom: "8px" }}>
+          <h2 style={{ fontSize: "1.6rem", fontWeight: 800, color: "var(--ink)", marginBottom: "8px" }}>
             The Best AI Agents in 2026
           </h2>
-          <p style={{ color: "#6b7280", marginBottom: "32px", lineHeight: 1.6 }}>
+          <p style={{ color: "var(--text-muted)", marginBottom: "32px", lineHeight: 1.6 }}>
             Five tools, five profiles. Choose based on your workflow.
           </p>
 
@@ -468,8 +468,8 @@ export default function AIAgents2026() {
               <div
                 key={tool.name}
                 style={{
-                  background: "#fff",
-                  border: "1px solid #e5e7eb",
+                  background: "var(--surface)",
+                  border: "1px solid var(--border)",
                   borderRadius: "20px",
                   padding: "28px",
                   boxShadow: "0 4px 20px rgba(0,0,0,0.04)",
@@ -486,8 +486,8 @@ export default function AIAgents2026() {
                       width: "56px",
                       height: "56px",
                       borderRadius: "14px",
-                      background: "#f8fafc",
-                      border: "1px solid #e5e7eb",
+                      background: "var(--surface-2)",
+                      border: "1px solid var(--border)",
                       display: "flex",
                       alignItems: "center",
                       justifyContent: "center",
@@ -505,13 +505,13 @@ export default function AIAgents2026() {
                       }}
                     />
                   </div>
-                  <span style={{ fontSize: "0.75rem", fontWeight: 700, color: "#94a3b8" }}>#{i + 1}</span>
+                  <span style={{ fontSize: "0.75rem", fontWeight: 700, color: "var(--text-subtle)" }}>#{i + 1}</span>
                 </div>
 
                 {/* Content */}
                 <div>
                   <div style={{ display: "flex", alignItems: "center", flexWrap: "wrap", gap: "10px", marginBottom: "6px" }}>
-                    <h3 style={{ fontSize: "1.15rem", fontWeight: 800, color: "#1a1a2e", margin: 0 }}>{tool.name}</h3>
+                    <h3 style={{ fontSize: "1.15rem", fontWeight: 800, color: "var(--ink)", margin: 0 }}>{tool.name}</h3>
                     <span
                       style={{
                         background: tool.badge,
@@ -525,20 +525,20 @@ export default function AIAgents2026() {
                       {tool.badgeText}
                     </span>
                   </div>
-                  <p style={{ fontSize: "0.83rem", color: "#9ca3af", margin: "0 0 12px", fontWeight: 500 }}>
+                  <p style={{ fontSize: "0.83rem", color: "var(--text-subtle)", margin: "0 0 12px", fontWeight: 500 }}>
                     {tool.company}
                   </p>
 
                   <div style={{ display: "flex", gap: "12px", flexWrap: "wrap", marginBottom: "16px" }}>
-                    <span style={{ background: "#f0fdf4", color: "#166534", fontSize: "0.8rem", fontWeight: 600, padding: "4px 12px", borderRadius: "8px" }}>
+                    <span style={{ background: "light-dark(#f0fdf4, rgba(16,185,129,0.12))", color: "light-dark(#166534, #86efac)", fontSize: "0.8rem", fontWeight: 600, padding: "4px 12px", borderRadius: "8px" }}>
                       {tool.price}
                     </span>
-                    <span style={{ background: "#eff6ff", color: "#1e40af", fontSize: "0.8rem", fontWeight: 600, padding: "4px 12px", borderRadius: "8px" }}>
+                    <span style={{ background: "light-dark(#eff6ff, rgba(77,154,255,0.14))", color: "light-dark(#1e40af, #93c5fd)", fontSize: "0.8rem", fontWeight: 600, padding: "4px 12px", borderRadius: "8px" }}>
                       {tool.score}
                     </span>
                   </div>
 
-                  <p style={{ fontSize: "0.88rem", color: "#374151", lineHeight: 1.6, marginBottom: "16px" }}>
+                  <p style={{ fontSize: "0.88rem", color: "var(--text-soft)", lineHeight: 1.6, marginBottom: "16px" }}>
                     <strong>Ideal for:</strong> {tool.ideal}
                   </p>
 
@@ -555,9 +555,9 @@ export default function AIAgents2026() {
                     {tool.highlights.map((h) => (
                       <li
                         key={h}
-                        style={{ display: "flex", alignItems: "flex-start", gap: "8px", fontSize: "0.83rem", color: "#4b5563" }}
+                        style={{ display: "flex", alignItems: "flex-start", gap: "8px", fontSize: "0.83rem", color: "var(--text-soft)" }}
                       >
-                        <span style={{ color: "#0072ff", flexShrink: 0, marginTop: "2px" }}>✓</span>
+                        <span style={{ color: "var(--brand)", flexShrink: 0, marginTop: "2px" }}>✓</span>
                         {h}
                       </li>
                     ))}
@@ -570,25 +570,25 @@ export default function AIAgents2026() {
 
         {/* ── TABLE ── */}
         <section style={{ marginBottom: "64px" }}>
-          <h2 style={{ fontSize: "1.6rem", fontWeight: 800, color: "#1a1a2e", marginBottom: "8px" }}>
+          <h2 style={{ fontSize: "1.6rem", fontWeight: 800, color: "var(--ink)", marginBottom: "8px" }}>
             Which One to Choose?
           </h2>
-          <p style={{ color: "#6b7280", marginBottom: "24px" }}>Quick guide based on your main need.</p>
+          <p style={{ color: "var(--text-muted)", marginBottom: "24px" }}>Quick guide based on your main need.</p>
           <div
             style={{
               borderRadius: "16px",
               overflow: "hidden",
-              border: "1px solid #e5e7eb",
+              border: "1px solid var(--border)",
               boxShadow: "0 4px 16px rgba(0,0,0,0.04)",
             }}
           >
             <table style={{ width: "100%", borderCollapse: "collapse" }}>
               <thead>
                 <tr style={{ background: "linear-gradient(135deg, #1a1a2e, #0d1b4b)" }}>
-                  <th style={{ padding: "16px 20px", textAlign: "left", fontSize: "0.82rem", fontWeight: 700, color: "#94a3b8", letterSpacing: "0.08em", textTransform: "uppercase" }}>
+                  <th style={{ padding: "16px 20px", textAlign: "left", fontSize: "0.82rem", fontWeight: 700, color: "var(--text-subtle)", letterSpacing: "0.08em", textTransform: "uppercase" }}>
                     Need
                   </th>
-                  <th style={{ padding: "16px 20px", textAlign: "left", fontSize: "0.82rem", fontWeight: 700, color: "#94a3b8", letterSpacing: "0.08em", textTransform: "uppercase" }}>
+                  <th style={{ padding: "16px 20px", textAlign: "left", fontSize: "0.82rem", fontWeight: 700, color: "var(--text-subtle)", letterSpacing: "0.08em", textTransform: "uppercase" }}>
                     Tool
                   </th>
                 </tr>
@@ -598,11 +598,11 @@ export default function AIAgents2026() {
                   <tr
                     key={i}
                     style={{
-                      background: i % 2 === 0 ? "#fff" : "#f8fafc",
-                      borderBottom: "1px solid #f1f5f9",
+                      background: i % 2 === 0 ? "var(--surface)" : "var(--surface-2)",
+                      borderBottom: "1px solid light-dark(#f1f5f9, #2f3d5e)",
                     }}
                   >
-                    <td style={{ padding: "14px 20px", fontSize: "0.9rem", color: "#374151" }}>{row.need}</td>
+                    <td style={{ padding: "14px 20px", fontSize: "0.9rem", color: "var(--text-soft)" }}>{row.need}</td>
                     <td style={{ padding: "14px 20px" }}>
                       <span
                         style={{
@@ -627,12 +627,12 @@ export default function AIAgents2026() {
             style={{
               marginTop: "20px",
               padding: "16px 20px",
-              background: "#eff6ff",
+              background: "light-dark(#eff6ff, rgba(77,154,255,0.14))",
               borderRadius: "12px",
               fontSize: "0.9rem",
-              color: "#1e40af",
+              color: "light-dark(#1e40af, #93c5fd)",
               lineHeight: 1.6,
-              border: "1px solid #bfdbfe",
+              border: "1px solid light-dark(#bfdbfe, rgba(77,154,255,0.3))",
             }}
           >
             <strong>💡 2026 Recommendation:</strong> Most professional devs use more than one. Cursor or Windsurf as daily IDE agent. Claude Code for difficult problems. Copilot as a $10/month safety net that works everywhere.
@@ -641,10 +641,10 @@ export default function AIAgents2026() {
 
         {/* ── ROADMAP ── */}
         <section style={{ marginBottom: "64px" }}>
-          <h2 style={{ fontSize: "1.6rem", fontWeight: 800, color: "#1a1a2e", marginBottom: "8px" }}>
+          <h2 style={{ fontSize: "1.6rem", fontWeight: 800, color: "var(--ink)", marginBottom: "8px" }}>
             How to Get Started Today
           </h2>
-          <p style={{ color: "#6b7280", marginBottom: "32px" }}>
+          <p style={{ color: "var(--text-muted)", marginBottom: "32px" }}>
             Recommended path for progressively adopting AI agents.
           </p>
           <div style={{ position: "relative" }}>
@@ -681,8 +681,8 @@ export default function AIAgents2026() {
                   </div>
                   <div
                     style={{
-                      background: "#fff",
-                      border: "1px solid #e5e7eb",
+                      background: "var(--surface)",
+                      border: "1px solid var(--border)",
                       borderRadius: "16px",
                       padding: "20px 24px",
                       flex: 1,
@@ -703,14 +703,14 @@ export default function AIAgents2026() {
                       >
                         {step.period}
                       </span>
-                      <h3 style={{ margin: 0, fontSize: "1rem", fontWeight: 700, color: "#1a1a2e" }}>
+                      <h3 style={{ margin: 0, fontSize: "1rem", fontWeight: 700, color: "var(--ink)" }}>
                         {step.action}
                       </h3>
                     </div>
                     <p style={{ margin: "0 0 4px", fontSize: "0.83rem", fontWeight: 600, color: step.color }}>
                       {step.tool}
                     </p>
-                    <p style={{ margin: 0, fontSize: "0.88rem", color: "#6b7280", lineHeight: 1.6 }}>
+                    <p style={{ margin: 0, fontSize: "0.88rem", color: "var(--text-muted)", lineHeight: 1.6 }}>
                       {step.detail}
                     </p>
                   </div>
@@ -722,16 +722,16 @@ export default function AIAgents2026() {
 
         {/* ── FAQ ── */}
         <section style={{ marginBottom: "48px" }}>
-          <h2 style={{ fontSize: "1.6rem", fontWeight: 800, color: "#1a1a2e", marginBottom: "8px" }}>
+          <h2 style={{ fontSize: "1.6rem", fontWeight: 800, color: "var(--ink)", marginBottom: "8px" }}>
             Frequently Asked Questions
           </h2>
-          <p style={{ color: "#6b7280", marginBottom: "32px" }}>
+          <p style={{ color: "var(--text-muted)", marginBottom: "32px" }}>
             The most common questions about AI agents in 2026.
           </p>
           <div
             style={{
-              background: "#fff",
-              border: "1px solid #e5e7eb",
+              background: "var(--surface)",
+              border: "1px solid var(--border)",
               borderRadius: "20px",
               padding: "8px 28px",
               boxShadow: "0 4px 20px rgba(0,0,0,0.04)",
@@ -758,7 +758,7 @@ export default function AIAgents2026() {
           <h2 style={{ fontSize: "1.6rem", fontWeight: 800, color: "#fff", marginBottom: "16px", lineHeight: 1.3 }}>
             Ready to multiply your productivity?
           </h2>
-          <p style={{ color: "#94a3b8", lineHeight: 1.7, marginBottom: "28px", maxWidth: "480px", margin: "0 auto 28px" }}>
+          <p style={{ color: "var(--text-subtle)", lineHeight: 1.7, marginBottom: "28px", maxWidth: "480px", margin: "0 auto 28px" }}>
             The winning developer of 2026 is not the one who uses the most tools, but the one who knows when to use which.
           </p>
           <a

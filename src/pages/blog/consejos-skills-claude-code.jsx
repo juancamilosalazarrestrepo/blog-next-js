@@ -15,7 +15,7 @@ const tips = [
   {
     num: "01",
     title: "Empieza por el trigger, no por el contenido",
-    color: "#0072ff",
+    color: "var(--brand)",
     icon: "⚡",
     body: "La descripción del skill (campo description en el frontmatter YAML) es el mecanismo de activación. Claude la lee para decidir si el skill es relevante. Si es genérica, el skill no se activa.",
     bad: "description: Ayuda a editar documentos de Word.",
@@ -24,7 +24,7 @@ const tips = [
   {
     num: "02",
     title: "Instrúyele a Claude que lea el skill antes de ejecutar",
-    color: "#7c3aed",
+    color: "var(--violet)",
     icon: "📖",
     body: "Que el SKILL.md exista no garantiza que Claude lo consulte. Debes decirlo explícitamente al inicio del cuerpo del skill.",
     good: "## Instrucción crítica\n\nAntes de escribir cualquier línea de código, crear archivos o ejecutar comandos, lee este SKILL.md completo. Esta instrucción es obligatoria.",
@@ -65,7 +65,7 @@ const tips = [
   {
     num: "07",
     title: "Un skill, una responsabilidad",
-    color: "#8b5cf6",
+    color: "var(--violet)",
     icon: "🎯",
     body: "Un 'super-skill' que maneje todo se activa de forma impredecible. Señal de alerta: más de 5 contextos distintos en 'Cuándo usar este skill'.",
     good: "## Skills relacionados\n\n- Para PDFs → usa el skill `pdf`\n- Para presentaciones → usa el skill `pptx`\n- Para hojas de cálculo → usa el skill `xlsx`",
@@ -137,7 +137,7 @@ function FAQItem({ faq }) {
   return (
     <div
       style={{
-        borderBottom: "1px solid #e5e7eb",
+        borderBottom: "1px solid var(--border)",
         transition: "all 0.2s",
       }}
     >
@@ -156,7 +156,7 @@ function FAQItem({ faq }) {
           gap: "16px",
         }}
       >
-        <span style={{ fontWeight: 600, color: "#1a1a2e", fontSize: "1rem", lineHeight: 1.5 }}>
+        <span style={{ fontWeight: 600, color: "var(--ink)", fontSize: "1rem", lineHeight: 1.5 }}>
           {faq.q}
         </span>
         <span
@@ -165,8 +165,8 @@ function FAQItem({ faq }) {
             width: "28px",
             height: "28px",
             borderRadius: "50%",
-            background: open ? "linear-gradient(135deg, #0072ff, #7c3aed)" : "#f1f5f9",
-            color: open ? "#fff" : "#64748b",
+            background: open ? "linear-gradient(135deg, #0072ff, #7c3aed)" : "var(--surface-3)",
+            color: open ? "#fff" : "var(--text-muted)",
             display: "flex",
             alignItems: "center",
             justifyContent: "center",
@@ -181,7 +181,7 @@ function FAQItem({ faq }) {
       {open && (
         <p
           style={{
-            color: "#4b5563",
+            color: "var(--text-soft)",
             lineHeight: 1.75,
             paddingBottom: "20px",
             margin: 0,
@@ -344,11 +344,11 @@ export default function ConsejosSkillsClaudeCode() {
                 </div>
                 <div>
                   <div style={{ color: "#fff", fontWeight: 600, fontSize: "0.88rem" }}>Ruva IA</div>
-                  <div style={{ color: "#94a3b8", fontSize: "0.78rem" }}>{DATE}</div>
+                  <div style={{ color: "var(--text-subtle)", fontSize: "0.78rem" }}>{DATE}</div>
                 </div>
               </div>
-              <span style={{ color: "#64748b", fontSize: "0.85rem" }}>·</span>
-              <span style={{ color: "#94a3b8", fontSize: "0.85rem" }}>⏱ {READ_TIME}</span>
+              <span style={{ color: "var(--text-muted)", fontSize: "0.85rem" }}>·</span>
+              <span style={{ color: "var(--text-subtle)", fontSize: "0.85rem" }}>⏱ {READ_TIME}</span>
             </div>
           </div>
         </div>
@@ -357,7 +357,7 @@ export default function ConsejosSkillsClaudeCode() {
       {/* ── BANNER RESUMEN ── */}
       <div style={{ background: "linear-gradient(135deg, #0d1b4b, #1a1a2e)", padding: "40px 24px" }}>
         <div style={{ maxWidth: "860px", margin: "0 auto", textAlign: "center" }}>
-          <p style={{ color: "#94a3b8", fontSize: "1rem", lineHeight: 1.75, maxWidth: "680px", margin: "0 auto" }}>
+          <p style={{ color: "var(--text-subtle)", fontSize: "1rem", lineHeight: 1.75, maxWidth: "680px", margin: "0 auto" }}>
             Llevas tiempo construyendo tu workflow perfecto, documentas todo en un{" "}
             <code style={{ background: "rgba(0,114,255,0.15)", color: "#93c5fd", padding: "2px 8px", borderRadius: "6px", fontSize: "0.9rem" }}>
               SKILL.md
@@ -371,8 +371,8 @@ export default function ConsejosSkillsClaudeCode() {
               { num: "8", label: "Min de lectura" },
             ].map((s) => (
               <div key={s.label} style={{ textAlign: "center" }}>
-                <div style={{ fontSize: "2rem", fontWeight: 800, color: "#0072ff" }}>{s.num}</div>
-                <div style={{ color: "#94a3b8", fontSize: "0.82rem", marginTop: "4px" }}>{s.label}</div>
+                <div style={{ fontSize: "2rem", fontWeight: 800, color: "var(--brand)" }}>{s.num}</div>
+                <div style={{ color: "var(--text-subtle)", fontSize: "0.82rem", marginTop: "4px" }}>{s.label}</div>
               </div>
             ))}
           </div>
@@ -380,20 +380,20 @@ export default function ConsejosSkillsClaudeCode() {
       </div>
 
       {/* ── CONSEJOS ── */}
-      <div style={{ background: "#f8fafc", padding: "72px 24px" }}>
+      <div style={{ background: "var(--surface-2)", padding: "72px 24px" }}>
         <div style={{ maxWidth: "860px", margin: "0 auto" }}>
           <h2
             style={{
               fontSize: "1.8rem",
               fontWeight: 800,
-              color: "#1a1a2e",
+              color: "var(--ink)",
               textAlign: "center",
               marginBottom: "8px",
             }}
           >
             Los 10 Consejos
           </h2>
-          <p style={{ color: "#6b7280", textAlign: "center", marginBottom: "56px", fontSize: "1rem" }}>
+          <p style={{ color: "var(--text-muted)", textAlign: "center", marginBottom: "56px", fontSize: "1rem" }}>
             Ordenados de mayor a menor impacto en la tasa de activación
           </p>
 
@@ -402,10 +402,10 @@ export default function ConsejosSkillsClaudeCode() {
               <div
                 key={tip.num}
                 style={{
-                  background: "#fff",
+                  background: "var(--surface)",
                   borderRadius: "20px",
                   padding: "32px",
-                  border: "1px solid #e5e7eb",
+                  border: "1px solid var(--border)",
                   boxShadow: "0 4px 20px rgba(0,0,0,0.04)",
                   position: "relative",
                   overflow: "hidden",
@@ -458,14 +458,14 @@ export default function ConsejosSkillsClaudeCode() {
                           margin: 0,
                           fontSize: "1.1rem",
                           fontWeight: 700,
-                          color: "#1a1a2e",
+                          color: "var(--ink)",
                           lineHeight: 1.3,
                         }}
                       >
                         {tip.title}
                       </h3>
                     </div>
-                    <p style={{ color: "#4b5563", lineHeight: 1.7, fontSize: "0.97rem", marginBottom: "16px" }}>
+                    <p style={{ color: "var(--text-soft)", lineHeight: 1.7, fontSize: "0.97rem", marginBottom: "16px" }}>
                       {tip.body}
                     </p>
                     {tip.bad && <CodeBlock code={tip.bad} label="✗ Mal" />}
@@ -479,26 +479,26 @@ export default function ConsejosSkillsClaudeCode() {
       </div>
 
       {/* ── CHECKLIST ── */}
-      <div style={{ background: "#fff", padding: "72px 24px" }}>
+      <div style={{ background: "var(--surface)", padding: "72px 24px" }}>
         <div style={{ maxWidth: "720px", margin: "0 auto" }}>
           <h2
             style={{
               fontSize: "1.8rem",
               fontWeight: 800,
-              color: "#1a1a2e",
+              color: "var(--ink)",
               textAlign: "center",
               marginBottom: "8px",
             }}
           >
             Checklist de 10 Puntos
           </h2>
-          <p style={{ color: "#6b7280", textAlign: "center", marginBottom: "40px" }}>
+          <p style={{ color: "var(--text-muted)", textAlign: "center", marginBottom: "40px" }}>
             Verifica esto antes de dar un skill por terminado
           </p>
           <div
             style={{
-              background: "linear-gradient(135deg, #f0f7ff, #f5f3ff)",
-              border: "1px solid #dbeafe",
+              background: "linear-gradient(135deg, light-dark(#f0f7ff, rgba(0,114,255,0.12)), light-dark(#f5f3ff, rgba(124,58,237,0.12)))",
+              border: "1px solid light-dark(#dbeafe, rgba(77,154,255,0.3))",
               borderRadius: "20px",
               padding: "32px",
             }}
@@ -524,7 +524,7 @@ export default function ConsejosSkillsClaudeCode() {
                     marginTop: "1px",
                   }}
                 />
-                <span style={{ color: "#1e293b", fontSize: "0.95rem", lineHeight: 1.5 }}>
+                <span style={{ color: "var(--ink)", fontSize: "0.95rem", lineHeight: 1.5 }}>
                   {item}
                 </span>
               </div>
@@ -534,13 +534,13 @@ export default function ConsejosSkillsClaudeCode() {
       </div>
 
       {/* ── FAQ ── */}
-      <div style={{ background: "#f8fafc", padding: "72px 24px" }}>
+      <div style={{ background: "var(--surface-2)", padding: "72px 24px" }}>
         <div style={{ maxWidth: "720px", margin: "0 auto" }}>
           <h2
             style={{
               fontSize: "1.8rem",
               fontWeight: 800,
-              color: "#1a1a2e",
+              color: "var(--ink)",
               textAlign: "center",
               marginBottom: "40px",
             }}
@@ -554,7 +554,7 @@ export default function ConsejosSkillsClaudeCode() {
       </div>
 
       {/* ── CTA ── */}
-      <div style={{ background: "#fff", padding: "72px 24px" }}>
+      <div style={{ background: "var(--surface)", padding: "72px 24px" }}>
         <div style={{ maxWidth: "720px", margin: "0 auto" }}>
           <div
             style={{
@@ -568,7 +568,7 @@ export default function ConsejosSkillsClaudeCode() {
             <h2 style={{ color: "#fff", fontSize: "1.5rem", fontWeight: 800, marginBottom: "12px" }}>
               ¿Tienes un skill que no funciona como esperas?
             </h2>
-            <p style={{ color: "#94a3b8", lineHeight: 1.7, marginBottom: "32px", maxWidth: "500px", margin: "0 auto 32px" }}>
+            <p style={{ color: "var(--text-subtle)", lineHeight: 1.7, marginBottom: "32px", maxWidth: "500px", margin: "0 auto 32px" }}>
               El siguiente nivel es aprender a usar la{" "}
               <strong style={{ color: "#93c5fd" }}>skill-creator</strong> — la skill de Claude Code para crear y optimizar otras skills con evals automatizados.
             </p>

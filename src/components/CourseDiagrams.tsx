@@ -11,10 +11,10 @@ const FONT_MONO =
 
 const COLORS = {
   slate: "#94a3b8",
-  blue: "#0072ff",
+  blue: "var(--brand)",
   green: "#10b981",
   red: "#ef4444",
-  purple: "#7c3aed",
+  purple: "var(--violet)",
   amber: "#f59e0b",
 } as const;
 
@@ -33,7 +33,7 @@ function FitText({
   w,
   h,
   children,
-  color = "#1f2937",
+  color = "var(--ink)",
   size = 11,
   mono = false,
   bold = false,
@@ -133,7 +133,7 @@ export function Callout({
       style={{
         display: "flex",
         gap: "12px",
-        background: isTip ? "#ecfdf5" : "#eff6ff",
+        background: isTip ? "light-dark(#ecfdf5, rgba(16,185,129,0.14))" : "light-dark(#eff6ff, rgba(77,154,255,0.14))",
         border: `1px solid ${isTip ? "#10b981" : "#0072ff"}`,
         borderRadius: "10px",
         padding: "16px 18px",
@@ -141,7 +141,7 @@ export function Callout({
       }}
     >
       <span style={{ fontSize: "20px", lineHeight: 1 }}>{isTip ? "💡" : "📌"}</span>
-      <div style={{ fontSize: "0.95rem", color: "#1f2937", lineHeight: 1.6 }}>{children}</div>
+      <div style={{ fontSize: "0.95rem", color: "var(--ink)", lineHeight: 1.6 }}>{children}</div>
     </div>
   );
 }
@@ -163,15 +163,15 @@ export function VariableDiagram({
   return (
     <Figure viewBox="0 0 460 150" maxWidth={460}>
       <Arrowheads uid={uid} />
-      <FitText x={10} y={4} w={440} h={26} size={12} mono color="#64748b">
+      <FitText x={10} y={4} w={440} h={26} size={12} mono color="var(--text-muted)">
         {`let ${name} = ${value};`}
       </FitText>
 
-      <rect x="30" y="38" width="180" height="84" rx="12" fill="#eff6ff" stroke={COLORS.blue} strokeWidth="2" />
+      <rect x="30" y="38" width="180" height="84" rx="12" fill="light-dark(#eff6ff, rgba(77,154,255,0.14))" stroke={COLORS.blue} strokeWidth="2" />
       <FitText x={38} y={46} w={164} h={40} size={14} bold mono color={COLORS.blue}>
         {name}
       </FitText>
-      <FitText x={38} y={86} w={164} h={30} size={10} color="#64748b">
+      <FitText x={38} y={86} w={164} h={30} size={10} color="var(--text-muted)">
         (la caja / variable)
       </FitText>
 
@@ -185,11 +185,11 @@ export function VariableDiagram({
         markerEnd={`url(#${uid}-slate)`}
       />
 
-      <rect x="266" y="38" width="170" height="84" rx="10" fill="#ecfdf5" stroke={COLORS.green} strokeWidth="2" />
-      <FitText x={272} y={44} w={158} h={48} size={14} bold mono color="#059669">
+      <rect x="266" y="38" width="170" height="84" rx="10" fill="light-dark(#ecfdf5, rgba(16,185,129,0.14))" stroke={COLORS.green} strokeWidth="2" />
+      <FitText x={272} y={44} w={158} h={48} size={14} bold mono color="light-dark(#059669, #34d399)">
         {value}
       </FitText>
-      <FitText x={272} y={92} w={158} h={24} size={10} color="#64748b">
+      <FitText x={272} y={92} w={158} h={24} size={10} color="var(--text-muted)">
         {type}
       </FitText>
     </Figure>
@@ -214,7 +214,7 @@ export function ConditionalDiagram({
     <Figure viewBox="0 0 560 266" maxWidth={560}>
       <Arrowheads uid={uid} />
 
-      <rect x="225" y="6" width="110" height="40" rx="10" fill="#eff6ff" stroke={COLORS.blue} strokeWidth="2" />
+      <rect x="225" y="6" width="110" height="40" rx="10" fill="light-dark(#eff6ff, rgba(77,154,255,0.14))" stroke={COLORS.blue} strokeWidth="2" />
       <FitText x={231} y={10} w={98} h={32} size={13} bold color={COLORS.blue}>
         Inicio
       </FitText>
@@ -228,11 +228,11 @@ export function ConditionalDiagram({
         markerEnd={`url(#${uid}-slate)`}
       />
 
-      <polygon points="280,68 400,140 280,212 160,140" fill="#fef3c7" stroke={COLORS.amber} strokeWidth="2" />
-      <FitText x={220} y={104} w={120} h={72} size={10.5} color="#92400e">
+      <polygon points="280,68 400,140 280,212 160,140" fill="light-dark(#fef3c7, rgba(245,158,11,0.16))" stroke={COLORS.amber} strokeWidth="2" />
+      <FitText x={220} y={104} w={120} h={72} size={10.5} color="light-dark(#92400e, #fcd34d)">
         <span>
           <span style={{ fontFamily: FONT_MONO, fontWeight: 700, display: "block" }}>{condition}</span>
-          <span style={{ display: "block", fontSize: "9px", color: "#b45309", marginTop: 2 }}>
+          <span style={{ display: "block", fontSize: "9px", color: "light-dark(#b45309, #fbbf24)", marginTop: 2 }}>
             ¿verdadero?
           </span>
         </span>
@@ -248,8 +248,8 @@ export function ConditionalDiagram({
       <FitText x={78} y={112} w={80} h={22} size={11} bold color={COLORS.green}>
         true
       </FitText>
-      <rect x="14" y="176" width="128" height="74" rx="10" fill="#ecfdf5" stroke={COLORS.green} strokeWidth="2" />
-      <FitText x={20} y={182} w={116} h={62} size={10.5} color="#065f46">
+      <rect x="14" y="176" width="128" height="74" rx="10" fill="light-dark(#ecfdf5, rgba(16,185,129,0.14))" stroke={COLORS.green} strokeWidth="2" />
+      <FitText x={20} y={182} w={116} h={62} size={10.5} color="light-dark(#065f46, #6ee7b7)">
         {ifTrue}
       </FitText>
 
@@ -263,8 +263,8 @@ export function ConditionalDiagram({
       <FitText x={402} y={112} w={80} h={22} size={11} bold color={COLORS.red}>
         false
       </FitText>
-      <rect x="418" y="176" width="128" height="74" rx="10" fill="#fef2f2" stroke={COLORS.red} strokeWidth="2" />
-      <FitText x={424} y={182} w={116} h={62} size={10.5} color="#991b1b">
+      <rect x="418" y="176" width="128" height="74" rx="10" fill="light-dark(#fef2f2, rgba(239,68,68,0.14))" stroke={COLORS.red} strokeWidth="2" />
+      <FitText x={424} y={182} w={116} h={62} size={10.5} color="light-dark(#991b1b, #fca5a5)">
         {ifFalse}
       </FitText>
     </Figure>
@@ -287,8 +287,8 @@ export function LoopDiagram({
     <Figure viewBox="0 0 480 236" maxWidth={460}>
       <Arrowheads uid={uid} />
 
-      <polygon points="215,10 320,62 215,114 110,62" fill="#fef3c7" stroke={COLORS.amber} strokeWidth="2" />
-      <FitText x={163} y={36} w={104} h={52} size={10.5} bold mono color="#92400e">
+      <polygon points="215,10 320,62 215,114 110,62" fill="light-dark(#fef3c7, rgba(245,158,11,0.16))" stroke={COLORS.amber} strokeWidth="2" />
+      <FitText x={163} y={36} w={104} h={52} size={10.5} bold mono color="light-dark(#92400e, #fcd34d)">
         {condition}
       </FitText>
 
@@ -305,8 +305,8 @@ export function LoopDiagram({
         true
       </FitText>
 
-      <rect x="120" y="154" width="190" height="58" rx="10" fill="#ecfdf5" stroke={COLORS.green} strokeWidth="2" />
-      <FitText x={126} y={158} w={178} h={50} size={10.5} mono color="#065f46">
+      <rect x="120" y="154" width="190" height="58" rx="10" fill="light-dark(#ecfdf5, rgba(16,185,129,0.14))" stroke={COLORS.green} strokeWidth="2" />
+      <FitText x={126} y={158} w={178} h={50} size={10.5} mono color="light-dark(#065f46, #6ee7b7)">
         {body}
       </FitText>
 
@@ -333,7 +333,7 @@ export function LoopDiagram({
       <FitText x={326} y={36} w={66} h={20} size={10} bold color={COLORS.red}>
         false
       </FitText>
-      <FitText x={326} y={70} w={140} h={20} size={9.5} color="#64748b">
+      <FitText x={326} y={70} w={140} h={20} size={9.5} color="var(--text-muted)">
         fin del bucle
       </FitText>
     </Figure>
@@ -368,7 +368,7 @@ export function FunctionDiagram({
         const boxY = top + i * gap + 5;
         return (
           <g key={`${p}-${i}`}>
-            <rect x="10" y={boxY} width="96" height="36" rx="8" fill="#eff6ff" stroke={COLORS.blue} strokeWidth="2" />
+            <rect x="10" y={boxY} width="96" height="36" rx="8" fill="light-dark(#eff6ff, rgba(77,154,255,0.14))" stroke={COLORS.blue} strokeWidth="2" />
             <FitText x={14} y={boxY + 3} w={88} h={30} size={11} bold mono color={COLORS.blue}>
               {p}
             </FitText>
@@ -391,14 +391,14 @@ export function FunctionDiagram({
         width="190"
         height="86"
         rx="12"
-        fill="#f5f3ff"
+        fill="light-dark(#f5f3ff, rgba(124,58,237,0.16))"
         stroke={COLORS.purple}
         strokeWidth="2"
       />
       <FitText x={192} y={cy - 35} w={178} h={36} size={13.5} bold mono color={COLORS.purple}>
         {`function ${name}()`}
       </FitText>
-      <FitText x={192} y={cy + 1} w={178} h={34} size={9.5} color="#64748b">
+      <FitText x={192} y={cy + 1} w={178} h={34} size={9.5} color="var(--text-muted)">
         recibe parámetros, devuelve un valor
       </FitText>
 
@@ -418,14 +418,14 @@ export function FunctionDiagram({
         width="112"
         height="62"
         rx="10"
-        fill="#ecfdf5"
+        fill="light-dark(#ecfdf5, rgba(16,185,129,0.14))"
         stroke={COLORS.green}
         strokeWidth="2"
       />
-      <FitText x={442} y={cy - 27} w={104} h={22} size={10} color="#059669">
+      <FitText x={442} y={cy - 27} w={104} h={22} size={10} color="light-dark(#059669, #34d399)">
         return
       </FitText>
-      <FitText x={442} y={cy - 5} w={104} h={32} size={12} bold mono color="#059669">
+      <FitText x={442} y={cy - 5} w={104} h={32} size={12} bold mono color="light-dark(#059669, #34d399)">
         {returns}
       </FitText>
     </Figure>
@@ -448,11 +448,11 @@ export function EscribiendoPromptsDiagram({
     <Figure viewBox="0 0 480 156" maxWidth={480}>
       <Arrowheads uid={uid} />
 
-      <rect x="10" y="30" width="142" height="110" rx="12" fill="#eff6ff" stroke={COLORS.blue} strokeWidth="2" />
+      <rect x="10" y="30" width="142" height="110" rx="12" fill="light-dark(#eff6ff, rgba(77,154,255,0.14))" stroke={COLORS.blue} strokeWidth="2" />
       <text x="81" y="70" textAnchor="middle" fontSize="24">
         💬
       </text>
-      <FitText x={14} y={78} w={134} h={58} size={10} color="#1e40af">
+      <FitText x={14} y={78} w={134} h={58} size={10} color="light-dark(#1e40af, #93c5fd)">
         {idea}
       </FitText>
 
@@ -466,11 +466,11 @@ export function EscribiendoPromptsDiagram({
         markerEnd={`url(#${uid}-purple)`}
       />
 
-      <rect x="190" y="24" width="96" height="122" rx="12" fill="#f5f3ff" stroke={COLORS.purple} strokeWidth="2" />
-      <FitText x={194} y={34} w={88} h={22} size={10.5} bold color="#6d28d9">
+      <rect x="190" y="24" width="96" height="122" rx="12" fill="light-dark(#f5f3ff, rgba(124,58,237,0.16))" stroke={COLORS.purple} strokeWidth="2" />
+      <FitText x={194} y={34} w={88} h={22} size={10.5} bold color="light-dark(#6d28d9, #c4b5fd)">
         OPENCODE
       </FitText>
-      <FitText x={194} y={56} w={88} h={18} size={9} color="#6d28d9">
+      <FitText x={194} y={56} w={88} h={18} size={9} color="light-dark(#6d28d9, #c4b5fd)">
         (agente de IA)
       </FitText>
       <text x="238" y="112" textAnchor="middle" fontSize="24">
@@ -487,11 +487,11 @@ export function EscribiendoPromptsDiagram({
         markerEnd={`url(#${uid}-green)`}
       />
 
-      <rect x="328" y="30" width="142" height="110" rx="12" fill="#ecfdf5" stroke={COLORS.green} strokeWidth="2" />
+      <rect x="328" y="30" width="142" height="110" rx="12" fill="light-dark(#ecfdf5, rgba(16,185,129,0.14))" stroke={COLORS.green} strokeWidth="2" />
       <text x="399" y="70" textAnchor="middle" fontSize="24">
         🚀
       </text>
-      <FitText x={332} y={78} w={134} h={58} size={10} color="#065f46">
+      <FitText x={332} y={78} w={134} h={58} size={10} color="light-dark(#065f46, #6ee7b7)">
         {resultado}
       </FitText>
     </Figure>
@@ -522,7 +522,7 @@ export function ComponenteDiagram({
     <Figure viewBox={`0 0 ${vbW} 180`} maxWidth={Math.min(vbW, 640)}>
       <Arrowheads uid={uid} />
 
-      <rect x={cx - 80} y="8" width="160" height="48" rx="12" fill="#eff6ff" stroke={COLORS.blue} strokeWidth="2" />
+      <rect x={cx - 80} y="8" width="160" height="48" rx="12" fill="light-dark(#eff6ff, rgba(77,154,255,0.14))" stroke={COLORS.blue} strokeWidth="2" />
       <FitText x={cx - 74} y={14} w={148} h={36} size={13.5} bold mono color={COLORS.blue}>
         {`<${root}>`}
       </FitText>
@@ -546,14 +546,14 @@ export function ComponenteDiagram({
               width={cardW}
               height="60"
               rx="10"
-              fill="#f5f3ff"
+              fill="light-dark(#f5f3ff, rgba(124,58,237,0.16))"
               stroke={COLORS.purple}
               strokeWidth="2"
             />
-            <FitText x={x + 6} y={110} w={cardW - 12} h={30} size={11} bold mono color="#6d28d9">
+            <FitText x={x + 6} y={110} w={cardW - 12} h={30} size={11} bold mono color="light-dark(#6d28d9, #c4b5fd)">
               {child}
             </FitText>
-            <FitText x={x + 6} y={140} w={cardW - 12} h={20} size={9} color="#8b5cf6">
+            <FitText x={x + 6} y={140} w={cardW - 12} h={20} size={9} color="light-dark(#8b5cf6, #a78bfa)">
               (componente)
             </FitText>
           </g>
@@ -581,11 +581,11 @@ export function StateFlowDiagram({
     <Figure viewBox="0 0 520 200" maxWidth={520}>
       <Arrowheads uid={uid} />
 
-      <rect x="10" y="54" width="164" height="86" rx="12" fill="#eff6ff" stroke={COLORS.blue} strokeWidth="2" />
+      <rect x="10" y="54" width="164" height="86" rx="12" fill="light-dark(#eff6ff, rgba(77,154,255,0.14))" stroke={COLORS.blue} strokeWidth="2" />
       <FitText x={16} y={62} w={152} h={46} size={12} bold mono color={COLORS.blue}>
         {`const [${label}] = useState(0)`}
       </FitText>
-      <FitText x={16} y={110} w={152} h={22} size={10} color="#64748b">
+      <FitText x={16} y={110} w={152} h={22} size={10} color="var(--text-muted)">
         el estado
       </FitText>
 
@@ -598,15 +598,15 @@ export function StateFlowDiagram({
         strokeWidth="3"
         markerEnd={`url(#${uid}-amber)`}
       />
-      <FitText x={176} y={72} w={48} h={20} size={9.5} bold color="#d97706">
+      <FitText x={176} y={72} w={48} h={20} size={9.5} bold color="light-dark(#d97706, #fbbf24)">
         cambiar
       </FitText>
 
-      <rect x="230" y="54" width="150" height="86" rx="12" fill="#fef3c7" stroke={COLORS.amber} strokeWidth="2" />
-      <FitText x={236} y={62} w={138} h={40} size={12.5} bold mono color="#92400e">
+      <rect x="230" y="54" width="150" height="86" rx="12" fill="light-dark(#fef3c7, rgba(245,158,11,0.16))" stroke={COLORS.amber} strokeWidth="2" />
+      <FitText x={236} y={62} w={138} h={40} size={12.5} bold mono color="light-dark(#92400e, #fcd34d)">
         {escribe}
       </FitText>
-      <FitText x={236} y={104} w={138} h={30} size={9.5} color="#92400e">
+      <FitText x={236} y={104} w={138} h={30} size={9.5} color="light-dark(#92400e, #fcd34d)">
         (función que cambia)
       </FitText>
 
@@ -623,12 +623,12 @@ export function StateFlowDiagram({
         redibuja
       </FitText>
 
-      <rect x="432" y="62" width="76" height="70" rx="12" fill="#ecfdf5" stroke={COLORS.green} strokeWidth="2" />
+      <rect x="432" y="62" width="76" height="70" rx="12" fill="light-dark(#ecfdf5, rgba(16,185,129,0.14))" stroke={COLORS.green} strokeWidth="2" />
       <text x="470" y="106" textAnchor="middle" fontSize="26">
         🖥️
       </text>
 
-      <FitText x={60} y={152} w={400} h={36} size={11} color="#64748b">
+      <FitText x={60} y={152} w={400} h={36} size={11} color="var(--text-muted)">
         {paraQueSirve}
       </FitText>
     </Figure>

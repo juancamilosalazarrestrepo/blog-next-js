@@ -85,7 +85,7 @@ const CursoSDD = ({ chapters }) => {
               flexWrap: "wrap",
               marginBottom: "28px",
               fontSize: "0.9rem",
-              color: "#94a3b8",
+              color: "var(--text-subtle)",
             }}
           >
             <span>📚 {sorted.length} capítulos</span>
@@ -115,7 +115,7 @@ const CursoSDD = ({ chapters }) => {
 
       <main style={{ maxWidth: "820px", margin: "0 auto", padding: "56px 24px" }}>
         <section style={{ marginBottom: "48px" }}>
-          <h2 style={{ fontSize: "1.5rem", fontWeight: 700, marginBottom: "20px", color: "#1a1a2e" }}>
+          <h2 style={{ fontSize: "1.5rem", fontWeight: 700, marginBottom: "20px", color: "var(--ink)" }}>
             Qué vas a aprender
           </h2>
           <ul
@@ -123,8 +123,8 @@ const CursoSDD = ({ chapters }) => {
             className="max-sm:grid-cols-1"
           >
             {APRENDIZAJES.map((item) => (
-              <li key={item} style={{ display: "flex", gap: "10px", fontSize: "0.95rem", color: "#374151", lineHeight: 1.6 }}>
-                <span style={{ color: "#0072ff", fontWeight: 700 }}>✓</span>
+              <li key={item} style={{ display: "flex", gap: "10px", fontSize: "0.95rem", color: "var(--text-soft)", lineHeight: 1.6 }}>
+                <span style={{ color: "var(--brand)", fontWeight: 700 }}>✓</span>
                 {item}
               </li>
             ))}
@@ -132,7 +132,7 @@ const CursoSDD = ({ chapters }) => {
         </section>
 
         <section>
-          <h2 style={{ fontSize: "1.5rem", fontWeight: 700, marginBottom: "20px", color: "#1a1a2e" }}>Temario</h2>
+          <h2 style={{ fontSize: "1.5rem", fontWeight: 700, marginBottom: "20px", color: "var(--ink)" }}>Temario</h2>
           <div style={{ display: "flex", flexDirection: "column", gap: "12px" }}>
             {sorted.map((chapter) => (
               <Link
@@ -143,7 +143,7 @@ const CursoSDD = ({ chapters }) => {
                   alignItems: "center",
                   gap: "16px",
                   padding: "18px 20px",
-                  border: "1px solid #e5e7eb",
+                  border: "1px solid var(--border)",
                   borderRadius: "12px",
                   textDecoration: "none",
                 }}
@@ -154,8 +154,8 @@ const CursoSDD = ({ chapters }) => {
                     width: "36px",
                     height: "36px",
                     borderRadius: "50%",
-                    background: "#eff6ff",
-                    color: "#0072ff",
+                    background: "light-dark(#eff6ff, rgba(77,154,255,0.14))",
+                    color: "var(--brand)",
                     display: "flex",
                     alignItems: "center",
                     justifyContent: "center",
@@ -166,10 +166,10 @@ const CursoSDD = ({ chapters }) => {
                   {chapter.order}
                 </span>
                 <div style={{ flex: 1 }}>
-                  <p style={{ fontWeight: 700, color: "#1a1a2e", fontSize: "1rem", marginBottom: "4px" }}>{chapter.title}</p>
-                  <p style={{ color: "#64748b", fontSize: "0.88rem", margin: 0 }}>{chapter.subtitle}</p>
+                  <p style={{ fontWeight: 700, color: "var(--ink)", fontSize: "1rem", marginBottom: "4px" }}>{chapter.title}</p>
+                  <p style={{ color: "var(--text-muted)", fontSize: "0.88rem", margin: 0 }}>{chapter.subtitle}</p>
                 </div>
-                <span style={{ flexShrink: 0, color: "#94a3b8", fontSize: "0.85rem" }}>{chapter.duration}</span>
+                <span style={{ flexShrink: 0, color: "var(--text-subtle)", fontSize: "0.85rem" }}>{chapter.duration}</span>
               </Link>
             ))}
           </div>
@@ -188,7 +188,7 @@ const CursoSDD = ({ chapters }) => {
           <h2 style={{ fontSize: "1.4rem", fontWeight: 700, color: "#fff", marginBottom: "12px" }}>
             ¿Listo para dejar de programar a ciegas?
           </h2>
-          <p style={{ color: "#94a3b8", marginBottom: "24px", lineHeight: 1.7, maxWidth: "560px", marginLeft: "auto", marginRight: "auto" }}>
+          <p style={{ color: "var(--text-subtle)", marginBottom: "24px", lineHeight: 1.7, maxWidth: "560px", marginLeft: "auto", marginRight: "auto" }}>
             Spec-Driven Development te da el control de dirección mientras la IA se encarga
             de la ejecución. Especifica, planifica, implementa.
           </p>

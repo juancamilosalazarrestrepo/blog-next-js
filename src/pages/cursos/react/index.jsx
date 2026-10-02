@@ -80,7 +80,7 @@ const CursoReact = ({ chapters }) => {
               flexWrap: "wrap",
               marginBottom: "28px",
               fontSize: "0.9rem",
-              color: "#94a3b8",
+              color: "var(--text-subtle)",
             }}
           >
             <span>📚 {sorted.length} capítulos</span>
@@ -110,7 +110,7 @@ const CursoReact = ({ chapters }) => {
 
       <main style={{ maxWidth: "820px", margin: "0 auto", padding: "56px 24px" }}>
         <section style={{ marginBottom: "48px" }}>
-          <h2 style={{ fontSize: "1.5rem", fontWeight: 700, marginBottom: "20px", color: "#1a1a2e" }}>
+          <h2 style={{ fontSize: "1.5rem", fontWeight: 700, marginBottom: "20px", color: "var(--ink)" }}>
             Qué vas a aprender
           </h2>
           <ul
@@ -118,7 +118,7 @@ const CursoReact = ({ chapters }) => {
             className="max-sm:grid-cols-1"
           >
             {APRENDIZAJES.map((item) => (
-              <li key={item} style={{ display: "flex", gap: "10px", fontSize: "0.95rem", color: "#374151", lineHeight: 1.6 }}>
+              <li key={item} style={{ display: "flex", gap: "10px", fontSize: "0.95rem", color: "var(--text-soft)", lineHeight: 1.6 }}>
                 <span style={{ color: "#61dafb", fontWeight: 700 }}>⚛</span>
                 {item}
               </li>
@@ -127,7 +127,7 @@ const CursoReact = ({ chapters }) => {
         </section>
 
         <section>
-          <h2 style={{ fontSize: "1.5rem", fontWeight: 700, marginBottom: "20px", color: "#1a1a2e" }}>Temario</h2>
+          <h2 style={{ fontSize: "1.5rem", fontWeight: 700, marginBottom: "20px", color: "var(--ink)" }}>Temario</h2>
           <div style={{ display: "flex", flexDirection: "column", gap: "12px" }}>
             {sorted.map((chapter) => (
               <Link
@@ -138,7 +138,7 @@ const CursoReact = ({ chapters }) => {
                   alignItems: "center",
                   gap: "16px",
                   padding: "18px 20px",
-                  border: "1px solid #e5e7eb",
+                  border: "1px solid var(--border)",
                   borderRadius: "12px",
                   textDecoration: "none",
                 }}
@@ -149,8 +149,8 @@ const CursoReact = ({ chapters }) => {
                     width: "36px",
                     height: "36px",
                     borderRadius: "50%",
-                    background: "#e8f9ff",
-                    color: "#0284c7",
+                    background: "light-dark(#e8f9ff, rgba(97,218,251,0.15))",
+                    color: "light-dark(#0284c7, #7dd3fc)",
                     display: "flex",
                     alignItems: "center",
                     justifyContent: "center",
@@ -161,10 +161,10 @@ const CursoReact = ({ chapters }) => {
                   {chapter.order}
                 </span>
                 <div style={{ flex: 1 }}>
-                  <p style={{ fontWeight: 700, color: "#1a1a2e", fontSize: "1rem", marginBottom: "4px" }}>{chapter.title}</p>
-                  <p style={{ color: "#64748b", fontSize: "0.88rem", margin: 0 }}>{chapter.subtitle}</p>
+                  <p style={{ fontWeight: 700, color: "var(--ink)", fontSize: "1rem", marginBottom: "4px" }}>{chapter.title}</p>
+                  <p style={{ color: "var(--text-muted)", fontSize: "0.88rem", margin: 0 }}>{chapter.subtitle}</p>
                 </div>
-                <span style={{ flexShrink: 0, color: "#94a3b8", fontSize: "0.85rem" }}>{chapter.duration}</span>
+                <span style={{ flexShrink: 0, color: "var(--text-subtle)", fontSize: "0.85rem" }}>{chapter.duration}</span>
               </Link>
             ))}
           </div>
@@ -183,7 +183,7 @@ const CursoReact = ({ chapters }) => {
           <h2 style={{ fontSize: "1.4rem", fontWeight: 700, color: "#fff", marginBottom: "12px" }}>
             ¿Listo para empezar a construir interfaces con React?
           </h2>
-          <p style={{ color: "#94a3b8", marginBottom: "24px", lineHeight: 1.7, maxWidth: "560px", marginLeft: "auto", marginRight: "auto" }}>
+          <p style={{ color: "var(--text-subtle)", marginBottom: "24px", lineHeight: 1.7, maxWidth: "560px", marginLeft: "auto", marginRight: "auto" }}>
             Sin conocimientos previos de React, solo con las bases de JavaScript. Teoría simple,
             diagramas y un proyecto real al final.
           </p>

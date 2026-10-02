@@ -17,16 +17,16 @@ const CourseLayout = ({
 
   return (
     <div style={{ maxWidth: "1180px", margin: "0 auto", padding: "32px 24px 80px" }}>
-      <nav style={{ fontSize: "0.85rem", color: "#64748b", marginBottom: "24px" }}>
-        <Link href="/cursos" style={{ color: "#64748b" }}>
+      <nav style={{ fontSize: "0.85rem", color: "var(--text-muted)", marginBottom: "24px" }}>
+        <Link href="/cursos" style={{ color: "var(--text-muted)" }}>
           Cursos
         </Link>
         {" / "}
-        <Link href={courseUrl} style={{ color: "#64748b" }}>
+        <Link href={courseUrl} style={{ color: "var(--text-muted)" }}>
           {courseLabel}
         </Link>
         {" / "}
-        <span style={{ color: "#1a1a2e", fontWeight: 600 }}>{current?.title}</span>
+        <span style={{ color: "var(--ink)", fontWeight: 600 }}>{current?.title}</span>
       </nav>
 
       <div style={{ display: "flex", gap: "40px", alignItems: "flex-start" }} className="max-md:flex-col">
@@ -37,7 +37,7 @@ const CourseLayout = ({
             flexShrink: 0,
             position: "sticky",
             top: "100px",
-            borderRight: "1px solid #e5e7eb",
+            borderRight: "1px solid var(--border)",
             paddingRight: "20px",
           }}
         >
@@ -46,7 +46,7 @@ const CourseLayout = ({
               fontSize: "0.75rem",
               fontWeight: 700,
               letterSpacing: "0.05em",
-              color: "#94a3b8",
+              color: "var(--text-subtle)",
               textTransform: "uppercase",
               marginBottom: "12px",
             }}
@@ -66,8 +66,8 @@ const CourseLayout = ({
                       borderRadius: "8px",
                       fontSize: "0.88rem",
                       textDecoration: "none",
-                      color: isActive ? "#0072ff" : "#374151",
-                      background: isActive ? "#eff6ff" : "transparent",
+                      color: isActive ? "var(--brand)" : "var(--text-soft)",
+                      background: isActive ? "light-dark(#eff6ff, rgba(77,154,255,0.14))" : "transparent",
                       fontWeight: isActive ? 700 : 500,
                     }}
                   >
@@ -86,7 +86,7 @@ const CourseLayout = ({
               router.push(`${courseUrl}/${e.target.value}`, undefined, { locale: router.locale });
             }}
             aria-label="Seleccionar capítulo"
-            style={{ width: "100%", padding: "10px 12px", borderRadius: "8px", border: "1px solid #e5e7eb", fontSize: "0.9rem" }}
+            style={{ width: "100%", padding: "10px 12px", borderRadius: "8px", border: "1px solid var(--border)", background: "var(--surface)", fontSize: "0.9rem" }}
           >
             {sorted.map((chapter) => (
               <option key={chapter.slug} value={chapter.slug}>
@@ -98,17 +98,17 @@ const CourseLayout = ({
 
         <main style={{ flex: 1, minWidth: 0 }}>
           <div style={{ marginBottom: "24px" }}>
-            <p style={{ fontSize: "0.8rem", fontWeight: 700, color: "#0072ff", marginBottom: "6px" }}>
+            <p style={{ fontSize: "0.8rem", fontWeight: 700, color: "var(--brand)", marginBottom: "6px" }}>
               Capítulo {current?.order}
             </p>
-            <h1 style={{ fontSize: "2rem", fontWeight: 800, color: "#1a1a2e", marginBottom: "8px", lineHeight: 1.25 }}>
+            <h1 style={{ fontSize: "2rem", fontWeight: 800, color: "var(--ink)", marginBottom: "8px", lineHeight: 1.25 }}>
               {current?.title}
             </h1>
             {current?.duration && (
-              <p style={{ color: "#64748b", fontSize: "0.9rem" }}>⏱️ {current.duration}</p>
+              <p style={{ color: "var(--text-muted)", fontSize: "0.9rem" }}>⏱️ {current.duration}</p>
             )}
           </div>
-          <article className="prose" style={{ maxWidth: "720px" }}>
+          <article className="prose dark:prose-invert" style={{ maxWidth: "720px" }}>
             {children}
           </article>
 
@@ -118,12 +118,12 @@ const CourseLayout = ({
               justifyContent: "space-between",
               marginTop: "48px",
               paddingTop: "24px",
-              borderTop: "1px solid #e5e7eb",
+              borderTop: "1px solid var(--border)",
               gap: "16px",
             }}
           >
             {prev ? (
-              <Link href={`${courseUrl}/${prev.slug}`} style={{ color: "#0072ff", fontWeight: 600, fontSize: "0.9rem" }}>
+              <Link href={`${courseUrl}/${prev.slug}`} style={{ color: "var(--brand)", fontWeight: 600, fontSize: "0.9rem" }}>
                 ← {prev.title}
               </Link>
             ) : (
@@ -132,7 +132,7 @@ const CourseLayout = ({
             {next ? (
               <Link
                 href={`${courseUrl}/${next.slug}`}
-                style={{ color: "#0072ff", fontWeight: 600, fontSize: "0.9rem", textAlign: "right" }}
+                style={{ color: "var(--brand)", fontWeight: 600, fontSize: "0.9rem", textAlign: "right" }}
               >
                 {next.title} →
               </Link>

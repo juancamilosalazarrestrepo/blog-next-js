@@ -84,10 +84,10 @@ const TarjetaCurso = ({ curso }) => (
   <Link href={curso.url} style={{ textDecoration: "none", display: "block", height: "100%" }}>
     <article
       style={{
-        background: "#fff",
+        background: "var(--surface)",
         borderRadius: "18px",
         overflow: "hidden",
-        boxShadow: "0 4px 16px rgba(0,0,0,0.06)",
+        boxShadow: "var(--shadow-sm)",
         border: "1px solid rgba(0,0,0,0.05)",
         transition: "transform 0.35s cubic-bezier(.25,.46,.45,.94), box-shadow 0.35s cubic-bezier(.25,.46,.45,.94)",
         display: "flex",
@@ -104,7 +104,7 @@ const TarjetaCurso = ({ curso }) => (
       }}
       onMouseLeave={(e) => {
         e.currentTarget.style.transform = "translateY(0)";
-        e.currentTarget.style.boxShadow = "0 4px 16px rgba(0,0,0,0.06)";
+        e.currentTarget.style.boxShadow = "var(--shadow-sm)";
         const img = e.currentTarget.querySelector("img");
         if (img) img.style.transform = "scale(1)";
         const flecha = e.currentTarget.querySelector("[data-cta-arrow]");
@@ -146,10 +146,10 @@ const TarjetaCurso = ({ curso }) => (
 
       {/* Contenido */}
       <div style={{ padding: "22px 24px 24px", display: "flex", flexDirection: "column", flex: 1 }}>
-        <h3 style={{ fontSize: "1.08rem", fontWeight: 700, color: "#1a1a2e", marginBottom: "10px", lineHeight: 1.35 }}>
+        <h3 style={{ fontSize: "1.08rem", fontWeight: 700, color: "var(--ink)", marginBottom: "10px", lineHeight: 1.35 }}>
           {curso.titulo}
         </h3>
-        <p style={{ color: "#6b7280", fontSize: "0.88rem", lineHeight: 1.6, marginBottom: "16px" }}>
+        <p style={{ color: "var(--text-muted)", fontSize: "0.88rem", lineHeight: 1.6, marginBottom: "16px" }}>
           {curso.descripcion}
         </p>
 
@@ -160,9 +160,9 @@ const TarjetaCurso = ({ curso }) => (
               style={{
                 fontSize: "0.72rem",
                 fontWeight: 600,
-                color: "#334155",
-                background: "#f1f5f9",
-                border: "1px solid #e2e8f0",
+                color: "var(--text-soft)",
+                background: "var(--surface-3)",
+                border: "1px solid var(--border)",
                 borderRadius: "999px",
                 padding: "4px 10px",
               }}
@@ -177,12 +177,12 @@ const TarjetaCurso = ({ curso }) => (
             display: "flex",
             flexWrap: "wrap",
             gap: "16px",
-            color: "#64748b",
+            color: "var(--text-muted)",
             fontSize: "0.8rem",
             fontWeight: 600,
             marginTop: "auto",
             paddingTop: "16px",
-            borderTop: "1px solid #eef2f7",
+            borderTop: "1px solid light-dark(#eef2f7, #2f3d5e)",
           }}
         >
           <span style={{ display: "inline-flex", alignItems: "center", gap: "6px" }}>
@@ -202,7 +202,7 @@ const TarjetaCurso = ({ curso }) => (
             alignItems: "center",
             gap: "8px",
             marginTop: "18px",
-            color: "#0072ff",
+            color: "var(--brand)",
             fontWeight: 700,
             fontSize: "0.92rem",
           }}
@@ -235,7 +235,7 @@ const Cursos = () => {
             style={{
               fontSize: "1.75rem",
               fontWeight: 700,
-              color: "#1a1a2e",
+              color: "var(--ink)",
               position: "relative",
               paddingBottom: "14px",
               marginBottom: "18px",
@@ -256,7 +256,7 @@ const Cursos = () => {
               }}
             />
           </h2>
-          <p style={{ color: "#6b7280", fontSize: "0.98rem", lineHeight: 1.7, maxWidth: "640px", margin: "0 auto" }}>
+          <p style={{ color: "var(--text-muted)", fontSize: "0.98rem", lineHeight: 1.7, maxWidth: "640px", margin: "0 auto" }}>
             Cursos gratuitos y en español para aprender programación, React e inteligencia artificial
             desde cero, con teoría breve, diagramas y ejercicios prácticos.
           </p>
