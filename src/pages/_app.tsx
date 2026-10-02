@@ -9,6 +9,7 @@ import { Analytics } from '@vercel/analytics/react'
 import { appWithTranslation } from 'next-i18next'
 import nextI18NextConfig from '../../next-i18next.config'
 import { SITE_URL } from '../../lib/site'
+import { ThemeProvider } from '../components/theme/ThemeProvider'
 
 const organizationSchema = {
   '@context': 'https://schema.org',
@@ -62,7 +63,9 @@ function App({ Component, pageProps }: AppProps) {
         />
       </Head>
       <GoogleAnalytics measurementId={GA_MEASUREMENT_ID} />
-      <Component {...pageProps} />
+      <ThemeProvider>
+        <Component {...pageProps} />
+      </ThemeProvider>
       <Analytics />
     </>
   )
