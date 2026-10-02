@@ -33,7 +33,7 @@ const Blog = ({ posts }) => {
         <h2 style={{
           fontSize: "1.75rem",
           fontWeight: 700,
-          color: "#1a1a2e",
+          color: "var(--ink)",
           textAlign: "center",
           marginBottom: "40px",
           position: "relative",
@@ -61,18 +61,18 @@ const Blog = ({ posts }) => {
             placeholder={t("blog.searchPlaceholder")}
             style={{
               padding: "12px 48px 12px 20px",
-              border: "1px solid #e5e7eb",
+              border: "1px solid var(--border)",
               borderRadius: "14px",
               width: "100%",
               fontSize: "0.95rem",
-              background: "#fff",
+              background: "var(--surface)",
               boxShadow: "0 2px 8px rgba(0,0,0,0.04)",
               outline: "none",
               transition: "all 0.3s ease",
             }}
           />
           <svg
-            className="absolute right-4 top-3.5 h-5 w-5 text-gray-400"
+            className="absolute right-4 top-3.5 h-5 w-5 text-subtle"
             xmlns="http://www.w3.org/2000/svg"
             fill="none"
             viewBox="0 0 24 24"
@@ -90,11 +90,11 @@ const Blog = ({ posts }) => {
               style={{ textDecoration: "none" }}
             >
               <div style={{
-                background: "#fff",
+                background: "var(--surface)",
                 borderRadius: "16px",
                 overflow: "hidden",
-                boxShadow: "0 4px 16px rgba(0,0,0,0.06)",
-                border: "1px solid rgba(0,0,0,0.04)",
+                boxShadow: "var(--shadow-sm)",
+                border: "1px solid color-mix(in srgb, var(--ink) 4%, transparent)",
                 transition: "transform 0.35s cubic-bezier(.25,.46,.45,.94), box-shadow 0.35s cubic-bezier(.25,.46,.45,.94)",
                 display: "flex",
                 flexDirection: "column",
@@ -106,7 +106,7 @@ const Blog = ({ posts }) => {
                 }}
                 onMouseLeave={(e) => {
                   e.currentTarget.style.transform = "translateY(0)";
-                  e.currentTarget.style.boxShadow = "0 4px 16px rgba(0,0,0,0.06)";
+                  e.currentTarget.style.boxShadow = "var(--shadow-sm)";
                 }}
               >
                 <div style={{ overflow: "hidden", position: "relative", height: "260px" }}>
@@ -124,7 +124,7 @@ const Blog = ({ posts }) => {
                     style={{
                       fontSize: "1.05rem",
                       fontWeight: 700,
-                      color: "#1a1a2e",
+                      color: "var(--ink)",
                       marginBottom: "8px",
                       lineHeight: 1.3,
                       display: "-webkit-box",
@@ -139,7 +139,7 @@ const Blog = ({ posts }) => {
 
                   <p
                     style={{
-                      color: "#6b7280",
+                      color: "var(--text-muted)",
                       fontSize: "0.88rem",
                       lineHeight: 1.5,
                       flex: 1,
@@ -159,7 +159,7 @@ const Blog = ({ posts }) => {
                       display: "inline-flex",
                       alignItems: "center",
                       gap: "8px",
-                      background: "linear-gradient(135deg, #0072ff, #0575e6)",
+                      background: "var(--brand-solid)",
                       color: "#fff",
                       fontSize: "0.85rem",
                       fontWeight: 600,

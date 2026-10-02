@@ -63,7 +63,7 @@ const DynamicPost: NextPage<Props> = ({ frontMatter, mdxSource, alternatePaths }
             }}
           />
         </div>
-        <article className="prose mx-auto max-w-3xl px-6 md:px-8">
+        <article className="prose dark:prose-invert mx-auto max-w-3xl px-6 md:px-8">
           <MDXRemote {...mdxSource} components={MDXComponents} />
           <div className="flex justify-center mt-8">
             <ViewsCounter slug={frontMatter.slug} />

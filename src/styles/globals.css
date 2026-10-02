@@ -362,6 +362,23 @@ a {
   filter: invert(1) hue-rotate(180deg);
 }
 
+/* Artículos (typography): paleta oscura de la marca; solo la usa `prose-invert`, el modo claro no cambia */
+.prose {
+  --tw-prose-invert-body: var(--text);
+  --tw-prose-invert-headings: var(--ink);
+  --tw-prose-invert-bold: var(--ink);
+  --tw-prose-invert-links: var(--brand);
+  --tw-prose-invert-hr: var(--border);
+  --tw-prose-invert-quote-borders: var(--border);
+  --tw-prose-invert-th-borders: var(--border);
+  --tw-prose-invert-td-borders: var(--border);
+}
+
+[data-theme="dark"] .prose pre {
+  background: #0a0f1e;
+  border: 1px solid var(--border);
+}
+
 @media only screen and (max-width: 600px) {
   .title {
     font-size: 1.2em;
