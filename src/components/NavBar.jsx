@@ -7,6 +7,7 @@ import { useRouter } from "next/router";
 import styles from "../styles/Navbar.module.css";
 import { useTranslation } from "next-i18next";
 import LanguageSwitcher from "./LanguageSwitcher";
+import ThemeToggle from "./theme/ThemeToggle";
 
 export default function NavBar() {
   const { t } = useTranslation("common");
@@ -82,6 +83,7 @@ export default function NavBar() {
             >
               <span>{t("nav.contact")}</span>
             </a>
+            <ThemeToggle />
             <LanguageSwitcher />
             <div className="-mr-1 md:hidden">
               <button

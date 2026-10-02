@@ -9,6 +9,10 @@
     "uiComponents": "Componentes UI",
     "contact": "Contacto"
   },
+  "theme": {
+    "toDark": "Activar modo oscuro",
+    "toLight": "Activar modo claro"
+  },
   "footer": {
     "content": "Contenido",
     "articles": "Artículos",
