@@ -74,9 +74,14 @@ export async function getServerSideProps({ res }) {
   const proyectoPages = proyectoSlugs.map(slug => ({
     loc: `/proyectos/${slug}`, priority: '0.7', changefreq: 'monthly',
   }));
-  const blogJsxPages = blogJsxSlugs.map(slug => ({
-    loc: `/blog/${slug}`, priority: '0.7', changefreq: 'monthly',
-  }));
+  // Las páginas JSX cuyo slug ya tiene MDX salen por esBlogXml/enBlogXml con su fecha y su
+  // prefijo de idioma; incluirlas aquí duplicaría la URL española y publicaría la inglesa
+  // bajo /blog/ en vez de /en/blog/.
+  const blogJsxPages = blogJsxSlugs
+    .filter(slug => !esSlugs.includes(slug) && !enSlugs.includes(slug))
+    .map(slug => ({
+      loc: `/blog/${slug}`, priority: '0.7', changefreq: 'monthly',
+    }));
 
   const allStaticPages = [...staticPages, ...proyectoPages, ...blogJsxPages];
 

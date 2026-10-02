@@ -1,0 +1,72 @@
+---
+{
+  "title": "Traductor de lenguaje de señas con IA en tiempo real: primer avance",
+  "subtitle": "Avance de mi traductor de lenguaje de señas con IA: visión por computadora y deep learning para leer la mano y traducir señas en tiempo real a 22 FPS.",
+  "image": "/images/traductor-lenguaje-senas-ia-tiempo-real.webp",
+  "imageOG": "/images/traductor-lenguaje-senas-ia-tiempo-real.webp",
+  "thumb": "/images/traductor-lenguaje-senas-ia-tiempo-real.webp",
+  "date": "2026-09-12",
+  "keywords": ["traductor de lenguaje de señas", "lenguaje de señas con inteligencia artificial", "reconocimiento de señas en tiempo real", "visión por computadora", "computer vision", "deep learning", "landmarks de la mano", "accesibilidad tecnológica", "tech for good", "cómo traducir lenguaje de señas con IA"]
+}
+---
+
+# Traductor de lenguaje de señas con IA en tiempo real: primer avance
+
+Les comparto un avance del proyecto en el que vengo trabajando: un **sistema de traducción de lenguaje de señas en tiempo real** potenciado con inteligencia artificial.
+
+En la captura, el sistema detecta una mano, dibuja sus puntos clave y clasifica la seña con un **99% de confianza promedio**, corriendo a **22 FPS** sobre una cámara web.
+
+![Traductor de lenguaje de señas detectando la seña Y / número 2 con 99% de confianza a 22 FPS](/images/traductor-lenguaje-senas/demo-senas-y-2.webp)
+
+## Qué se ve en la captura
+
+- **Landmarks en verde**: los 21 puntos clave de la mano y las líneas que los unen.
+- **Etiqueta "#10 mano derecha 99%"**: la mano detectada, su lateralidad y la confianza del modelo.
+- **Recuadro "Y"**: la lectura de la seña como letra.
+- **Recuadro "2"**: la lectura de la misma forma de mano como número.
+- **Panel inferior**: 22 FPS, 1 mano detectada y 99% de confianza promedio.
+
+## Cómo funciona
+
+1. **Captura**: se lee cada frame de la cámara.
+2. **Detección de la mano**: un modelo de visión por computadora ubica la mano y sus 21 landmarks.
+3. **Normalización**: las coordenadas se centran y escalan respecto a la muñeca, para que no importe la distancia a la cámara ni la posición en el cuadro.
+4. **Clasificación**: un modelo de deep learning recibe esos puntos y predice la seña con un nivel de confianza.
+5. **Contexto**: el sistema decide si la forma de la mano se lee como letra o como número.
+6. **Salida**: la traducción aparece en pantalla al instante.
+
+Trabajar con landmarks en lugar de píxeles hace que el modelo sea más liviano y menos sensible al fondo y a la iluminación.
+
+## Letra o número: el contexto importa
+
+Una misma forma de mano puede significar cosas distintas. En la captura, la seña se lee como la letra **Y** y como el número **2**. Por eso el sistema no se queda solo con la forma: usa el contexto (si estás deletreando una palabra o dictando una cifra) para elegir la lectura correcta.
+
+## Confianza no es lo mismo que precisión
+
+El 99% del panel es la **confianza promedio** del modelo: qué tan seguro está de su predicción en ese momento. La **precisión** se mide aparte, con un conjunto de pruebas que el modelo no vio durante el entrenamiento. Las dos métricas son necesarias para saber si un traductor es confiable.
+
+## Lo que sigue
+
+- Ampliar el vocabulario más allá del alfabeto y los números.
+- Reconocer señas con movimiento, que necesitan analizar secuencias de frames y no solo una pose.
+- Detectar las dos manos a la vez.
+- Probar el sistema con personas sordas e intérpretes para validar que la traducción sea útil.
+
+La meta es romper barreras de comunicación y crear herramientas de accesibilidad reales.
+
+## Preguntas frecuentes
+
+**¿Qué son los landmarks de la mano?**
+Son 21 puntos clave (muñeca, nudillos y puntas de los dedos) que el modelo ubica en cada frame. Juntos describen la forma de la mano sin depender de la imagen completa.
+
+**¿El 99% significa que el traductor acierta el 99% de las veces?**
+No exactamente. Es la confianza promedio del modelo en sus predicciones. La precisión real se mide con datos de prueba separados.
+
+**¿Se necesita una cámara especial?**
+No. El sistema corre sobre una cámara web convencional.
+
+**¿Por qué la misma seña aparece como "Y" y como "2"?**
+Porque una misma forma de mano puede tener varias lecturas. El contexto (deletreo o números) define cuál es la correcta.
+
+**¿Puede traducir frases completas?**
+Todavía no. Este avance reconoce señas estáticas; las frases requieren analizar movimiento y secuencias, que es uno de los siguientes pasos.

@@ -4,54 +4,54 @@ import Layout from "@/components/Layout";
 import SEO from "@/components/SEO";
 import { serverSideTranslations } from "next-i18next/serverSideTranslations";
 
-const SLUG = "gpt-6-astra-vs-fable-5-1-programar";
+const IMAGE = "/images/gpt-6-astra-vs-fable-5-1-programar.webp";
 const KEYWORDS = [
   "GPT-6 Astra",
   "Claude Fable 5.1",
   "GPT-6 Astra vs Fable 5.1",
-  "mejor modelo de IA para programar 2026",
+  "best AI model for coding 2026",
   "Claude Code",
   "OpenAI Codex",
-  "benchmarks IA programación",
-  "precio API modelos IA",
+  "AI coding benchmarks",
+  "LLM API pricing",
 ];
 // El slug cambia entre idiomas, así que el hreflang no se puede derivar de la URL actual.
 const ALTERNATE_PATHS = {
   es: "/blog/gpt-6-astra-vs-fable-5-1-programar",
   en: "/blog/gpt-6-astra-vs-fable-5-1-coding",
 };
-const TITLE = "GPT-6 Astra vs Claude Fable 5.1: ¿qué modelo conviene para programar en 2026?";
+const TITLE = "GPT-6 Astra vs Claude Fable 5.1: which model is better for coding in 2026?";
 const SUBTITLE =
-  "Comparamos GPT-6 Astra y Claude Fable 5.1 para programar: benchmarks independientes, precios, contexto y en qué casos conviene cada modelo en 2026.";
-const DATE = "12 de septiembre de 2026";
-const READ_TIME = "9 min de lectura";
+  "We compare GPT-6 Astra and Claude Fable 5.1 for coding: independent benchmarks, pricing, context window and when each model is the right call in 2026.";
+const DATE = "September 12, 2026";
+const READ_TIME = "9 min read";
 
 const ASTRA = "#10b981";
 const FABLE = "#f59e0b";
 
 const specs = [
-  { label: "Lanzamiento", astra: "3 sept 2026", fable: "1 sept 2026" },
-  { label: "ID en la API", astra: "gpt-6-astra", fable: "claude-fable-5-1", mono: true },
-  { label: "Contexto", astra: "~1,05M tokens", fable: "1M tokens" },
-  { label: "Salida máxima", astra: "128K tokens", fable: "128K tokens" },
-  { label: "Entrada / salida (por millón)", astra: "$10 / $50", fable: "$10 / $50" },
-  { label: "Lectura de caché (por millón)", astra: "$1", fable: "$0,25", win: "fable" },
-  { label: "Agente de código propio", astra: "Codex", fable: "Claude Code" },
-  { label: "Otras plataformas", astra: "ChatGPT, Amazon Bedrock", fable: "Bedrock, Google Cloud, Foundry, GitHub Copilot" },
+  { label: "Released", astra: "Sept 3, 2026", fable: "Sept 1, 2026" },
+  { label: "API ID", astra: "gpt-6-astra", fable: "claude-fable-5-1", mono: true },
+  { label: "Context window", astra: "~1.05M tokens", fable: "1M tokens" },
+  { label: "Max output", astra: "128K tokens", fable: "128K tokens" },
+  { label: "Input / output (per million)", astra: "$10 / $50", fable: "$10 / $50" },
+  { label: "Cache read (per million)", astra: "$1", fable: "$0.25", win: "fable" },
+  { label: "Own coding agent", astra: "Codex", fable: "Claude Code" },
+  { label: "Also available on", astra: "ChatGPT, Amazon Bedrock", fable: "Bedrock, Google Cloud, Foundry, GitHub Copilot" },
 ];
 
 const benchmarks = [
-  { name: "Coding Agent Index", source: "Independiente", astra: 62, fable: 62, max: 100, unit: "" },
-  { name: "Terminal-Bench 4.0", source: "Independiente", astra: 59, fable: 52, max: 100, unit: "%" },
+  { name: "Coding Agent Index", source: "Independent", astra: 62, fable: 62, max: 100, unit: "" },
+  { name: "Terminal-Bench 4.0", source: "Independent", astra: 59, fable: 52, max: 100, unit: "%" },
   { name: "Terminal-Bench 4.0", source: "OpenAI", astra: 57.7, fable: 55.8, max: 100, unit: "%" },
   { name: "DeepSWE v1.1", source: "OpenAI", astra: 74.1, fable: 67.4, max: 100, unit: "%" },
-  { name: "Humanity's Last Exam (con herramientas)", source: "OpenAI", astra: 57.2, fable: 65.0, max: 100, unit: "%" },
+  { name: "Humanity's Last Exam (with tools)", source: "OpenAI", astra: 57.2, fable: 65.0, max: 100, unit: "%" },
 ];
 
 const costRows = [
-  { label: "Entrada nueva (200K)", astra: "$2,00", fable: "$2,00" },
-  { label: "Lectura de caché (1,8M)", astra: "$1,80", fable: "$0,45" },
-  { label: "Salida", astra: "$1,35 (27K)", fable: "$3,90 (78K)" },
+  { label: "Fresh input (200K)", astra: "$2.00", fable: "$2.00" },
+  { label: "Cache reads (1.8M)", astra: "$1.80", fable: "$0.45" },
+  { label: "Output", astra: "$1.35 (27K)", fable: "$3.90 (78K)" },
 ];
 
 const choose = [
@@ -59,44 +59,44 @@ const choose = [
     model: "GPT-6 Astra",
     color: ASTRA,
     icon: "⚡",
-    tagline: "El mejor resultado por dólar",
+    tagline: "Best result per dollar",
     items: [
-      "Pagas la API de tu bolsillo y cada tarea cuenta",
-      "Trabajas mucho en terminal: scripts, DevOps, CI, migraciones",
-      "Ya usas ChatGPT o Codex a diario",
-      "Necesitas velocidad: el modo Fast va hasta 2,5× más rápido (al doble de precio)",
+      "You pay for the API yourself and every task counts",
+      "You live in the terminal: scripts, DevOps, CI, migrations",
+      "You already use ChatGPT or Codex daily",
+      "You need speed: Fast mode runs up to 2.5× faster (at twice the price)",
     ],
   },
   {
     model: "Claude Fable 5.1",
     color: FABLE,
     icon: "🧠",
-    tagline: "Para lo largo, ambiguo y difícil",
+    tagline: "For the long, ambiguous and hard",
     items: [
-      "Refactors grandes y migraciones de varios archivos",
-      "Bugs difíciles donde un error confiado sale caro",
-      "Ya trabajas en Claude Code o GitHub Copilot",
-      "Sesiones de horas con mucho contexto en caché",
+      "Large refactors and multi-file migrations",
+      "Hard bugs where a confidently wrong answer is expensive",
+      "You already work in Claude Code or GitHub Copilot",
+      "Hours-long sessions with a lot of cached context",
     ],
   },
 ];
 
 const migration = [
   {
-    title: "No acepta tool_choice forzado",
-    body: "Con Fable 5.1, tool_choice de tipo \"any\" o \"tool\" devuelve un error 400. Usa \"auto\" con strict: true o salidas estructuradas.",
+    title: "Forced tool_choice is rejected",
+    body: "On Fable 5.1, a tool_choice of type \"any\" or \"tool\" returns a 400 error. Use \"auto\" with strict: true, or structured outputs.",
   },
   {
-    title: "El historial solo crece hacia adelante",
-    body: "Editar mensajes anteriores invalida los bloques de razonamiento. Claude Code y el Agent SDK lo manejan por ti; si armas el array de mensajes a mano, revísalo.",
+    title: "History must be append-only",
+    body: "Editing earlier messages invalidates thinking blocks. Claude Code and the Agent SDK handle it for you; if you build the messages array yourself, check it.",
   },
   {
-    title: "Tiende a reescribir archivos completos",
-    body: "En cambios pequeños puede reescribir todo el archivo. Pídele ediciones puntuales y ahorrarás tokens de salida.",
+    title: "It tends to rewrite whole files",
+    body: "For small changes it may rewrite the entire file. Ask for targeted edits and you will save output tokens.",
   },
   {
-    title: "Esfuerzo por mensaje (beta)",
-    body: "Puedes subir el nivel de esfuerzo para un paso difícil y bajarlo para los rutinarios sin perder la caché.",
+    title: "Per-message effort (beta)",
+    body: "Raise the effort level for one hard step and lower it for routine ones, without losing the prompt cache.",
   },
 ];
 
@@ -106,7 +106,7 @@ const client = new OpenAI();
 
 const res = await client.responses.create({
   model: "gpt-6-astra",
-  input: "Refactoriza este hook de React para evitar renders extra: ...",
+  input: "Refactor this React hook to avoid extra renders: ...",
 });
 
 console.log(res.output_text);`;
@@ -119,7 +119,7 @@ const msg = await client.messages.create({
   model: "claude-fable-5-1",
   max_tokens: 16000,
   messages: [
-    { role: "user", content: "Refactoriza este hook de React para evitar renders extra: ..." },
+    { role: "user", content: "Refactor this React hook to avoid extra renders: ..." },
   ],
 });
 
@@ -128,31 +128,31 @@ for (const block of msg.content) {
 }`;
 
 const alternatives = [
-  { name: "Claude Opus 5", price: "$5 / $25", note: "Anthropic recomienda empezar aquí y subir a Fable solo si hace falta." },
-  { name: "Claude Sonnet 5", price: "$2 / $10", note: "Rápido para autocompletar y cambios pequeños." },
-  { name: "Muse Glimmer (Meta)", price: "Pesos abiertos", note: "30B parámetros, corre sin internet en una GPU de 24 GB." },
+  { name: "Claude Opus 5", price: "$5 / $25", note: "Anthropic recommends starting here and moving up to Fable only if you need it." },
+  { name: "Claude Sonnet 5", price: "$2 / $10", note: "Fast for completions and small changes." },
+  { name: "Muse Glimmer (Meta)", price: "Open weights", note: "30B parameters, runs offline on a 24 GB GPU." },
 ];
 
 const faqs = [
   {
-    q: "¿Cuál es mejor para programar, GPT-6 Astra o Claude Fable 5.1?",
-    a: "En calidad de código están empatados: los dos marcan 62 en el Coding Agent Index de Artificial Analysis. Astra gana en tareas de terminal y gasta menos tokens; Fable 5.1 gana en razonamiento difícil y en tareas largas con muchos pasos.",
+    q: "Which is better for coding, GPT-6 Astra or Claude Fable 5.1?",
+    a: "On code quality they are tied: both score 62 on Artificial Analysis' Coding Agent Index. Astra wins on terminal tasks and uses fewer tokens; Fable 5.1 wins on hard reasoning and long multi-step work.",
   },
   {
-    q: "Si cuestan lo mismo por token, ¿por qué uno sale más barato?",
-    a: "Porque la salida es lo más caro y Astra escribe cerca de un tercio de los tokens que usa Fable 5.1 para llegar al mismo resultado. Fable compensa algo con una lectura de caché más barata ($0,25 frente a $1 por millón), pero en la mayoría de tareas Astra sale más económico.",
+    q: "If they cost the same per token, why is one cheaper?",
+    a: "Because output is the expensive half, and Astra writes about a third of the tokens Fable 5.1 needs to reach the same result. Fable claws some of it back with cheaper cache reads ($0.25 versus $1 per million), but for most tasks Astra still comes out cheaper.",
   },
   {
-    q: "¿Puedo usar Claude Fable 5.1 en GitHub Copilot?",
-    a: "Sí. GitHub anunció el 1 de septiembre de 2026 que Fable 5.1 está disponible de forma general en Copilot. Ten en cuenta que requiere retención de datos por defecto, salvo para algunos clientes empresariales.",
+    q: "Can I use Claude Fable 5.1 in GitHub Copilot?",
+    a: "Yes. GitHub announced on September 1, 2026 that Fable 5.1 is generally available in Copilot. Note that it requires data retention by default, except for some eligible enterprise customers.",
   },
   {
-    q: "¿Necesito uno de estos modelos para el trabajo diario?",
-    a: "Casi nunca. Para autocompletar, tests y cambios pequeños, modelos como Claude Opus 5 o Sonnet 5 rinden muy bien por mucho menos dinero. Guarda los modelos de frontera para las tareas donde de verdad marcan diferencia.",
+    q: "Do I need one of these models for everyday work?",
+    a: "Rarely. For completions, tests and small changes, models like Claude Opus 5 or Sonnet 5 perform very well for far less money. Save the frontier models for tasks where they genuinely make a difference.",
   },
   {
-    q: "¿Qué tan confiables son estos benchmarks?",
-    a: "Sirven para ver tendencias, no para decidir solos. Cada empresa publica las pruebas donde le va mejor, por eso en este artículo separamos los datos independientes de los publicados por OpenAI y Anthropic. Lo más fiable es probar ambos una semana con tu propio repositorio.",
+    q: "How reliable are these benchmarks?",
+    a: "They are useful for spotting trends, not for deciding on their own. Every vendor publishes the evals it wins, which is why this article separates independent measurements from numbers published by OpenAI and Anthropic. The most reliable test is running both for a week against your own repository.",
   },
 ];
 
@@ -163,19 +163,19 @@ const sources = [
   { label: "GPT-6 Astra: Features, Benchmarks, and Pricing — DataCamp", href: "https://www.datacamp.com/blog/gpt-6-astra" },
   { label: "GPT-6 Astra Benchmarks Explained — Vellum", href: "https://www.vellum.ai/blog/gpt-6-astra-benchmarks-explained" },
   { label: "Claude Fable 5.1: Same Sticker, Cheaper Cache — LLM Stats", href: "https://llm-stats.com/blog/research/claude-fable-5-1-launch" },
-  { label: "Claude Fable 5.1 en GitHub Copilot — GitHub Changelog", href: "https://github.blog/changelog/2026-09-01-claude-fable-5-1-generally-available-in-github-copilot/" },
+  { label: "Claude Fable 5.1 in GitHub Copilot — GitHub Changelog", href: "https://github.blog/changelog/2026-09-01-claude-fable-5-1-generally-available-in-github-copilot/" },
 ];
 
 const sectionTitle = {
   fontSize: "1.8rem",
   fontWeight: 800,
-  color: "var(--ink)",
+  color: "#1a1a2e",
   textAlign: "center",
   marginBottom: "8px",
 };
 
 const sectionLead = {
-  color: "var(--text-muted)",
+  color: "#6b7280",
   textAlign: "center",
   marginBottom: "40px",
   fontSize: "1rem",
@@ -183,16 +183,16 @@ const sectionLead = {
 };
 
 const card = {
-  background: "var(--surface)",
+  background: "#fff",
   borderRadius: "20px",
-  border: "1px solid var(--border)",
+  border: "1px solid #e5e7eb",
   boxShadow: "0 4px 20px rgba(0,0,0,0.04)",
 };
 
 function FAQItem({ faq }) {
   const [open, setOpen] = useState(false);
   return (
-    <div style={{ borderBottom: "1px solid var(--border)" }}>
+    <div style={{ borderBottom: "1px solid #e5e7eb" }}>
       <button
         onClick={() => setOpen(!open)}
         aria-expanded={open}
@@ -209,15 +209,15 @@ function FAQItem({ faq }) {
           gap: "16px",
         }}
       >
-        <span style={{ fontWeight: 600, color: "var(--ink)", fontSize: "1rem", lineHeight: 1.5 }}>{faq.q}</span>
+        <span style={{ fontWeight: 600, color: "#1a1a2e", fontSize: "1rem", lineHeight: 1.5 }}>{faq.q}</span>
         <span
           style={{
             flexShrink: 0,
             width: "28px",
             height: "28px",
             borderRadius: "50%",
-            background: open ? "linear-gradient(135deg, #0072ff, #7c3aed)" : "var(--surface-3)",
-            color: open ? "#fff" : "var(--text-muted)",
+            background: open ? "linear-gradient(135deg, #0072ff, #7c3aed)" : "#f1f5f9",
+            color: open ? "#fff" : "#64748b",
             display: "flex",
             alignItems: "center",
             justifyContent: "center",
@@ -230,7 +230,7 @@ function FAQItem({ faq }) {
         </span>
       </button>
       {open && (
-        <p style={{ color: "var(--text-soft)", lineHeight: 1.75, paddingBottom: "20px", margin: 0, fontSize: "0.97rem" }}>
+        <p style={{ color: "#4b5563", lineHeight: 1.75, paddingBottom: "20px", margin: 0, fontSize: "0.97rem" }}>
           {faq.a}
         </p>
       )}
@@ -244,14 +244,14 @@ function CodeBlock({ code, label, color }) {
       <div
         style={{
           padding: "12px 18px",
-          borderBottom: "1px solid var(--border)",
+          borderBottom: "1px solid #e5e7eb",
           display: "flex",
           alignItems: "center",
           gap: "10px",
         }}
       >
         <span style={{ width: "10px", height: "10px", borderRadius: "50%", background: color }} />
-        <span style={{ fontWeight: 700, color: "var(--ink)", fontSize: "0.92rem" }}>{label}</span>
+        <span style={{ fontWeight: 700, color: "#1a1a2e", fontSize: "0.92rem" }}>{label}</span>
       </div>
       <pre
         style={{
@@ -273,7 +273,7 @@ function CodeBlock({ code, label, color }) {
 function BenchmarkBar({ value, max, color, unit, winner }) {
   return (
     <div style={{ display: "flex", alignItems: "center", gap: "10px" }}>
-      <div style={{ flex: 1, height: "10px", background: "var(--surface-3)", borderRadius: "10px", overflow: "hidden" }}>
+      <div style={{ flex: 1, height: "10px", background: "#f1f5f9", borderRadius: "10px", overflow: "hidden" }}>
         <div style={{ width: `${(value / max) * 100}%`, height: "100%", background: color, borderRadius: "10px" }} />
       </div>
       <span
@@ -281,11 +281,11 @@ function BenchmarkBar({ value, max, color, unit, winner }) {
           width: "56px",
           textAlign: "right",
           fontWeight: winner ? 800 : 600,
-          color: winner ? "var(--ink)" : "var(--text-muted)",
+          color: winner ? "#1a1a2e" : "#6b7280",
           fontSize: "0.9rem",
         }}
       >
-        {String(value).replace(".", ",")}
+        {value}
         {unit}
       </span>
     </div>
@@ -295,18 +295,18 @@ function BenchmarkBar({ value, max, color, unit, winner }) {
 export async function getStaticProps({ locale }) {
   return {
     props: {
-      ...(await serverSideTranslations(locale || "es", ["common"])),
+      ...(await serverSideTranslations(locale || "en", ["common"])),
     },
   };
 }
 
-export default function GptAstraVsFable() {
+export default function GptAstraVsFableEn() {
   return (
     <Layout>
       <SEO
         title={TITLE}
         description={SUBTITLE}
-        image={`/images/${SLUG}.webp`}
+        image={IMAGE}
         imageAlt={TITLE}
         type="article"
         date="2026-09-12"
@@ -316,11 +316,11 @@ export default function GptAstraVsFable() {
       />
 
       {/* ── HERO ── */}
-      {/* La imagen va de fondo y el texto en flujo normal, así el hero crece en móvil en vez de recortarse */}
+      {/* The image sits in the background and the text stays in normal flow, so the hero grows on mobile instead of clipping */}
       <div style={{ position: "relative", overflow: "hidden", minHeight: "420px", display: "flex", alignItems: "center" }}>
         <Image
-          src={`/images/${SLUG}.webp`}
-          alt="Comparativa GPT-6 Astra vs Claude Fable 5.1 para programar"
+          src={IMAGE}
+          alt="GPT-6 Astra vs Claude Fable 5.1 comparison for coding"
           width={1280}
           height={500}
           priority
@@ -343,7 +343,7 @@ export default function GptAstraVsFable() {
         <div style={{ position: "relative", zIndex: 1, width: "100%", padding: "56px 0" }}>
           <div style={{ maxWidth: "860px", margin: "0 auto", width: "100%", padding: "0 24px" }}>
             <div style={{ display: "flex", gap: "10px", flexWrap: "wrap", marginBottom: "18px" }}>
-              {["Modelos de IA", "Comparativa", "Septiembre 2026"].map((tag) => (
+              {["AI models", "Comparison", "September 2026"].map((tag) => (
                 <span
                   key={tag}
                   style={{
@@ -393,52 +393,52 @@ export default function GptAstraVsFable() {
                 </div>
                 <div>
                   <div style={{ color: "#fff", fontWeight: 600, fontSize: "0.88rem" }}>Juan Camilo Salazar</div>
-                  <div style={{ color: "var(--text-subtle)", fontSize: "0.78rem" }}>{DATE}</div>
+                  <div style={{ color: "#94a3b8", fontSize: "0.78rem" }}>{DATE}</div>
                 </div>
               </div>
-              <span style={{ color: "var(--text-muted)", fontSize: "0.85rem" }}>·</span>
-              <span style={{ color: "var(--text-subtle)", fontSize: "0.85rem" }}>⏱ {READ_TIME}</span>
+              <span style={{ color: "#64748b", fontSize: "0.85rem" }}>·</span>
+              <span style={{ color: "#94a3b8", fontSize: "0.85rem" }}>⏱ {READ_TIME}</span>
             </div>
           </div>
         </div>
       </div>
 
-      {/* ── BANNER RESUMEN ── */}
+      {/* ── SUMMARY BANNER ── */}
       <div style={{ background: "linear-gradient(135deg, #0d1b4b, #1a1a2e)", padding: "40px 24px" }}>
         <div style={{ maxWidth: "860px", margin: "0 auto", textAlign: "center" }}>
-          <p style={{ color: "var(--text-subtle)", fontSize: "1rem", lineHeight: 1.75, maxWidth: "680px", margin: "0 auto" }}>
-            En menos de una semana salieron los dos modelos más potentes del momento. Cobran lo mismo por token, manejan
-            un millón de tokens de contexto y los dos dicen ser el mejor para programar.{" "}
+          <p style={{ color: "#94a3b8", fontSize: "1rem", lineHeight: 1.75, maxWidth: "680px", margin: "0 auto" }}>
+            The two most capable models of the moment shipped in the same week. They charge the same per token, handle a
+            million tokens of context, and both claim to be the best at writing code.{" "}
             <strong style={{ color: "#e2e8f0" }}>
-              La respuesta corta: en calidad de código están empatados. La diferencia está en el costo por tarea y en
-              cómo trabajan dentro de un agente.
+              The short answer: on code quality they are tied. What separates them is the cost per task and how they
+              behave inside an agent loop.
             </strong>
           </p>
           <div style={{ display: "flex", gap: "40px", justifyContent: "center", marginTop: "32px", flexWrap: "wrap" }}>
             {[
               { num: "62 = 62", label: "Coding Agent Index" },
-              { num: "$10 / $50", label: "Mismo precio por millón" },
-              { num: "~⅓", label: "Tokens de salida de Astra vs Fable" },
+              { num: "$10 / $50", label: "Same price per million" },
+              { num: "~⅓", label: "Astra's output tokens vs Fable" },
             ].map((s) => (
               <div key={s.label} style={{ textAlign: "center" }}>
-                <div style={{ fontSize: "1.8rem", fontWeight: 800, color: "var(--brand)" }}>{s.num}</div>
-                <div style={{ color: "var(--text-subtle)", fontSize: "0.82rem", marginTop: "4px" }}>{s.label}</div>
+                <div style={{ fontSize: "1.8rem", fontWeight: 800, color: "#0072ff" }}>{s.num}</div>
+                <div style={{ color: "#94a3b8", fontSize: "0.82rem", marginTop: "4px" }}>{s.label}</div>
               </div>
             ))}
           </div>
         </div>
       </div>
 
-      {/* ── FICHA TÉCNICA ── */}
-      <div style={{ background: "var(--surface-2)", padding: "72px 24px" }}>
+      {/* ── SPEC SHEET ── */}
+      <div style={{ background: "#f8fafc", padding: "72px 24px" }}>
         <div style={{ maxWidth: "860px", margin: "0 auto" }}>
-          <h2 style={sectionTitle}>Ficha técnica</h2>
-          <p style={sectionLead}>Lo básico de cada modelo, con datos de la documentación oficial</p>
+          <h2 style={sectionTitle}>Spec sheet</h2>
+          <p style={sectionLead}>The basics of each model, taken from the official documentation</p>
           <div style={{ ...card, overflowX: "auto" }}>
             <table style={{ width: "100%", borderCollapse: "collapse", minWidth: "560px" }}>
               <thead>
                 <tr style={{ background: "linear-gradient(135deg, #1a1a2e, #0d1b4b)" }}>
-                  <th style={{ padding: "16px 20px", textAlign: "left", color: "var(--text-subtle)", fontSize: "0.8rem", fontWeight: 600 }} />
+                  <th style={{ padding: "16px 20px", textAlign: "left", color: "#94a3b8", fontSize: "0.8rem", fontWeight: 600 }} />
                   <th style={{ padding: "16px 20px", textAlign: "left", color: ASTRA, fontSize: "0.95rem", fontWeight: 800 }}>
                     GPT-6 Astra
                   </th>
@@ -449,14 +449,14 @@ export default function GptAstraVsFable() {
               </thead>
               <tbody>
                 {specs.map((row, i) => (
-                  <tr key={row.label} style={{ background: i % 2 ? "var(--surface-2)" : "var(--surface)" }}>
-                    <td style={{ padding: "14px 20px", color: "var(--text-muted)", fontSize: "0.88rem", fontWeight: 600 }}>{row.label}</td>
+                  <tr key={row.label} style={{ background: i % 2 ? "#f8fafc" : "#fff" }}>
+                    <td style={{ padding: "14px 20px", color: "#6b7280", fontSize: "0.88rem", fontWeight: 600 }}>{row.label}</td>
                     {["astra", "fable"].map((m) => (
                       <td
                         key={m}
                         style={{
                           padding: "14px 20px",
-                          color: "var(--ink)",
+                          color: "#1a1a2e",
                           fontSize: "0.92rem",
                           fontFamily: row.mono ? "Consolas, monospace" : "inherit",
                           fontWeight: row.win === m ? 800 : 500,
@@ -474,7 +474,7 @@ export default function GptAstraVsFable() {
                               borderRadius: "20px",
                             }}
                           >
-                            4× más barato
+                            4× cheaper
                           </span>
                         )}
                       </td>
@@ -488,11 +488,11 @@ export default function GptAstraVsFable() {
       </div>
 
       {/* ── BENCHMARKS ── */}
-      <div style={{ background: "var(--surface)", padding: "72px 24px" }}>
+      <div style={{ background: "#fff", padding: "72px 24px" }}>
         <div style={{ maxWidth: "860px", margin: "0 auto" }}>
-          <h2 style={sectionTitle}>Benchmarks: qué dicen los números</h2>
+          <h2 style={sectionTitle}>Benchmarks: what the numbers say</h2>
           <p style={sectionLead}>
-            Separamos las mediciones independientes (Artificial Analysis) de las que publica cada empresa.
+            Independent measurements (Artificial Analysis) kept separate from vendor-published numbers.
           </p>
 
           <div style={{ display: "flex", gap: "20px", justifyContent: "center", marginBottom: "28px", flexWrap: "wrap" }}>
@@ -500,7 +500,7 @@ export default function GptAstraVsFable() {
               { name: "GPT-6 Astra", color: ASTRA },
               { name: "Claude Fable 5.1", color: FABLE },
             ].map((l) => (
-              <span key={l.name} style={{ display: "flex", alignItems: "center", gap: "8px", color: "var(--text-soft)", fontSize: "0.9rem" }}>
+              <span key={l.name} style={{ display: "flex", alignItems: "center", gap: "8px", color: "#4b5563", fontSize: "0.9rem" }}>
                 <span style={{ width: "14px", height: "14px", borderRadius: "4px", background: l.color }} />
                 {l.name}
               </span>
@@ -520,18 +520,18 @@ export default function GptAstraVsFable() {
                     flexWrap: "wrap",
                   }}
                 >
-                  <h3 style={{ margin: 0, fontSize: "1rem", fontWeight: 700, color: "var(--ink)" }}>{b.name}</h3>
+                  <h3 style={{ margin: 0, fontSize: "1rem", fontWeight: 700, color: "#1a1a2e" }}>{b.name}</h3>
                   <span
                     style={{
                       fontSize: "0.72rem",
                       fontWeight: 700,
                       padding: "3px 12px",
                       borderRadius: "20px",
-                      background: b.source === "Independiente" ? "light-dark(#dcfce7, rgba(16,185,129,0.18))" : "var(--surface-3)",
-                      color: b.source === "Independiente" ? "light-dark(#166534, #86efac)" : "var(--text-muted)",
+                      background: b.source === "Independent" ? "#dcfce7" : "#f1f5f9",
+                      color: b.source === "Independent" ? "#166534" : "#64748b",
                     }}
                   >
-                    {b.source === "Independiente" ? "✓ Independiente" : `Publicado por ${b.source}`}
+                    {b.source === "Independent" ? "✓ Independent" : `Published by ${b.source}`}
                   </span>
                 </div>
                 <div style={{ display: "flex", flexDirection: "column", gap: "10px" }}>
@@ -545,96 +545,94 @@ export default function GptAstraVsFable() {
           <div
             style={{
               marginTop: "28px",
-              background: "linear-gradient(135deg, light-dark(#f0f7ff, rgba(0,114,255,0.12)), light-dark(#f5f3ff, rgba(124,58,237,0.12)))",
-              border: "1px solid light-dark(#dbeafe, rgba(77,154,255,0.3))",
+              background: "linear-gradient(135deg, #f0f7ff, #f5f3ff)",
+              border: "1px solid #dbeafe",
               borderRadius: "16px",
               padding: "20px 24px",
-              color: "var(--ink)",
+              color: "#1e293b",
               lineHeight: 1.7,
               fontSize: "0.95rem",
             }}
           >
-            <strong>Lectura rápida:</strong> Astra gana en tareas de terminal y en eficiencia. Fable 5.1 gana en
-            razonamiento difícil y trabajo de muchos pasos. En código agéntico general, empate. Anthropic, por su parte,
-            reporta que Fable 5.1 subió de 42,0% a 55,8% en Terminal-Bench 4.0 frente a Fable 5.
+            <strong>Quick read:</strong> Astra wins on terminal work and efficiency. Fable 5.1 wins on hard reasoning and
+            multi-step work. On general agentic coding, it is a tie. Anthropic, for its part, reports that Fable 5.1 went
+            from 42.0% to 55.8% on Terminal-Bench 4.0 compared with Fable 5.
           </div>
         </div>
       </div>
 
-      {/* ── COSTO REAL ── */}
-      <div style={{ background: "var(--surface-2)", padding: "72px 24px" }}>
+      {/* ── REAL COST ── */}
+      <div style={{ background: "#f8fafc", padding: "72px 24px" }}>
         <div style={{ maxWidth: "860px", margin: "0 auto" }}>
-          <h2 style={sectionTitle}>El costo real no es el precio por token</h2>
-          <p style={sectionLead}>Si los dos cobran $10 / $50, ¿por qué uno sale más barato?</p>
+          <h2 style={sectionTitle}>The real cost is not the price per token</h2>
+          <p style={sectionLead}>If both charge $10 / $50, why does one end up cheaper?</p>
 
           <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fit, minmax(260px, 1fr))", gap: "20px", marginBottom: "32px" }}>
             {[
               {
                 icon: "✍️",
-                title: "Tokens de salida",
-                body: "La salida es lo más caro y Astra escribe unos 27K tokens por tarea frente a 78K de Fable 5.1. En el Intelligence Index, Astra cuesta $3,26 por tarea y Fable 5.1 $7,63.",
+                title: "Output tokens",
+                body: "Output is the expensive half, and Astra writes around 27K tokens per task versus 78K for Fable 5.1. On the Intelligence Index, Astra costs $3.26 per task and Fable 5.1 $7.63.",
                 color: ASTRA,
               },
               {
                 icon: "🗄️",
-                title: "Caché",
-                body: "Fable 5.1 cobra la lectura de caché a $0,25 por millón, cuatro veces menos que antes. En sesiones de agente de horas, eso le ayuda bastante.",
+                title: "Caching",
+                body: "Fable 5.1 charges $0.25 per million for cache reads, four times less than before. In agent sessions that run for hours, that helps a lot.",
                 color: FABLE,
               },
             ].map((c) => (
               <div key={c.title} style={{ ...card, padding: "26px", borderTop: `4px solid ${c.color}` }}>
                 <div style={{ fontSize: "1.8rem", marginBottom: "10px" }}>{c.icon}</div>
-                <h3 style={{ margin: "0 0 8px", fontSize: "1.1rem", fontWeight: 700, color: "var(--ink)" }}>{c.title}</h3>
-                <p style={{ margin: 0, color: "var(--text-soft)", lineHeight: 1.7, fontSize: "0.95rem" }}>{c.body}</p>
+                <h3 style={{ margin: "0 0 8px", fontSize: "1.1rem", fontWeight: 700, color: "#1a1a2e" }}>{c.title}</h3>
+                <p style={{ margin: 0, color: "#4b5563", lineHeight: 1.7, fontSize: "0.95rem" }}>{c.body}</p>
               </div>
             ))}
           </div>
 
           <div style={{ ...card, overflowX: "auto" }}>
-            <div style={{ padding: "18px 22px", borderBottom: "1px solid var(--border)" }}>
-              <h3 style={{ margin: 0, fontSize: "1rem", fontWeight: 700, color: "var(--ink)" }}>
-                Ejemplo: una sesión de agente
-              </h3>
-              <p style={{ margin: "4px 0 0", color: "var(--text-muted)", fontSize: "0.85rem" }}>
-                200K tokens de entrada nueva, 1,8M leídos de caché y la salida típica de cada modelo
+            <div style={{ padding: "18px 22px", borderBottom: "1px solid #e5e7eb" }}>
+              <h3 style={{ margin: 0, fontSize: "1rem", fontWeight: 700, color: "#1a1a2e" }}>Example: one agent session</h3>
+              <p style={{ margin: "4px 0 0", color: "#6b7280", fontSize: "0.85rem" }}>
+                200K tokens of fresh input, 1.8M read from cache, and each model&apos;s typical output
               </p>
             </div>
             <table style={{ width: "100%", borderCollapse: "collapse", minWidth: "480px" }}>
               <thead>
                 <tr style={{ background: "linear-gradient(135deg, #1a1a2e, #0d1b4b)" }}>
-                  <th style={{ padding: "12px 20px", textAlign: "left", color: "var(--text-subtle)", fontSize: "0.8rem" }}>Concepto</th>
+                  <th style={{ padding: "12px 20px", textAlign: "left", color: "#94a3b8", fontSize: "0.8rem" }}>Item</th>
                   <th style={{ padding: "12px 20px", textAlign: "right", color: ASTRA, fontSize: "0.85rem" }}>GPT-6 Astra</th>
                   <th style={{ padding: "12px 20px", textAlign: "right", color: FABLE, fontSize: "0.85rem" }}>Fable 5.1</th>
                 </tr>
               </thead>
               <tbody>
                 {costRows.map((r, i) => (
-                  <tr key={r.label} style={{ background: i % 2 ? "var(--surface-2)" : "var(--surface)" }}>
-                    <td style={{ padding: "12px 20px", color: "var(--text-soft)", fontSize: "0.9rem" }}>{r.label}</td>
-                    <td style={{ padding: "12px 20px", textAlign: "right", color: "var(--ink)", fontSize: "0.9rem" }}>{r.astra}</td>
-                    <td style={{ padding: "12px 20px", textAlign: "right", color: "var(--ink)", fontSize: "0.9rem" }}>{r.fable}</td>
+                  <tr key={r.label} style={{ background: i % 2 ? "#f8fafc" : "#fff" }}>
+                    <td style={{ padding: "12px 20px", color: "#4b5563", fontSize: "0.9rem" }}>{r.label}</td>
+                    <td style={{ padding: "12px 20px", textAlign: "right", color: "#1a1a2e", fontSize: "0.9rem" }}>{r.astra}</td>
+                    <td style={{ padding: "12px 20px", textAlign: "right", color: "#1a1a2e", fontSize: "0.9rem" }}>{r.fable}</td>
                   </tr>
                 ))}
-                <tr style={{ borderTop: "2px solid var(--border)" }}>
-                  <td style={{ padding: "14px 20px", color: "var(--ink)", fontWeight: 800 }}>Total</td>
-                  <td style={{ padding: "14px 20px", textAlign: "right", color: ASTRA, fontWeight: 800, fontSize: "1.05rem" }}>$5,15</td>
-                  <td style={{ padding: "14px 20px", textAlign: "right", color: FABLE, fontWeight: 800, fontSize: "1.05rem" }}>$6,35</td>
+                <tr style={{ borderTop: "2px solid #e5e7eb" }}>
+                  <td style={{ padding: "14px 20px", color: "#1a1a2e", fontWeight: 800 }}>Total</td>
+                  <td style={{ padding: "14px 20px", textAlign: "right", color: ASTRA, fontWeight: 800, fontSize: "1.05rem" }}>$5.15</td>
+                  <td style={{ padding: "14px 20px", textAlign: "right", color: FABLE, fontWeight: 800, fontSize: "1.05rem" }}>$6.35</td>
                 </tr>
               </tbody>
             </table>
-            <p style={{ margin: 0, padding: "14px 22px", color: "var(--text-muted)", fontSize: "0.82rem", lineHeight: 1.6, borderTop: "1px solid var(--border)" }}>
-              Estimación simplificada: no incluye escritura de caché. Muestra que la caché barata de Fable no alcanza a
-              compensar que escribe casi tres veces más.
+            <p style={{ margin: 0, padding: "14px 22px", color: "#6b7280", fontSize: "0.82rem", lineHeight: 1.6, borderTop: "1px solid #e5e7eb" }}>
+              Simplified estimate: cache writes are not included. It shows that Fable&apos;s cheap cache does not fully
+              offset writing nearly three times as much.
             </p>
           </div>
         </div>
       </div>
 
-      {/* ── CUÁNDO ELEGIR ── */}
-      <div style={{ background: "var(--surface)", padding: "72px 24px" }}>
+      {/* ── WHICH ONE ── */}
+      <div style={{ background: "#fff", padding: "72px 24px" }}>
         <div style={{ maxWidth: "860px", margin: "0 auto" }}>
-          <h2 style={sectionTitle}>¿Cuál elegir según tu caso?</h2>
-          <p style={sectionLead}>No hay un ganador absoluto: depende de cómo programas</p>
+          <h2 style={sectionTitle}>Which one fits your case?</h2>
+          <p style={sectionLead}>There is no absolute winner: it depends on how you write code</p>
           <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fit, minmax(300px, 1fr))", gap: "24px" }}>
             {choose.map((c) => (
               <div key={c.model} style={{ ...card, padding: "30px", position: "relative", overflow: "hidden" }}>
@@ -656,13 +654,13 @@ export default function GptAstraVsFable() {
                     {c.icon}
                   </div>
                   <div>
-                    <h3 style={{ margin: 0, fontSize: "1.2rem", fontWeight: 800, color: "var(--ink)" }}>{c.model}</h3>
+                    <h3 style={{ margin: 0, fontSize: "1.2rem", fontWeight: 800, color: "#1a1a2e" }}>{c.model}</h3>
                     <div style={{ color: c.color, fontSize: "0.85rem", fontWeight: 700 }}>{c.tagline}</div>
                   </div>
                 </div>
                 <ul style={{ listStyle: "none", padding: 0, margin: 0 }}>
                   {c.items.map((item) => (
-                    <li key={item} style={{ display: "flex", gap: "10px", padding: "8px 0", color: "var(--text-soft)", lineHeight: 1.55, fontSize: "0.95rem" }}>
+                    <li key={item} style={{ display: "flex", gap: "10px", padding: "8px 0", color: "#4b5563", lineHeight: 1.55, fontSize: "0.95rem" }}>
                       <span style={{ color: c.color, fontWeight: 800 }}>✓</span>
                       {item}
                     </li>
@@ -674,18 +672,18 @@ export default function GptAstraVsFable() {
         </div>
       </div>
 
-      {/* ── CÓDIGO ── */}
-      <div style={{ background: "var(--surface-2)", padding: "72px 24px" }}>
+      {/* ── CODE ── */}
+      <div style={{ background: "#f8fafc", padding: "72px 24px" }}>
         <div style={{ maxWidth: "860px", margin: "0 auto" }}>
-          <h2 style={sectionTitle}>Pruébalos desde tu código</h2>
-          <p style={sectionLead}>La misma petición con el SDK oficial de cada empresa en Node.js</p>
+          <h2 style={sectionTitle}>Try them from your code</h2>
+          <p style={sectionLead}>The same request with each vendor&apos;s official Node.js SDK</p>
           <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fit, minmax(320px, 1fr))", gap: "20px" }}>
             <CodeBlock code={codeAstra} label="GPT-6 Astra · openai" color={ASTRA} />
             <CodeBlock code={codeFable} label="Claude Fable 5.1 · @anthropic-ai/sdk" color={FABLE} />
           </div>
 
-          <h3 style={{ fontSize: "1.3rem", fontWeight: 800, color: "var(--ink)", margin: "56px 0 20px", textAlign: "center" }}>
-            Si migras a Fable 5.1, revisa esto
+          <h3 style={{ fontSize: "1.3rem", fontWeight: 800, color: "#1a1a2e", margin: "56px 0 20px", textAlign: "center" }}>
+            Migrating to Fable 5.1? Check these
           </h3>
           <div style={{ position: "relative", paddingLeft: "8px" }}>
             <div
@@ -718,8 +716,8 @@ export default function GptAstraVsFable() {
                   {i + 1}
                 </div>
                 <div style={{ ...card, padding: "18px 22px", flex: 1 }}>
-                  <h4 style={{ margin: "0 0 6px", fontSize: "1rem", fontWeight: 700, color: "var(--ink)" }}>{m.title}</h4>
-                  <p style={{ margin: 0, color: "var(--text-soft)", lineHeight: 1.65, fontSize: "0.93rem" }}>{m.body}</p>
+                  <h4 style={{ margin: "0 0 6px", fontSize: "1rem", fontWeight: 700, color: "#1a1a2e" }}>{m.title}</h4>
+                  <p style={{ margin: 0, color: "#4b5563", lineHeight: 1.65, fontSize: "0.93rem" }}>{m.body}</p>
                 </div>
               </div>
             ))}
@@ -727,30 +725,28 @@ export default function GptAstraVsFable() {
         </div>
       </div>
 
-      {/* ── ALTERNATIVAS + VEREDICTO ── */}
-      <div style={{ background: "var(--surface)", padding: "72px 24px" }}>
+      {/* ── ALTERNATIVES + VERDICT ── */}
+      <div style={{ background: "#fff", padding: "72px 24px" }}>
         <div style={{ maxWidth: "860px", margin: "0 auto" }}>
-          <h2 style={sectionTitle}>¿Y si ninguno de los dos?</h2>
-          <p style={sectionLead}>Para el día a día, muchas veces sobra con algo más barato</p>
+          <h2 style={sectionTitle}>What if neither?</h2>
+          <p style={sectionLead}>For everyday work, something cheaper is often enough</p>
           <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fit, minmax(240px, 1fr))", gap: "18px", marginBottom: "56px" }}>
             {alternatives.map((a) => (
               <div key={a.name} style={{ ...card, padding: "22px" }}>
-                <h3 style={{ margin: "0 0 4px", fontSize: "1.02rem", fontWeight: 700, color: "var(--ink)" }}>{a.name}</h3>
-                <div style={{ color: "var(--brand)", fontWeight: 700, fontSize: "0.88rem", marginBottom: "10px" }}>{a.price}</div>
-                <p style={{ margin: 0, color: "var(--text-soft)", lineHeight: 1.6, fontSize: "0.92rem" }}>{a.note}</p>
+                <h3 style={{ margin: "0 0 4px", fontSize: "1.02rem", fontWeight: 700, color: "#1a1a2e" }}>{a.name}</h3>
+                <div style={{ color: "#0072ff", fontWeight: 700, fontSize: "0.88rem", marginBottom: "10px" }}>{a.price}</div>
+                <p style={{ margin: 0, color: "#4b5563", lineHeight: 1.6, fontSize: "0.92rem" }}>{a.note}</p>
               </div>
             ))}
           </div>
 
           <div style={{ background: "linear-gradient(135deg, #1a1a2e, #0d1b4b)", borderRadius: "24px", padding: "40px 32px" }}>
-            <h2 style={{ color: "#fff", fontSize: "1.6rem", fontWeight: 800, margin: "0 0 24px", textAlign: "center" }}>
-              Veredicto
-            </h2>
+            <h2 style={{ color: "#fff", fontSize: "1.6rem", fontWeight: 800, margin: "0 0 24px", textAlign: "center" }}>Verdict</h2>
             <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fit, minmax(220px, 1fr))", gap: "16px" }}>
               {[
-                { k: "Mejor calidad/precio", v: "GPT-6 Astra", c: ASTRA },
-                { k: "Mejor en tareas largas y difíciles", v: "Claude Fable 5.1", c: FABLE },
-                { k: "Mejor para el día a día", v: "Un modelo intermedio", c: "#0ea5e9" },
+                { k: "Best value for money", v: "GPT-6 Astra", c: ASTRA },
+                { k: "Best for long, hard tasks", v: "Claude Fable 5.1", c: FABLE },
+                { k: "Best for everyday work", v: "A mid-tier model", c: "#0ea5e9" },
               ].map((x) => (
                 <div
                   key={x.k}
@@ -762,32 +758,32 @@ export default function GptAstraVsFable() {
                     textAlign: "center",
                   }}
                 >
-                  <div style={{ color: "var(--text-subtle)", fontSize: "0.82rem", marginBottom: "6px" }}>{x.k}</div>
+                  <div style={{ color: "#94a3b8", fontSize: "0.82rem", marginBottom: "6px" }}>{x.k}</div>
                   <div style={{ color: x.c, fontWeight: 800, fontSize: "1.1rem" }}>{x.v}</div>
                 </div>
               ))}
             </div>
             <p style={{ color: "#cbd5e1", textAlign: "center", lineHeight: 1.7, margin: "24px auto 0", maxWidth: "600px" }}>
-              Lo más útil es probar los dos con tu propio repositorio durante una semana. Los benchmarks marcan
-              tendencia, pero tu código es el que decide.
+              The most useful thing you can do is run both against your own repository for a week. Benchmarks show the
+              trend, but your codebase casts the deciding vote.
             </p>
           </div>
         </div>
       </div>
 
       {/* ── FAQ ── */}
-      <div style={{ background: "var(--surface-2)", padding: "72px 24px" }}>
+      <div style={{ background: "#f8fafc", padding: "72px 24px" }}>
         <div style={{ maxWidth: "720px", margin: "0 auto" }}>
-          <h2 style={{ ...sectionTitle, marginBottom: "40px" }}>Preguntas Frecuentes</h2>
+          <h2 style={{ ...sectionTitle, marginBottom: "40px" }}>Frequently Asked Questions</h2>
           {faqs.map((faq, i) => (
             <FAQItem key={i} faq={faq} />
           ))}
 
-          <h3 style={{ fontSize: "1.1rem", fontWeight: 700, color: "var(--ink)", margin: "56px 0 14px" }}>Fuentes</h3>
-          <ul style={{ margin: 0, paddingLeft: "20px", color: "var(--text-soft)", lineHeight: 1.9, fontSize: "0.9rem" }}>
+          <h3 style={{ fontSize: "1.1rem", fontWeight: 700, color: "#1a1a2e", margin: "56px 0 14px" }}>Sources</h3>
+          <ul style={{ margin: 0, paddingLeft: "20px", color: "#4b5563", lineHeight: 1.9, fontSize: "0.9rem" }}>
             {sources.map((s) => (
               <li key={s.href}>
-                <a href={s.href} target="_blank" rel="noopener noreferrer" style={{ color: "var(--brand)" }}>
+                <a href={s.href} target="_blank" rel="noopener noreferrer" style={{ color: "#0072ff" }}>
                   {s.label}
                 </a>
               </li>
@@ -797,7 +793,7 @@ export default function GptAstraVsFable() {
       </div>
 
       {/* ── CTA ── */}
-      <div style={{ background: "var(--surface)", padding: "72px 24px" }}>
+      <div style={{ background: "#fff", padding: "72px 24px" }}>
         <div style={{ maxWidth: "720px", margin: "0 auto" }}>
           <div
             style={{
@@ -809,16 +805,16 @@ export default function GptAstraVsFable() {
           >
             <div style={{ fontSize: "2.5rem", marginBottom: "16px" }}>🤖</div>
             <h2 style={{ color: "#fff", fontSize: "1.5rem", fontWeight: 800, marginBottom: "12px" }}>
-              ¿Quieres sacarle más provecho a tu agente de código?
+              Want to get more out of your coding agent?
             </h2>
-            <p style={{ color: "var(--text-subtle)", lineHeight: 1.7, maxWidth: "500px", margin: "0 auto 32px" }}>
-              Elegir el modelo es solo el primer paso. Aprende a darle contexto con{" "}
-              <strong style={{ color: "#93c5fd" }}>skills para Claude Code</strong> y a trabajar con agentes de IA en
-              tus proyectos.
+            <p style={{ color: "#94a3b8", lineHeight: 1.7, maxWidth: "500px", margin: "0 auto 32px" }}>
+              Picking the model is only the first step. Learn how to give it context with{" "}
+              <strong style={{ color: "#93c5fd" }}>Claude Code skills</strong> and how to work with AI agents in your own
+              projects.
             </p>
             <div style={{ display: "flex", gap: "16px", justifyContent: "center", flexWrap: "wrap" }}>
               <a
-                href="/blog/consejos-skills-claude-code"
+                href="/en/blog/claude-code-skills-tips"
                 style={{
                   background: "linear-gradient(135deg, #0072ff, #0d47a1)",
                   color: "#fff",
@@ -830,10 +826,10 @@ export default function GptAstraVsFable() {
                   display: "inline-block",
                 }}
               >
-                Leer sobre skills →
+                Read about skills →
               </a>
               <a
-                href="/blog"
+                href="/en/blog"
                 style={{
                   background: "rgba(255,255,255,0.08)",
                   border: "1px solid rgba(255,255,255,0.15)",
@@ -846,7 +842,7 @@ export default function GptAstraVsFable() {
                   display: "inline-block",
                 }}
               >
-                Ver más artículos
+                More articles
               </a>
             </div>
           </div>

@@ -16,6 +16,30 @@ import mundialSimulator from "../../public/images/mundial-simulator-portada.webp
 // `titulo` y `description` se mantienen como fallback (español).
 const proyectos = [
   {
+    key: "concesionario_alquiler_autos",
+    titulo: "Página Web para Concesionarios y Alquiler de Autos",
+    imagen: "/images/proyectos/concesionario/portada.webp",
+    description:
+      "Sitio premium para concesionarios y rent a car: showroom 3D con Three.js donde giras el auto y cambias el color de la pintura, inventario filtrable y hero en video. Hecho con Next.js 16.",
+    url: "/proyectos/concesionario_alquiler_autos",
+  },
+  {
+    key: "oakhaven_videojuego",
+    titulo: "Oakhaven — Videojuego 2D Estilo Bloodborne",
+    imagen: "/images/proyectos/oakhaven/portada.webp",
+    description:
+      "Videojuego 2D de acción gótica estilo Bloodborne y metroidvania, hecho en Unity 6: combate con espada y pistola, esquiva, progresión estilo Elden Ring y cooperativo local.",
+    url: "/proyectos/oakhaven_videojuego",
+  },
+  {
+    key: "diccionario_rimas_compositor",
+    titulo: "Diccionario de Rimas y Asistente de Composición",
+    imagen: "/images/proyectos/rimas/portada.webp",
+    description:
+      "Diccionario de rimas en español para freestyle con más de 645.000 palabras y un editor de letras que cuenta sílabas, marca el esquema de rima y sugiere rimas. Con Next.js y IA (Claude o Gemini).",
+    url: "/proyectos/diccionario_rimas_compositor",
+  },
+  {
     key: "sistema_crm",
     titulo: "Sistema CRM - Gestión de Clientes y Ventas",
     imagen: "https://images.pexels.com/photos/1181467/pexels-photo-1181467.jpeg?auto=compress&cs=tinysrgb&w=600",

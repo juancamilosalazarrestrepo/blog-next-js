@@ -76,7 +76,7 @@ const DynamicPost: NextPage<Props> = ({ frontMatter, mdxSource, alternatePaths }
 
 // Slugs that have their own dedicated page file and shouldn't use the dynamic route
 const DEDICATED_PAGES_ES = ['agentes-ia-programacion-2026', 'consejos-skills-claude-code', 'gpt-6-astra-vs-fable-5-1-programar', 'jev-typesafe-ai-modelo-decisiones'];
-const DEDICATED_PAGES_EN = ['ai-agents-programming-2026'];
+const DEDICATED_PAGES_EN = ['ai-agents-programming-2026', 'gpt-6-astra-vs-fable-5-1-coding'];
 
 export const getStaticPaths: GetStaticPaths = async ({ locales }) => {
   const paths: { params: { slug: string }; locale: string }[] = [];

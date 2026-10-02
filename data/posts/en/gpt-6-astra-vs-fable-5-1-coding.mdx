@@ -1,0 +1,112 @@
+---
+{
+  "title": "GPT-6 Astra vs Claude Fable 5.1: which model is better for coding in 2026?",
+  "subtitle": "We compare GPT-6 Astra and Claude Fable 5.1 for coding: independent benchmarks, pricing, context window and when each model is the right call in 2026.",
+  "image": "/images/gpt-6-astra-vs-fable-5-1-programar.webp",
+  "imageOG": "/images/gpt-6-astra-vs-fable-5-1-programar.webp",
+  "thumb": "/images/gpt-6-astra-vs-fable-5-1-programar.webp",
+  "date": "2026-09-12",
+  "keywords": ["GPT-6 Astra", "Claude Fable 5.1", "GPT-6 Astra vs Fable 5.1", "best AI model for coding 2026", "Claude Code", "OpenAI Codex", "AI coding benchmarks", "LLM API pricing", "coding agents", "OpenAI vs Anthropic"]
+}
+---
+
+# GPT-6 Astra vs Claude Fable 5.1: which model is better for coding in 2026?
+
+The two most capable models of the moment shipped in the same week. Anthropic made **Claude Fable 5.1** generally available on September 1, 2026, and OpenAI answered with **GPT-6 Astra** on September 3. Both charge the same per token, both handle roughly a million tokens of context, and both claim to be the best at writing code.
+
+The short answer: **on code quality they are tied**. What separates them is the cost per task, how they behave inside an agent loop, and which tools you already use every day.
+
+## Spec sheet
+
+| | GPT-6 Astra | Claude Fable 5.1 |
+|---|---|---|
+| Released | September 3, 2026 | September 1, 2026 |
+| API ID | `gpt-6-astra` | `claude-fable-5-1` |
+| Context window | ~1.05M tokens | 1M tokens |
+| Max output | 128K tokens | 128K tokens |
+| Input / output price | $10 / $50 per million | $10 / $50 per million |
+| Cache read | $1 per million | $0.25 per million |
+| Own coding agent | Codex | Claude Code |
+| Also available on | ChatGPT, Amazon Bedrock | Bedrock, Google Cloud, Microsoft Foundry, GitHub Copilot |
+
+## Benchmarks: what the numbers say
+
+Keep vendor-published numbers separate from third-party measurements.
+
+**Independent data (Artificial Analysis):**
+
+- **Coding Agent Index:** tied at 62 points (Astra inside Codex, Fable 5.1 inside Claude Code).
+- **Intelligence Index:** tied at 53 points.
+- **Terminal-Bench 4.0:** Astra 59% and Fable 5.1 52%.
+- **Output tokens per task:** Astra around 27K, Fable 5.1 around 78K. Astra reaches the same result writing about a third as much.
+
+**Numbers published by OpenAI:**
+
+- **Terminal-Bench 4.0:** Astra 57.7% and Fable 5.1 55.8%.
+- **DeepSWE v1.1:** Astra 74.1% and Fable 5.1 67.4%.
+- **Humanity's Last Exam with tools:** Fable 5.1 65.0% and Astra 57.2%. Claude wins this one.
+
+**Numbers published by Anthropic:** Fable 5.1 scores 55.8% on Terminal-Bench 4.0 (Fable 5 was at 42.0%) and 73.4 on CursorBench 3.2.0.
+
+The takeaway: **Astra wins on terminal work and efficiency**. **Fable 5.1 wins on hard reasoning** and long, multi-step work. On general agentic coding, it is a tie.
+
+## The real cost is not the price per token
+
+If both charge $10 / $50, why does one end up cheaper? Two reasons:
+
+1. **Output tokens.** Output is the expensive half, and Astra writes far less to reach the same result. According to Artificial Analysis, it costs $3.26 per task on the Intelligence Index versus $7.63 for Fable 5.1. On the coding agent index, Fable 5.1 runs about 40% more expensive.
+2. **Caching.** Fable 5.1 charges $0.25 per million for cache reads. In agent sessions that run for hours and re-read the same context, that helps.
+
+**Illustrative example:** an agent session with 200K tokens of fresh input, 1.8M read from cache, and each model's typical output.
+
+| | GPT-6 Astra | Claude Fable 5.1 |
+|---|---|---|
+| Fresh input (200K) | $2.00 | $2.00 |
+| Cache reads (1.8M) | $1.80 | $0.45 |
+| Output | $1.35 (27K) | $3.90 (78K) |
+| **Total** | **$5.15** | **$6.35** |
+
+This is a simplified estimate (cache writes are not included), but it shows the point: Fable's cheap cache does not fully offset writing nearly three times as much.
+
+## When to pick GPT-6 Astra
+
+- You pay for the API yourself and want the best result per dollar.
+- Your work runs through the terminal: scripts, DevOps, CI, migrations.
+- You already use ChatGPT or Codex daily.
+- You need speed: Fast mode runs up to 2.5× faster, at twice the price.
+
+## When to pick Claude Fable 5.1
+
+- Long, ambiguous tasks: large refactors, multi-file migrations, or debugging something nobody understands.
+- Hard reasoning, where a confidently wrong answer is expensive.
+- You already work in Claude Code or GitHub Copilot.
+- Very long sessions with a lot of cached context.
+
+## What changes in your code if you migrate to Fable 5.1
+
+- **Forced `tool_choice` is rejected** (`any` or `tool`): it returns a 400 error. Use `auto` with `strict: true`, or structured outputs.
+- **History must be append-only.** Editing earlier messages invalidates thinking blocks. Claude Code and the Agent SDK already handle this for you.
+- **It tends to rewrite whole files** for small changes. Ask for targeted edits to save output tokens.
+- **New in beta:** change the effort level mid-conversation without losing the prompt cache.
+
+## What if neither?
+
+For everyday work something cheaper is often enough. Anthropic itself recommends starting with **Claude Opus 5** ($5 / $25) and moving up to Fable 5.1 only if your evals ask for it. **Claude Sonnet 5** ($2 / $10) is fast for completions and small changes. If you want to work offline, Meta's **Muse Glimmer** (open weights, 30B) runs on a 24 GB GPU.
+
+## Verdict
+
+- **Best value for money:** GPT-6 Astra.
+- **Best for long, hard tasks:** Claude Fable 5.1.
+- **Best for everyday work:** neither; a mid-tier model gives you more.
+
+The most useful thing you can do is run both against **your own repository** for a week. Benchmarks show the trend, but your codebase casts the deciding vote.
+
+## Sources
+
+- [Claude Fable 5.1 — Claude Platform Docs](https://platform.claude.com/docs/en/models/fable-5-1/overview)
+- [What's new in Claude Fable 5.1](https://platform.claude.com/docs/en/models/fable-5-1/whats-new-fable-5-1)
+- [Benchmarking GPT-6 Astra — Artificial Analysis](https://artificialanalysis.ai/articles/benchmarking-gpt-6-astra)
+- [GPT-6 Astra: Features, Benchmarks, and Pricing — DataCamp](https://www.datacamp.com/blog/gpt-6-astra)
+- [GPT-6 Astra Benchmarks Explained — Vellum](https://www.vellum.ai/blog/gpt-6-astra-benchmarks-explained)
+- [Claude Fable 5.1: Same Sticker, Cheaper Cache — LLM Stats](https://llm-stats.com/blog/research/claude-fable-5-1-launch)
+- [Claude Fable 5.1 in GitHub Copilot — GitHub Changelog](https://github.blog/changelog/2026-09-01-claude-fable-5-1-generally-available-in-github-copilot/)
