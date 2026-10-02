@@ -170,7 +170,7 @@ const VelmaxConsultorios = () => {
                         <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
                             {/* Feature 1 */}
                             <div className="flex flex-col gap-5 p-8 rounded-3xl bg-slate-50 dark:bg-slate-800/50 border border-slate-100 dark:border-slate-800 shadow-[0_4px_20px_-4px_rgba(0,0,0,0.05)] hover:shadow-lg transition-shadow">
-                                <div className="w-14 h-14 rounded-2xl bg-[#2563eb]/10 flex items-center justify-center text-[#2563eb]">
+                                <div className="w-14 h-14 rounded-2xl bg-[#2563eb]/10 flex items-center justify-center text-[#2563eb] dark:text-blue-400">
                                     <svg className="w-8 h-8" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                                         <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 11H5m14 0a2 2 0 012 2v6a2 2 0 01-2 2H5a2 2 0 01-2-2v-6a2 2 0 012-2m14 0V9a2 2 0 00-2-2M5 11V9a2 2 0 012-2m0 0V5a2 2 0 012-2h6a2 2 0 012 2v2M7 7h10" />
                                     </svg>
@@ -196,7 +196,7 @@ const VelmaxConsultorios = () => {
 
                             {/* Feature 3 */}
                             <div className="flex flex-col gap-5 p-8 rounded-3xl bg-slate-50 dark:bg-slate-800/50 border border-slate-100 dark:border-slate-800 shadow-[0_4px_20px_-4px_rgba(0,0,0,0.05)] hover:shadow-lg transition-shadow">
-                                <div className="w-14 h-14 rounded-2xl bg-[#3b82f6]/10 flex items-center justify-center text-[#3b82f6]">
+                                <div className="w-14 h-14 rounded-2xl bg-[#3b82f6]/10 flex items-center justify-center text-[#3b82f6] dark:text-blue-300">
                                     <svg className="w-8 h-8" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                                         <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M21 12a9 9 0 01-9 9m9-9a9 9 0 00-9-9m9 9H3m9 9a9 9 0 01-9-9m9 9c1.657 0 3-4.03 3-9s-1.343-9-3-9m0 18c-1.657 0-3-4.03-3-9s1.343-9 3-9m-9 9a9 9 0 019-9" />
                                     </svg>
@@ -233,11 +233,11 @@ const VelmaxConsultorios = () => {
                             <div className="md:w-7/12 p-10 lg:p-14 flex flex-col justify-center">
                                 <div className="grid grid-cols-2 gap-6 mb-10">
                                     <div className="bg-[#2563eb]/5 p-6 rounded-3xl text-center border border-[#2563eb]/20">
-                                        <span className="block text-4xl font-black text-[#2563eb] mb-1">30+</span>
+                                        <span className="block text-4xl font-black text-[#2563eb] dark:text-blue-400 mb-1">30+</span>
                                         <span className="text-xs text-slate-500 dark:text-slate-400 font-bold uppercase tracking-wider">{c.statSpecialties}</span>
                                     </div>
                                     <div className="bg-[#3b82f6]/5 p-6 rounded-3xl text-center border border-[#3b82f6]/20">
-                                        <span className="block text-4xl font-black text-[#3b82f6] mb-1">3x</span>
+                                        <span className="block text-4xl font-black text-[#3b82f6] dark:text-blue-300 mb-1">3x</span>
                                         <span className="text-xs text-slate-500 dark:text-slate-400 font-bold uppercase tracking-wider">{c.statTraffic}</span>
                                     </div>
                                 </div>
@@ -316,7 +316,7 @@ const VelmaxConsultorios = () => {
                 {/* CTA Section */}
                 <section className="px-6 py-24 text-center bg-white dark:bg-slate-900">
                     <div className="max-w-3xl mx-auto flex flex-col items-center">
-                        <div className="w-20 h-20 bg-[#2563eb]/10 rounded-full flex items-center justify-center mb-8 text-[#2563eb]">
+                        <div className="w-20 h-20 bg-[#2563eb]/10 rounded-full flex items-center justify-center mb-8 text-[#2563eb] dark:text-blue-400">
                             <svg className="w-10 h-10" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                                 <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M21 13.255A23.931 23.931 0 0112 15c-3.183 0-6.22-.62-9-1.745M16 6V4a2 2 0 00-2-2h-4a2 2 0 00-2 2v2m4 6h.01M5 20h14a2 2 0 002-2V8a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" />
                             </svg>

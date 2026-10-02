@@ -23,7 +23,7 @@ const Portfolio = ({ proyectos }) => {
         <h2 style={{
           fontSize: "1.75rem",
           fontWeight: 700,
-          color: "#1a1a2e",
+          color: "var(--ink)",
           textAlign: "center",
           marginBottom: "40px",
           marginTop: "20px",
@@ -49,7 +49,7 @@ const Portfolio = ({ proyectos }) => {
           {proyectos.map((proyecto) => (
             <Link href={proyecto.url} key={proyecto.url} style={{ textDecoration: "none" }}>
               <div style={{
-                background: "#fff",
+                background: "var(--surface)",
                 borderRadius: "16px",
                 overflow: "hidden",
                 boxShadow: "0 4px 16px rgba(0,0,0,0.06)",
@@ -78,10 +78,10 @@ const Portfolio = ({ proyectos }) => {
                   />
                 </div>
                 <div style={{ padding: "24px", display: "flex", flexDirection: "column", flex: 1 }}>
-                  <h3 style={{ fontSize: "1.05rem", fontWeight: 700, color: "#1a1a2e", marginBottom: "8px", lineHeight: 1.3 }}>
+                  <h3 style={{ fontSize: "1.05rem", fontWeight: 700, color: "var(--ink)", marginBottom: "8px", lineHeight: 1.3 }}>
                     {proyecto.titulo}
                   </h3>
-                  <p style={{ color: "#6b7280", fontSize: "0.88rem", lineHeight: 1.5, flex: 1, marginBottom: "16px" }}>
+                  <p style={{ color: "var(--text-muted)", fontSize: "0.88rem", lineHeight: 1.5, flex: 1, marginBottom: "16px" }}>
                     {proyecto.description}
                   </p>
                   <span style={{

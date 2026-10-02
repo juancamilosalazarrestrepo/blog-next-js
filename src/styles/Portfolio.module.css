@@ -1,14 +1,14 @@
 .portfolioContainer {
   text-align: center;
   padding: 50px 20px;
-  background: #f8faff;
+  background: light-dark(#f8faff, rgba(77,154,255,0.08));
   margin-bottom: 70px;
   border-radius: 16px;
 }
 
 .sectionTitle {
   font-size: 1.75rem;
-  color: #1a1a2e;
+  color: var(--ink);
   margin-bottom: 30px;
   font-weight: 700;
   position: relative;
@@ -38,10 +38,10 @@
 }
 
 .projectCard {
-  background: white;
+  background: var(--surface);
   border-radius: 14px;
   box-shadow: 0 4px 16px rgba(0, 0, 0, 0.06);
-  border: 1px solid rgba(0, 0, 0, 0.04);
+  border: 1px solid color-mix(in srgb, var(--ink) 4%, transparent);
   overflow: hidden;
   transition: transform 0.35s cubic-bezier(.25, .46, .45, .94), box-shadow 0.35s cubic-bezier(.25, .46, .45, .94);
   cursor: pointer;
@@ -61,13 +61,13 @@
 .projectTitle {
   font-size: 18px;
   margin: 10px 0;
-  color: #1a1a2e;
+  color: var(--ink);
   font-weight: 700;
 }
 
 .projectDescription {
   font-size: 14px;
-  color: #6b7280;
+  color: var(--text-muted);
   padding: 0 10px 20px;
 }
 
@@ -78,7 +78,7 @@
 
 .subTitle {
   font-size: 1.4rem;
-  color: #1a1a2e;
+  color: var(--ink);
   margin-bottom: 20px;
   font-weight: 700;
 }
@@ -91,13 +91,13 @@
 }
 
 .testimonialCard {
-  background: white;
+  background: var(--surface);
   padding: 24px;
   border-radius: 14px;
   box-shadow: 0 4px 16px rgba(0, 0, 0, 0.06);
   width: 300px;
   max-width: 100%;
-  border: 1px solid rgba(0, 0, 0, 0.04);
+  border: 1px solid color-mix(in srgb, var(--ink) 4%, transparent);
   transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
 
@@ -108,7 +108,7 @@
 
 .testimonialText {
   font-size: 14px;
-  color: #4b5563;
+  color: var(--text-soft);
   font-style: italic;
   margin-bottom: 10px;
   line-height: 1.5;
@@ -117,7 +117,7 @@
 .testimonialAuthor {
   font-size: 16px;
   font-weight: 700;
-  color: #1a1a2e;
+  color: var(--ink);
 }
 
 /* Experience */
@@ -133,14 +133,14 @@
 }
 
 .experienceCard {
-  background: white;
+  background: var(--surface);
   padding: 24px;
   border-radius: 14px;
   box-shadow: 0 4px 16px rgba(0, 0, 0, 0.06);
   max-width: 500px;
   width: 100%;
   text-align: left;
-  border: 1px solid rgba(0, 0, 0, 0.04);
+  border: 1px solid color-mix(in srgb, var(--ink) 4%, transparent);
   transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
 
@@ -152,18 +152,18 @@
 .experienceCompany {
   font-size: 18px;
   font-weight: 700;
-  color: #1a1a2e;
+  color: var(--ink);
 }
 
 .experiencePeriod {
   font-size: 14px;
-  color: #0072ff;
+  color: var(--brand);
   font-weight: 500;
 }
 
 .experienceDescription {
   font-size: 14px;
-  color: #6b7280;
+  color: var(--text-muted);
   line-height: 1.5;
 }
 

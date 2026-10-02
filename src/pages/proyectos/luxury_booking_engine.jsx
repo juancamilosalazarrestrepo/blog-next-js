@@ -130,10 +130,10 @@ const LuxuryBookingEngine = () => {
                         <span className="bg-white/40 px-4 py-1.5 rounded-full text-[10px] md:text-xs font-bold uppercase tracking-widest mb-6 inline-block border border-[#1e3a8a]/20 backdrop-blur-md shadow-sm" style={{ color: '#1e3a8a' }}>
                             {c.badge}
                         </span>
-                        <h1 className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-black mb-6 leading-[1.05] tracking-tight" style={{ color: '#0f172a' }}>
+                        <h1 className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-black mb-6 leading-[1.05] tracking-tight" style={{ color: 'var(--ink)' }}>
                             Luxury Booking <span style={{ background: 'linear-gradient(90deg, #1e3a8a 0%, #3b82f6 100%)', WebkitBackgroundClip: 'text', WebkitTextFillColor: 'transparent' }}>Engine</span>
                         </h1>
-                        <p className="text-lg md:text-xl lg:text-2xl mb-10 font-semibold leading-relaxed max-w-2xl mx-auto lg:mx-0 shadow-sm" style={{ color: '#1e293b' }}>
+                        <p className="text-lg md:text-xl lg:text-2xl mb-10 font-semibold leading-relaxed max-w-2xl mx-auto lg:mx-0 shadow-sm" style={{ color: 'var(--ink)' }}>
                             {c.heroSubtitle}
                         </p>
                         <div className="flex flex-col sm:flex-row gap-4 justify-center lg:justify-start relative z-[7000]">

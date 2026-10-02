@@ -89,8 +89,8 @@
 }
 
 .btnPrimary {
-  background: white;
-  color: #1e3a8a;
+  background: var(--surface);
+  color: light-dark(#1e3a8a, #93c5fd);
   box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
 }
 
@@ -131,7 +131,7 @@
   position: absolute;
   bottom: 2rem;
   right: -2rem;
-  background: white;
+  background: var(--surface);
   padding: 1.5rem;
   border-radius: 15px;
   box-shadow: 0 10px 40px rgba(0, 0, 0, 0.2);
@@ -147,13 +147,13 @@
 
 .cardTitle {
   font-weight: 700;
-  color: #333;
+  color: var(--ink);
   margin: 0;
   font-size: 1rem;
 }
 
 .cardText {
-  color: #666;
+  color: var(--text-muted);
   margin: 0;
   font-size: 0.875rem;
 }
@@ -161,7 +161,7 @@
 /* Sections */
 .section {
   padding: 6rem 2rem;
-  background: #f8f9fa;
+  background: var(--surface-2);
 }
 
 .container {
@@ -177,13 +177,13 @@
 .sectionTitle {
   font-size: 2.5rem;
   font-weight: 800;
-  color: #2d3748;
+  color: var(--ink);
   margin-bottom: 1rem;
 }
 
 .sectionSubtitle {
   font-size: 1.125rem;
-  color: #718096;
+  color: var(--text-muted);
   max-width: 600px;
   margin: 0 auto;
 }
@@ -196,12 +196,12 @@
 }
 
 .featureCard {
-  background: white;
+  background: var(--surface);
   padding: 2rem;
   border-radius: 15px;
   box-shadow: 0 5px 20px rgba(0, 0, 0, 0.08);
   transition: all 0.3s ease;
-  border: 1px solid #e2e8f0;
+  border: 1px solid var(--border);
 }
 
 .featureCard:hover {
@@ -217,12 +217,12 @@
 .featureTitle {
   font-size: 1.25rem;
   font-weight: 700;
-  color: #2d3748;
+  color: var(--ink);
   margin-bottom: 0.75rem;
 }
 
 .featureDescription {
-  color: #718096;
+  color: var(--text-muted);
   line-height: 1.7;
 }
 
@@ -238,7 +238,7 @@
 }
 
 .techSection .sectionSubtitle {
-  color: #a0aec0;
+  color: var(--text-subtle);
 }
 
 .techTabs {
@@ -265,9 +265,9 @@
 }
 
 .tabButton.active {
-  background: white;
-  color: #2d3748;
-  border-color: white;
+  background: var(--surface);
+  color: var(--ink);
+  border-color: var(--surface);
 }
 
 .techGrid {
@@ -305,7 +305,7 @@
 /* Challenges Section */
 .challengesSection {
   padding: 6rem 2rem;
-  background: white;
+  background: var(--surface);
 }
 
 .challengesGrid {
@@ -348,13 +348,13 @@
 .challengeTitle {
   font-size: 1.5rem;
   font-weight: 700;
-  color: #2d3748;
+  color: var(--ink);
   margin-bottom: 1rem;
   margin-top: 1rem;
 }
 
 .challengeDescription {
-  color: #718096;
+  color: var(--text-muted);
   line-height: 1.7;
   margin-bottom: 1rem;
 }
@@ -456,8 +456,8 @@
   align-items: center;
   gap: 0.75rem;
   padding: 1rem 2rem;
-  background: white;
-  color: #1e3a8a;
+  background: var(--surface);
+  color: light-dark(#1e3a8a, #93c5fd);
   border-radius: 50px;
   font-weight: 700;
   text-decoration: none;
@@ -515,8 +515,8 @@
 }
 
 .btnCta {
-  background: white;
-  color: #1e40af;
+  background: var(--surface);
+  color: light-dark(#1e40af, #93c5fd);
   box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
 }
 

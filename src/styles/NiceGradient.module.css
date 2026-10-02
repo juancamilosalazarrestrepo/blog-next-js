@@ -3,8 +3,8 @@
 .projectContainer {
   min-height: 100vh;
   width: 100%;
-  background: #ffffff;
-  color: #333333;
+  background: var(--surface);
+  color: var(--ink);
 }
 
 /* Hero Section - Full Width */
@@ -263,7 +263,7 @@
   max-width: 1200px;
   margin: 0 auto;
   padding: 0 2rem;
-  background: #ffffff;
+  background: var(--surface);
 }
 
 /* Section Spacing */
@@ -294,7 +294,7 @@
 
 .sectionHeader p {
   font-size: 1.125rem;
-  color: #666666;
+  color: var(--text-muted);
   max-width: 600px;
   margin: 0 auto;
 }
@@ -307,9 +307,9 @@
 }
 
 .featureCard {
-  background: #ffffff;
+  background: var(--surface);
   backdrop-filter: blur(10px);
-  border: 1px solid #e1e5e9;
+  border: 1px solid var(--border);
   border-radius: 20px;
   padding: 2rem;
   transition: all 0.3s ease;
@@ -343,12 +343,12 @@
 .featureCard h3 {
   font-size: 1.5rem;
   font-weight: 600;
-  color: #333333;
+  color: var(--ink);
   margin-bottom: 1rem;
 }
 
 .featureCard p {
-  color: #666666;
+  color: var(--text-muted);
   line-height: 1.6;
 }
 
@@ -360,9 +360,9 @@
 }
 
 .techCategory {
-  background: #ffffff;
+  background: var(--surface);
   backdrop-filter: blur(15px);
-  border: 1px solid #e1e5e9;
+  border: 1px solid var(--border);
   border-radius: 20px;
   padding: 2.5rem;
   box-shadow: 0 4px 6px rgba(0, 0, 0, 0.05);
@@ -371,7 +371,7 @@
 .techCategory h3 {
   font-size: 1.75rem;
   font-weight: 600;
-  color: #333333;
+  color: var(--ink);
   margin-bottom: 2rem;
   text-align: center;
   position: relative;
@@ -400,7 +400,7 @@
   align-items: center;
   gap: 1rem;
   padding: 1rem;
-  background: #f8f9fa;
+  background: var(--surface-2);
   border-radius: 15px;
   transition: all 0.3s ease;
 }
@@ -416,14 +416,14 @@
 }
 
 .techItem strong {
-  color: #333333;
+  color: var(--ink);
   font-size: 1.125rem;
   margin-bottom: 0.25rem;
   display: block;
 }
 
 .techItem p {
-  color: #666666;
+  color: var(--text-muted);
   font-size: 0.875rem;
 }
 
@@ -435,9 +435,9 @@
 }
 
 .moduleCard {
-  background: #ffffff;
+  background: var(--surface);
   backdrop-filter: blur(15px);
-  border: 1px solid #e1e5e9;
+  border: 1px solid var(--border);
   border-radius: 20px;
   padding: 2rem;
   transition: all 0.3s ease;
@@ -481,11 +481,11 @@
 .moduleCard h3 {
   font-size: 1.5rem;
   font-weight: 600;
-  color: #333333;
+  color: var(--ink);
 }
 
 .moduleCard p {
-  color: #666666;
+  color: var(--text-muted);
   line-height: 1.6;
   margin-bottom: 1.5rem;
 }
@@ -496,7 +496,7 @@
 }
 
 .moduleFeatures li {
-  color: #666666;
+  color: var(--text-muted);
   padding: 0.5rem 0;
   position: relative;
   padding-left: 1.5rem;
@@ -520,9 +520,9 @@
 .challengeItem {
   display: flex;
   gap: 2rem;
-  background: #ffffff;
+  background: var(--surface);
   backdrop-filter: blur(10px);
-  border: 1px solid #e1e5e9;
+  border: 1px solid var(--border);
   border-radius: 20px;
   padding: 2.5rem;
   transition: all 0.3s ease;
@@ -530,7 +530,7 @@
 }
 
 .challengeItem:hover {
-  background: #f8f9fa;
+  background: var(--surface-2);
   transform: translateX(10px);
 }
 
@@ -547,21 +547,21 @@
 .challengeContent h3 {
   font-size: 1.5rem;
   font-weight: 600;
-  color: #333333;
+  color: var(--ink);
   margin-bottom: 1rem;
 }
 
 .challengeContent p {
-  color: #666666;
+  color: var(--text-muted);
   line-height: 1.6;
   margin-bottom: 0.75rem;
 }
 
 /* Repository Section */
 .repoCard {
-  background: #ffffff;
+  background: var(--surface);
   backdrop-filter: blur(15px);
-  border: 1px solid #e1e5e9;
+  border: 1px solid var(--border);
   border-radius: 20px;
   padding: 3rem;
   text-align: center;
@@ -587,17 +587,17 @@
 .repoHeader h3 {
   font-size: 2rem;
   font-weight: 600;
-  color: #333333;
+  color: var(--ink);
   margin: 0;
 }
 
 .repoHeader p {
-  color: #666666;
+  color: var(--text-muted);
   margin: 0;
 }
 
 .repoDescription {
-  color: #666666;
+  color: var(--text-muted);
   line-height: 1.6;
   margin-bottom: 2rem;
   font-size: 1.125rem;
@@ -615,7 +615,7 @@
   display: flex;
   align-items: center;
   gap: 0.5rem;
-  color: #666666;
+  color: var(--text-muted);
   font-weight: 500;
 }
 
@@ -635,10 +635,10 @@
   align-items: center;
   gap: 0.5rem;
   padding: 0.75rem 1.5rem;
-  background: #f8f9fa;
-  border: 1px solid #e1e5e9;
+  background: var(--surface-2);
+  border: 1px solid var(--border);
   border-radius: 50px;
-  color: #333333;
+  color: var(--ink);
   text-decoration: none;
   transition: all 0.3s ease;
 }
@@ -691,15 +691,15 @@
 }
 
 .ctaPrimaryButton {
-  background: white;
+  background: var(--surface);
   color: #c471ed;
-  border-color: white;
+  border-color: var(--surface);
 }
 
 .ctaPrimaryButton:hover {
   background: transparent;
   color: white;
-  border-color: white;
+  border-color: var(--surface);
 }
 
 .ctaSecondaryButton {
@@ -710,7 +710,7 @@
 
 .ctaSecondaryButton:hover {
   background: rgba(255, 255, 255, 0.1);
-  border-color: white;
+  border-color: var(--surface);
 }
 
 /* Responsive Design */

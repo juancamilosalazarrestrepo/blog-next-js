@@ -181,7 +181,7 @@ const DrMachadoDiagnostics = () => {
 
                             {/* Feature 2 */}
                             <div className="flex flex-col gap-5 p-8 rounded-3xl bg-slate-50 dark:bg-slate-800/50 border border-slate-100 dark:border-slate-800 shadow-[0_4px_20px_-4px_rgba(0,0,0,0.05)] hover:shadow-lg transition-shadow">
-                                <div className="w-14 h-14 rounded-2xl bg-[#a200ff]/10 flex items-center justify-center text-[#a200ff]">
+                                <div className="w-14 h-14 rounded-2xl bg-[#a200ff]/10 flex items-center justify-center text-[#a200ff] dark:text-[#c471ed]">
                                     <svg className="w-8 h-8" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                                         <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z" />
                                     </svg>
@@ -241,7 +241,7 @@ const DrMachadoDiagnostics = () => {
                                         <span className="text-xs text-slate-500 dark:text-slate-400 font-bold uppercase tracking-wider">{c.statPatients}</span>
                                     </div>
                                     <div className="bg-[#a200ff]/5 p-6 rounded-3xl text-center border border-[#a200ff]/20">
-                                        <span className="block text-4xl font-black text-[#a200ff] mb-1">10k+</span>
+                                        <span className="block text-4xl font-black text-[#a200ff] dark:text-[#c471ed] mb-1">10k+</span>
                                         <span className="text-xs text-slate-500 dark:text-slate-400 font-bold uppercase tracking-wider">{c.statVisits}</span>
                                     </div>
                                 </div>
@@ -255,7 +255,7 @@ const DrMachadoDiagnostics = () => {
                                     </div>
                                     <div>
                                         <p className="font-bold text-slate-900 dark:text-white">Dr. Cristian Machado Otero</p>
-                                        <p className="text-slate-500 text-sm">{c.doctorRole}</p>
+                                        <p className="text-slate-500 dark:text-slate-400 text-sm">{c.doctorRole}</p>
                                     </div>
                                 </div>
                             </div>

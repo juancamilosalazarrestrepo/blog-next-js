@@ -8,10 +8,10 @@
 .containerContactInfo {
   width: 400px;
   max-width: 100%;
-  background: #fff;
+  background: var(--surface);
   border-radius: 16px;
   box-shadow: 0 4px 24px rgba(0, 0, 0, 0.06);
-  border: 1px solid rgba(0, 0, 0, 0.04);
+  border: 1px solid color-mix(in srgb, var(--ink) 4%, transparent);
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -21,23 +21,23 @@
 .contactFormTitle {
   font-size: 1.4rem;
   font-weight: 700;
-  color: #1a1a2e;
+  color: var(--ink);
   margin-bottom: 30px;
 }
 
 .contactCard {
   font-size: 1.4rem;
   font-weight: 700;
-  color: #1a1a2e;
+  color: var(--ink);
   margin-bottom: 15px;
 }
 
 .containerFormContact {
-  background: #fff;
+  background: var(--surface);
   padding: 32px 24px;
   border-radius: 16px;
   box-shadow: 0 4px 24px rgba(0, 0, 0, 0.06);
-  border: 1px solid rgba(0, 0, 0, 0.04);
+  border: 1px solid color-mix(in srgb, var(--ink) 4%, transparent);
   width: 400px;
   max-width: 100%;
   min-height: 400px;
@@ -45,7 +45,7 @@
 
 .textContactInfo {
   font-size: 0.88rem;
-  color: #6b7280;
+  color: var(--text-muted);
   margin-bottom: 30px;
   width: 90%;
   align-self: center;
@@ -64,7 +64,7 @@
 .infoItem {
   display: flex;
   align-items: center;
-  color: #4b5563;
+  color: var(--text-soft);
   font-size: 0.9rem;
   align-self: center;
 }

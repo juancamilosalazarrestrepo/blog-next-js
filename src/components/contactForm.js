@@ -54,7 +54,7 @@ const ContactForm = () => {
           style={{
             width: "100%",
             boxSizing: "border-box",
-            border: "1px solid #ccc",
+            border: "1px solid light-dark(#ccc, #3a4a6d)",
             borderRadius: "10px",
             padding: "8px",
             marginBottom: "20px",
@@ -76,7 +76,7 @@ const ContactForm = () => {
           style={{
             width: "100%",
             boxSizing: "border-box",
-            border: "1px solid #ccc",
+            border: "1px solid light-dark(#ccc, #3a4a6d)",
             borderRadius: "10px",
             padding: "8px",
             marginBottom: "20px",
@@ -95,7 +95,7 @@ const ContactForm = () => {
           style={{
             width: "100%",
             boxSizing: "border-box",
-            border: "1px solid #ccc",
+            border: "1px solid light-dark(#ccc, #3a4a6d)",
             borderRadius: "10px",
             padding: "8px",
             marginBottom: "20px",
@@ -108,7 +108,7 @@ const ContactForm = () => {
         style={{
           width: "100%",
           boxSizing: "border-box",
-          border: "1px solid #ccc",
+          border: "1px solid light-dark(#ccc, #3a4a6d)",
           borderRadius: "14px",
           padding: "8px",
         }}

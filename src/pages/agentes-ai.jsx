@@ -99,7 +99,7 @@ export default function AgentesAI() {
                                 <div className="h-64 bg-cover bg-center" style={{ backgroundImage: "url('/assets/ai/ai_support.webp')" }}></div>
                                 <div className="p-8">
                                     <div className="flex items-center gap-3 mb-4">
-                                        <span className="material-symbols-outlined text-[#1152d4] font-bold">headset_mic</span>
+                                        <span className="material-symbols-outlined text-[#1152d4] dark:text-blue-400 font-bold">headset_mic</span>
                                         <h3 className="text-2xl font-bold">Atención al Cliente 24/7</h3>
                                     </div>
                                     <p className="text-slate-600 dark:text-slate-400">Bots inteligentes capaces de entender lenguaje natural, resolver consultas complejas y mantener soporte ilimitado, en cualquier idioma y a cualquier hora.</p>
@@ -109,7 +109,7 @@ export default function AgentesAI() {
                                 <div className="h-64 bg-cover bg-center" style={{ backgroundImage: "url('/assets/ai/ai_sales.webp')" }}></div>
                                 <div className="p-8">
                                     <div className="flex items-center gap-3 mb-4">
-                                        <span className="material-symbols-outlined text-[#1152d4] font-bold">smart_toy</span>
+                                        <span className="material-symbols-outlined text-[#1152d4] dark:text-blue-400 font-bold">smart_toy</span>
                                         <h3 className="text-2xl font-bold">Ventas y Calificación de Leads</h3>
                                     </div>
                                     <p className="text-slate-600 dark:text-slate-400">Automatiza tus embudos de ventas. Los agentes son capaces de calificar leads, agendar reuniones e incluso cerrar ventas directamente desde WhatsApp o tu web.</p>
@@ -119,7 +119,7 @@ export default function AgentesAI() {
                                 <div className="h-64 bg-cover bg-center" style={{ backgroundImage: "url('/assets/ai/ai_process.webp')" }}></div>
                                 <div className="p-8">
                                     <div className="flex items-center gap-3 mb-4">
-                                        <span className="material-symbols-outlined text-[#1152d4] font-bold">work_history</span>
+                                        <span className="material-symbols-outlined text-[#1152d4] dark:text-blue-400 font-bold">work_history</span>
                                         <h3 className="text-2xl font-bold">Eficiencia Interna y Procesos</h3>
                                     </div>
                                     <p className="text-slate-600 dark:text-slate-400">Reduce drásticamente los costos operativos creando agentes que generen reportes, gestionen inventarios y sincronicen datos en tu ERP/CRM.</p>
@@ -148,8 +148,8 @@ export default function AgentesAI() {
                                     Estudiamos los cuellos de botella en tu negocio para entender qué partes de la operación requieren intervención manual repetitiva y las mapeamos para ser manejadas por la IA.
                                 </p>
                                 <ul className="space-y-3">
-                                    <li className="flex items-center gap-3 font-semibold"><span className="material-symbols-outlined text-[#1152d4]">check_circle</span> Análisis de procesos actuales</li>
-                                    <li className="flex items-center gap-3 font-semibold"><span className="material-symbols-outlined text-[#1152d4]">check_circle</span> Elección de herramientas (Custom, OpenAI, RAG)</li>
+                                    <li className="flex items-center gap-3 font-semibold"><span className="material-symbols-outlined text-[#1152d4] dark:text-blue-400">check_circle</span> Análisis de procesos actuales</li>
+                                    <li className="flex items-center gap-3 font-semibold"><span className="material-symbols-outlined text-[#1152d4] dark:text-blue-400">check_circle</span> Elección de herramientas (Custom, OpenAI, RAG)</li>
                                 </ul>
                             </div>
                         </div>
@@ -165,8 +165,8 @@ export default function AgentesAI() {
                                     Construimos el agente inteligente inyectándole los datos, manuales base de conocimiento de tu empresa, asegurándonos de que hable como tú y tenga la información precisa para tomar control.
                                 </p>
                                 <ul className="space-y-3">
-                                    <li className="flex items-center gap-3 font-semibold"><span className="material-symbols-outlined text-[#1152d4]">check_circle</span> Integración y lectura de Base de Conocimientos</li>
-                                    <li className="flex items-center gap-3 font-semibold"><span className="material-symbols-outlined text-[#1152d4]">check_circle</span> Conexión por API a tus herramientas y CRM</li>
+                                    <li className="flex items-center gap-3 font-semibold"><span className="material-symbols-outlined text-[#1152d4] dark:text-blue-400">check_circle</span> Integración y lectura de Base de Conocimientos</li>
+                                    <li className="flex items-center gap-3 font-semibold"><span className="material-symbols-outlined text-[#1152d4] dark:text-blue-400">check_circle</span> Conexión por API a tus herramientas y CRM</li>
                                 </ul>
                             </div>
                         </div>
@@ -182,8 +182,8 @@ export default function AgentesAI() {
                                     Conectamos el agente en vivo (en WhatsApp, Redes Sociales o Sitios Web) y empezamos un ciclo de monitoreo donde el agente aprende de la fricción y las dudas para mejorar constantemente sus resoluciones.
                                 </p>
                                 <ul className="space-y-3">
-                                    <li className="flex items-center gap-3 font-semibold"><span className="material-symbols-outlined text-[#1152d4]">check_circle</span> Despliegue en canales (WhatsApp, Web, API)</li>
-                                    <li className="flex items-center gap-3 font-semibold"><span className="material-symbols-outlined text-[#1152d4]">check_circle</span> Reportes de uso y analíticas de efectividad</li>
+                                    <li className="flex items-center gap-3 font-semibold"><span className="material-symbols-outlined text-[#1152d4] dark:text-blue-400">check_circle</span> Despliegue en canales (WhatsApp, Web, API)</li>
+                                    <li className="flex items-center gap-3 font-semibold"><span className="material-symbols-outlined text-[#1152d4] dark:text-blue-400">check_circle</span> Reportes de uso y analíticas de efectividad</li>
                                 </ul>
                             </div>
                         </div>

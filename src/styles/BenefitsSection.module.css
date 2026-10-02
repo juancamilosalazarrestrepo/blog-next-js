@@ -20,7 +20,7 @@
 }
 
 .benefitCard {
-  background: #f9f9f9;
+  background: var(--surface-2);
   padding: 20px;
   border-radius: 14px;
   box-shadow: 0 4px 16px rgba(0, 0, 0, 0.06);
@@ -34,12 +34,12 @@
   display: flex;
   justify-content: flex-start;
   gap: 20px;
-  background: #fff;
+  background: var(--surface);
   margin: 10px;
   padding: 24px;
   border-radius: 14px;
   box-shadow: 0 4px 16px rgba(0, 0, 0, 0.06);
-  border: 1px solid rgba(0, 0, 0, 0.04);
+  border: 1px solid color-mix(in srgb, var(--ink) 4%, transparent);
   text-align: center;
   width: 100%;
   min-height: 180px;
@@ -66,7 +66,7 @@
 
 .benefitCard:hover {
   transform: translateY(-6px);
-  background: #f0f4ff;
+  background: light-dark(#f0f4ff, rgba(77,154,255,0.12));
   box-shadow: 0 12px 32px rgba(0, 114, 255, 0.1);
 }
 
@@ -84,18 +84,18 @@
 .benefitTitle {
   font-size: 18px;
   margin-bottom: 10px;
-  color: #1a1a2e;
+  color: var(--ink);
   font-weight: 700;
 }
 
 .benefitDescription {
   font-size: 14px;
-  color: #6b7280;
+  color: var(--text-muted);
 }
 
 .serviceDescription {
   font-size: 14px;
-  color: #6b7280;
+  color: var(--text-muted);
   text-align: start;
   line-height: 1.5;
 }

@@ -541,7 +541,7 @@ export default function AgentesIAHoteles() {
                             ))}
                         </div>
 
-                        <p className="mt-8 text-xs text-slate-500 dark:text-slate-500">
+                        <p className="mt-8 text-xs text-slate-500 dark:text-slate-400">
                             Cifras de referencia del sector hotelero y de estudios de tiempo de
                             respuesta comercial. El impacto real depende de cada propiedad.
                         </p>
@@ -594,7 +594,7 @@ export default function AgentesIAHoteles() {
                                             <td className="border-t border-slate-200 px-6 py-5 text-sm font-bold text-slate-900 dark:border-slate-800 dark:text-white">
                                                 {row.topic}
                                             </td>
-                                            <td className="border-t border-slate-200 px-6 py-5 text-sm text-slate-500 dark:border-slate-800 dark:text-slate-500">
+                                            <td className="border-t border-slate-200 px-6 py-5 text-sm text-slate-500 dark:border-slate-800 dark:text-slate-400">
                                                 <span className="mr-2 text-red-400">✕</span>
                                                 {row.bot}
                                             </td>
