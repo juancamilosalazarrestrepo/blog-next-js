@@ -1,11 +1,10 @@
 import { getAllFilesFrontMatter } from "lib/mdx";
 import Link from "next/link";
-import Banners from "../components/Banners";
+import AgentsHero from "../components/AgentsHero";
 import AIAgentsSection from "../components/AIAgentsSection";
 import HotelAgentsSection from "../components/HotelAgentsSection";
 import WebDevSection from "../components/WebDevSection";
 import CreativeWebDesign from "../components/CreativeWebDesign";
-import banner1 from "../../public/images/background.webp";
 import whatsappIconBig from "../../public/images/whatsappBig.png";
 import styles from "../styles/Index.module.css";
 import Layout from "../components/Layout";
@@ -20,7 +19,6 @@ import { serverSideTranslations } from "next-i18next/serverSideTranslations";
 const Home = ({ posts, lastProjects }) => {
   const { t } = useTranslation("common");
   const phoneNumber = "573042093951";
-  const images = [banner1];
 
   return (
     <div>
@@ -42,9 +40,7 @@ const Home = ({ posts, lastProjects }) => {
         </a>
       </div>
 
-      <div style={{ position: "relative", width: "100%", margin: "0", zIndex: "2" }}>
-        <Banners images={images} />
-      </div>
+      <AgentsHero />
 
       <main>
         <div className={styles.mainContainer}>

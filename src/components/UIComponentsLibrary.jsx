@@ -1,18 +1,9 @@
 import styles from "../styles/UIComponentsLibrary.module.css";
 import Image from "next/image";
 import Link from "next/link";
-/*  */
-// Imágenes placeholder de los assets existentes — reemplazalas por screenshots reales
-import img1 from "../../public/images/tarjetavideo.webp";
-import imgLava from "../../public/images/lava_lamp.webp";
-import imgParticle from "../../public/images/background.webp";
-/* import img2 from "../../public/images/niceGradient.webp";
-import img3 from "../../public/images/parallax.webp";
-import img4 from "../../public/images/calculadoradark.webp";
-import img5 from "../../public/images/cloneChatGPT.webp";
-import img6 from "../../public/images/423shots_so.webp";
-import img7 from "../../public/images/nice-gradient-mockup2.webp";
-import img8 from "../../public/images/jsframeworks.webp"; */
+
+// Capturas reales de cada componente (public/images/components/<id>.webp).
+const shot = (id) => `/images/components/${id}.webp`;
 
 const uiComponents = [
     {
@@ -21,7 +12,7 @@ const uiComponents = [
         description:
             "Partículas flotantes conectadas con líneas degradadas. Reaccionan al cursor con repulsión suave, pulso individual y glow radial. Canvas 2D puro.",
         category: "Fondos",
-        image: imgParticle,
+        image: shot("particle-constellation"),
         href: "/particleConstellationPage",
         available: true,
     },
@@ -31,7 +22,7 @@ const uiComponents = [
         description:
             "Banner hero con fondo animado de lámpara de lava azul. Blobs orgánicos con filtro SVG goo y blob interactivo que sigue el cursor.",
         category: "Banners",
-        image: imgLava,
+        image: shot("lava-banner"),
         href: "/lavaBannerElementPage",
         available: true,
     },
@@ -41,7 +32,7 @@ const uiComponents = [
         description:
             "Tarjeta con video de fondo, avatar circular y estadísticas de perfil con efecto glassmorphism.",
         category: "Cards",
-        image: img1,
+        image: shot("video-card"),
         href: "/videoCardElementPage",
         available: true,
     },
@@ -51,7 +42,7 @@ const uiComponents = [
         description:
             "Burbujas semitransparentes con gradiente esférico que ascienden en trayectoria sinusoidal. El cursor las hace explotar con animación de pop.",
         category: "Fondos",
-        image: imgParticle,
+        image: shot("bubble-field"),
         href: "/bubbleFieldPage",
         available: true,
     },
@@ -61,7 +52,7 @@ const uiComponents = [
         description:
             "Aurora boreal animada con 6 bandas sinusoidales en blend mode screen sobre cielo estrellado. Movimiento orgánico fluido.",
         category: "Fondos",
-        image: imgParticle,
+        image: shot("aurora-borealis"),
         href: "/auroraPage",
         available: true,
     },
@@ -71,7 +62,7 @@ const uiComponents = [
         description:
             "Manchas de tinta que se expanden al mover el cursor sobre fondo papel crema. Blend mode multiply para mezcla realista de pigmentos.",
         category: "Fondos",
-        image: imgParticle,
+        image: shot("ink-drop"),
         href: "/inkDropPage",
         available: true,
     },
@@ -81,7 +72,7 @@ const uiComponents = [
         description:
             "Rayos eléctricos generados por desplazamiento de punto medio recursivo con ramificaciones. El cursor atrae las descargas.",
         category: "Fondos",
-        image: imgParticle,
+        image: shot("electric-plasma"),
         href: "/electricPlasmaPage",
         available: true,
     },
@@ -91,17 +82,117 @@ const uiComponents = [
         description:
             "90 luciérnagas con movimiento orgánico, trail luminoso y pulso individual. El cursor las dispersa al acercarse a menos de 90px.",
         category: "Fondos",
-        image: imgParticle,
+        image: shot("fireflies"),
         href: "/firefliesPage",
         available: true,
-    }/* ,
+    },
     {
+        id: "liquid-orb",
+        title: "Liquid Orb",
+        description:
+            "Esfera líquida iridiscente en Three.js. Ruido simplex 3D en el vertex shader deforma la superficie y el cursor la agita.",
+        category: "3D · WebGL",
+        image: shot("liquid-orb"),
+        href: "/liquidOrbPage",
+        available: true,
+    },
+    {
+        id: "particle-galaxy",
+        title: "Particle Galaxy",
+        description:
+            "Galaxia espiral de ~50.000 partículas animada en GPU, con brazos que respiran. La cámara orbita siguiendo al cursor.",
+        category: "3D · WebGL",
+        image: shot("particle-galaxy"),
+        href: "/particleGalaxyPage",
+        available: true,
+    },
+    {
+        id: "synthwave-terrain",
+        title: "Synthwave Terrain",
+        description:
+            "Paisaje retro infinito: terreno de grilla neón, sol a franjas y niebla al horizonte. Mantén pulsado para acelerar.",
+        category: "3D · WebGL",
+        image: shot("synthwave-terrain"),
+        href: "/synthwaveTerrainPage",
+        available: true,
+    },
+    {
+        id: "warp-tunnel",
+        title: "Warp Tunnel",
+        description:
+            "Salto al hiperespacio con miles de estelas instanciadas en un solo draw call. Pulsa para la velocidad warp.",
+        category: "3D · WebGL",
+        image: shot("warp-tunnel"),
+        href: "/warpTunnelPage",
+        available: true,
+    },
+    {
+        id: "particle-morph",
+        title: "Particle Morph",
+        description:
+            "16.000 partículas que se transforman entre esfera, nudo toroidal, ADN y planeta. El cursor las aparta a su paso.",
+        category: "3D · WebGL",
+        image: shot("particle-morph"),
+        href: "/particleMorphPage",
+        available: true,
+    },
+    {
+        id: "silk-waves",
+        title: "Silk Waves",
+        description:
+            "Tela satinada pastel que ondula con olas y ruido, con brillo especular tipo seda. Versión clara para landings luminosas.",
+        category: "3D · WebGL",
+        image: shot("silk-waves"),
+        href: "/silkWavesPage",
+        available: true,
+    },
+    {
+        id: "holo-globe",
+        title: "Holo Globe",
+        description:
+            "Globo holográfico de puntos con continentes procedurales, atmósfera fresnel y arcos de datos que viajan entre ciudades.",
+        category: "3D · WebGL",
+        image: shot("holo-globe"),
+        href: "/holoGlobePage",
+        available: true,
+    },
+    {
+        id: "dot-wave-field",
+        title: "Dot Wave Field",
+        description:
+            "Océano de 26.000 puntos que ondula en perspectiva. El cursor levanta una colina y cada clic lanza una onda expansiva.",
+        category: "3D · WebGL",
+        image: shot("dot-wave-field"),
+        href: "/dotWaveFieldPage",
+        available: true,
+    },
+    {
+        id: "flow-ribbons",
+        title: "Flow Ribbons",
+        description:
+            "Cintas 3D que fluyen y se retuercen con degradado atardecer, brillo especular y fresnel. El cursor las atrae.",
+        category: "3D · WebGL",
+        image: shot("flow-ribbons"),
+        href: "/flowRibbonsPage",
+        available: true,
+    },
+    {
+        id: "liquid-metal",
+        title: "Liquid Metal",
+        description:
+            "Gotas de cromo iridiscente que se fusionan, renderizadas con raymarching de SDFs. Una gota sigue al cursor.",
+        category: "3D · WebGL",
+        image: shot("liquid-metal"),
+        href: "/liquidMetalPage",
+        available: true,
+    },
+    /* {
         id: "glassmorphism-button",
         title: "Glassmorphism Button",
         description:
             "Botón con efecto de cristal translúcido, bordes difuminados y animación de brillo al hover.",
         category: "Botones",
-        image: img2,
+        image: shot("glassmorphism-button"),
         href: "#",
         available: false,
     },
@@ -111,7 +202,7 @@ const uiComponents = [
         description:
             "Barra de navegación con transiciones suaves, indicador activo animado y menú hamburguesa.",
         category: "Navegación",
-        image: img3,
+        image: shot("animated-navbar"),
         href: "#",
         available: false,
     },
@@ -121,7 +212,7 @@ const uiComponents = [
         description:
             "Tabla de precios con tres planes, destacado central, toggle mensual/anual y micro-animaciones.",
         category: "Tablas",
-        image: img4,
+        image: shot("pricing-table"),
         href: "#",
         available: false,
     },
@@ -131,7 +222,7 @@ const uiComponents = [
         description:
             "Carrusel de testimonios con autoplay, controles de navegación y transición fade elegante.",
         category: "Carruseles",
-        image: img5,
+        image: shot("testimonial-carousel"),
         href: "#",
         available: false,
     },
@@ -141,7 +232,7 @@ const uiComponents = [
         description:
             "Switch de modo oscuro con animación sol/luna y transición suave de colores en toda la UI.",
         category: "Utilidades",
-        image: img6,
+        image: shot("dark-mode-toggle"),
         href: "#",
         available: false,
     },
@@ -151,7 +242,7 @@ const uiComponents = [
         description:
             "Tarjeta con borde degradado dinámico que sigue el cursor y efecto parallax sutil.",
         category: "Cards",
-        image: img7,
+        image: shot("gradient-card"),
         href: "#",
         available: false,
     },
@@ -161,7 +252,7 @@ const uiComponents = [
         description:
             "Notificaciones tipo toast con animación slide-in, variantes de estado y auto-dismiss.",
         category: "Feedback",
-        image: img8,
+        image: shot("notification-toast"),
         href: "#",
         available: false,
     }, */

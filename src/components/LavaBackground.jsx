@@ -58,9 +58,9 @@ const LavaBackground = () => {
             
             <div className={`${styles.blob} ${styles.blobInteractive}`} ref={interactiveBlobRef}></div>
 
-            <svg xmlns="http://www.w3.org/2000/svg" style={{ display: 'none' }}>
+            <svg xmlns="http://www.w3.org/2000/svg" style={{ position: 'absolute', width: 0, height: 0, overflow: 'hidden' }}>
                 <defs>
-                    <filter id="blue-goo">
+                    <filter id="blue-goo" x="-50%" y="-50%" width="200%" height="200%">
                         <feGaussianBlur in="SourceGraphic" stdDeviation="40" result="blur" />
                         <feColorMatrix in="blur" mode="matrix" values="1 0 0 0 0  0 1 0 0 0  0 0 1 0 0  0 0 0 38 -17" result="goo" />
                     </filter>

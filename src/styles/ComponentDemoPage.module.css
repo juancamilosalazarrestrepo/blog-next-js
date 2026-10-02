@@ -1,0 +1,315 @@
+/* Layout común de las páginas demo de la biblioteca de componentes.
+   Cada página define su tema con variables CSS (ver ComponentDemoPage.jsx). */
+.page {
+  background: var(--bg);
+  color: var(--text);
+}
+
+.pageHeader {
+  padding: 48px 60px 32px;
+  border-bottom: 1px solid var(--border);
+}
+
+.backLink {
+  display: inline-block;
+  color: var(--accent);
+  font-size: 14px;
+  font-weight: 600;
+  text-decoration: none;
+  margin-bottom: 20px;
+  transition: opacity 0.2s;
+}
+
+.backLink:hover {
+  opacity: 0.8;
+}
+
+.pageTitle {
+  font-size: 40px;
+  font-weight: 800;
+  color: var(--heading);
+  margin: 0 0 12px;
+  letter-spacing: -0.5px;
+}
+
+.pageSubtitle {
+  font-size: 16px;
+  color: var(--text);
+  margin: 0;
+  max-width: 640px;
+  line-height: 1.6;
+}
+
+.tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin-top: 20px;
+}
+
+.tag {
+  font-size: 12px;
+  font-weight: 600;
+  color: var(--text);
+  border: 1px solid var(--border-strong);
+  border-radius: 999px;
+  padding: 4px 12px;
+}
+
+.demoSection {
+  padding: 32px 60px 48px;
+}
+
+.demoLabel {
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  color: var(--muted);
+  margin-bottom: 16px;
+}
+
+.bannerWrapper {
+  position: relative;
+  width: 100%;
+  height: 560px;
+  overflow: hidden;
+  border-radius: 20px;
+  border: 1px solid var(--border);
+  isolation: isolate;
+}
+
+/* Velo detrás del texto: garantiza contraste sin importar qué pase en la escena 3D. */
+.scrim {
+  position: absolute;
+  inset: 0;
+  z-index: 2;
+  background: var(--scrim);
+  pointer-events: none;
+}
+
+.bannerContent {
+  position: absolute;
+  inset: 0;
+  z-index: 3;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: flex-start;
+  padding: 60px 80px;
+  gap: 24px;
+  pointer-events: none;
+}
+
+.badge {
+  display: inline-block;
+  padding: 6px 18px;
+  border: 1px solid var(--accent);
+  color: var(--accent);
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  border-radius: 999px;
+  background: var(--badge-bg);
+  backdrop-filter: blur(6px);
+}
+
+.title {
+  font-size: 54px;
+  font-weight: 900;
+  color: var(--banner-heading);
+  margin: 0;
+  line-height: 1.08;
+  letter-spacing: -1px;
+  text-shadow: var(--text-shadow);
+}
+
+.titleLight {
+  font-weight: 300;
+  color: var(--accent);
+}
+
+.tagline {
+  font-size: 17px;
+  color: var(--banner-text);
+  margin: 0;
+  max-width: 480px;
+  line-height: 1.6;
+  text-shadow: var(--text-shadow);
+}
+
+.buttons {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 16px;
+  pointer-events: auto;
+}
+
+.btnPrimary,
+.btnSecondary {
+  padding: 13px 30px;
+  border-radius: 12px;
+  font-size: 15px;
+  font-weight: 700;
+  cursor: pointer;
+  transition: transform 0.15s, box-shadow 0.2s, border-color 0.2s;
+}
+
+.btnPrimary {
+  background: var(--accent);
+  color: var(--on-accent);
+  border: none;
+  box-shadow: 0 8px 30px var(--accent-glow);
+}
+
+.btnSecondary {
+  background: var(--secondary-bg);
+  color: var(--banner-heading);
+  border: 1px solid var(--border-strong);
+  backdrop-filter: blur(8px);
+}
+
+.btnPrimary:hover,
+.btnSecondary:hover {
+  transform: translateY(-1px);
+}
+
+.btnSecondary:hover {
+  border-color: var(--accent);
+}
+
+.hint {
+  position: absolute;
+  right: 20px;
+  bottom: 18px;
+  z-index: 3;
+  font-size: 12px;
+  color: var(--banner-text);
+  background: var(--badge-bg);
+  border: 1px solid var(--border-strong);
+  border-radius: 999px;
+  padding: 6px 14px;
+  backdrop-filter: blur(6px);
+  pointer-events: none;
+}
+
+.detailsSection {
+  padding: 48px 60px 80px;
+  border-top: 1px solid var(--border);
+}
+
+.grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 24px;
+  max-width: 1100px;
+}
+
+.card {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: 14px;
+  padding: 28px;
+  min-width: 0;
+}
+
+.cardTitle {
+  font-size: 15px;
+  font-weight: 700;
+  color: var(--heading);
+  margin: 0 0 16px;
+}
+
+.list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.list li {
+  font-size: 14px;
+  color: var(--text);
+  padding-left: 18px;
+  position: relative;
+  line-height: 1.55;
+}
+
+.list li::before {
+  content: "▸";
+  position: absolute;
+  left: 0;
+  color: var(--accent);
+  font-size: 11px;
+  top: 2px;
+}
+
+.list code {
+  background: var(--code-bg);
+  color: var(--accent);
+  padding: 1px 6px;
+  border-radius: 4px;
+  font-size: 12px;
+  font-family: monospace;
+}
+
+.code {
+  background: var(--code-bg);
+  border: 1px solid var(--border);
+  border-radius: 10px;
+  padding: 20px;
+  font-family: "Fira Code", "Courier New", monospace;
+  font-size: 12.5px;
+  color: var(--code-text);
+  line-height: 1.7;
+  overflow-x: auto;
+  white-space: pre;
+  margin: 0;
+}
+
+@media (max-width: 768px) {
+  .pageHeader,
+  .demoSection,
+  .detailsSection {
+    padding-left: 20px;
+    padding-right: 20px;
+  }
+
+  .pageTitle {
+    font-size: 30px;
+  }
+
+  .bannerWrapper {
+    height: 520px;
+  }
+
+  .scrim {
+    background: var(--scrim-mobile);
+  }
+
+  .bannerContent {
+    justify-content: flex-end;
+    padding: 28px 24px 64px;
+    gap: 18px;
+  }
+
+  .title {
+    font-size: 34px;
+  }
+
+  .tagline {
+    font-size: 15px;
+  }
+
+  .hint {
+    left: 20px;
+    right: auto;
+  }
+
+  .grid {
+    grid-template-columns: 1fr;
+  }
+}

@@ -47,8 +47,11 @@
 }
 
 .profileImage {
+    display: block;
+    margin: 0 auto 16px;
+    max-width: 100%;
+    height: auto;
     border-radius: 16px;
-    margin-bottom: 16px;
     box-shadow: 0 4px 16px rgba(0, 114, 255, 0.12);
 }
 

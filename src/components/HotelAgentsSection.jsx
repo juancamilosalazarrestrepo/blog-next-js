@@ -22,10 +22,6 @@ export default function HotelAgentsSection() {
             <div className="max-w-7xl mx-auto px-6 sm:px-12 relative z-10">
                 <div className="flex flex-col lg:flex-row items-center gap-12 lg:gap-20">
                     <div className="w-full lg:w-1/2 space-y-6">
-                        <span className="inline-flex items-center gap-2 px-4 py-1.5 bg-teal-50 border border-teal-200 text-teal-700 dark:bg-teal-400/10 dark:border-teal-400/30 dark:text-teal-300 text-xs font-bold uppercase tracking-widest rounded-full">
-                            <span className="h-1.5 w-1.5 rounded-full bg-teal-500" />
-                            {t('hotelSection.badge')}
-                        </span>
                         <h2 className="text-4xl lg:text-5xl font-black leading-[1.1]">
                             {t('hotelSection.title')}{' '}
                             <span className="bg-gradient-to-r from-teal-500 to-[#1152d4] dark:to-sky-400 bg-clip-text text-transparent">

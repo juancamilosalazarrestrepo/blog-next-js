@@ -99,7 +99,8 @@
 .imageWrapper {
   position: relative;
   width: 100%;
-  height: 200px;
+  /* Misma proporción que las capturas (1100×600): se ve el banner completo, sin recortes. */
+  aspect-ratio: 11 / 6;
   overflow: hidden;
   background: linear-gradient(135deg, #f0f4ff 0%, #e8eeff 100%);
 }
@@ -118,8 +119,8 @@
   bottom: 0;
   left: 0;
   right: 0;
-  height: 60%;
-  background: linear-gradient(to top, rgba(255,255,255,0.95) 0%, transparent 100%);
+  height: 22%;
+  background: linear-gradient(to top, rgba(255,255,255,0.45) 0%, transparent 100%);
   pointer-events: none;
 }
 

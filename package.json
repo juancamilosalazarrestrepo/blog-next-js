@@ -45,6 +45,7 @@
     "remark-slug": "^7.0.1",
     "swiper": "^12.1.0",
     "swr": "^2.4.0",
+    "three": "^0.186.1",
     "tiny-slider": "^2.9.4",
     "tiny-slider-react": "^0.5.7",
     "typescript": "^5.9.3"

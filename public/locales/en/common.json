@@ -60,7 +60,6 @@
     "status": "Operational Agent 24/7"
   },
   "hotelSection": {
-    "badge": "New · Hotels",
     "title": "Your hotel taking bookings",
     "titleHighlight": "24/7 with AI",
     "description": "An AI agent that serves your guests on WhatsApp and web, checks availability in your PMS and closes the booking inside the chat. Fewer OTA commissions, zero unanswered inquiries.",
@@ -146,12 +145,59 @@
     "reconocimiento_lenguaje_senas": {
       "title": "Sign Language Recognition with Computer Vision",
       "description": "Computer vision system that recognizes and translates sign language in real time. Uses MediaPipe for hand tracking and a neural network (TensorFlow/Keras) to classify each gesture into letters and words."
+    },
+    "concesionario_alquiler_autos": {
+      "title": "Car Dealership & Car Rental Website",
+      "description": "Premium site for car dealerships and rent a car businesses: a Three.js 3D showroom where you rotate the car and change its paint, filterable inventory and a video hero. Built with Next.js 16."
+    },
+    "oakhaven_videojuego": {
+      "title": "Oakhaven — Bloodborne-Style 2D Video Game",
+      "description": "Gothic 2D action game in the style of Bloodborne and metroidvanias, made in Unity 6: sword and pistol combat, dodging, Elden Ring-style progression and local co-op."
+    },
+    "diccionario_rimas_compositor": {
+      "title": "Rhyme Dictionary & Songwriting Assistant",
+      "description": "Spanish rhyme dictionary for freestyle with over 645,000 words and a lyric editor that counts syllables, marks the rhyme scheme and suggests rhymes. Built with Next.js and AI (Claude or Gemini)."
     }
   },
   "banner": {
     "tagline": "Software development specialist — let's take your projects to the next level.",
     "contact": "Contact",
     "portfolio": "View portfolio"
+  },
+  "hero": {
+    "badge": "AI agents · Custom software",
+    "title1": "AI agents",
+    "titleJoin": "and",
+    "title2": "custom software",
+    "titleTail": "that work for your business, 24/7.",
+    "description": "I design and build intelligent agents that answer, sell and automate processes, connected to platforms tailored to your operation: CRMs, ERPs, web apps and APIs.",
+    "ctaPrimary": "Let's talk about your project",
+    "ctaSecondary": "Explore AI agents",
+    "chip1": "Agents on WhatsApp and web",
+    "chip2": "Integrated with your systems",
+    "chip3": "Next.js · Node · Python",
+    "role": "Fullstack & AI Engineer",
+    "logStatus": "live",
+    "agents": {
+      "sales": "Sales agent",
+      "support": "24/7 support",
+      "bookings": "Bookings",
+      "analytics": "Analytics",
+      "ops": "Automation"
+    },
+    "modules": {
+      "crm": "CRM",
+      "erp": "ERP",
+      "api": "API",
+      "web": "Web app"
+    },
+    "log": {
+      "sales": "qualified a lead and logged it in the CRM",
+      "support": "resolved a customer question on the web, no wait",
+      "bookings": "confirmed a booking and synced it with the ERP",
+      "analytics": "consolidated today's metrics via API",
+      "ops": "issued an invoice and recorded it in the ERP"
+    }
   },
   "creativeSection": {
     "badge": "Creative Web Design",

@@ -1,0 +1,501 @@
+/* Hero principal: agentes de IA + software a medida, con escena three.js de fondo */
+
+.hero {
+    position: relative;
+    isolation: isolate;
+    overflow: hidden;
+    display: flex;
+    align-items: center;
+    width: 100%;
+    min-height: max(660px, calc(100svh - 80px));
+    background: #020617;
+    color: #fff;
+}
+
+.backdrop {
+    position: absolute;
+    inset: 0;
+    z-index: -3;
+    background:
+        radial-gradient(55% 65% at 72% 48%, rgba(17, 82, 212, 0.42) 0%, rgba(17, 82, 212, 0) 62%),
+        radial-gradient(38% 45% at 92% 92%, rgba(139, 92, 246, 0.24) 0%, transparent 70%),
+        radial-gradient(45% 55% at 0% 0%, rgba(56, 189, 248, 0.12) 0%, transparent 70%),
+        linear-gradient(180deg, #020617 0%, #041033 55%, #020617 100%);
+}
+
+/* Retícula sutil, como un plano de ingeniería */
+.backdrop::after {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background-image:
+        linear-gradient(rgba(148, 163, 184, 0.07) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(148, 163, 184, 0.07) 1px, transparent 1px);
+    background-size: 56px 56px;
+    mask-image: radial-gradient(ellipse 75% 65% at 60% 50%, #000 25%, transparent 78%);
+    -webkit-mask-image: radial-gradient(ellipse 75% 65% at 60% 50%, #000 25%, transparent 78%);
+}
+
+.scene {
+    position: absolute;
+    inset: 0;
+    z-index: -2;
+    opacity: 0;
+    transition: opacity 1.4s ease;
+}
+
+.sceneReady {
+    opacity: 1;
+}
+
+.scene canvas {
+    display: block;
+    width: 100%;
+    height: 100%;
+}
+
+.labels {
+    position: absolute;
+    inset: 0;
+    pointer-events: none;
+}
+
+.agentLabel,
+.moduleLabel {
+    position: absolute;
+    top: 0;
+    left: 0;
+    opacity: 0;
+    white-space: nowrap;
+    will-change: transform, opacity;
+}
+
+.agentLabel {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    padding: 6px 12px 6px 10px;
+    border-radius: 999px;
+    border: 1px solid rgba(125, 211, 252, 0.25);
+    background: rgba(2, 6, 23, 0.62);
+    backdrop-filter: blur(6px);
+    -webkit-backdrop-filter: blur(6px);
+    font-size: 12px;
+    font-weight: 600;
+    letter-spacing: 0.01em;
+    color: #e0f2fe;
+    transition: border-color 0.4s ease, box-shadow 0.4s ease;
+}
+
+.agentLabel[data-active="true"] {
+    border-color: var(--agent-color);
+    box-shadow: 0 0 22px -2px var(--agent-color);
+}
+
+.agentDot {
+    width: 7px;
+    height: 7px;
+    border-radius: 50%;
+    background: var(--agent-color);
+    box-shadow: 0 0 10px var(--agent-color);
+}
+
+.moduleLabel {
+    padding: 3px 8px;
+    border-radius: 6px;
+    border: 1px solid rgba(167, 139, 250, 0.32);
+    background: rgba(46, 16, 101, 0.4);
+    font-family: ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
+    font-size: 11px;
+    letter-spacing: 0.06em;
+    color: #ddd6fe;
+}
+
+/* Oscurece el lado del texto para garantizar contraste sobre la escena */
+.shade {
+    position: absolute;
+    inset: 0;
+    z-index: -1;
+    pointer-events: none;
+    background:
+        linear-gradient(90deg, rgba(2, 6, 23, 0.88) 0%, rgba(2, 6, 23, 0.55) 34%, rgba(2, 6, 23, 0) 58%),
+        linear-gradient(0deg, #020617 0%, rgba(2, 6, 23, 0) 16%);
+}
+
+.content {
+    width: 100%;
+    max-width: 1400px;
+    margin: 0 auto;
+    padding: 88px 60px;
+}
+
+.copy {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 26px;
+    max-width: 640px;
+    animation: rise 0.9s cubic-bezier(0.2, 0.7, 0.2, 1) both;
+}
+
+.badge {
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+    padding: 7px 16px;
+    border-radius: 999px;
+    border: 1px solid rgba(125, 211, 252, 0.35);
+    background: rgba(14, 165, 233, 0.08);
+    backdrop-filter: blur(8px);
+    -webkit-backdrop-filter: blur(8px);
+    font-size: 12px;
+    font-weight: 700;
+    letter-spacing: 0.16em;
+    text-transform: uppercase;
+    color: #bae6fd;
+}
+
+.badgeDot {
+    position: relative;
+    width: 8px;
+    height: 8px;
+    border-radius: 50%;
+    background: #4ade80;
+}
+
+.badgeDot::after {
+    content: "";
+    position: absolute;
+    inset: 0;
+    border-radius: 50%;
+    background: #4ade80;
+    animation: ping 1.8s cubic-bezier(0, 0, 0.2, 1) infinite;
+}
+
+.title {
+    margin: 0;
+    font-size: clamp(2.6rem, 5vw, 4.75rem);
+    font-weight: 900;
+    line-height: 1.04;
+    letter-spacing: -0.03em;
+    color: #f8fafc;
+}
+
+.gradientAgents,
+.gradientSoftware {
+    background-clip: text;
+    -webkit-background-clip: text;
+    color: transparent;
+    -webkit-text-fill-color: transparent;
+}
+
+.gradientAgents {
+    background-image: linear-gradient(90deg, #7dd3fc 0%, #38bdf8 45%, #60a5fa 100%);
+}
+
+.gradientSoftware {
+    background-image: linear-gradient(90deg, #c4b5fd 0%, #a78bfa 45%, #818cf8 100%);
+}
+
+.titleTail {
+    display: block;
+    margin-top: 14px;
+    font-size: 0.58em;
+    font-weight: 300;
+    line-height: 1.15;
+    letter-spacing: -0.015em;
+    color: #e2e8f0;
+}
+
+.description {
+    margin: 0;
+    max-width: 560px;
+    font-size: clamp(1rem, 1.2vw, 1.18rem);
+    font-weight: 300;
+    line-height: 1.7;
+    color: rgba(226, 232, 240, 0.84);
+}
+
+.ctas {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 14px;
+}
+
+.ctaPrimary,
+.ctaSecondary {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    padding: 15px 28px;
+    border-radius: 14px;
+    font-size: 1.03rem;
+    font-weight: 700;
+    text-decoration: none;
+    transition: transform 0.25s ease, box-shadow 0.25s ease, border-color 0.25s ease, background-color 0.25s ease;
+}
+
+.ctaPrimary {
+    color: #fff;
+    background: linear-gradient(135deg, #1152d4 0%, #2563eb 50%, #38bdf8 100%);
+    box-shadow: 0 14px 40px -12px rgba(56, 189, 248, 0.6), inset 0 1px 0 rgba(255, 255, 255, 0.25);
+}
+
+.ctaPrimary svg {
+    transition: transform 0.25s ease;
+}
+
+.ctaPrimary:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 20px 50px -12px rgba(56, 189, 248, 0.8), inset 0 1px 0 rgba(255, 255, 255, 0.3);
+}
+
+.ctaPrimary:hover svg {
+    transform: translateX(4px);
+}
+
+.ctaSecondary {
+    color: #e2e8f0;
+    border: 1px solid rgba(148, 163, 184, 0.35);
+    background: rgba(15, 23, 42, 0.5);
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+}
+
+.ctaSecondary:hover {
+    color: #fff;
+    border-color: #7dd3fc;
+    transform: translateY(-2px);
+}
+
+.ctaPrimary:focus-visible,
+.ctaSecondary:focus-visible {
+    outline: 2px solid #7dd3fc;
+    outline-offset: 3px;
+}
+
+.chips {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px 22px;
+    margin: 0;
+    padding: 0;
+    list-style: none;
+    font-size: 0.92rem;
+    color: rgba(203, 213, 225, 0.88);
+}
+
+.chips li {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.chips svg {
+    color: #4ade80;
+    flex-shrink: 0;
+}
+
+.author {
+    margin: 0;
+    padding-top: 18px;
+    border-top: 1px solid rgba(148, 163, 184, 0.16);
+    font-size: 0.88rem;
+    color: rgba(148, 163, 184, 0.95);
+}
+
+.author strong {
+    font-weight: 600;
+    color: #e2e8f0;
+}
+
+/* Consola con la actividad de los agentes, sincronizada con la escena */
+.logCard {
+    position: absolute;
+    right: 108px;
+    bottom: 28px;
+    width: 360px;
+    border-radius: 16px;
+    border: 1px solid rgba(148, 163, 184, 0.18);
+    background: rgba(2, 6, 23, 0.72);
+    backdrop-filter: blur(14px);
+    -webkit-backdrop-filter: blur(14px);
+    box-shadow: 0 24px 60px -20px rgba(0, 0, 0, 0.7);
+    font-family: ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
+    font-size: 12px;
+    animation: rise 0.9s 0.3s cubic-bezier(0.2, 0.7, 0.2, 1) both;
+}
+
+.logHeader {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    padding: 10px 14px;
+    border-bottom: 1px solid rgba(148, 163, 184, 0.14);
+    color: #94a3b8;
+}
+
+.logDots {
+    display: inline-flex;
+    gap: 6px;
+}
+
+.logDots i {
+    width: 8px;
+    height: 8px;
+    border-radius: 50%;
+    background: #f87171;
+}
+
+.logDots i:nth-child(2) {
+    background: #fbbf24;
+}
+
+.logDots i:nth-child(3) {
+    background: #4ade80;
+}
+
+.logStatus {
+    margin-left: auto;
+    color: #4ade80;
+    text-transform: uppercase;
+    letter-spacing: 0.12em;
+    font-size: 10px;
+}
+
+.logBody {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    min-height: 152px;
+    margin: 0;
+    padding: 12px 14px 14px;
+    list-style: none;
+}
+
+.logLine {
+    display: flex;
+    gap: 8px;
+    line-height: 1.5;
+    color: #94a3b8;
+    animation: lineIn 0.45s ease-out both;
+}
+
+.logLine:last-child {
+    color: #e2e8f0;
+}
+
+.logPrompt {
+    color: #475569;
+}
+
+.logAgent {
+    font-weight: 700;
+}
+
+.logOk {
+    color: #4ade80;
+}
+
+@keyframes rise {
+    from {
+        opacity: 0;
+        transform: translateY(28px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes lineIn {
+    from {
+        opacity: 0;
+        transform: translateY(6px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes ping {
+    75%,
+    100% {
+        transform: scale(2.4);
+        opacity: 0;
+    }
+}
+
+@media (max-width: 1180px) {
+    .logCard {
+        display: none;
+    }
+}
+
+@media (max-width: 1100px) {
+    .moduleLabel {
+        display: none;
+    }
+}
+
+/* Apilado: escena en la franja superior, texto debajo (coincide con HERO_STACK_BREAKPOINT) */
+@media (max-width: 899px) {
+    .hero {
+        align-items: flex-end;
+        min-height: 0;
+    }
+
+    .shade {
+        background: linear-gradient(180deg, rgba(2, 6, 23, 0) 0%, rgba(2, 6, 23, 0) 28%, rgba(2, 6, 23, 0.8) 52%, #020617 100%);
+    }
+
+    .content {
+        padding: min(90vw, 440px) 24px 56px;
+    }
+
+    .copy {
+        gap: 22px;
+    }
+
+    .agentLabel {
+        padding: 4px 9px 4px 8px;
+        font-size: 10.5px;
+    }
+}
+
+@media (max-width: 480px) {
+    .content {
+        padding-left: 18px;
+        padding-right: 18px;
+    }
+
+    .badge {
+        font-size: 10.5px;
+        letter-spacing: 0.12em;
+    }
+
+    .ctas {
+        width: 100%;
+    }
+
+    .ctaPrimary,
+    .ctaSecondary {
+        flex: 1 1 100%;
+    }
+}
+
+@media (prefers-reduced-motion: reduce) {
+    .copy,
+    .logCard,
+    .logLine {
+        animation: none;
+    }
+
+    .badgeDot::after {
+        animation: none;
+    }
+}
