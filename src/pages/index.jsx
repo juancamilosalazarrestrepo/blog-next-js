@@ -5,6 +5,7 @@ import AIAgentsSection from "../components/AIAgentsSection";
 import HotelAgentsSection from "../components/HotelAgentsSection";
 import WebDevSection from "../components/WebDevSection";
 import CreativeWebDesign from "../components/CreativeWebDesign";
+import DtfStudioSection from "../components/DtfStudioSection";
 import whatsappIconBig from "../../public/images/whatsappBig.png";
 import styles from "../styles/Index.module.css";
 import Layout from "../components/Layout";
@@ -129,6 +130,7 @@ const Home = ({ posts, lastProjects }) => {
           </div>
         </div>
 
+        <DtfStudioSection />
         <AIAgentsSection />
         <HotelAgentsSection />
         <WebDevSection />

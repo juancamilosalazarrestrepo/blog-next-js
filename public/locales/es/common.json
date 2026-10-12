@@ -207,5 +207,27 @@
     "badge": "Diseño Web Creativo",
     "title": "Impacto Visual y Experiencias Únicas",
     "description": "Transformamos ideas en interfaces asombrosas. Desarrollamos sitios web con diseños vibrantes, micro-interacciones fluidas y estética de vanguardia para destacar tu marca."
+  },
+  "dtfSection": {
+    "title": "De tu imagen a un semitono",
+    "titleHighlight": "listo para imprimir",
+    "description": "DTF Studio es una app web que construí para el mundo de la impresión DTF: conviertes cualquier diseño en semitono, quitas el fondo y amplías la imagen con IA, ves cómo queda sobre la tela y descargas un PNG transparente a 300 DPI. Sin abrir Photoshop.",
+    "feature1": "Semitonos de 25 a 45 LPI",
+    "feature2": "Fondo eliminado con IA",
+    "feature3": "Vista previa sobre tela",
+    "feature4": "Upscaling con IA",
+    "feature5": "Armado de lienzos",
+    "feature6": "PNG transparente a 300 DPI",
+    "ctaLive": "Probar la app",
+    "ctaCase": "Ver el caso completo",
+    "liveTitle": "Semitono en vivo",
+    "liveLpi": "Lineatura",
+    "liveFabric": "Tela",
+    "fabricBlack": "Negra",
+    "fabricWhite": "Blanca",
+    "fabricRed": "Roja",
+    "fabricBlue": "Azul",
+    "logoAlt": "Logo de DTF Studio",
+    "imageAlt": "Interfaz de DTF Studio convirtiendo un póster en semitono para impresión DTF"
   }
 }

@@ -152,7 +152,7 @@
     top: 0;
     right: auto;
     width: 46%;
-    padding: 0 24px 0 clamp(32px, 6vw, 96px);
+    padding: 0 24px 0 clamp(32px, 7vw, 260px);
     justify-content: center;
     gap: 28px;
     background: linear-gradient(90deg, rgba(2, 5, 13, 0.8) 0%, rgba(2, 5, 13, 0.55) 62%, rgba(2, 5, 13, 0) 100%);
@@ -160,6 +160,13 @@
 
   .info {
     max-width: 520px;
+  }
+}
+
+/* Pantallas anchas: el texto se acerca al centro en lugar de pegarse al borde. */
+@media (min-width: 1280px) {
+  .overlay {
+    padding-left: clamp(96px, 13vw, 260px);
   }
 }
 

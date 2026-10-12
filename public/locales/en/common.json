@@ -207,5 +207,27 @@
     "badge": "Creative Web Design",
     "title": "Visual Impact and Unique Experiences",
     "description": "We transform ideas into amazing interfaces. We develop websites with vibrant designs, fluid micro-interactions and cutting-edge aesthetics to make your brand stand out."
+  },
+  "dtfSection": {
+    "title": "From your image to a halftone",
+    "titleHighlight": "ready to print",
+    "description": "DTF Studio is a web app I built for the DTF printing world: turn any design into a halftone, remove the background and upscale the image with AI, preview it on fabric and download a transparent 300 DPI PNG. No Photoshop needed.",
+    "feature1": "Halftones from 25 to 45 LPI",
+    "feature2": "AI background removal",
+    "feature3": "Fabric preview",
+    "feature4": "AI upscaling",
+    "feature5": "Gang sheet builder",
+    "feature6": "Transparent 300 DPI PNG",
+    "ctaLive": "Try the app",
+    "ctaCase": "See the full case study",
+    "liveTitle": "Live halftone",
+    "liveLpi": "Line screen",
+    "liveFabric": "Fabric",
+    "fabricBlack": "Black",
+    "fabricWhite": "White",
+    "fabricRed": "Red",
+    "fabricBlue": "Blue",
+    "logoAlt": "DTF Studio logo",
+    "imageAlt": "DTF Studio interface turning a poster into a halftone for DTF printing"
   }
 }
