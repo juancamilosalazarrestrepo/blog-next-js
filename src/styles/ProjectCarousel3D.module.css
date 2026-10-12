@@ -141,6 +141,28 @@
   }
 }
 
+/* Escritorio: texto a la izquierda, centrado en vertical; las tarjetas 3D quedan a la derecha.
+   El ancho mínimo debe coincidir con SIDE_LAYOUT_MIN_WIDTH en la escena. */
+@media (min-width: 900px) {
+  .banner {
+    height: 620px;
+  }
+
+  .overlay {
+    top: 0;
+    right: auto;
+    width: 46%;
+    padding: 0 24px 0 clamp(32px, 6vw, 96px);
+    justify-content: center;
+    gap: 28px;
+    background: linear-gradient(90deg, rgba(2, 5, 13, 0.8) 0%, rgba(2, 5, 13, 0.55) 62%, rgba(2, 5, 13, 0) 100%);
+  }
+
+  .info {
+    max-width: 520px;
+  }
+}
+
 @media (max-width: 767px) {
   .banner {
     height: 660px;
