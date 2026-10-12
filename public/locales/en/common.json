@@ -146,6 +146,10 @@
       "title": "Sign Language Recognition with Computer Vision",
       "description": "Computer vision system that recognizes and translates sign language in real time. Uses MediaPipe for hand tracking and a neural network (TensorFlow/Keras) to classify each gesture into letters and words."
     },
+    "dtf_studio": {
+      "title": "DTF Studio — Halftone Editor for DTF Printing",
+      "description": "Web app to prepare DTF print designs: turns an image into a halftone, removes backgrounds with AI, resizes, builds gang sheets and delivers a transparent 300 DPI PNG ready to print."
+    },
     "concesionario_alquiler_autos": {
       "title": "Car Dealership & Car Rental Website",
       "description": "Premium site for car dealerships and rent a car businesses: a Three.js 3D showroom where you rotate the car and change its paint, filterable inventory and a video hero. Built with Next.js 16."

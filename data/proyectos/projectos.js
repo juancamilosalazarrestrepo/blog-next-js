@@ -16,6 +16,14 @@ import mundialSimulator from "../../public/images/mundial-simulator-portada.webp
 // `titulo` y `description` se mantienen como fallback (español).
 const proyectos = [
   {
+    key: "dtf_studio",
+    titulo: "DTF Studio — Editor de Semitonos para Impresión DTF",
+    imagen: "/images/proyectos/dtf-studio/portada.webp",
+    description:
+      "Aplicación web para preparar diseños de impresión DTF: convierte una imagen a semitono, quita fondos con IA, redimensiona, arma lienzos y entrega un PNG transparente a 300 DPI listo para imprimir.",
+    url: "/proyectos/dtf_studio",
+  },
+  {
     key: "concesionario_alquiler_autos",
     titulo: "Página Web para Concesionarios y Alquiler de Autos",
     imagen: "/images/proyectos/concesionario/portada.webp",
