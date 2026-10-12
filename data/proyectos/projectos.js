@@ -26,7 +26,7 @@ const proyectos = [
   {
     key: "concesionario_alquiler_autos",
     titulo: "Página Web para Concesionarios y Alquiler de Autos",
-    imagen: "/images/proyectos/concesionario/portada.webp",
+    imagen: "/images/proyectos/concesionario/card.webp",
     description:
       "Sitio premium para concesionarios y rent a car: showroom 3D con Three.js donde giras el auto y cambias el color de la pintura, inventario filtrable y hero en video. Hecho con Next.js 16.",
     url: "/proyectos/concesionario_alquiler_autos",
