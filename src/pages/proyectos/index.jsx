@@ -1,18 +1,44 @@
 import Image from "next/image";
 import Layout from "../../components/Layout";
 import Link from "next/link";
-import Banners from "../../components/Banners";
+import ProjectCarousel3D from "../../components/ProjectCarousel3D";
 import SEO from "../../components/SEO";
-import banner1 from "../../../public/images/background.webp";
-import banner2 from "../../../public/images/banner2.webp";
 import LogosSlider from "../../components/LogosSlide";
 import proyectos from "../../../data/proyectos/projectos";
 import { serverSideTranslations } from 'next-i18next/serverSideTranslations';
 import { useTranslation } from "next-i18next";
+import { useMemo } from "react";
+
+// Proyectos que rotan en el banner 3D (en el orden en que aparecen).
+const CAROUSEL_KEYS = [
+  "dtf_studio",
+  "concesionario_alquiler_autos",
+  "oakhaven_videojuego",
+  "mundial_simulator",
+  "colegio_san_justino",
+  "velmax_consultorios",
+  "dr_machado_diagnostics",
+  "luxury_booking_engine",
+  "sistema_gestion_inmobiliaria",
+  "nice_gradient",
+];
 
 const Portfolio = ({ proyectos }) => {
   const { t } = useTranslation("common");
-  const images = [banner1, banner2];
+
+  const carouselSlides = useMemo(
+    () =>
+      CAROUSEL_KEYS.map((key) => proyectos.find((p) => p.key === key))
+        .filter(Boolean)
+        .map((p) => ({
+          title: t(`projectsData.${p.key}.title`, p.titulo),
+          description: t(`projectsData.${p.key}.description`, p.description),
+          image: typeof p.imagen === "string" ? p.imagen : p.imagen.src,
+          url: p.url,
+          cta: t("projectsPage.readMore"),
+        })),
+    [proyectos, t]
+  );
 
   return (
     <div>
@@ -21,7 +47,7 @@ const Portfolio = ({ proyectos }) => {
         description={t("projectsPage.seoDescription")}
       />
       <div style={{ position: "relative", width: "100%", margin: "0", zIndex: "2" }}>
-        <Banners images={images} />
+        <ProjectCarousel3D slides={carouselSlides} />
       </div>
 
       <main className="py-8 container mx-auto px-6 md:px-12 lg:px-24 xl:px-44">
