@@ -29,7 +29,7 @@ const nextConfig = {
     const csp = [
       "default-src 'self'",
       // 'unsafe-inline' es necesario por los scripts inline de Next.js y gtag.
-      "script-src 'self' 'unsafe-inline' https://www.googletagmanager.com https://www.google-analytics.com https://va.vercel-scripts.com",
+      "script-src 'self' 'unsafe-inline' https://www.googletagmanager.com https://www.google-analytics.com https://va.vercel-scripts.com https://pagead2.googlesyndication.com",
       "style-src 'self' 'unsafe-inline' https://fonts.googleapis.com",
       "font-src 'self' https://fonts.gstatic.com",
       "img-src 'self' data: blob: https://images.pexels.com https://lh3.googleusercontent.com https://www.google-analytics.com https://www.googletagmanager.com",

@@ -15,6 +15,12 @@ export default class MyDocument extends Document<Props> {
       // Sin lang fijo: Next usa el locale activo, así /en/... declara lang="en".
       <Html data-dark-ready={this.props.darkReady ? "true" : undefined}>
         <Head>
+          {/* Google AdSense: verificación de propiedad y anuncios. Publisher ID público. */}
+          <script
+            async
+            src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-5744760052528355"
+            crossOrigin="anonymous"
+          />
           <script dangerouslySetInnerHTML={{ __html: themeInitScript }} />
           <link rel="preconnect" href="https://fonts.googleapis.com" />
           <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="anonymous" />
