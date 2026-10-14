@@ -206,7 +206,7 @@ export default function EspionajeOpenAI() {
       <div style={{ position: "relative", overflow: "hidden", minHeight: "420px", display: "flex", alignItems: "center" }}>
         <Image
           src={`/images/${SLUG}.webp`}
-          alt="Micrófono oculto detrás de un televisor en una sala ejecutiva, con circuitos y un escudo de ciberseguridad"
+          alt="Profesional de ciberseguridad monitoreando un panel de detección de intrusiones con IA en una sala de reuniones"
           width={1280}
           height={500}
           priority
