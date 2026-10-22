@@ -1,0 +1,170 @@
+---
+{
+  "title": "Rust Programming Language: What It Is, Why It's Everywhere and How to Write It (Beginner's Guide)",
+  "subtitle": "What Rust is, why it's taking over systems programming and how to write it: syntax, arrays, Vec, iterators and ownership explained from scratch with code that compiles.",
+  "image": "/images/rust-programming-language-beginners-guide.webp",
+  "imageOG": "/images/rust-programming-language-beginners-guide-og.jpg",
+  "thumb": "/images/rust-programming-language-beginners-guide.webp",
+  "date": "2026-10-21",
+  "keywords": ["Rust programming language", "learn Rust", "Rust for beginners", "Rust ownership", "Rust Vec", "Rust iterators", "Rust vs C", "Rust WebAssembly", "systems programming", "Cargo Rust"]
+}
+---
+
+# Rust Programming Language: What It Is, Why It's Everywhere and How to Write It
+
+Rust is a systems programming language: it compiles to native machine code, has no garbage collector or virtual machine, and catches memory errors at compile time. It performs like C and C++ but with far more safety, which is why it now runs in browsers, the Linux kernel and tools like Ruff and uv. This guide explains what it is, why it's happening now and how it's written, with code I actually compiled.
+
+![Carousel cover: Rust, fast like C, safe by design](/images/rust-guide-slide-01.webp)
+
+## What is Rust (and what "systems language" means)
+
+Rust started as a project inside Mozilla and reached version 1.0 in 2015. "System level" means you control performance and memory: operating systems, browsers, game engines, databases. Three traits define it:
+
+- **Compiled:** it turns into native machine code.
+- **No garbage collector:** memory is freed on its own, with no pauses.
+- **Statically typed:** many errors show up at compile time, not in production.
+
+![What Rust is: compiled, no garbage collector, statically typed](/images/rust-guide-slide-02.webp)
+
+## Why Rust is used now
+
+Three reasons came together:
+
+1. **Speed is noticeable.** Tools you use every day already run on Rust: SWC, Biome, Ruff and uv.
+2. **Memory is the risk.** Chromium and Microsoft have reported that around 70% of their serious vulnerabilities are memory problems, exactly what Rust attacks from the compiler.
+3. **It's official.** The Rust experiment in the Linux kernel is over: Rust stayed.
+
+![Why Rust is being used now](/images/rust-guide-slide-03.webp)
+
+## Rust doesn't use bytecode: it compiles to machine code
+
+This is a common misunderstanding. Java, C# and Python go through bytecode and a virtual machine or interpreter that translates it while the program runs. Rust doesn't: the compiler (which uses LLVM underneath) delivers native machine code before anything executes.
+
+| | Java · C# · Python | Rust |
+|---|---|---|
+| What it produces | Bytecode | Native machine code |
+| When it's translated | While running | Before running |
+| Virtual machine or interpreter | Yes | No |
+| Garbage collector | Yes | No |
+
+Fewer layers between your code and the CPU means more performance and less memory. For the web, Rust compiles to **WebAssembly**: a compact binary format that the browser runs at near-native speed.
+
+![Rust compiles to machine code, no bytecode or virtual machine](/images/rust-guide-slide-04.webp)
+
+## Basic syntax: variables and functions
+
+Variables are immutable by default. If you want to change them, declare them with `mut`:
+
+```rust
+let price = 100;      // immutable
+let mut stock = 5;    // mut: can change
+stock += 1;
+
+fn add(a: i32, b: i32) -> i32 {
+    a + b             // no ; = return
+}
+```
+
+The type goes after the name (`a: i32`) and the return type is declared with `->`. The last expression of a function, without a semicolon, is what it returns.
+
+![Basic Rust syntax: let, mut and functions](/images/rust-guide-slide-05.webp)
+
+## Arrays and Vec
+
+An array is a list of values of the same type. Rust gives you two versions:
+
+```rust
+let a = [1, 2, 3];          // array: fixed
+
+let mut v = vec![1, 2, 3];  // Vec: grows
+v.push(4);
+```
+
+- **Array (`[i32; 3]`):** fixed size, lives on the stack.
+- **Vec (`Vec<i32>`):** grows and shrinks, lives on the heap. You'll use this one almost always.
+
+![Arrays and Vec in Rust](/images/rust-guide-slide-06.webp)
+
+## Looping and transforming with iterators
+
+To loop over a `Vec` you use `for`. To transform it, you use iterators:
+
+```rust
+let nums = vec![1, 2, 3, 4, 5, 6];
+
+for n in &nums {
+    println!("{n}");
+}
+
+let doubled: Vec<i32> = nums
+    .iter()
+    .map(|n| n * 2)
+    .collect();  // [2, 4, 6, 8, 10, 12]
+
+let evens: Vec<i32> = nums
+    .iter()
+    .copied()
+    .filter(|n| n % 2 == 0)
+    .collect();  // [2, 4, 6]
+
+let total: i32 = nums.iter().sum(); // 21
+```
+
+`.map()` transforms, `.filter()` filters and `.sum()` adds up. Iterators are lazy: they do nothing until you call `.collect()` or `.sum()`, and they compile down to an optimized loop.
+
+![Rust iterators: map, filter and sum](/images/rust-guide-slide-07.webp)
+
+## Ownership: the rule that changes everything
+
+Every value in Rust has a single owner. If you move it, the previous owner can no longer use it:
+
+```rust
+let a = String::from("hello");
+let b = a;           // a moves to b
+println!("{a}");     // ERROR at compile time
+```
+
+The compiler answers with `error[E0382]: borrow of moved value: a`. That's how Rust frees memory without a garbage collector and catches the error at compile time, not in production. There are two ways to fix it:
+
+```rust
+// 1. Clone: make a copy
+let b = a.clone();
+
+// 2. Borrow: pass a reference with &
+fn length(s: &String) -> usize {
+    s.len()
+}
+let n = length(&a);
+```
+
+![Ownership in Rust: one owner per value](/images/rust-guide-slide-08.webp)
+
+## Advantages and the price
+
+- **Performance:** native code, no VM and no garbage collector.
+- **Memory safety:** no null and no use-after-free in safe code.
+- **Concurrency:** data races don't compile.
+- **The price:** the learning curve. At first you'll fight the compiler.
+
+![Rust advantages and the price of learning it](/images/rust-guide-slide-09.webp)
+
+## How to get started today
+
+Install Rust with `rustup` from rust-lang.org and create your first project:
+
+```bash
+cargo new hello
+cd hello && cargo run
+# Hello, world!
+```
+
+Save this article for when you open your first project. If you want part 2 on **borrowing and lifetimes**, message me on Instagram (@salazarcode14).
+
+![Closing slide: try it?](/images/rust-guide-slide-10.webp)
+
+## Sources
+
+- [Chromium: memory safety](https://chromium.org/Home/chromium-security/memory-safety)
+- [Microsoft MSRC: why Rust for safe systems programming](https://www.microsoft.com/msrc/blog/2019/07/why-rust-for-safe-systems-programming)
+- [Phoronix: Rust is here to stay in the Linux kernel](https://www.phoronix.com/news/Rust-To-Stay-Linux-Kernel)
+- [Astral: Ruff and uv](https://astral.sh/about)
